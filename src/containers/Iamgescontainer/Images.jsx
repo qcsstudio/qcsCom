@@ -1,4 +1,4 @@
-import Imagescomp from '@/components/serviceComponent/ImagesComponent/Imagescomp'
+import Imagescomp from '@/components/serviceComponents/ImagesComponent/Imagescomp'
 import React from 'react'
 
 const Images = () => {
