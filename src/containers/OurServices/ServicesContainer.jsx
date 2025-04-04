@@ -1,6 +1,6 @@
 import React from 'react';
 import ListComp from '@/components/serviceComponent/ServicesComponent/ListComp'
-import Scrollcomp from '@/components/serviceComponent//ServicesComponent/Scrollcomp'
+import Scrollcomp from '@/components/serviceComponent/ServicesComponent/Scrollcomp'
 
 
 const ServicesContainer = () => {
