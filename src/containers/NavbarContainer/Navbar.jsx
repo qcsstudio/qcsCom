@@ -19,8 +19,11 @@ const Navbar = () => {
           <Link href="#" className="hover:text-gray-400">Blogs</Link>
           <Link href="#" className="hover:text-gray-400">Contact Us</Link>
         </div>
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4 gap-2">
+          <div className="flex">
           <IoGlobeOutline className="w-5 h-5 text-white me-1" />En
+          </div>
+          
           <button className="border border-white px-4 py-1 rounded-md hover:bg-white hover:text-black">
             Get a Quote
           </button>

@@ -9,7 +9,7 @@ const Footer = () => {
         <div className='flex flex-col md:flex-row justify-between items-start md:items-center mb-8'>
           <div className='w-[45%] '>
           <div className='flex'>
-            <img src='/images/Images/qcsLogofooter.png'/>
+          <img src='/images/Images/QcsLogo.png' alt="logo" className='object-contain w-[10rem]' />
             <h1 className='text-4xl text-end font-medium '>QuantumCrafters Studio Private Limited</h1>
           </div>
             <p className='text-[#FFFFFF]  mt-4 text-lg leading-relaxed'>The next big thing starts here— <br/>drop us a line and let’s get creating!</p>
