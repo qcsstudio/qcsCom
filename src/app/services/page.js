@@ -16,7 +16,6 @@ import ContactSection from '@/containers/ContactUs/Contactus'
 const page = () => {
   return (
     <>
-    
     <Navbar/>
     <Images/>
      <Brands/>

@@ -1,6 +1,6 @@
 import React from 'react';
-import ListComp from '@/components/serviceComponent/ServicesComponent/ListComp'
-import Scrollcomp from '@/components/serviceComponent/ServicesComponent/Scrollcomp'
+import ListComp from '@/components/serviceComponents/ServicesComponent/ListComp';
+import Scrollcomp from '@/components/serviceComponents/ServicesComponent/Scrollcomp';
 
 
 const ServicesContainer = () => {
@@ -19,7 +19,6 @@ const ServicesContainer = () => {
                     <ListComp/>
                     <Scrollcomp/>
                 </div>
-
             </div>
         </>
     )
