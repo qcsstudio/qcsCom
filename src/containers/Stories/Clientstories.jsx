@@ -49,7 +49,7 @@ const testimonials = [
  const ClientStories = () => {
   return (
     <>
-      <h2 className="text-5xl w-[70%] mx-auto font-bold text-center">
+      <h2 className="text-3xl sm:text-5xl w-full sm:w-[70%] mx-auto font-bold text-center">
         Hear Stories <span></span>Straight From
         the People We Helped
       </h2>

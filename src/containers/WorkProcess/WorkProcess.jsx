@@ -32,7 +32,7 @@ const WorkProcess = () => {
     const [activeStep, setActiveStep] = useState(1);
 
     return (
-        <div className="w-full  mt-10">
+        <div className="w-[95%] mx-auto  mt-10">
             {/* Header */}
             <div className="w-fit mx-auto mb-6">
                 <div className="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-e-lg">

@@ -28,11 +28,11 @@ const Questions = () => {
       {/* Left Section */}
       <div className="md:w-1/2 space-y-4">
     
-        <h2 className="text-3xl md:text-4xl font-bold leading-tight mt-3">
+        <h2 className=" text-xl sm:text-3xl md:text-4xl font-bold leading-tight mt-3">
           FAQ It Up! Your curiosity meets our expertise
           <span className="block ">—let's clear things up!</span>
         </h2>
-        <p className="text-gray-500 font-medium text-lg">
+        <p className="text-gray-500 font-medium text-base sm:text-lg">
           We've gathered all the important info right here.<br/> Explore our FAQs and find the answers you need.
         </p>
       </div>

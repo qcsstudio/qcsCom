@@ -1,13 +1,12 @@
 'use client'
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, FreeMode, Autoplay } from "swiper/modules";
+import { Navigation, Pagination, FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import Marquee from "react-fast-marquee";
-
 
 const benefits = [
   {
@@ -44,17 +43,16 @@ const ImagesSlide = [
   "/images/Images/slide4.png",
   "/images/Images/slide5.png",
   "/images/Images/slide6.png",
-]
+];
 
 const Benefits = () => {
-
   const [direction, setDirection] = useState("left");
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCounter(prev => {
-        const newCount = (prev + 3) % 4; // total 4 cycles
+      setCounter((prev) => {
+        const newCount = (prev + 3) % 4;
         if (newCount === 0 || newCount === 2) {
           setDirection("left");
         } else {
@@ -62,75 +60,74 @@ const Benefits = () => {
         }
         return newCount;
       });
-    }, 8000); // duration each direction lasts (adjust as needed)
+    }, 8000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <>
-    
-    <div className="w-[85%]  mx-auto py-10">
-      <h2 className="text-center text-4xl font-bold mb-6">
-        See why partnering with us is the smartest move.
-      </h2>
-      <Swiper
-        modules={[Navigation, Pagination, FreeMode]}
-        spaceBetween={20}
-        slidesPerView={3.5}
-        loop={true}  
-        freeMode={true}  // Enables smooth infinite scroll
-        speed={3000}  // Controls smoothness
-        breakpoints={{
-          640: { slidesPerView: 2, spaceBetween: 20 },
-          768: { slidesPerView: 2, spaceBetween: 20  },
-          1024: { slidesPerView: 3, spaceBetween: 20 },
-        }}
-        className="pb-10 mySwiper"
-      >
-        {benefits.map((benefit, index) => (
-          <SwiperSlide key={index} className="flex items-center justify-center rounded-lg mx-auto   ">
-          
-              <div className="bg-[#F5F7F9] p-3">
-                
-                  <h3 className="font-semibold text-xl">{benefit.title}</h3>
-                  <p className="text-gray-600  font-medium text-xl">{benefit.description}</p>
-                
-                <img src={benefit.image} alt={benefit.title} className="mix-blend-multiply" />
+      <div className="w-[90%] md:w-[85%] mx-auto py-10">
+        <h2 className="text-center text-3xl md:text-4xl font-bold mb-8">
+          See why partnering with us is the smartest move.
+        </h2>
+
+        <Swiper
+          modules={[Navigation, Pagination, FreeMode]}
+          spaceBetween={16}
+          slidesPerView={1.2}
+          breakpoints={{
+            640: { slidesPerView: 1.5, spaceBetween: 20 },
+            768: { slidesPerView: 2.2, spaceBetween: 20 },
+            1024: { slidesPerView: 3.5, spaceBetween: 24 },
+          }}
+          loop={true}
+          freeMode={true}
+          speed={3000}
+          className="pb-10"
+        >
+          {benefits.map((benefit, index) => (
+            <SwiperSlide key={index} className="flex items-center justify-center">
+              <div className="bg-[#F5F7F9] rounded-lg p-4 h-[480px] flex flex-col justify-between">
+                <div>
+                  <h3 className="font-semibold text-lg md:text-2xl mb-2">{benefit.title}</h3>
+                  <p className="text-gray-600 text-base md:text-xl  font-medium ">
+                    {benefit.description}
+                  </p>
+                </div>
+                <img
+                  src={benefit.image}
+                  alt={benefit.title}
+                  className="mix-blend-multiply object-contain sm:object-none "
+                />
               </div>
-           
-          </SwiperSlide>
-        ))}
-      </Swiper>
-
-                  {/* next autoplay slider */}
-
-
-      
-    </div>
-     <h2 className="text-center text-5xl font-bold my-10">
-     We don't just work together we grow together.      
-   </h2>
-
-   <Marquee speed={300} gradient={false} direction={direction}>
-  <div className="flex gap-4">
-    {ImagesSlide.map((slide, index) => (
-      <div
-        key={index}
-        className="  h-20 w-52 flex items-center justify-center rounded-lg flex-shrink-0"
-      >
-        <img
-          src={slide}
-          alt="slidesImage"
-          className="h-full object-contain"
-        />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
-    ))}
-  </div>
-</Marquee>
 
- </>
+      <h2 className="text-center text-3xl md:text-5xl font-bold my-10 px-4">
+        We don't just work together, we grow together.
+      </h2>
+
+      <Marquee speed={300} gradient={false} direction={direction}>
+        <div className="flex gap-6 px-4">
+          {ImagesSlide.map((slide, index) => (
+            <div
+              key={index}
+              className="h-16 md:h-20 w-40 md:w-52 flex items-center justify-center rounded-lg flex-shrink-0"
+            >
+              <img
+                src={slide}
+                alt="slidesImage"
+                className="h-full w-auto object-contain"
+              />
+            </div>
+          ))}
+        </div>
+      </Marquee>
+    </>
   );
-}
+};
 
 export default Benefits;
