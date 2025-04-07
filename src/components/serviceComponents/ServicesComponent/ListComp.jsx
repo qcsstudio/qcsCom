@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const ListComp = () => {
   const services = [
@@ -13,27 +13,16 @@ const ListComp = () => {
   ];
 
   return (
-    <div className="w-[40%] justify-center">
-     
-       
-        
-        <div className="grid grid-cols-1 ">
-          {services.map((service, index) => (
-            <div 
-              key={index}
-              className=" py-3 "
-            >
-              
-                
-               
-                  <h3 className="text-xl font-medium text-gray-900">{service}</h3>
-                
-              
-            </div>
-          ))}
-        </div>
-     
+    <div className="w-full lg:w-[40%]">
+      <div className="grid grid-cols-1 gap-3">
+        {services.map((service, index) => (
+          <div key={index} className="py-2">
+            <h3 className="text-lg md:text-xl font-medium text-gray-900">{service}</h3>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
+
 export default ListComp;

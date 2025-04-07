@@ -1,23 +1,15 @@
-import { TbWorld } from "react-icons/tb";
-import { CardData } from "./CardData";
-import Cardscroll from "./Cardscroll"
-
+import React from 'react';
+import { CardData } from './CardData';
+import Cardscroll from './Cardscroll';
 
 export default function Scrollcomp() {
   return (
-    <>
-    <div className="grid grid-cols-1 no-scrollbar h-[600px] w-[60%] ">
-    {CardData.map((card,index)=>{
-      return (
-      <div key={index}>
-          <Cardscroll card={card}/>
-      </div>
-      );
-    })}
-   
-
+    <div className="w-full lg:w-[60%] h-[390px] lg:h-[600px] overflow-y-auto no-scrollbar space-y-4">
+      {CardData.map((card, index) => (
+        <div key={index}>
+          <Cardscroll card={card} />
+        </div>
+      ))}
     </div>
-    
-    </>
   );
 }
