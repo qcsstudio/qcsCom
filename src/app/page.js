@@ -11,7 +11,7 @@ import WorkProcess from '@/containers/WorkProcess/WorkProcess'
 import AboutUs from '@/containers/AboutUs/AboutUS'
 import Questions from '@/containers/Questions/Questions'
 import ClientStories from '@/containers/Stories/Clientstories'
-import ContactSection from '@/containers/ContactUs/Contactus'
+import ContactSection from '@/components/serviceComponents/ContactUs/Contactus'
 
 const page = () => {
   return (

@@ -10,12 +10,9 @@ const Navbar = ({ heading, para }) => {
   return (
     <>
       <nav className="w-full flex justify-between items-center py-4 px-4 md:px-8">
-        <div className="text-black px-2 py-1 rounded-md flex items-center">
-          <img src='/images/Images/QcsLogo.png' alt="logo" width={57} height={40} />
-          <h1 className="text-[#FFFFFF] text-base font-semibold leading-tight ms-2">
-            Quantam Crafters<br /> Studio
-          </h1>
-        </div>
+     
+          <img src='/images/Images/NavLogo.png' alt="logo" width={194.82} height={40} />
+
 
         
         <div className="hidden md:flex space-x-6">
@@ -61,9 +58,9 @@ const Navbar = ({ heading, para }) => {
         </div>
       )}
 
-      <div className="text-center py-4 px-5 mt-24 md:mt-36">
-        <h1 className="text-4xl md:text-5xl font-bold">{heading}</h1>
-        <p className="text-[#FFFFFF] mt-4 max-w-xl mx-auto">{para}</p>
+      <div className="text-center py-1 md:py-4 px-5  mt-10 sm:mt-24 md:mt-20">
+        <h1 className="text-2xl md:text-5xl font-bold">{heading}</h1>
+        <p className="text-[#FFFFFF] text-sm md:text-2xl mt-4 max-w-4xl mx-auto">{para}</p>
       </div>
     </>
   );
