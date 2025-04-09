@@ -1,3 +1,4 @@
+import LeaderComponent from '@/components/MainComponent/LearderComponent'
 import NewsletterSignup from '@/components/MainComponent/NewsletterSignup'
 import PlatformComponent from '@/components/MainComponent/PlatformComponent'
 import Solutions from '@/components/MainComponent/Solutions'
@@ -15,7 +16,8 @@ const page = () => {
         buttons:[{text:"Reach out to Expert Now",link:"#",color:"#F1813B"},]}}/>
 
       <PlatformComponent/>
-      {/* <Solutions/> */}
+      <Solutions/>
+      <LeaderComponent/>
 
       <ClientStories />
       <Form heading="Have a Query? Let’s Talk!!"/>
