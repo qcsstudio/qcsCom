@@ -2,18 +2,18 @@ import React from 'react';
 
 const ListComp = () => {
   const services = [
-    "Strategic AI & Digital Consulting",
+    "Custom Web Development (Frontend & Backend)",
     "Robotic Process Automation (RPA)",
-    "Tailored Machine Learning Solutions",
-    "Advanced Predictive Analytics",
-    "Cloud Infrastructure & DevOps",
-    "Custom Backend & Frontend Solutions",
-    "Innovative Digital Marketing Automation",
-    "Advanced Data Engineering"
+    " Digital Marketing & Automation",
+    " AI Strategy & Consulting",
+    " Business Process Automation",
+    "Predictive Analytics & Insights",
+    "DevOps",
+    " End-to-End AI Integrations"
   ];
 
   return (
-    <div className="w-full lg:w-[40%]">
+    <div className="w-full lg:w-[40%] hidden lg:block">
       <div className="grid grid-cols-1 gap-3">
         {services.map((service, index) => (
           <div key={index} className="py-2">

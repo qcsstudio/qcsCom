@@ -9,14 +9,16 @@ import WorkProcess from '@/containers/WorkProcess/WorkProcess'
 import AboutUs from '@/containers/AboutUs/AboutUS'
 import Questions from '@/containers/Questions/Questions'
 import ClientStories from '@/containers/Stories/Clientstories'
-import ContactSection from '@/containers/ContactUs/Contactus'
+import ContactSection from '@/components/serviceComponents/ContactUs/Contactus'
 import NavbarContainer from '@/containers/NavbarContainer/NavbarContainer'
 import BrandsContainer from '@/containers/BrandsContainer/BrandsContainer'
 
 const page = () => {
   return (
     <>
-      <NavbarContainer />
+      <NavbarContainer data={{heading:"Unlock Growth with Next-Gen AI & Automation Solutions",
+        para:"Transform your business operations through strategic automation, advanced machine learning, and personalized AI consulting.",
+        buttons:[{text:"Get Started",link:"#",color:"#F1813B",border:"none"},{text:"Explore Services",link:"#",color:"transparent",border:"1px solid gray"}]}}/>
       <Images />
       <BrandsContainer />
       <Benifits />
@@ -26,7 +28,8 @@ const page = () => {
       <ClientStories />
       <Questions />
       <AboutUs />
-      <Form />
+      <Form heading="Need a custom quote?" desc="Don't let your ideas sit idle—slide
+        into our inbox and let's make magic!"/>
       <ContactSection />
       <Footer />
     </>

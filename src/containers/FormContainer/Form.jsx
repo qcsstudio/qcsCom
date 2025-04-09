@@ -1,14 +1,13 @@
 import React from 'react';
 
-const Form = () => {
+const Form = ({heading,desc}) => {
   return (
-    <div className='w-[85%]  h-[600px] m-auto relative bg-[#F5F7F9] p-2 mt-8 rounded-xl '>
-      <div className='w-[80%] bg-[#F1813B] absolute rounded-xl h-[580px] z-10 '>
-        <h1 className='text-white text-5xl font-medium mt-20 ms-8'>Need a custom quote?</h1>
-        <p className='text-white text-2xl font-normal  mt-4 ms-8'>Don't let your ideas sit idle—slide<br/>
-        into our inbox and let's make magic!</p>
+    <div className=' lg:w-[85%]  h-[600px] m-auto relative bg-[#F5F7F9] p-2 mt-8 rounded-xl '>
+      <div className=' w-[97%] lg:w-[80%] bg-[#F1813B] absolute rounded-xl h-[580px] z-10 '>
+        <h1 className='text-white sm:text-5xl  text-4xl text-center lg:text-start font-medium mt-10 lg:w-[50%] xl:w-[40%] lg:mt-20 lg:ms-8'>{heading}</h1>
+        <p className='text-white text-xl sm:text-2xl font-normal px-4 lg:px-0 mt-4 ms-4 lg:ms-8 lg:w-[43%] sm:w-[70%] md:w-[60%] sm:mx-auto'>{desc}</p>
       </div>
-      <div className='w-[50%] bg-[#0A0A0A] absolute h-auto outline outline-white rounded-xl p-6 top-14 z-20 right-5 shadow-md'>
+      <div className=' w-[85%] lg:w-[50%] sm:w-[80%]  bg-[#0A0A0A] absolute h-auto outline outline-white rounded-xl p-6 top-60  sm:right-15 lg:top-14 z-20 right-5 md:right-20 lg:right-3 shadow-md'>
         <form className='space-y-4'>
           <div>
             <label htmlFor='name' className='sr-only'>Your Name</label>
@@ -28,7 +27,7 @@ const Form = () => {
               name='email'
               type='email'
               placeholder='Email'
-              className='w-[49%] p-3  placeholder-gray-300 text-white bg-white/5 focus:outline-none rounded-3xl'
+              className='lg:w-[49%] w-full p-3  placeholder-gray-300 text-white bg-white/5 focus:outline-none rounded-3xl'
               required
             />
              <label htmlFor='phone' className='sr-only'>Phone</label>
@@ -37,7 +36,7 @@ const Form = () => {
               name='phone'
               type='tel'
               placeholder='Phone'
-              className='w-[49%] p-3 ms-2 placeholder-gray-300 text-white bg-white/5 focus:outline-none rounded-3xl'
+              className='lg:w-[48%] p-3 w-full mt-3 lg:mt-0 lg:ms-2 placeholder-gray-300 text-white bg-white/5 focus:outline-none rounded-3xl'
               required
             />
           </div>

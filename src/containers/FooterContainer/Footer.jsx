@@ -7,14 +7,14 @@ const Footer = () => {
   <footer className='bg-black text-white py-5 px-10 mt-10 rounded-ss-3xl w-full rounded-se-3xl'>
       <div className='max-w-[1200px] mx-auto'>
         <div className='flex flex-col md:flex-row justify-between items-start md:items-center mb-8'>
-          <div className='w-[45%] '>
+          <div className='lg:w-[45%]  '>
           <div className='flex'>
-          <img src='/images/Images/QcsLogo.png' alt="logo" className='object-contain w-[10rem]' />
-            <h1 className='text-4xl text-end font-medium '>QuantumCrafters Studio Private Limited</h1>
+          <img src='/images/Images/footerlogo.png' alt="logo" width={569.86} height={117}  />
+            {/* <h1 className=' text-2xl sm:text-4xl text-end font-medium '>QuantumCrafters Studio Private Limited</h1> */}
           </div>
-            <p className='text-[#FFFFFF]  mt-4 text-lg leading-relaxed'>The next big thing starts here— <br/>drop us a line and let’s get creating!</p>
+            <p className='text-[#FFFFFF]  mt-4 text-lg leading-relaxed px-4 md:px-0 text-center md:text-start  lg:w-[54%] '>The next big thing starts here— drop us a line and let’s get creating!</p>
           </div>
-          <div className='flex space-x-24 mt-8 md:mt-0'>
+          <div className='flex md:justify-normal  space-x-20 sm:space-x-80  md:space-x-24 mt-8 md:mt-0'>
             <div>
               <h2 className='font-semibold mb-4 text-lg'>Quick Links</h2>
               <ul className='text-[#FFFFFF] space-y-3 text-sm'>

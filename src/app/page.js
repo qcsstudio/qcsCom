@@ -1,34 +1,29 @@
-import Images from '@/containers/Iamgescontainer/Images'
-import Brands from '@/containers/BrandsContainer/BrandsContainer'
-import ServicesContainer from '@/containers/OurServices/ServicesContainer'
-import React from 'react'
-import Form from '@/containers/FormContainer/Form'
+import LeaderComponent from '@/components/MainComponent/LearderComponent'
+import NewsletterSignup from '@/components/MainComponent/NewsletterSignup'
+import PlatformComponent from '@/components/MainComponent/PlatformComponent'
+import Solutions from '@/components/MainComponent/Solutions'
 import Footer from '@/containers/FooterContainer/Footer'
-import Differences from '@/containers/OurDifferences/Differences'
-import Navbar from '@/containers/NavbarContainer/NavbarContainer'
-import Benifits from '@/containers/BenifitsContainer/Benifits'
-import WorkProcess from '@/containers/WorkProcess/WorkProcess'
-import AboutUs from '@/containers/AboutUs/AboutUS'
-import Questions from '@/containers/Questions/Questions'
+import Form from '@/containers/FormContainer/Form'
+import NavbarContainer from '@/containers/NavbarContainer/NavbarContainer'
 import ClientStories from '@/containers/Stories/Clientstories'
-import ContactSection from '@/containers/ContactUs/Contactus'
+import React from 'react'
 
 const page = () => {
   return (
     <>
-    <Navbar/>
-    <Images/>
-     <Brands/>
-    <Benifits/>
-     {/* <ServicesContainer/> */}
-     <WorkProcess/>
-     <Differences/>
-     <ClientStories/>
-     <Questions/>
-     <AboutUs/>
-     <Form/>
-     <ContactSection/>
-     <Footer/>
+      <NavbarContainer data={{heading:"Automate Your Business. Scale with Smart SaaS. Achieve Career Excellence",
+        para:"QuantumCrafters Studio is your partner in digital transformation powering businesses with AI-driven IT solutions",
+        buttons:[{text:"Reach out to Expert Now",link:"#",color:"#F1813B"},]}}/>
+
+      <PlatformComponent/>
+      <Solutions/>
+      <LeaderComponent/>
+
+      <ClientStories />
+      <Form heading="Have a Query? Let’s Talk!!"/>
+      <NewsletterSignup/>
+      <Footer/>
+
     </>
   )
 }
