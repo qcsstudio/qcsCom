@@ -12,12 +12,12 @@ const platformImages = [
     height: 113,
   },
   {
-    src: "/images/Images/Platform3.png",
+    src: "/images/Images/platform3.png",
     width: 174,
     height: 65,
   },
   {
-    src: "/images/Images/Platform4.png",
+    src: "/images/Images/platform4.png",
     width: 163,
     height: 65,
   },
