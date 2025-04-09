@@ -98,6 +98,7 @@ export default function Solutions() {
   {/* Tabs */}
   <div className="flex space-x-4">
     {tabData.map((tab, index) => (
+      
       <button
         key={index}
         onClick={() => setActiveTab(index)}
@@ -112,12 +113,13 @@ export default function Solutions() {
         {tab.label}
       </button>
     ))}
+    
   </div>
 
 
 
       {/* Tab content box */}
-      <div className="bg-[#F5F7F9] rounded-xl  p-6">
+      <div className="bg-[#F5F7F9] rounded-xl  p-6 ">
         <div className="bg-gray-200 h-64 w-64 float-right rounded-xl"></div>
         <TabPanel content={tabData[activeTab].content} />
 

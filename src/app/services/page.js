@@ -12,6 +12,7 @@ import ClientStories from '@/containers/Stories/Clientstories'
 import ContactSection from '@/components/serviceComponents/ContactUs/Contactus'
 import NavbarContainer from '@/containers/NavbarContainer/NavbarContainer'
 import BrandsContainer from '@/containers/BrandsContainer/BrandsContainer'
+import LeaderComponent from '@/components/MainComponent/LearderComponent'
 
 const page = () => {
   return (
@@ -26,6 +27,7 @@ const page = () => {
       {/* <WorkProcess /> */}
       <Differences />
       <ClientStories />
+      <LeaderComponent/>
       <Questions />
       <AboutUs />
       <Form heading="Need a custom quote?" desc="Don't let your ideas sit idle—slide
