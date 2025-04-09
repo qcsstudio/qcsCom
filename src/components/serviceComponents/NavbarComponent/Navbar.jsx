@@ -15,9 +15,10 @@ const Navbar = ({ heading, para }) => {
 
 
         
-        <div className="hidden md:flex space-x-6">
+        <div className="hidden md:flex space-x-10">
           <Link href="#" className="hover:text-gray-400">Services</Link>
           <Link href="#" className="hover:text-gray-400">Projects</Link>
+          <Link href="#" className="hover:text-gray-400">Courses</Link>
           <Link href="#" className="hover:text-gray-400">About Us</Link>
           <Link href="#" className="hover:text-gray-400">Blogs</Link>
           <Link href="#" className="hover:text-gray-400">Contact Us</Link>
