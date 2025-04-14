@@ -64,6 +64,7 @@ export default function LeaderComponent() {
               <video
                 ref={(el) => (videoRefs.current[id] = el)}
                 src={videoUrl}
+                muted
                 controls
                 autoPlay
                 className="rounded-2xl"
