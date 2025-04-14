@@ -1,34 +1,9 @@
 'use client';
 import React, { useState } from "react";
 
-const steps = [
-    {
-        number: 1,
-        title: "Discover & Strategize",
-        content:
-            "We dive deep into understanding your brand, goals, and audience. Through collaborative discussions and research, we craft a clear roadmap tailored to your needs.",
-    },
-    {
-        number: 2,
-        title: "Build & Launch",
-        content:
-            "Our creative team gets to work, blending innovation with strategy to design visuals, content, and assets that resonate with your brand. Every detail is refined to perfection.",
-    },
-    {
-        number: 3,
-        title: "Optimize & Scale",
-        content:
-            "We continuously analyze performance metrics and user feedback to optimize strategies, ensuring your brand’s growth in a competitive digital landscape.",
-    },
-    {
-        number: 4,
-        title: "Refine & Grow",
-        content:
-            "We don't stop at the launch. We analyze performance, gather feedback, and fine-tune to ensure your brand keeps evolving and thriving in the digital landscape.",
-    },
-];
 
-const WorkProcess = () => {
+
+const WorkProcess = ({steps}) => {
     const [activeStep, setActiveStep] = useState(1);
 
     return (

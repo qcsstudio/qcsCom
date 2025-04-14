@@ -10,18 +10,19 @@ const Navbar = ({ heading, para }) => {
   return (
     <>
       <nav className="w-full flex justify-between items-center py-4 px-4 md:px-8">
-     
+     <Link href="/">
           <img src='/images/Images/NavLogo.png' alt="logo" width={194.82} height={40} />
+     </Link>
 
 
         
         <div className="hidden md:flex space-x-10">
-          <Link href="#" className="hover:text-gray-400">Services</Link>
-          <Link href="#" className="hover:text-gray-400">Projects</Link>
-          <Link href="#" className="hover:text-gray-400">Courses</Link>
-          <Link href="#" className="hover:text-gray-400">About Us</Link>
-          <Link href="#" className="hover:text-gray-400">Blogs</Link>
-          <Link href="#" className="hover:text-gray-400">Contact Us</Link>
+          <Link href="/services" className="hover:text-gray-400">Services</Link>
+          <Link href="/courses" className="hover:text-gray-400">Projects</Link>
+          <Link href="/courses" className="hover:text-gray-400">Courses</Link>
+          <Link href="services#aboutus" className="hover:text-gray-400">About Us</Link>
+          <Link href="/blogs" className="hover:text-gray-400">Blogs</Link>
+          <Link href="/services#contactus" className="hover:text-gray-400">Contact Us</Link>
         </div>
 
         
@@ -45,11 +46,11 @@ const Navbar = ({ heading, para }) => {
       
       {menuOpen && (
         <div className="md:hidden flex flex-col items-center bg-black py-4 space-y-4 text-white">
-          <Link href="#">Services</Link>
-          <Link href="#">Projects</Link>
-          <Link href="#">About Us</Link>
-          <Link href="#">Blogs</Link>
-          <Link href="#">Contact Us</Link>
+          <Link href="/services">Services</Link>
+          <Link href="/courses">Projects</Link>
+          <Link href="services/#aboutus">About Us</Link>
+          <Link href="/blogs">Blogs</Link>
+          <Link href="/services/#contactus">Contact Us</Link>
           <div className="flex items-center">
             <IoGlobeOutline className="w-5 h-5 me-1" /> En
           </div>
