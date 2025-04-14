@@ -1,11 +1,11 @@
 import Choices from '@/components/CoursesComponent/Choices'
+import FormComponent from '@/components/MainComponent/FormComponent'
 import NewsletterSignup from '@/components/MainComponent/NewsletterSignup'
-import AboutUs from '@/containers/AboutUs/AboutUS'
-import Footer from '@/containers/FooterContainer/Footer'
-import Form from '@/containers/FormContainer/Form'
-import NavbarContainer from '@/containers/NavbarContainer/NavbarContainer'
-import ServicesContainer from '@/containers/OurServices/ServicesContainer'
-import ClientStories from '@/containers/Stories/Clientstories'
+import AboutUs from '@/containers/ServiceContainer/AboutUs/AboutUS'
+import Footer from '@/containers/ServiceContainer/FooterContainer/Footer'
+import NavbarContainer from '@/containers/ServiceContainer/NavbarContainer/NavbarContainer'
+import ServicesContainer from '@/containers/ServiceContainer/OurServices/ServicesContainer'
+import ClientStories from '@/containers/ServiceContainer/Stories/Clientstories'
 import React from 'react'
 
 const page = () => {
@@ -20,7 +20,7 @@ const page = () => {
         <Choices/>
         <AboutUs/>
         <ClientStories/>
-        <Form heading="Ready to Launch Your Tech Career?" desc="Contact Us Today!"/>
+        <FormComponent heading="Ready to Launch Your Tech Career?" desc="Contact Us Today!"/>
         <NewsletterSignup/>
         <Footer/>
         

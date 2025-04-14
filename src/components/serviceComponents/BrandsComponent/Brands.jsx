@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrandsData} from '@/containers/BrandsContainer/BrandsData.jsx'
+import {BrandsData} from '@/containers/ServiceContainer/BrandsContainer/BrandsData.jsx'
 
 const Brands = ({title}) => {
  

@@ -4,7 +4,7 @@ import { BsExclamationCircle } from "react-icons/bs";
 
  function ContactSection() {
   return (
-    <div className="bg-gray-100 py-10 px-5 text-center mt-40 lg:mt-10 m-auto">
+    <div id="contactus" className="bg-gray-100 py-10 px-5 text-center mt-40 lg:mt-10 m-auto">
       <h2 className="text-3xl font-bold text-gray-900">Ready to Innovate?</h2>
       <p className="text-gray-600 mt-2">Unlock exponential growth with QuantumCrafters' powerful AI solutions.</p>
 

@@ -1,11 +1,11 @@
+import FormComponent from '@/components/MainComponent/FormComponent'
 import LeaderComponent from '@/components/MainComponent/LearderComponent'
 import NewsletterSignup from '@/components/MainComponent/NewsletterSignup'
 import PlatformComponent from '@/components/MainComponent/PlatformComponent'
 import Solutions from '@/components/MainComponent/Solutions'
-import Footer from '@/containers/FooterContainer/Footer'
-import Form from '@/containers/FormContainer/Form'
-import NavbarContainer from '@/containers/NavbarContainer/NavbarContainer'
-import ClientStories from '@/containers/Stories/Clientstories'
+import Footer from '@/containers/ServiceContainer/FooterContainer/Footer'
+import NavbarContainer from '@/containers/ServiceContainer/NavbarContainer/NavbarContainer'
+import ClientStories from '@/containers/ServiceContainer/Stories/Clientstories'
 import React from 'react'
 
 const page = () => {
@@ -20,7 +20,7 @@ const page = () => {
       <LeaderComponent/>
 
       <ClientStories />
-      <Form heading="Have a Query? Let’s Talk!!"/>
+      <FormComponent heading="Have a Query? Let's Talk!!"/>
       <NewsletterSignup/>
       <Footer/>
 

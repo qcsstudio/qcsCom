@@ -3,7 +3,7 @@ import { FaLinkedin, FaTimes } from "react-icons/fa";
 
 const AboutUs = () => {
   return (
-    <div className="max-w-6xl  mx-auto py-16 px-6 ">
+    <div id="aboutus" className="max-w-6xl  mx-auto py-16 px-6 ">
        <div className=' w-[138px] mx-auto my-6 '>
     <h4 className=' flex justify-center gap-2  bg-gray-100 rounded-e-lg'>
         <img src='/images/Images/servicesLogo.png' />
