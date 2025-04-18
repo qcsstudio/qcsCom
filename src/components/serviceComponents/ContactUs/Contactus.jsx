@@ -12,12 +12,12 @@ import { BsExclamationCircle } from "react-icons/bs";
         <ContactCard
           icon={<FaEnvelope className="text-[#F1813B] text-2xl" />}
           title="Mail us at"
-          detail="connect@qcsstudio.com"
+          detail="info@qcsstudio.com"
         />
         <ContactCard
           icon={<FaWhatsapp className="text-[#F1813B] text-2xl" />}
           title="WhatsApp Now"
-          detail="+91-284697207"
+          detail="+91-8264017346"
         />
         <ContactCard
           icon={<BsExclamationCircle  className="text-[#F1813B] text-2xl" />}

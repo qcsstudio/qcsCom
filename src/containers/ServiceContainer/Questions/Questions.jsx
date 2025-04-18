@@ -1,19 +1,17 @@
 'use client'
 import { useState } from "react";
-import { FaPlus } from "react-icons/fa";
+import { FaPlus  } from "react-icons/fa";
+import { ImCross } from "react-icons/im";
 
-const faqs = [
-  "How quickly can AI automation show results?",
-  "Are AI solutions suitable for all business sizes?",
-  "How secure is your AI integration?",
-  "Will AI integrations disrupt current workflows?",
-  "Is specialized training needed for your AI solutions?",
-  "What's your digital marketing automation approach?",
-  "Can digital marketing strategies be customized per platform?",
-];
 
-const Questions = () => {
+
+const Questions = ({questions}) => {
+ 
   const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleAnswer = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
     <>
@@ -31,7 +29,7 @@ const Questions = () => {
           <h2 className=" text-center lg:text-start text-3xl md:text-6xl font-bold leading-tight mt-3">
             FAQ It Up! Your curiosity
             meets our expertise
-            let’s clear things up!
+            let's clear things up!
           </h2>
           <p className="text-gray-500 font-medium text-lg text-center lg:text-start sm:text-lg lg:w-[80%] ">
             We've gathered all the important info right here. Explore our FAQs and find the answers you need.
@@ -40,16 +38,22 @@ const Questions = () => {
 
         {/* Right Section (FAQ List) */}
         <div className="md:w-1/2 space-y-4 mt-6 md:mt-0">
-          {faqs.map((question, index) => (
-            <div
-              key={index}
-              className="bg-gray-100 p-4 rounded-lg cursor-pointer flex justify-between items-center">
-              <span className="text-gray-800 font-medium">{question}</span>
-              <button className={`transition-transform ${openIndex === index ? "rotate-180" : ""}`} >
-                <span><FaPlus /></span>
-              </button>
-            </div>
-          ))}
+        {questions?.map((item, index) => (
+        <div key={index} className="bg-gray-100 p-4 rounded-lg">
+          <div
+            onClick={() => toggleAnswer(index)}
+            className="cursor-pointer flex justify-between items-center"
+          >
+            <span className="text-gray-800 font-medium">{item.question}</span>
+            <button>
+              {openIndex === index ? <ImCross  /> : <FaPlus />}
+            </button>
+          </div>
+          {openIndex === index && (
+            <div className="mt-2 text-gray-600">{item.answer}</div>
+          )}
+        </div>
+      ))}
         </div>
       </div>
     </>

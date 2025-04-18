@@ -10,7 +10,7 @@ const NavbarContainer = ({data}) => {
         para={data.para}
       />
       <div className="my-6 flex flex-wrap gap-4 justify-center">
-        {buttons.map((item,index)=>{
+        {buttons?.map((item,index)=>{
           return <Button key={index} text={item.text} color={item.color} border={item.border} />
         })}
         

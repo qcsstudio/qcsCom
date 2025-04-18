@@ -41,6 +41,7 @@ export const WebBenifitsData = [
     },
    
   ];
+  
   export const WebBenifitsData2 = [
     {
       title:"SaaS & Product Startups",

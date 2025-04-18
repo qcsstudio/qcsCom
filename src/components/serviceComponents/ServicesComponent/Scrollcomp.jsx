@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardData } from './CardData';
+import { CardData, LinkData } from './CardData';
 import Cardscroll from './Cardscroll';
 
 export default function Scrollcomp() {
@@ -7,7 +7,7 @@ export default function Scrollcomp() {
     <div className="w-full lg:w-[60%] h-[390px] lg:h-[600px] overflow-y-auto no-scrollbar space-y-4">
       {CardData.map((card, index) => (
         <div key={index}>
-          <Cardscroll card={card} />
+          <Cardscroll card={card} link={LinkData.links[index]} />
         </div>
       ))}
     </div>

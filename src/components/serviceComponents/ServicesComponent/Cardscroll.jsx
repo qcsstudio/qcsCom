@@ -1,6 +1,7 @@
+import Link from 'next/link';
 import React from 'react';
 
-const Cardscroll = ({ card }) => {
+const Cardscroll = ({ card, link }) => {
   const { services } = card;
 
   return (
@@ -17,9 +18,21 @@ const Cardscroll = ({ card }) => {
           </span>
         ))}
       </div>
-      <button className="w-full font-semibold text-lg bg-white py-2 rounded-md hover:bg-gray-500 hover:text-white">
-        Get Started
-      </button>
+
+      {link ? (
+        <Link href={link}>
+          <button className="w-full font-semibold text-lg bg-white py-2 rounded-md hover:bg-gray-500 hover:text-white">
+            Get Started
+          </button>
+        </Link>
+      ) : (
+        <button
+          disabled
+          className="w-full font-semibold text-lg bg-gray-300 py-2 rounded-md text-gray-500 cursor-not-allowed"
+        >
+          Coming Soon
+        </button>
+      )}
     </div>
   );
 };
