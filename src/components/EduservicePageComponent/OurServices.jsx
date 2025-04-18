@@ -14,7 +14,7 @@ const OurServices = ({data}) => {
         What You'll Learn (Curriculum Overview)
       </h2>
       <div className="grid md:grid-cols-3 gap-6">
-        {data.map((section, index) => (
+        {data?.map((section, index) => (
           <div key={index} className="bg-gray-100 p-6 rounded-xl shadow-md">
             <h3 className="text-3xl font-bold mb-4 text-wrap">{section.title}</h3>
             <ul className="list-disc  space-y-2 text-sm marker:text-[#F1813B]">

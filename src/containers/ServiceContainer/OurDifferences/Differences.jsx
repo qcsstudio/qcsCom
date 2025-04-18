@@ -1,8 +1,4 @@
-
-import Head from "next/head";
 import { PiPuzzlePieceBold } from "react-icons/pi";
-
-
 
 const Differences = ({title,heading,heading2,challenges,solutions,bgcolor,bgcolor2,textColor,textColor2,iconcolor,iconcolor2}) => {
   

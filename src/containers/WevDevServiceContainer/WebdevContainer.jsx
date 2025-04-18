@@ -12,6 +12,7 @@ import { ImagesSlide2, ImagesSlide3 } from '../ServiceContainer/SliderContainer/
 import Platforms from '@/components/WebdeveServicesComponent/Platforms'
 import WorkProcess from '../ServiceContainer/WorkProcess/WorkProcess'
 import { steps2 } from '../ServiceContainer/WorkProcess/WorkProcessData'
+import {  WebDevelopmentFaq } from '../ServiceContainer/Questions/faqsData'
 
 
 const WebdevContainer = () => {
@@ -29,7 +30,7 @@ const WebdevContainer = () => {
             <Benifits heading="Industries We Dominate" BenefitsData={WebBenifitsData2} />
             <CaseStudies />
 
-            <Questions />
+            <Questions questions={WebDevelopmentFaq} />
             <Form heading="Lets
                 Build Something Powerful Together" desc="Your business deserves more than a basic website. Let us help you build a web experience that attracts, converts, and grows." />
             <ContactSection />

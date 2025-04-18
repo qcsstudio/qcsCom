@@ -8,7 +8,8 @@
       "Authentication, Security & Performance",
       "Deployment & CI/CD Workflows",],
       heading:" Custom Web Development",
-      desc:"Build fast, scalable, and secure applications with QuantumCrafters Studio. From sleek websites to complex web apps, we deliver seamless frontend and backend solutions using modern stacks."
+      desc:"Build fast, scalable, and secure applications with QuantumCrafters Studio. From sleek websites to complex web apps, we deliver seamless frontend and backend solutions using modern stacks.",
+      link:""
     },
     {
         services:["User Research & Analysis",
@@ -21,7 +22,7 @@
         ],
         heading : " UI/UX Design & Experience",
         desc:"Create interfaces that users love to explore and interact with. We blend design thinking with usability to craft impactful digital experiences that are both functional and beautiful.",
-        
+        link:""
       },
     {
       services:["SEO & On-Page Optimization",
@@ -33,7 +34,8 @@
         "CRM Integration & Analytics"
       ],
         heading:" Digital Marketing & Automation",
-        desc:"Grow faster with ROI-driven strategies and AI-powered campaigns. We blend organic reach and paid ads with automation to generate consistent, high-quality leads and brand visibility."
+        desc:"Grow faster with ROI-driven strategies and AI-powered campaigns. We blend organic reach and paid ads with automation to generate consistent, high-quality leads and brand visibility.",
+        
     },
    
     
@@ -100,3 +102,17 @@
     },
     
     ];
+
+export const LinkData = {
+  links:[
+    "/eduservice",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+  ]
+}
+ 

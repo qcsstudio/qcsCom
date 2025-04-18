@@ -18,11 +18,10 @@ const Navbar = ({ heading, para }) => {
         
         <div className="hidden md:flex space-x-10">
           <Link href="/services" className="hover:text-gray-400">Services</Link>
-          <Link href="/courses" className="hover:text-gray-400">Projects</Link>
           <Link href="/courses" className="hover:text-gray-400">Courses</Link>
-          <Link href="services#aboutus" className="hover:text-gray-400">About Us</Link>
+          <Link href="/aboutus" className="hover:text-gray-400">About Us</Link>
           <Link href="/blogs" className="hover:text-gray-400">Blogs</Link>
-          <Link href="/services#contactus" className="hover:text-gray-400">Contact Us</Link>
+          <Link href="/contactus" className="hover:text-gray-400">Contact Us</Link>
         </div>
 
         

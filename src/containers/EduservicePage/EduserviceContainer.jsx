@@ -4,7 +4,7 @@ import Footer from '../ServiceContainer/FooterContainer/Footer'
 import NewsletterSignup from '@/components/MainComponent/NewsletterSignup'
 import FormComponent from '@/components/MainComponent/FormComponent'
 import Questions from '../ServiceContainer/Questions/Questions'
-import { faqsData2 } from '../ServiceContainer/Questions/faqsData'
+import { EduserviceFaq } from '../ServiceContainer/Questions/faqsData'
 import Differences from '../ServiceContainer/OurDifferences/Differences'
 import { roles, workIn } from '../ServiceContainer/OurDifferences/DifferencesData'
 import OurServices from '@/components/EduservicePageComponent/OurServices'
@@ -31,7 +31,7 @@ const EduserviceContainer = () => {
     <Choices title="Why Choose QuantumCrafters?"/>
     <ToolsPlatforms/>
     <ProgramStructure/>
-    <Questions questions={faqsData2}/>
+    <Questions questions={EduserviceFaq}/>
     <FormComponent heading="Ready to Design the Future?" desc="Join the fastest-growing creative tech career today. Learn UI/UX the right way—with real projects, expert mentorship, and limitless growth."/>
     <NewsletterSignup/> 
     <Footer/>

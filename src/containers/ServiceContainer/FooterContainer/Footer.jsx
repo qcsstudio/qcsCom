@@ -46,7 +46,7 @@ const Footer = () => {
             <FaPhoneAlt size={12} className='text-[#F1813B] text-xl' />
             <p className='font-semibold  text-xs text-[#FFA587] '>PHONE</p>
           </div>
-          <p className='text-sm font-normal text-[#FFFFFF]'>+91 771-960-7776</p>
+          <p className='text-sm font-normal text-[#FFFFFF]'>+91 8264017346</p>
         </div>
         
         <div className=' p-4'>
@@ -54,7 +54,7 @@ const Footer = () => {
             <FaEnvelope size={12} className='text-[#F1813B] text-xl' />
             <p className='font-semibold text-xs text-[#FFA587]'>EMAIL</p>
           </div>
-          <p className='text-sm font-normal text-[#FFFFFF]'>agencie@email.com</p>
+          <p className='text-sm font-normal text-[#FFFFFF]'>info@qcsstudio.com</p>
         </div>
         
         <div className=' p-4'>

@@ -1,0 +1,172 @@
+.main{
+    
+    width:350px;
+    height:326px;
+    background-color:var(--cardbg);
+    margin: 0 auto;
+    position: relative;
+    border-radius:12px
+
+}
+:root{  
+    --clr:white;
+    --cardbg:#f0f0f0;
+}
+.Innermain{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: var(--cardbg);
+    width: 100%;
+    height:100%;
+    border-radius: 19px;
+    /* background-image: url('/images/Images/memories.png'); */
+   
+
+}
+
+.Innermain::before{
+    z-index: 100;
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    right: 117px;
+    border-top-right-radius:15px ;
+    box-shadow: 9px -10px 0 0 var(--clr);
+
+}
+
+.Innermain::after{
+    z-index: 100;
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    top:49;
+    right: 0;
+    border-top-right-radius:16px ;
+    box-shadow: 8px -6px 0 0 var(--clr);
+}
+.Image-box{
+    position: absolute;
+    top: 60;
+    left:10;
+    z-index:200
+}
+
+.box-outer{
+    
+    position: absolute;
+    z-index: 105;
+    top: 0;
+    right: 0;
+
+
+}
+.box{
+    position: absolute;
+    top: 5;
+    right: 2;
+    background-color:#F1813B ;
+    width:106px;
+    height:33px;
+    text-align: center;
+    color: white;
+    border-radius: 7px;
+    outline: 12px solid white;
+    box-shadow:5px 4px 0px var(--clr) ;  /* bottom-right */
+    font-size :1.25rem;
+
+
+}
+
+.lowerboxmain{
+    width:60px;
+    height:294px;
+    background-color: var(--cardbg);
+    position: absolute;
+    right:0;
+    bottom:0;
+    display: flex;
+    flex-direction: column;
+
+}
+.lowerboxmain::after{
+    width:50px;
+    height:30px;
+    content: "";
+    background-color: transparent;
+    position: absolute;
+    right:66;
+    bottom:0;
+    border-bottom-right-radius:19px ;
+    box-shadow: 35px 0px 0 var(--clr) ;
+ 
+
+}
+
+.lowerbox{
+width:60px;
+height:237 ; 
+
+
+
+
+}
+.lowerbox::after{
+    z-index: 100;
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    width: 30px;
+    height: 40px;
+    bottom:65;
+    right: 0;
+    border-bottom-right-radius:19px ;
+    box-shadow:0px 25px 0px var(--clr) ;  /* bottom-right */
+
+
+}
+
+.circlebox{
+    width: 60px;
+    height: 57px;
+    
+
+}
+.circlebox::after{
+    
+    z-index: 104;
+    content: "";
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    float:right;
+    border-bottom-right-radius:12px ;
+    box-shadow: 0px -1px 0 0 var(--clr);
+
+}
+.circle{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color:black ;
+    border-radius: 50%;
+    width: 54px;
+    height: 54px;
+    outline:12px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: auto;
+    z-index:103;
+    box-shadow:
+    0px 0px 0px transparent,  /* top-left */
+    0px 0px 0px transparent,   /* top-right */
+    0px 0px 0px  white,  /* bottom-left */
+    15px 4px 0px var(--clr) ;  /* bottom-right */
+
+}

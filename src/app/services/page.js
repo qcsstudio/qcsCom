@@ -17,7 +17,7 @@ import Slider from '@/containers/ServiceContainer/SliderContainer/Slider'
 import { benefits } from '@/containers/ServiceContainer/BenifitsContainer/BenifitsData.jsx'
 import { ImagesSlide } from '@/containers/ServiceContainer/SliderContainer/SliderImages'
 import { steps } from '@/containers/ServiceContainer/WorkProcess/WorkProcessData'
-import { faqsData } from '@/containers/ServiceContainer/Questions/faqsData'
+import { ServiceFaq } from '@/containers/ServiceContainer/Questions/faqsData'
 import { challenges, solutions } from '@/containers/ServiceContainer/OurDifferences/DifferencesData'
 
 
@@ -40,7 +40,7 @@ const page = () => {
        textColor2="white" iconcolor="gray" iconcolor2="#F1813B"/>
       <ClientStories />
       <LeaderComponent/>
-      <Questions questions={faqsData}/>
+      <Questions questions={ServiceFaq}/>
       <AboutUs />
       <Form heading="Need a custom quote?" desc="Don't let your ideas sit idle—slide
         into our inbox and let's make magic!"/>

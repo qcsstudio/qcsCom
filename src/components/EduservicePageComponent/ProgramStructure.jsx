@@ -33,7 +33,7 @@ const ProgramStructure = () => {
           >
             <div className="w-12 h-12 bg-[#CCCCCC]  mb-4"></div>
             <h3 className="text-2xl font-bold mb-3 text-[#0F0F0F]">{card.title}:</h3>
-            <ul className="list-disc pl-5 space-y-1 text-lg text-[#000000] ">
+            <ul className="list-disc pl-5 space-y-1 text-lg text-[#000000] marker:text-[#F1813B]">
               {card.points.map((point, i) => (
                 <li key={i}>{point}</li>
               ))}
