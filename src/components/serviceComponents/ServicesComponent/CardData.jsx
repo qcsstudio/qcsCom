@@ -74,11 +74,9 @@ export const LinkData = {
     "/webdevcourse",
     "/eduservice",
     "/digitalmarketingcourse",
-    "/Aicourse",
+    "/aicourse",
     "/dataanalyticscourse",
-    "",
-    "",
-    "",
+    
   ]
 }
  

@@ -86,10 +86,10 @@ export const Aireasons = [
     },
     {
       id: 3,
-      text: "India’s AI market is growing at 20% CAGR (NASSCOM, 2024)",
+      text: "India's AI market is growing at 20% CAGR (NASSCOM, 2024)",
     },
     {
-      id: 3,
+      id: 4,
       text: "High-salary, high-demand job roles globally and remotely",
     },
    
@@ -110,8 +110,8 @@ export const Cyberreasons = [
       text: "Cloud is the backbone of modern IT—skills in AWS/Azure are future-proof",
     },
     {
-      id: 3,
-      text: "Cybersecurity analysts earn 2–3X above average IT roles",
+      id: 4,
+      text: "Cybersecurity analysts earn 2-3X above average IT roles",
     },
    
    
