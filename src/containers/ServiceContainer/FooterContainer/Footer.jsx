@@ -14,7 +14,7 @@ const Footer = () => {
           </div>
             <p className='text-[#FFFFFF]  mt-4 text-lg leading-relaxed px-4 md:px-0 text-center md:text-start  lg:w-[54%] '>The next big thing starts here— drop us a line and let’s get creating!</p>
           </div>
-          <div className='flex md:justify-normal  space-x-20 sm:space-x-80  md:space-x-24 mt-8 md:mt-0'>
+          <div className='flex md:justify-normal items-start  space-x-20 sm:space-x-80  md:space-x-24 mt-8 md:mt-0'>
             <div>
               <h2 className='font-semibold mb-4 text-lg'>Quick Links</h2>
               <ul className='text-[#FFFFFF] space-y-3 text-sm'>

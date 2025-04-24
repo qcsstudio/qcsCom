@@ -61,44 +61,219 @@ export const ServiceFaq = [{
   ];
   export const WebDevelopmentFaq = [
     {
-      question:"Can you build custom websites with CMS like WordPress or Shopify?" ,
-      answer:" Yes! We design custom themes, integrate APIs, and optimize performance across both platforms." 
+      question:"Do I need coding experience to join this course?" ,
+      answer:"  No! This course starts from absolute basics and moves to advanced projects." 
     },
     {
-      question:" Will my website be SEO optimized?" ,
-      answer:" Absolutely. We implement technical SEO, fast load times, schema, meta tags, and mobile responsiveness" 
+      question:" Will I get a job after completing this course?" ,
+      answer:"  Yes. We offer placement assistance, mock interviews, and portfolio preparation." 
     },
     {
-      question:" Do you provide hosting and domain services?" ,
-      answer:" We assist in setup and recommend secure, scalable platforms, though we don’t directly sell hosting." 
+      question:" Can I do this course along with college or a job?" ,
+      answer:"  Absolutely! The flexible schedule and weekend mentorship allow you to learn at your pace." 
     },
     {
-      question:"How long does development take?" ,
-      answer:"Typical projects take 4–8 weeks depending on features. Rapid MVPs can be done in 2–3 weeks." 
+      question:"Will I build real projects?" ,
+      answer:"Yes! You'll create 3+ full-stack apps, and 5+ frontend/backend practice projects." 
     },
     {
-      question:"Can I request changes after launch?" ,
-      answer:"Of course! We offer post-launch support, maintenance, and continuous improvement." 
+      question:" How are live classes and mentorship conducted?" ,
+      answer:" Via Zoom/Google Meet, with recordings shared. Mentors provide live Q&A and weekly reviews." 
     },
     {
-      question:"Do you support e-commerce platforms?" ,
-      answer:" Yes, we build full e-commerce experiences using Shopify and custom ecommerce platforms." 
+      question:"Will I get certification?" ,
+      answer:" Yes. Upon completion, you'll receive a certificate + project badge validation." 
     },
     {
-      question:" Can you redesign my existing website?" ,
-      answer:"Yes, we can rework your current website for better UX, speed, and functionality." 
+      question:" . What if I miss a class?" ,
+      answer:" All sessions are recorded. You'll also get mentor backup sessions if needed." 
     },
     {
-      question:" What if I only need frontend/backend separately?" ,
-      answer:" We provide both full-stack and modular services depending on your needs." 
+      question:" What programming language is used?" ,
+      answer:" JavaScript - it's used across the stack (React, Node, Express)." 
     },
     {
-      question:"Do you offer UI design as part of web development?" ,
-      answer:"Yes, our development is powered by a strong design-first approach. We include UI/UX in every project." 
+      question:"Do you provide internship opportunities?" ,
+      answer:" Yes. Our advanced learners are offered real project-based internships." 
     },
     {
-      question:"Is AI part of your website projects?" ,
-      answer:"Yes! From smart chatbots to personalized content delivery—we integrate AI features tailored to your goals." 
+      question:"How can I get started?" ,
+      answer:" Click “Apply Now” to register. Our counselors will guide you through the process." 
+    },
+    
+  ];
+  export const DigitalMarketFaq = [
+    {
+      question:"Do I need prior marketing experience?" ,
+      answer:"  No! This course starts from fundamentals and includes real projects." 
+    },
+    {
+      question:"Will I run real ads and campaigns?" ,
+      answer:" Yes. You’ll run actual Google or LinkedIn ad demos and SEO blog publishing." 
+    },
+    {
+      question:" Will I learn how to get freelance clients?" ,
+      answer:" Yes. You’ll learn profile optimization, client pitching, and proposal creation." 
+    },
+    {
+      question:"What platforms do we focus on?" ,
+      answer:" Google Ads, Meta, LinkedIn, and tools like SEMrush, Notion, and Canva." 
+    },
+    {
+      question:" Is it beginner-friendly?" ,
+      answer:"  Absolutely! We start from scratch, ideal for career switchers and students." 
+    },
+    {
+      question:"Will I get access to AI tools like ChatGPT?" ,
+      answer:"  Yes! You’ll use AI tools for content writing, automation, and lead follow-ups." 
+    },
+    {
+      question:" Do you help with resume and portfolio building?" ,
+      answer:"Yes. You’ll create a live portfolio of 3+ campaigns and get resume help." 
+    },
+    {
+      question:"Can I get job or internship support?" ,
+      answer:"  Definitely. We offer placement support, mock interviews, and referrals." 
+    },
+    {
+      question:"How are classes delivered?" ,
+      answer:" Live mentor sessions + video recordings + weekly assignments & feedback." 
+    },
+    {
+      question:"Can I balance this course with college or work?" ,
+      answer:"Yes. It’s designed for flexible learning with live weekend mentorship." 
+    },
+    
+  ];
+  export const DataAnalyticsFaq = [
+    {
+      question:"Is coding necessary for this course?" ,
+      answer:" Basic Python is taught step-by-step. No prior coding required." 
+    },
+    {
+      question:"What kind of real projects will I do?" ,
+      answer:" You’ll build dashboards, ML models, and work on real datasets like retail, finance, and user behavior" 
+    },
+    {
+      question:"Will I learn both Excel and Power BI?" ,
+      answer:"  Yes. Excel for basics + Power BI for scalable reporting." 
+    },
+    {
+      question:" Can I apply for data analyst jobs after this course?" ,
+      answer:"Absolutely. Resume, portfolio, and job-ready projects included." 
+    },
+    {
+      question:"Is AI really used in analytics?" ,
+      answer:"Yes! We teach how to automate dashboards, generate predictions, and use GenAI." 
+    },
+    {
+      question:" Will I learn SQL?" ,
+      answer:" Yes. You’ll write queries, analyze structured data, and create views for BI tools." 
+    },
+    {
+      question:"Can I pursue freelance or remote roles?" ,
+      answer:" Definitely. These skills are in demand globally." 
+    },
+    {
+      question:" What’s the difference between this and a Data Science course?" ,
+      answer:"  Analytics is business-focused. You’ll learn what’s needed in real company dashboards, not heavy math." 
+    },
+    {
+      question:" Are job interviews and placement help provided?" ,
+      answer:" Yes. Mock interviews, resume building, and referral support are included." 
+    },
+    {
+      question:"What if I get stuck during the course?" ,
+      answer:" We offer weekly doubt sessions, 1-on-1 mentorship and project feedback." 
+    },
+    
+  ];
+
+
+  
+  export const AiFaq = [
+    {
+      question:"Is this course suitable for non-CS or non-tech background?" ,
+      answer:"Yes! We start with Python basics and teach everything step by step." 
+    },
+    {
+      question:" Will I work on real datasets?" ,
+      answer:"  Yes. Retail, healthcare, finance, and public datasets will be used." 
+    },
+    {
+      question:" Is math-heavy background required?" ,
+      answer:" No. We cover just enough to help you understand ML intuitively." 
+    },
+    {
+      question:"Will I learn to deploy AI models?" ,
+      answer:" Yes! We use Streamlit, Flask, and HuggingFace for deploying models." 
+    },
+    {
+      question:"Are AI tools like ChatGPT part of the curriculum?" ,
+      answer:" Yes. You’ll use GenAI tools, APIs, and prompt engineering practices." 
+    },
+    {
+      question:"  Will I get job support?" ,
+      answer:" Yes. We offer internships, resume reviews, mock interviews, and career mentoring." 
+    },
+    {
+      question:"How is this different from YouTube or free courses?" ,
+      answer:"urs is project-based with mentor support, structured path, and placement help." 
+    },
+    {
+      question:"Do I need a strong PC to do this?" ,
+      answer:" Not really. We use Google Colab and cloud tools, so no GPU is required" 
+    },
+    {
+      question:"Will I build my own AI apps?" ,
+      answer:"  Yes. You’ll create at least 2 complete AI-powered apps from scratch." 
+    },
+    {
+      question:"Can I use this course to transition careers?" ,
+      answer:" Definitely. Many of our learners switched from non-tech to AI roles." 
+    },
+    
+  ];
+  export const CyberFaq = [
+    {
+      question:" Is this course suitable for beginners?" ,
+      answer:" Yes! We teach everything from basics—ideal for new learners" 
+    },
+    {
+      question:"Will I work on real cyber labs?" ,
+      answer:"Yes. Simulated labs & challenges are part of every module." 
+    },
+    {
+      question:"Do I need coding knowledge?" ,
+      answer:" Not mandatory. Some basic scripting (Python/Bash) is introduced." 
+    },
+    {
+      question:" What certifications can I pursue post this?" ,
+      answer:" We guide you toward CEH, CompTIA Security+, AWS Cloud Practitioner, and more." 
+    },
+    {
+      question:"Are cloud tools taught practically?" ,
+      answer:" Yes. You’ll deploy and monitor applications using AWS and Azure interfaces." 
+    },
+    {
+      question:"  Will this course help in placement?" ,
+      answer:" Absolutely! Includes interview prep, resume help & referrals." 
+    },
+    {
+      question:"Is ethical hacking covered legally and safely?" ,
+      answer:" Yes. All activities are simulated and follow ethical standards." 
+    },
+    {
+      question:"Can I get into a cybersecurity role as a fresher?" ,
+      answer:" Yes. This course builds foundational skills recruiters seek." 
+    },
+    {
+      question:" Are tools like Kali Linux included?" ,
+      answer:" Yes! We provide setup guidance and remote environments." 
+    },
+    {
+      question:" Can I transition into cloud security after this course?" ,
+      answer:" Definitely. This forms a solid base to explore CloudSec, DevSecOps, and more." 
     },
     
   ];

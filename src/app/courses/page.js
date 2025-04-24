@@ -1,4 +1,5 @@
 import Choices from '@/components/CoursesComponent/Choices'
+import { coursesboxes } from '@/components/CoursesComponent/ChoicesboxData'
 import FormComponent from '@/components/MainComponent/FormComponent'
 import NewsletterSignup from '@/components/MainComponent/NewsletterSignup'
 import AboutUs from '@/containers/ServiceContainer/AboutUs/AboutUS'
@@ -17,7 +18,7 @@ const page = () => {
         buttons:[{text:"Enroll Now",link:"#",color:"#F1813B"},{text:"Explore Services",link:"#",color:"#transparent", border:"1px solid gray"}]}}/>
 
         <ServicesContainer/>
-        <Choices/>
+        <Choices title="Why QuantumCrafter Studio is the right Choice for you" data={coursesboxes}/>
         <AboutUs/>
         <ClientStories/>
         <FormComponent heading="Ready to Launch Your Tech Career?" desc="Contact Us Today!"/>
