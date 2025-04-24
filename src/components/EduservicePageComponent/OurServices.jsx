@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const OurServices = ({data}) => {
  
@@ -6,7 +7,7 @@ const OurServices = ({data}) => {
     <div className="p-8 max-w-6xl mx-auto">
         <div className="w-[133px] mx-auto mb-10">
                 <h4 className="flex justify-center gap-2 bg-gray-100 rounded-e-lg px-2 py-1">
-                    <img src="/images/Images/servicesLogo.png" alt="Services Logo" className="w-5 h-5" />
+                    <Image src="/images/Images/servicesLogo.png" width={5} height={5} alt="Services Logo" className="w-5 h-5" />
                     <span className="font-semibold text-sm mt-1">Our Services</span>
                 </h4>
             </div>
