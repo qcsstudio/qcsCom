@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const tools = [
     { icon: "/images/Images/figma.png",name: "Figma" },
@@ -22,7 +23,7 @@ const tools = [
             <div className="bg-gray-50 p-6 rounded-xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 max-w-6xl mx-auto">
                 {tools.map((tool, index) => (
                     <div key={index} className="flex flex-col items-center">
-                        <img src={tool.icon} alt={tool.name} className="mb-2" />
+                        <Image src={tool.icon} alt={tool.name}  width={100} height={100} className="mb-2" />
                         <span className="text-sm font-medium text-black text-center">
                             {tool.name}
                         </span>

@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { IoGlobeOutline } from "react-icons/io5";
 import { HiMenu, HiX } from "react-icons/hi";
 import Link from "next/link";
+import Image from 'next/image';
 
 const Navbar = ({ heading, para }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,7 +12,7 @@ const Navbar = ({ heading, para }) => {
     <>
       <nav className="w-full flex justify-between items-center py-4 px-4 md:px-8">
      <Link href="/">
-          <img src='/images/Images/NavLogo.png' alt="logo" width={194.82} height={40} />
+          <Image src='/images/Images/NavLogo.png' alt="logo" width={194.82} height={40} />
      </Link>
 
 
