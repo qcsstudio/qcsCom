@@ -13,6 +13,7 @@ import Platforms from '@/components/WebdeveServicesComponent/Platforms'
 import WorkProcess from '../ServiceContainer/WorkProcess/WorkProcess'
 import { steps2 } from '../ServiceContainer/WorkProcess/WorkProcessData'
 import {  WebDevelopmentFaq } from '../ServiceContainer/Questions/faqsData'
+import { caseStudiesData, crmStatsData } from '@/components/WebdeveServicesComponent/CasestudiesData'
 
 
 const WebdevContainer = () => {
@@ -28,7 +29,7 @@ const WebdevContainer = () => {
             <Platforms heading="Tech Stack We Work On" para="We work on powerful, popular, customisable and scalable platforms to deliver the best solutions for our clients." images={ImagesSlide2} />
             <Platforms images={ImagesSlide3} />
             <Benifits heading="Industries We Dominate" BenefitsData={WebBenifitsData2} />
-            <CaseStudies />
+            <CaseStudies data={caseStudiesData} data2={crmStatsData}/>
 
             <Questions questions={WebDevelopmentFaq} />
             <Form heading="Lets

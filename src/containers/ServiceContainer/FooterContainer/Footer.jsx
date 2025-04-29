@@ -40,7 +40,7 @@ const Footer = () => {
       <div className='border-t border-gray-700 '></div>
         <div className='text-gray-400 '>
       
-      <div className='grid grid-cols-1 items-center md:grid-cols-4 gap-10'>
+      <div className='grid grid-cols-1 md:grid-cols-4 gap-10 items-start'>
         <div className=' p-4'>
           <div className='flex  text gap-2'>
             <FaPhoneAlt size={12} className='text-[#F1813B] text-xl' />

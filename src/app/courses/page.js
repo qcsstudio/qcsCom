@@ -2,6 +2,8 @@ import Choices from '@/components/CoursesComponent/Choices'
 import { coursesboxes } from '@/components/CoursesComponent/ChoicesboxData'
 import FormComponent from '@/components/MainComponent/FormComponent'
 import NewsletterSignup from '@/components/MainComponent/NewsletterSignup'
+import { CardData, CourseLinkData } from '@/components/serviceComponents/ServicesComponent/CardData'
+import { courses } from '@/components/serviceComponents/ServicesComponent/ListCompData'
 import AboutUs from '@/containers/ServiceContainer/AboutUs/AboutUS'
 import Footer from '@/containers/ServiceContainer/FooterContainer/Footer'
 import NavbarContainer from '@/containers/ServiceContainer/NavbarContainer/NavbarContainer'
@@ -17,7 +19,7 @@ const page = () => {
         para:"Discover tech mentorship and education tailored to your interests, strengths, and goals. Whether you're into coding, design, data, or marketing, we help you align your passion with the right skills for real-world success.",
         buttons:[{text:"Enroll Now",link:"#",color:"#F1813B"},{text:"Explore Services",link:"#",color:"#transparent", border:"1px solid gray"}]}}/>
 
-        <ServicesContainer/>
+        <ServicesContainer listData={courses} ServiceCardData={CardData} links ={CourseLinkData}  />
         <Choices title="Why QuantumCrafter Studio is the right Choice for you" data={coursesboxes}/>
         <AboutUs/>
         <ClientStories/>

@@ -69,13 +69,92 @@
     
     ];
 
-export const LinkData = {
+export const CourseLinkData = {
   links:[
     "/webdevcourse",
     "/eduservice",
     "/digitalmarketingcourse",
     "/aicourse",
     "/dataanalyticscourse",
+    
+  ]
+}
+ 
+ export const ServiceCardData = [
+    {
+      services:["Full Stack Development (React, Next.js, Node.js, MongoDB)",
+        "Custom WordPress & Shopify Builds",
+        "RESTful APIs & GraphQL Integrations",
+        "Scalable Microservice Architecture",
+        "Admin Panels, CMS & Dashboards",
+        "Role Management & Authentication",
+        "SEO Optimization & Lighthouse Performance Tuning",
+        "Conversion-Ready Layouts & A/B Testing"
+      ],
+      heading:" Web Development That Drives Growth, Not Just Traffic",
+      desc:"We engineer custom, AI-powered websites, powerful web applications, and scalable SaaS platforms using React, Node.js, Shopify & WordPress—built for speed, SEO, and conversions. We craft digital experiences that convert, scale, and lead.",
+      link:""
+    },
+    {
+      services:["Responsive Web & Mobile UI Design",
+        "Wireframes, Lo-Fi & Hi-Fi Prototypes",
+        "UX Audits & Heuristic Evaluations",
+        "UI Kits, Icon Libraries & Design Tokens",
+        "Dashboard & SaaS Product Design",
+        "User Personas, Journey Maps, Flows",
+        "UI/UX for Landing Pages & Websites"
+      ],
+      heading:" Designs That Inspire Action & Elevate Experiences",
+      desc:"QuantumCrafters Studio blends strategy, aesthetics, and behavior-driven UX to craft stunning, mobile-first interfaces. From SaaS dashboards to eCommerce journeys—we design experiences that convert, delight, and scale across web and mobile.",
+      
+    },
+    {
+      services:["SEO (Technical + Content + Local + Schema)",
+        "Content Marketing (Blogs, Articles, Landing Pages)",
+        "Organic Social Media Growth (LinkedIn, Instagram)",
+        "YouTube Channel Optimization",
+        "LinkedIn Organic Campaigns & Carousel Content",
+        "LinkedIn Personal Branding & Company Growth",
+        "Performance Marketing (Google Ads, Meta, LinkedIn)",
+        "Email Marketing & Lead Nurturing",
+        "AI-Powered Content Creation & Scheduling",
+        "Funnel Mapping & Conversion Optimization",
+        "Marketing Automation with Zapier/Make",
+        "Analytics, Heatmaps, CRM Integration"
+      ],
+        heading:"AI-Powered Digital Marketing That Works While You Sleep",
+        desc:"At QuantumCrafters Studio, we blend high-impact SEO, viral social media branding, and smart automation to turn traffic into leads—organically/Paid and at scale. From content to conversion, we build marketing engines that never sleep and always perform.",
+        
+    },
+   
+    
+    
+    {
+      services:["AI Strategy & Feasibility Assessment",
+        "Workflow Automation & RPA Consulting",
+        "Predictive Analytics & ML Modeling",
+        "NLP (Chatbots, Email Classification)",
+        "Recommendation Systems",
+        "AI for CRM, HRMS, ERP Integration",
+        "Intelligent Dashboards & AI Reporting",
+        "GenAI Consulting (ChatGPT, GPT Agents)"
+      ],
+        heading : "AI Strategy, Automation & Scalable Intelligence for Businesses",
+        desc:"QuantumCrafters Studio helps you turn ideas into intelligent systems—from automation to predictive analytics. We build AI-powered workflows, GenAI integrations, and data-driven platforms that optimize decisions, cut costs, and fuel growth.",
+        link:""
+      },
+
+   
+
+    
+    ];
+
+export const ServiceLinkData = {
+  links:[
+    "/webdevelopmentservice",
+    "/uiuxservice",
+    "/digitalmarketingservice",
+    "/aiservice",
     
   ]
 }

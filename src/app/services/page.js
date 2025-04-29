@@ -19,6 +19,8 @@ import { ImagesSlide } from '@/containers/ServiceContainer/SliderContainer/Slide
 import { steps } from '@/containers/ServiceContainer/WorkProcess/WorkProcessData'
 import { ServiceFaq } from '@/containers/ServiceContainer/Questions/faqsData'
 import { challenges, solutions } from '@/containers/ServiceContainer/OurDifferences/DifferencesData'
+import { services } from '@/components/serviceComponents/ServicesComponent/ListCompData'
+import {  ServiceCardData, ServiceLinkData } from '@/components/serviceComponents/ServicesComponent/CardData'
 
 
 const page = () => {
@@ -33,7 +35,7 @@ const page = () => {
         BenefitsData={benefits}
       />
       <Slider images={ImagesSlide}/>
-      <ServicesContainer />
+      <ServicesContainer listData={services}  ServiceCardData={ServiceCardData} links ={ServiceLinkData} />
       <WorkProcess steps={steps} />
       <Differences title="Business Challenges & Innovative Solutions" heading="Common Challenges Businesses Face:"
       heading2="QuantumCrafters' Cutting-Edge Solutions:" challenges={challenges} solutions={solutions}  bgcolor="#F5F7F9" bgcolor2="black" textColor="black"
