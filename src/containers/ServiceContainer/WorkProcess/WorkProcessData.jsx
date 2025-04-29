@@ -56,3 +56,35 @@ export const steps2 = [
             "End-to-end QA, Lighthouse optimization, and DevOps-backed launch with ongoing assistance",
     },
 ];
+export const steps3 = [
+    {
+        number: 1,
+        title: "User Discovery & UX Research",
+        content:
+            " We deep-dive into your audience, goals, and competitors to create user-first solutions.",
+    },
+    {
+        number: 2,
+        title: " Wireframing & Information Architecture",
+        content:
+            " We create blueprints that define structure, hierarchy, and journey logic",
+    },
+    {
+        number: 3,
+        title: "Visual UI Design & Prototyping",
+        content:
+            " Beautiful, interactive designs created using Figma, Adobe XD, and Webflow.",
+    },
+    {
+        number: 4,
+        title: " Design Systems & Brand Consistency",
+        content:
+            " We document design tokens, components, and usage guidelines for scalability.",
+    },
+    {
+        number: 5,
+        title: "  Developer Handoff & QA",
+        content:
+            "Smooth collaboration using Zeplin, Figma Inspect, and handoff-ready assets.",
+    },
+];

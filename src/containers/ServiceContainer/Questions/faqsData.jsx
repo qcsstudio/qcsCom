@@ -102,6 +102,49 @@ export const ServiceFaq = [{
     },
     
   ];
+  export const UIUXServiceFaq = [
+    {
+      question:"Do you only offer UI design or also UX research?" ,
+      answer:" We offer both. Our process begins with UX strategy, personas, flows, and usability planning." 
+    },
+    {
+      question:"  Will my website/app look good on mobile?" ,
+      answer:" Absolutely! Every design is created mobile-first with responsive testing." 
+    },
+    {
+      question:"Can I request design revisions?" ,
+      answer:" Yes! We offer 2–3 rounds of design iterations based on client feedback." 
+    },
+    {
+      question:"How long does a design project usually take?" ,
+      answer:"Typically 2–6 weeks depending on the number of screens and complexity." 
+    },
+    {
+      question:"  Do you create design systems and UI kits?" ,
+      answer:"Yes. We build scalable, reusable UI libraries and brand-consistent components." 
+    },
+    {
+      question:" Can your team collaborate with our developers?" ,
+      answer:" Definitely! We handoff assets using Figma Inspect, Zeplin, or dev-ready files." 
+    },
+    {
+      question:" Do you design dashboards or internal tools?" ,
+      answer:" Yes, we specialize in B2B SaaS, CRM, and analytics platform interfaces." 
+    },
+    {
+      question:" Is user testing part of your service?" ,
+      answer:" Yes. We include internal testing and can conduct usability tests with real users." 
+    },
+    {
+      question:"Can I hire you just for a redesign ?" ,
+      answer:"Absolutely. We offer UX audits and complete UI revamps for existing platforms." 
+    },
+    {
+      question:" Do you support WCAG & accessibility?" ,
+      answer:" Yes. We follow accessibility guidelines (contrast, font size, ARIA labels, etc.) for inclusive design." 
+    },
+    
+  ];
   export const DigitalMarketFaq = [
     {
       question:"Do I need prior marketing experience?" ,

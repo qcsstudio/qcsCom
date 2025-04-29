@@ -1,8 +1,9 @@
 import React from 'react';
 import ListComp from '@/components/serviceComponents/ServicesComponent/ListComp';
 import Scrollcomp from '@/components/serviceComponents/ServicesComponent/Scrollcomp';
+import { services } from '@/components/serviceComponents/ServicesComponent/ListCompData';
 
-const ServicesContainer = () => {
+const ServicesContainer = ({listData,ServiceCardData ,links}) => {
     return (
         <div className="w-[90%] max-w-7xl mx-auto mt-10">
             <div className="w-[133px] mx-auto">
@@ -15,8 +16,8 @@ const ServicesContainer = () => {
                 Services designed to help your brand shine brighter.
             </h1>
             <div className="flex flex-col lg:flex-row p-2 mt-5 gap-6 ">
-                <ListComp />
-                <Scrollcomp />
+                <ListComp listData={listData} />
+                <Scrollcomp ServiceCardData={ServiceCardData} LinkData={links}/>
             </div>
         </div>
     );
