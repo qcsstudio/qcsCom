@@ -1,216 +1,118 @@
-export const sections = [
-    {
-      title: "1. Scope of Services",
-      content: [
-        {
-          type: "list",
-          items: [
-            "AI Solutions: Custom AI-powered software, tools, or models developed for clients (e.g., AI data analytics systems, machine learning models, automation tools).",
-            "SaaS Subscriptions: Cloud-based software services accessible on a subscription basis (e.g., our AI-driven platform or applications hosted by us).",
-            "IT Consulting Services: Expert consulting in IT strategy, software development, AI integration, and related areas, often delivered through projects with defined deliverables.",
-            "Training and Mentorship: Institutional or corporate training programs and mentorship services, which may be delivered online or on-site."
-          ]
-        },
-        {
-          type: "text",
-          value: "These Service Terms cover your and our obligations in using these services. Additional details (such as specific features, pricing, subscription duration, or custom project scope) will be provided in the service order, proposal, or contract for the particular service."
-        }
-      ]
-    },
-    {
-      title: "2. Service Onboarding and Delivery",
-      content: [
-        {
-          type: "subsection",
-          title: "AI Solutions & Consulting Projects",
-          items: [
-            "Define Statement of Work (SOW) detailing deliverables and timelines.",
-            "Designate contact persons for communication.",
-            "Use competent personnel and industry practices.",
-            "Client must provide timely resources and access.",
-            "Acceptance criteria and period defined in project terms."
-          ]
-        },
-        {
-          type: "subsection",
-          title: "SaaS Subscriptions",
-          items: [
-            "Access provided upon successful sign-up/payment.",
-            "Auto-renews unless canceled before end of term.",
-            "Best-effort basis unless SLA provided.",
-            "Client retains ownership; we ensure privacy and legal handling.",
-            "Usage limits specified in plan details; overages may incur fees."
-          ]
-        },
-        {
-          type: "subsection",
-          title: "Training and Mentorship",
-          items: [
-            "Schedule and content shared in advance.",
-            "Proprietary content; redistribution prohibited.",
-            "Professional conduct required; violations may result in removal.",
-            "No guarantees for certification or employment.",
-            "Guidance provided; responsibility remains with mentee."
-          ]
-        }
-      ]
-    },
-    {
-      title: "3. Client Responsibilities",
-      content: [
-        {
-          type: "list",
-          items: [
-            "Provide timely inputs and decisions.",
-            "Use services properly and lawfully.",
-            "Maintain suitable technical environments.",
-            "Ensure data quality and backup.",
-            "Protect credentials and report breaches."
-          ]
-        }
-      ]
-    },
-    {
-      title: "4. Fees, Billing, and Renewal",
-      content: [
-        {
-          type: "list",
-          items: [
-            "Billing based on contract milestones or time/materials.",
-            "Auto-renew with default payment method.",
-            "Price changes communicated in advance; cancellation allowed.",
-            "Fees are exclusive of taxes (e.g., GST)."
-          ]
-        }
-      ]
-    },
-    {
-      title: "5. Service Specific Terms",
-      content: [
-        {
-          type: "subsection",
-          title: "5.1 AI Solutions (Custom Projects)",
-          items: [
-            "We retain pre-existing IP; client receives license unless transfer is agreed.",
-            "Mutual obligation to protect shared confidential information.",
-            "Scope changes require mutual agreement.",
-            "30-day warranty for bugs; no guarantee of specific business outcomes."
-          ]
-        },
-        {
-          type: "subsection",
-          title: "5.2 SaaS Subscriptions",
-          items: [
-            "Non-exclusive, non-transferable usage for internal purposes.",
-            "Features may change; major updates communicated.",
-            "Data used only for service provision and improvement.",
-            "Standard support provided per plan; no guaranteed resolution time unless stated."
-          ]
-        },
-        {
-          type: "subsection",
-          title: "5.3 Training Services",
-          items: [
-            "Credential-based portal access; unauthorized sharing prohibited.",
-            "Schedule changes may occur for valid reasons with prior notice.",
-            "Subject to refund policy based on notice period.",
-            "Certification issued only if stated criteria are met."
-          ]
-        },
-        {
-          type: "subsection",
-          title: "5.4 Mentorship and Career Services",
-          items: [
-            "Rescheduling must follow notice period.",
-            "No job guarantee; support is facilitative.",
-            "Professional behavior required during all interactions."
-          ]
-        }
-      ]
-    },
-    {
-      title: "6. Confidentiality and Data Protection",
-      content: [
-        {
-          type: "list",
-          items: [
-            "Both parties may sign NDAs for sensitive info.",
-            "Data privacy compliant with GDPR and similar laws.",
-            "DPA available for EU data handling when needed."
-          ]
-        }
-      ]
-    },
-    {
-      title: "7. Warranties and Disclaimers Specific to Services",
-      content: [
-        {
-          type: "list",
-          items: [
-            "Services will conform to specifications with reasonable skill.",
-            "No guarantees on specific outcomes (e.g., revenue or job offers).",
-            "Client responsible for post-acceptance use or modifications.",
-            "Use of third-party components includes their licenses.",
-            "Beta features provided 'as-is' without warranties."
-          ]
-        }
-      ]
-    },
-    {
-      title: "8. Suspension or Termination of Services",
-      content: [
-        {
-          type: "list",
-          items: [
-            "Breach of terms or payment issues may result in suspension.",
-            "Upon termination, access is revoked; data export advised.",
-            "Confidential information must be returned or destroyed.",
-            "Some obligations survive termination (e.g., payment, IP, liability)."
-          ]
-        }
-      ]
-    },
-    {
-      title: "9. Additional Liability Limitation",
-      content: [
-        {
-          type: "list",
-          items: [
-            "Liability for projects capped at fees paid for that project.",
-            "For SaaS, capped at fees paid in last 12 months.",
-            "No liability for indirect or consequential damages.",
-            "Consumer law rights preserved where applicable."
-          ]
-        }
-      ]
-    },
-    {
-      title: "10. Governing Law and Dispute Resolution",
-      content: [
-        {
-          type: "list",
-          items: [
-            "Indian law applies unless a separate agreement states otherwise.",
-            "Follow arbitration or jurisdiction as per Terms & Conditions or project contract."
-          ]
-        }
-      ]
-    },
-    {
-      title: "11. Incorporation of Other Terms",
-      content: [
-        {
-          type: "list",
-          items: [
-            "General Terms & Conditions are part of these Service Terms.",
-            "In case of conflict, the signed contract takes precedence."
-          ]
-        },
-        {
-          type: "text",
-          value: "Use of services implies agreement to these terms. Contact us for questions or clarifications."
-        }
-      ]
-    }
-  ];
-  
+// 'use client';
+// import { useState, useEffect } from 'react';
+// import { FaPlus, FaMinus } from "react-icons/fa";
+
+// export default function PolicyContainer() {
+//   const [expandedSection, setExpandedSection] = useState(null);
+//   const [policyData, setPolicyData] = useState([]);
+//   const [loading, setLoading] = useState(true);
+
+//   useEffect(() => {
+    
+//     // const dummyData = [
+//     //   {
+//     //     heading: "Introduction",
+//     //     description: "This is a sample introduction to the Terms of Service."
+//     //   },
+//     //   {
+//     //     heading: "User Agreement",
+//     //     description: "Users must agree to follow the rules and regulations stated here."
+//     //   },
+//     //   {
+//     //     heading: "Privacy Policy",
+//     //     description: "Your data will be protected and handled responsibly."
+//     //   }
+//     // ];
+
+   
+//     // const formatted = dummyData.map(item => ({
+//     //   title: item.heading,
+//     //   content: [
+//     //     {
+//     //       type: "text",
+//     //       value: item.description
+//     //     }
+//     //   ]
+//     // }));
+
+//     // setPolicyData(formatted);
+//     // setLoading(false);
+
+//     // ✅ Uncomment this and remove dummy when API is working
+
+    
+//     const fetchPolicies = async () => {
+//       const url = '/api/admin/Policies?type=terms_service';
+//       console.log("Fetching from:", url);
+
+//       try {
+//         const res = await fetch(url);
+//         const data = await res.json();
+//         console.log("Response:", data);
+
+//         if (data && data.data && Array.isArray(data.data)) {
+//           const formatted = data.data.map(item => ({
+//             title: item.heading,
+//             content: [
+//               {
+//                 type: "text",
+//                 value: item.description
+//               }
+//             ]
+//           }));
+//           setPolicyData(formatted);
+//         } else {
+//           console.warn("No data found.");
+//         }
+//       } catch (err) {
+//         console.error("Error fetching policies:", err);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchPolicies();
+    
+//   }, []);
+
+//   const toggleSection = (index) => {
+//     setExpandedSection(expandedSection === index ? null : index);
+//   };
+
+//   const renderContent = (contentArray) =>
+//     contentArray.map((block, idx) => {
+//       if (block.type === "text") {
+//         return <p key={idx} className="mb-4">{block.value}</p>;
+//       }
+//       return null;
+//     });
+
+//   return (
+//     <div className="max-w-4xl mx-auto px-4 py-8 bg-white text-gray-800">
+//       <div className="bg-black text-white py-8 px-6 mb-8">
+//         <h1 className="text-4xl font-bold text-center">Terms of Service</h1>
+//       </div>
+
+//       {loading ? (
+//         <div className="text-center py-4">Loading...</div>
+//       ) : policyData.length === 0 ? (
+//         <div className="text-center py-4">No terms available</div>
+//       ) : (
+//         policyData.map((section, index) => (
+//           <div key={index} className="border-b border-gray-200">
+//             <button
+//               onClick={() => toggleSection(index)}
+//               className="flex justify-between items-center w-full py-4 px-2 text-left bg-gray-50 hover:bg-gray-100"
+//             >
+//               <span className="font-medium">{section.title}</span>
+//               {expandedSection === index ? <FaMinus /> : <FaPlus />}
+//             </button>
+//             {expandedSection === index && (
+//               <div className="py-4 px-6">{renderContent(section.content)}</div>
+//             )}
+//           </div>
+//         ))
+//       )}
+//     </div>
+//   );
+// }

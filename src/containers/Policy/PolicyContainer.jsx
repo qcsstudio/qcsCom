@@ -1,76 +1,59 @@
 'use client';
-import { useState } from 'react';
-import { FaPlus, FaMinus } from "react-icons/fa";
+import { useState, useEffect } from 'react';
 
-export default function PolicyContainer({ links }) {
-  const [expandedSection, setExpandedSection] = useState(null);
+export default function PolicyContainer() {
+  const [policyData, setPolicyData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const toggleSection = (index) => {
-    setExpandedSection(expandedSection === index ? null : index);
+  useEffect(() => {
+    fetchPolicies();
+  }, []);
+
+  const fetchPolicies = async () => {
+    const url = `/api/privacy-policy`;
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      console.log("Fetched data:", data);
+
+
+      // Check if the response has the expected data structure
+      if (data && data.data) {
+        setPolicyData(data.data); // Set the data if it's available
+      } else {
+        console.error("No data found in the response.");
+        setPolicyData([]); // If no data, set empty array
+      }
+    } catch (err) {
+      console.error("Error fetching policies:", err);
+      setPolicyData([]); // In case of error, set empty data
+    } finally {
+      setLoading(false); // Once data is fetched, stop loading
+    }
   };
-
-  const renderContent = (contentArray) =>
-    contentArray.map((block, idx) => {
-      if (block.type === "list") {
-        return (
-          <ul key={idx} className="list-disc list-inside mb-4">
-            {block.items.map((item, i) => (
-              <li key={i}>{item}</li>
-            ))}
-          </ul>
-        );
-      }
-      if (block.type === "text") {
-        return <p key={idx} className="mb-4">{block.value}</p>;
-      }
-      if (block.type === "subsection") {
-        return (
-          <div key={idx} className="mb-4">
-            <h4 className="font-semibold mb-1">{block.title}</h4>
-            <ul className="list-disc list-inside">
-              {block.items.map((item, i) => (
-                <li key={i}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        );
-      }
-      return null;
-    });
-
+  console.log("data: ", policyData)
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 bg-white text-gray-800">
       <div className="bg-black text-white py-8 px-6 mb-8">
-        <h1 className="text-4xl font-bold text-center">Terms of Service</h1>
+        <h1 className="text-4xl font-bold text-center">privacy policy</h1>
       </div>
-      <div className="mb-8">
-        <p className="mb-6">
-          The following Terms of Service ("Service Terms") apply specifically to the products and services offered by
-          QuantumCrafters Studio Private Limited...
-        </p>
-        <p>
-          By procuring or using any of these services, you agree to these Service Terms. If you are an organization, the
-          individual accepting these terms on your behalf represents that they have authority to bind the organization.
-        </p>
-      </div>
-      <div className="border-t border-gray-200">
-        {links.map((section, index) => (
-          <div key={index} className="border-b border-gray-200">
-            <button
-              onClick={() => toggleSection(index)}
-              className="flex justify-between items-center w-full py-4 px-2 text-left focus:outline-none bg-gray-50 hover:bg-gray-100"
-            >
-              <span className="font-medium">{section.title}</span>
-              {expandedSection === index ? <FaMinus /> : <FaPlus />}
-            </button>
-            {expandedSection === index && (
-              <div className="py-4 px-6">
-                {renderContent(section.content)}
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
+
+      {loading ? (
+        <div className="text-center py-4">Loading...</div>
+      ) : (
+        policyData.data.length > 0 ? (
+          // Render data if it's available
+          policyData.data.map((item, index) => (
+            <div key={index} className="border-b py-4">
+              
+              <div dangerouslySetInnerHTML={{ __html: item.heading }  }  />
+              <div dangerouslySetInnerHTML={{ __html: item.description }  }  />
+            </div>
+          ))
+        ) : (
+          <div className="text-center py-4">No policies available</div>
+        )
+      )}
     </div>
   );
 }
