@@ -2,7 +2,17 @@ import { NextResponse } from "next/server";
 
 export async function GET(req) {
   try {
-    const response = await fetch("https://www.qcsstudio.in/api/admin/Policies?type=privacy_policy");
+    const url = new URL(req.url);
+    const type = url.searchParams.get("type");
+
+    if (!type) {
+      return NextResponse.json(
+        { message: "Type parameter is required" },
+        { status: 400 }
+      );
+    }
+
+    const response = await fetch(`https://www.qcsstudio.in/api/admin/Policies?type=${type}`);
     const data = await response.json();
 
     return NextResponse.json(
