@@ -5,13 +5,13 @@ const members = [
   {
     name:"Ravi K Sankhyan",
     image:"/images/Images/teammember1.jpg",
-    position:"CEO",
+    position:"Founder & Director",
     link:"http://www.linkedin.com/in/rksankhyan"
   },
   {
     name:"Sheetal Rani",
     image:"/images/Images/teammember2.png",
-    position:"HR Manager",
+    position:" Human Resources Manager",
     link:"https://www.linkedin.com/in/sheetal-rani-"
   },
   {
