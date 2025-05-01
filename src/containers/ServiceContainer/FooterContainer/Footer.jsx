@@ -11,7 +11,6 @@ const Footer = () => {
             <div className='lg:w-[45%]  '>
               <div className='flex'>
                 <img src='/images/Images/footerlogo.png' alt="logo" width={569.86} height={117} />
-                {/* <h1 className=' text-2xl sm:text-4xl text-end font-medium '>QuantumCrafters Studio Private Limited</h1> */}
               </div>
               <p className='text-[#FFFFFF]  mt-4 text-lg leading-relaxed px-4 md:px-0 text-center md:text-start  lg:w-[54%] '>The next big thing starts here— drop us a line and let’s get creating!</p>
             </div>
@@ -19,21 +18,20 @@ const Footer = () => {
               <div>
                 <h2 className='font-semibold mb-4 text-lg'>Quick Links</h2>
                 <ul className='text-[#FFFFFF] space-y-3 text-sm'>
-                  <li>Home</li>
-                  <li>About</li>
-                  <li>Products</li>
-                  <li>Training</li>
-                  <li>Blog</li>
+                  <li><Link href="/">Home</Link></li>
+                  <li><Link href="/aboutus">About us</Link></li>
+                  <li><Link href="https://elevatrx.app">products</Link></li>
+                  <li><Link href="/courses">Training</Link></li>
+                  <li><Link href="/blogs">Blog</Link></li>
                 </ul>
               </div>
               <div>
                 <h2 className='font-semibold mb-4 text-lg'>Follow Us</h2>
                 <ul className='text-[#FFFFFF] space-y-3 text-sm'>
-                  <li>LinkedIn</li>
-                  <li>Facebook</li>
-                  <li>Twitter</li>
-                  <li>Instagram</li>
-                  <li>YouTube</li>
+                  <li><Link href="https://www.linkedin.com/company/qcsstudio">LinkedIn</Link></li>
+                  <li><Link href="https://www.facebook.com/qcsstudio">Facebook</Link></li>
+                  <li><Link href="https://www.instagram.com/qcsstudio/">Instagram</Link></li>
+                  <li><Link href="https://www.youtube.com/@QCS-IT">YouTube</Link></li>
                 </ul>
               </div>
             </div>
@@ -47,7 +45,9 @@ const Footer = () => {
                   <FaPhoneAlt size={12} className='text-[#F1813B] text-xl' />
                   <p className='font-semibold  text-xs text-[#FFA587] '>PHONE</p>
                 </div>
-                <p className='text-sm font-normal text-[#FFFFFF]'>+91 8264017346</p>
+                <Link href="tel:+91 8264017346">
+                  <p className='text-sm font-normal text-[#FFFFFF]'>+91 8264017346</p>
+                </Link>
               </div>
 
               <div className=' p-4'>
@@ -55,7 +55,9 @@ const Footer = () => {
                   <FaEnvelope size={12} className='text-[#F1813B] text-xl' />
                   <p className='font-semibold text-xs text-[#FFA587]'>EMAIL</p>
                 </div>
-                <p className='text-sm font-normal text-[#FFFFFF]'>info@qcsstudio.com</p>
+                <Link href="mailto:info@qcsstudio.com">
+                  <p className='text-sm font-normal text-[#FFFFFF]'>info@qcsstudio.com</p>
+                </Link>
               </div>
 
               <div className=' p-4'>
@@ -92,3 +94,12 @@ const Footer = () => {
 }
 
 export default Footer
+
+// < Link href = "mailto:info@qcsstudio.com" >
+//   Email: info @qcsstudio.com
+//                           </Link >
+//                       </p >
+// <p className="text-sm sm:text-base tracking-wide">
+//   <Link href="tel:+91 771-960-7776">
+//     Phone:<span className='font-montserrat'>+91 771-960-7776</span>
+//   </Link>
