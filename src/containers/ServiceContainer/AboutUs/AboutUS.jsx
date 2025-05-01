@@ -11,7 +11,7 @@ const members = [
   {
     name:"Sheetal Rani",
     image:"/images/Images/teammember2.png",
-    position:"HR",
+    position:"HR Manager",
     link:"https://www.linkedin.com/in/sheetal-rani-"
   },
   {
