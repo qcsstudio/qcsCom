@@ -11,12 +11,12 @@ const Navbar = ({ heading, para }) => {
   return (
     <>
       <nav className="w-full flex justify-between items-center py-4 px-4 md:px-8">
-     <Link href="/">
+        <Link href="/">
           <Image src='/images/Images/NavLogo.png' alt="logo" width={194.82} height={40} />
-     </Link>
+        </Link>
 
 
-        
+
         <div className="hidden md:flex space-x-10">
           <Link href="/services" className="hover:text-gray-400">Services</Link>
           <Link href="/courses" className="hover:text-gray-400">Courses</Link>
@@ -25,25 +25,27 @@ const Navbar = ({ heading, para }) => {
           <Link href="/contactus" className="hover:text-gray-400">Contact Us</Link>
         </div>
 
-        
+
         <div className="flex items-center md:hidden">
           <button onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <HiX className="text-white w-6 h-6" /> : <HiMenu className="text-white w-6 h-6" />}
           </button>
         </div>
 
-        
+
         <div className="hidden md:flex items-center space-x-4 gap-2">
           <div className="flex items-center text-white">
             <IoGlobeOutline className="w-5 h-5 me-1" />En
           </div>
-          <button className="border border-white px-4 py-1 rounded-md hover:bg-white hover:text-black">
-            Get a Quote
-          </button>
+          <Link href='/contactus' >
+            <button className="border border-white px-4 py-1 rounded-md hover:bg-white hover:text-black" >
+              Get a Quote
+            </button>
+          </Link>
         </div>
       </nav>
 
-      
+
       {menuOpen && (
         <div className="md:hidden flex flex-col items-center bg-black py-4 space-y-4 text-white">
           <Link href="/services">Services</Link>

@@ -1,6 +1,5 @@
 import { FaLinkedin, FaTimes } from "react-icons/fa";
 
-
 const AboutUs = () => {
   return (
     <div id="aboutus" className="max-w-6xl  mx-auto py-16 px-6 ">
@@ -24,7 +23,9 @@ const AboutUs = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {[1, 2, 3].map((_, index) => (
           <div key={index} className="bg-gray-100 rounded-lg p-1 text-center shadow-md">
-            <div className="w-full h-[352px] bg-gray-300 rounded-lg mb-4"></div>
+            <div className="w-full h-[352px] bg-gray-300 rounded-lg mb-4">
+              <img src="/images/Images/teammember1.jpg" className="w-full h-[352px] rounded-lg"/>
+            </div>
             <h3 className="font-semibold">Zephyr Callahan</h3>
             <p className="text-sm text-gray-500 mb-2">Lead Designer / Brand Strategist</p>
             <div className="flex justify-center gap-3 text-gray-700">
