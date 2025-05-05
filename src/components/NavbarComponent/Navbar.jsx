@@ -37,9 +37,11 @@ const Navbar = () => {
           <div className="flex items-center">
             <IoGlobeOutline className="w-5 h-5 me-1" />En
           </div>
-          <button className="border px-4 py-1 rounded-md hover:bg-white hover:text-black">
-            Get a Quote
-          </button>
+          <Link href='/contactus' >
+            <button className="border px-4 py-1 rounded-md hover:bg-white hover:text-black" >
+              Get a Quote
+            </button>
+          </Link>
         </div>
       </nav>
     </>
