@@ -47,19 +47,18 @@ const tabData = [
   },
 ];
 
-// Ek component jo tab ke content dikhata hai
+// Component to render content
 function TabPanel({ content }) {
   return (
     <div>
       {content.heading && <h2 className="text-xl font-bold mb-4">{content.heading}</h2>}
       {content.description && <p className="mb-4">{content.description}</p>}
 
-      {/* Agar list hai toh usko render karo */}
       {content.list && (
-        <ul className="pl-5 space-y-2 mb-4 ">
+        <ul className="pl-5 space-y-2 mb-4">
           {content.list.map((item, i) => (
             <li key={i}>
-              {item.text && <strong>{item.strong}</strong>}
+              {item.strong && <strong>{item.strong}</strong>}
               {item.text || item}
             </li>
           ))}
@@ -68,7 +67,6 @@ function TabPanel({ content }) {
 
       {content.subDescription && <p className="mb-4">{content.subDescription}</p>}
 
-      {/* Buttons */}
       {content.buttons && (
         <div className="flex gap-4">
           {content.buttons.map((btn, i) => (
@@ -89,40 +87,37 @@ function TabPanel({ content }) {
   );
 }
 
-// Main component
+// Main Component
 export default function Solutions() {
-  const [activeTab, setActiveTab] = useState(0); // Kon sa tab active hai
+  const [activeTab, setActiveTab] = useState(0);
 
   return (
     <div className="p-6 max-w-[80%] mx-auto">
-  {/* Tabs */}
-  <div className="flex space-x-4">
-    {tabData.map((tab, index) => (
-      
-      <button
-        key={index}
-        onClick={() => setActiveTab(index)}
-        className={`p-4 px-4 text-base font-medium ${
-          index !== tabData.length - 1 ? "border-r-2 border-black" : ""
-        } ${
-          activeTab === index
-            ? "bg-[#F1813B] rounded-t-xl text-white border-none"
-            : "text-[#000000] hover:text-[#F1813B]  border-black"
-        }`}
-      >
-        {tab.label}
-      </button>
-    ))}
-    
-  </div>
+      {/* Tabs */}
+      <div className="flex border-gray-200">
+        {tabData.map((tab, index) => (
+          <div key={index} className="flex items-center">
+            <button
+              onClick={() => setActiveTab(index)}
+              className={`p-4 px-4 text-base font-medium transition-all duration-200 ${
+                activeTab === index
+                  ? "bg-[#F1813B] text-white rounded-t-xl"
+                  : "text-[#000000] hover:text-[#F1813B]"
+              }`}
+            >
+              {tab.label}
+            </button>
+            
+            {index < tabData.length - 1 && (
+              <div className="h-8 border-r-2 border-gray-300 mx-2" />
+            )}
+          </div>
+        ))}
+      </div>
 
-
-
-      {/* Tab content box */}
-      <div className="bg-[#F5F7F9] rounded-xl  p-6 ">
+      <div className="bg-[#F5F7F9] rounded-lg p-6  relative">
         <div className="bg-gray-200 h-64 w-64 float-right rounded-xl"></div>
         <TabPanel content={tabData[activeTab].content} />
-
       </div>
     </div>
   );

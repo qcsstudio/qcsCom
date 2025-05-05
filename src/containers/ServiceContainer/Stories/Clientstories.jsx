@@ -92,8 +92,7 @@ const testimonials = [
   return (
     <>
       <h2 className="text-3xl lg:mt-10 sm:text-5xl w-full sm:w-[70%] mx-auto font-bold text-center">
-        Hear Stories <span></span>Straight From
-        the People We Helped
+      Success Stories: Real Results, Real Impact
       </h2>
     <div className="w-[85%] mx-auto  text-center mb-16">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
