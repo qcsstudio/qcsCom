@@ -95,11 +95,3 @@ const Footer = () => {
 
 export default Footer
 
-// < Link href = "mailto:info@qcsstudio.com" >
-//   Email: info @qcsstudio.com
-//                           </Link >
-//                       </p >
-// <p className="text-sm sm:text-base tracking-wide">
-//   <Link href="tel:+91 771-960-7776">
-//     Phone:<span className='font-montserrat'>+91 771-960-7776</span>
-//   </Link>

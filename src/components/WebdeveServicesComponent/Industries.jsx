@@ -32,16 +32,16 @@ const Industries = ({heading,Data}) => {
         >
           {Data.map((benefit, index) => (
             <SwiperSlide key={index} className="flex items-center justify-center">
-              <div className="bg-[#F5F7F9] rounded-lg p-4  flex flex-col sm:justify-between">
+              <div className="bg-[#F5F7F9] rounded-lg p-4 h-[420px] flex flex-col sm:justify-between">
                 <div>
-                  <h3 className="font-semibold text-lg md:text-2xl mb-2">{benefit.title}</h3>
-                  <p className="text-gray-600 text-base md:text-xl  font-medium ">
-                    {benefit.description}
-                  </p>
+                  <h3 className="font-semibold text-lg md:text-2xl ">{benefit.title}</h3>
+                  
                 </div>
                 <img
                   src={benefit.image}
                   alt={benefit.title}
+                  width={295}
+                  height={317}
                   
                 />
               </div>
