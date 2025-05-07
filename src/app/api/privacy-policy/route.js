@@ -27,3 +27,4 @@ export async function GET(req) {
     return NextResponse.json({ message: "Policy Fetch Error" }, { status: 500 });
   }
 }
+ 

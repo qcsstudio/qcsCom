@@ -120,3 +120,34 @@ export const WebBenifitsData3 = [
       image:"/images/Images/swiper3.png"
     },
   ]
+  export const webIndustries = [
+    {
+      title:"SaaS & Product Startups",
+      image:"/images/Images/Webindustry.png"
+    },
+    {
+      title:"E-Commerce, Retail & D2C Brands",
+      image:"/images/Images/Webindustry2.png"
+    },
+    {
+      title:"FinTech & InsurTech",
+      image:"/images/Images/Webindustry3.png"
+    },
+    {
+      title:"HealthTech & Clinical SaaS",
+      image:"/images/Images/Webindustry4.png"
+    },
+    {
+      title:"Real Estate, Media & Publishing Platforms",
+      image:"/images/Images/Webindustry5.png"
+    },
+    {
+      title:"Event Management & Booking SystemsSaaS Startups",
+      image:"/images/Images/Webindustry6.png"
+    },
+    {
+      title:"EdTech & Learning Platforms",
+      image:"/images/Images/Webindustry7.png"
+    },
+    
+  ]
