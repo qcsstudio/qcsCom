@@ -7,12 +7,14 @@ import NavbarContainer from '@/containers/ServiceContainer/NavbarContainer/Navba
 import ClientStories from '@/containers/ServiceContainer/Stories/Clientstories'
 import React from 'react'
 import FormComponent from '@/components/MainComponent/FormComponent'
+import SEO from '@/components/SEO/Seo'
 
 
 const page = () => {
 
   return (
     <>
+    <SEO/>
       <NavbarContainer data={{heading:"Automate Your Business. Scale with Smart SaaS. Achieve Career Excellence",
         para:"QuantumCrafters Studio is your partner in digital transformation powering businesses with AI-driven IT solutions",
         buttons:[{text:"Reach out to Expert Now",link:"#",color:"#F1813B"},]}}/>
