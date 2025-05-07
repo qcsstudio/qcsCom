@@ -8,25 +8,25 @@ import { Grid, Pagination, Autoplay } from "swiper/modules";
 
 const testimonials = [
   {
-    name: "Omkar",
-    title: "Backend Developer",
+    name: "Callum Yates",
+    title: "CO-FOUNDER, DRIFTWOOD MEDIA",
     quote:
-      "I was initially hesitant about backend development, but joining QCS as a Backend Intern has been a game-changer. The hands-on experience and real-world projects have boosted my skills and confidence. I'm excited about the growth opportunities",
-    image: "https://www.qcsstudio.in/_next/static/media/Omkar.d01374a0.png",
+      "Our brand went from a whisper to a roar. The team's creativity and expertise made all the difference. We're getting noticed like never before!",
+    image: "/images/Images/client4.png",
   },
   {
-    name: "Navjot Kaur",
-    title: "Frontend Developer",
+    name: "Jasper Lowell",
+    title: "CEO, COPPERLEAF ENTERPRISES",
     quote:
-      "Starting my journey as a Frontend Developer Intern at QCS has been an incredible experience. Working on real projects has sharpened my skills and given me the confidence to create intuitive and engaging user interfaces. Excited to keep learning and growing here!",
-    image: "https://www.qcsstudio.in/_next/static/media/Navjot.db611c2c.png",
+      "Our online presence went from zero to hero in no time. The team made the process so seamless, I almost forgot I was working on a big project!",
+    image: "/images/Images/client5.png",
   },
   {
-    name: "Arshdeep Singh",
-    title: "Frontend Developer",
+    name: "Jasper Lowell",
+    title: "BRAND MANAGER, STELLAR BLOOM STUDIO",
     quote:
-      "Joining QCS as a Frontend Developer Intern has been a game-changer. The exposure to real-world projects and guidance from the team have helped me level up my skills and build confidence in my work. Looking forward to more exciting challenges ahead!",
-    image: "https://www.qcsstudio.in/_next/static/media/Arsh.88b04670.png",
+      "They made us feel like their most important client. The attention to detail, quick responses, and innovative ideas were top-notch. We'll definitely be back for more!",
+    image: "/images/Images/client6.png",
   },
   {
     name: "Tobias Green",
@@ -50,6 +50,28 @@ const testimonials = [
     image: "/images/Images/client3.png",
   },
   {
+    name: "Omkar",
+    title: "Backend Developer",
+    quote:
+      "I was initially hesitant about backend development, but joining QCS as a Backend Intern has been a game-changer. The hands-on experience and real-world projects have boosted my skills and confidence. I'm excited about the growth opportunities",
+    image: "https://www.qcsstudio.in/_next/static/media/Omkar.d01374a0.png",
+  },
+  {
+    name: "Navjot Kaur",
+    title: "Frontend Developer",
+    quote:
+      "Starting my journey as a Frontend Developer Intern at QCS has been an incredible experience. Working on real projects has sharpened my skills and given me the confidence to create intuitive and engaging user interfaces. Excited to keep learning and growing here!",
+    image: "https://www.qcsstudio.in/_next/static/media/Navjot.db611c2c.png",
+  },
+  {
+    name: "Arshdeep Singh",
+    title: "Frontend Developer",
+    quote:
+      "Joining QCS as a Frontend Developer Intern has been a game-changer. The exposure to real-world projects and guidance from the team have helped me level up my skills and build confidence in my work. Looking forward to more exciting challenges ahead!",
+    image: "https://www.qcsstudio.in/_next/static/media/Arsh.88b04670.png",
+  },
+  
+  {
     name: "Vishal Verma",
     title: "Frontend Developer",
     quote:
@@ -70,33 +92,14 @@ const testimonials = [
       "I hesitated to switch careers, but QCS made the transition seamless. The program gave me the practical experience and portfolio I needed to land a UI/UX design role at a top company.",
     image: "https://www.qcsstudio.in/_next/static/media/Stu2.b57b14e1.png",
   },
-  {
-    name: "Callum Yates",
-    title: "CO-FOUNDER, DRIFTWOOD MEDIA",
-    quote:
-      "Our brand went from a whisper to a roar. The team's creativity and expertise made all the difference. We're getting noticed like never before!",
-    image: "/images/Images/client4.png",
-  },
-  {
-    name: "Jasper Lowell",
-    title: "CEO, COPPERLEAF ENTERPRISES",
-    quote:
-      "Our online presence went from zero to hero in no time. The team made the process so seamless, I almost forgot I was working on a big project!",
-    image: "/images/Images/client5.png",
-  },
-  {
-    name: "Jasper Lowell",
-    title: "BRAND MANAGER, STELLAR BLOOM STUDIO",
-    quote:
-      "They made us feel like their most important client. The attention to detail, quick responses, and innovative ideas were top-notch. We'll definitely be back for more!",
-    image: "/images/Images/client6.png",
-  },
+ 
 ];
 
 
 const ClientStories = () => {
   return (
     <>
+    
       <h2 className="text-3xl lg:mt-10 sm:text-5xl w-full sm:w-[70%] mx-auto font-bold text-center">
         Success Stories: Real Results, Real Impact
       </h2>

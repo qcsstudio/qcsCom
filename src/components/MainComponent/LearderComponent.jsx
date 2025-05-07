@@ -81,7 +81,7 @@ export default function LeaderComponent() {
 
   return (
     <>
-      <h2 className="text-3xl font-bold text-center mb-10">Trusted by Industry Leaders</h2>
+      <h2 className="text-5xl font-bold text-center mt-10 my-5">Trusted by Industry Leaders</h2>
      
       <div className=" p-3 w-[80%]   mx-auto rounded-xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

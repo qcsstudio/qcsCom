@@ -17,7 +17,7 @@ const Navbar = ({ heading, para }) => {
 
 
 
-        <div className="hidden md:flex space-x-10">
+        <div className="hidden md:flex space-x-11 text-[17px]">
           <Link href="/services" className="hover:text-gray-400">Services</Link>
           <Link href="/courses" className="hover:text-gray-400">Courses</Link>
           <Link href="/aboutus" className="hover:text-gray-400">About Us</Link>
@@ -63,7 +63,7 @@ const Navbar = ({ heading, para }) => {
       )}
 
       <div className="text-center py-1 md:py-4 px-5  mt-10 sm:mt-24 md:mt-20">
-        <h1 className="text-2xl md:text-5xl font-bold">{heading}</h1>
+        <h1 className="text-2xl md:text-[61px] font-bold">{heading}</h1>
         <p className="text-[#FFFFFF] text-sm md:text-2xl mt-4 max-w-4xl mx-auto">{para}</p>
       </div>
     </>

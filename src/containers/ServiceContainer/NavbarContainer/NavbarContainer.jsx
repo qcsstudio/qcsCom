@@ -4,7 +4,7 @@ import Button from "@/components/serviceComponents/NavbarComponent/NavButton";
 const NavbarContainer = ({data}) => {
   const {buttons} = data
   return (
-    <div className="w-[98%] rounded-xl mt-4 mx-auto bg-black text-white flex flex-col items-center justify-center py-6 px-4">
+    <div className="w-[98%] h-[603px] rounded-xl mt-4 mx-auto bg-black text-white flex flex-col   px-4">
       <Navbar
         heading={data.heading}
         para={data.para}
