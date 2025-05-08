@@ -1,4 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<sitemap><loc>https://www.qcsstudio.com/sitemap-0.xml</loc></sitemap>
-</sitemapindex>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://www.qcsstudio.com/</loc>
+  <lastmod>2025-05-08T06:35:53+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.qcsstudio.com/services</loc>
+  <lastmod>2025-05-08T06:35:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.qcsstudio.com/courses</loc>
+  <lastmod>2025-05-08T06:35:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.qcsstudio.com/aboutus</loc>
+  <lastmod>2025-05-08T06:35:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.qcsstudio.com/blogs</loc>
+  <lastmod>2025-05-08T06:35:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.qcsstudio.com/contactus</loc>
+  <lastmod>2025-05-08T06:35:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.qcsstudio.com/policy</loc>
+  <lastmod>2025-05-08T06:35:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.qcsstudio.com/webdevelopmentservice</loc>
+  <lastmod>2025-05-08T06:35:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.qcsstudio.com/uiuxservice</loc>
+  <lastmod>2025-05-08T06:35:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.qcsstudio.com/webdevcourse</loc>
+  <lastmod>2025-05-08T06:35:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.qcsstudio.com/eduservice</loc>
+  <lastmod>2025-05-08T06:35:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.qcsstudio.com/digitalmarketingcourse</loc>
+  <lastmod>2025-05-08T06:35:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.qcsstudio.com/aicourse</loc>
+  <lastmod>2025-05-08T06:35:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.qcsstudio.com/dataanalyticscourse</loc>
+  <lastmod>2025-05-08T06:35:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>

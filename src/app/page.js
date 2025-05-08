@@ -5,26 +5,26 @@ import Head from 'next/head';
 const page = () => {
   const schemaData = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "Company",
     "name": "QuantumCrafters Studio", 
     "url": "https://qcsstudio.com",  
-    "logo": "https://qcsstudio.com/Qcslogo.png",  // Replace with your logo URL (optional)
+    "logo": "https://qcsstudio.com/images/Images/Qcslogo.png",  
     "sameAs": [
-      "https://www.linkedin.com/company/quantumcraftersstudio",  // Replace with your social profiles
-      "https://www.instagram.com/quantumcraftersstudio"
+      "https://www.linkedin.com/company/qcsstudio", 
+      "https://www.instagram.com/qcsstudio"
     ],
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+1-800-123-4567",  // Replace with your phone number
+      "telephone": "+91 8264017346",  
       "contactType": "Customer Service",
       "areaServed": "IN",
       "availableLanguage": "English"
     },
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "123 Studio Lane",  // Replace with your office address
-      "addressLocality": "Delhi",
-      "postalCode": "110001",
+      "streetAddress": "Prosperity Arcade, D-229, Industrial Area, Sector 74, Sahibzada Ajit Singh Nagar, Punjab 160071",  // Replace with your office address
+      "addressLocality": "Mohali",
+      "postalCode": "140307",
       "addressCountry": "IN"
     }
   };
@@ -35,7 +35,7 @@ const page = () => {
         <title>Canonical Tag Example</title>
         <link
           rel="canonical"
-          href="https://qcsstudio.com"  // Replace with your URL
+          href="https://qcsstudio.com" 
           key="canonical"
         />
         <script
