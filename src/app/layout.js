@@ -30,9 +30,22 @@ export const metadata  = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={syne.variable}>
-      
-      <body className={`${syne.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <PolicyProvider>{children}</PolicyProvider>
+       <head>
+        {/* Google Analytics Script */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGNFYNFQQ2"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-TGNFYNFQQ2');
+            `,
+          }}
+        />
+      </head>
+      <body className={`${syne.variable} ${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
+      <PolicyProvider>{children}</PolicyProvider>
       </body>
     </html>
   );

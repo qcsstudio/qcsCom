@@ -13,6 +13,7 @@ export default {
           foreground: "var(--foreground)",
         },
         fontFamily: {
+          sans: ["var(--font-syne)", "sans-serif"], // Default sans ko override karo
           syne: ["var(--font-syne)", "sans-serif"],
           nats: ["NATS", "sans-serif"], 
           montserrat: ["var(--font-montserrat)", "sans-serif"],
