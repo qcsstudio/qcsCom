@@ -1,6 +1,6 @@
 import React from 'react'
 import { HiOutlineArrowRight } from "react-icons/hi";
-import './Moment.css';
+// import './Moment.css';
 import Image from 'next/image';
 
 const cards = [

@@ -9,7 +9,7 @@ const OurStory = () => {
         <div className="bg-gray-50 rounded-xl p-6 sm:flex sm:gap-6">
           {/* Left Text Content */}
           <div className="sm:w-2/3 text-[#000000] text-xl space-y-4">
-            <p>
+            {/* <p>
               At <strong>QuantumCrafters Studio</strong>, we're not just
               building technology—we're crafting stories of transformation. We
               began with a simple belief:{" "}
@@ -29,6 +29,8 @@ const OurStory = () => {
             <p>
               We turned frustration into fuel, and QuantumCrafters was born to
               bridge education, innovation, and business impact.
+            </p> */}
+            <p><span className="font-medium">QuantumCrafters Studio</span> was founded with a purpose—to bridge the widening gap between education and employability, between what students learn and what businesses truly need. It all began when our founder, while mentoring aspiring tech professionals, noticed a recurring issue: students were equipped with theoretical knowledge but lacked hands-on industry skills, and startups lacked smart, affordable digital solutions. What started as a mentorship initiative quickly evolved into a full-fledged mission to empower businesses with AI-powered tools and prepare the next generation of tech talent through real-world training. From a single vision, QuantumCrafters has grown into a trusted name in IT services, SaaS product development, and career-focused training across India.
             </p>
           </div>
 

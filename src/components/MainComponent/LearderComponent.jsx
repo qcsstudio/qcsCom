@@ -4,14 +4,14 @@ import React, { useState, useEffect, useRef } from 'react';
 const testimonials = [
   {
     id: 2,
-    name: 'Thaddeus Montgomery',
+    name: 'QuantamCrafters Studio',
     title: 'OWNER, GOLDGARDEN',
     videoType: 'youtube',
     videoUrl: 'https://www.youtube.com/embed/IN15BAYqY8I?enablejsapi=1'
   },
   {
     id: 1,
-    name: 'Magnus Hawthorne',
+    name: 'ElevatrX',
     title: 'OWNER, BAYLEAF',
     videoType: 'youtube',
     videoUrl: 'https://www.youtube.com/embed/3491mfemOIo?enablejsapi=1'
