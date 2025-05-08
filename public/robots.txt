@@ -1,0 +1,6 @@
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Host: https://www.qcsstudio.com
+Sitemap: https://www.qcsstudio.com/sitemap.xml
