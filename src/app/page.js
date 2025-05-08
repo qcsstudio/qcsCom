@@ -8,7 +8,7 @@ const page = () => {
     "@type": "Company",
     "name": "QuantumCrafters Studio", 
     "url": "https://qcsstudio.com",  
-    "logo": "https://qcsstudio.com/images/Images/Qcslogo.png",  
+    "logo": "https://qcsstudio.com/favicon.ico",  
     "sameAs": [
       "https://www.linkedin.com/company/qcsstudio", 
       "https://www.instagram.com/qcsstudio"

@@ -1,6 +1,13 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import { Syne } from "next/font/google";
 import "./globals.css";
 import { PolicyProvider } from "@/context/policyContext";
+
+const syne = Syne({
+  variable: "--font-syne",
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,9 +29,9 @@ export const metadata  = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={syne.variable}>
       
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${syne.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}>
         <PolicyProvider>{children}</PolicyProvider>
       </body>
     </html>
