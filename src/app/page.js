@@ -2,27 +2,27 @@ import React from 'react';
 import Homepage from '@/containers/MainContainer/Homepage';
 import Head from 'next/head';
 
-const page = () => {
+const Page = () => {
   const schemaData = {
     "@context": "https://schema.org",
-    "@type": "Company",
-    "name": "QuantumCrafters Studio", 
-    "url": "https://qcsstudio.com",  
-    "logo": "https://qcsstudio.com/favicon.ico",  
+    "@type": "Organization",
+    "name": "QuantumCrafters Studio",
+    "url": "https://qcsstudio.com",
+    "logo": "https://qcsstudio.com/favicon.ico",
     "sameAs": [
-      "https://www.linkedin.com/company/qcsstudio", 
+      "https://www.linkedin.com/company/qcsstudio",
       "https://www.instagram.com/qcsstudio"
     ],
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+91 8264017346",  
+      "telephone": "+91 8264017346",
       "contactType": "Customer Service",
       "areaServed": "IN",
-      "availableLanguage": "English"
+      "availableLanguage": ["English", "Hindi"]
     },
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Prosperity Arcade, D-229, Industrial Area, Sector 74, Sahibzada Ajit Singh Nagar, Punjab 160071",  // Replace with your office address
+      "streetAddress": "Prosperity Arcade, D-229, Industrial Area, Sector 74, Sahibzada Ajit Singh Nagar, Punjab 160071",
       "addressLocality": "Mohali",
       "postalCode": "140307",
       "addressCountry": "IN"
@@ -32,10 +32,10 @@ const page = () => {
   return (
     <>
       <Head>
-        <title>Canonical Tag Example</title>
+        <title>QuantumCrafters Studio - AI & SaaS Solutions</title>
         <link
           rel="canonical"
-          href="https://qcsstudio.com" 
+          href="https://qcsstudio.com/"
           key="canonical"
         />
         <script
@@ -43,10 +43,9 @@ const page = () => {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
       </Head>
-      
       <Homepage />
     </>
   );
 };
 
-export default page;
+export default Page;
