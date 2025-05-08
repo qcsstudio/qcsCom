@@ -30,7 +30,7 @@ const Footer = () => {
                 <ul className='text-[#FFFFFF] space-y-3 text-sm'>
                   <li><Link href="https://www.linkedin.com/company/qcsstudio">LinkedIn</Link></li>
                   <li><Link href="https://www.facebook.com/qcsstudio">Facebook</Link></li>
-                  <li><Link href="https://www.instagram.com/qcsstudio/">Instagram</Link></li>
+                  <li><Link href="https://www.instagram.com/qcsstudio">Instagram</Link></li>
                   <li><Link href="https://www.youtube.com/@QCS-IT">YouTube</Link></li>
                 </ul>
               </div>
