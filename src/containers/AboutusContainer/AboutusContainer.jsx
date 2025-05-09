@@ -7,6 +7,7 @@ import Ourstory from '@/components/AboutusComponent/OurStory'
 import OurValues from '@/components/AboutusComponent/OurValues'
 import Moments from '@/components/AboutusComponent/Moments'
 import VisionMissionCards from '@/components/AboutusComponent/VisionMissionCards'
+import AboutUs from '../ServiceContainer/AboutUs/AboutUS'
 
 const AboutusContainer = () => {
     return (
@@ -19,9 +20,10 @@ const AboutusContainer = () => {
             <VisionMissionCards/>
             <OurValues/>
             <Moments/>
-            <Form
+            <AboutUs />
+            {/* <Form
                 heading="Let's Co-Create the Future"
-                desc="Whether you're a student looking to stand out, a college seeking industry-edge partnerships, or a business ready for AI-powered growth QuantumCrafters is your tribe." />
+                desc="Whether you're a student looking to stand out, a college seeking industry-edge partnerships, or a business ready for AI-powered growth QuantumCrafters is your tribe." /> */}
             <NewsletterSignup />
             <Footer />
         </>
