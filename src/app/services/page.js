@@ -21,6 +21,7 @@ import { ServiceFaq } from '@/containers/ServiceContainer/Questions/faqsData'
 import { challenges, solutions } from '@/containers/ServiceContainer/OurDifferences/DifferencesData'
 import { services } from '@/components/serviceComponents/ServicesComponent/ListCompData'
 import { ServiceCardData, ServiceLinkData } from '@/components/serviceComponents/ServicesComponent/CardData'
+import Overview from '@/components/serviceComponents/OverviewComponent/Overview'
 
 export const metadata = {
   title: " AI-Powered IT & SaaS Development Services in Mohali | QuantumCrafters",
@@ -35,6 +36,7 @@ const page = () => {
         para: "Transform your business operations through strategic automation, advanced machine learning, and personalized AI consulting.",
         buttons: [{ text: "Get Started", link: "#", color: "#F1813B", border: "none" }, { text: "Explore Services", link: "#", color: "transparent", border: "1px solid gray" }]
       }} />
+      <Overview/>
       <ServicesContainer listData={services} ServiceCardData={ServiceCardData} links={ServiceLinkData} />
       <Benifits heading="See why partnering with us is the smartest move."
         BenefitsData={benefits}
