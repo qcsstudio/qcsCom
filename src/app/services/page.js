@@ -20,29 +20,36 @@ import { steps } from '@/containers/ServiceContainer/WorkProcess/WorkProcessData
 import { ServiceFaq } from '@/containers/ServiceContainer/Questions/faqsData'
 import { challenges, solutions } from '@/containers/ServiceContainer/OurDifferences/DifferencesData'
 import { services } from '@/components/serviceComponents/ServicesComponent/ListCompData'
-import {  ServiceCardData, ServiceLinkData } from '@/components/serviceComponents/ServicesComponent/CardData'
+import { ServiceCardData, ServiceLinkData } from '@/components/serviceComponents/ServicesComponent/CardData'
 
+export const metadata = {
+  title: " AI-Powered IT & SaaS Development Services in Mohali | QuantumCrafters",
+  description: "  Discover reliable IT solutions and custom SaaS development at QuantumCrafters—Mohali's go-to tech partner for cutting-edge digital innovation and scalable growth.",
+};
 
 const page = () => {
   return (
     <>
-      <NavbarContainer data={{heading:"Unlock Growth with Next-Gen AI & Automation Solutions",
-        para:"Transform your business operations through strategic automation, advanced machine learning, and personalized AI consulting.",
-        buttons:[{text:"Get Started",link:"#",color:"#F1813B",border:"none"},{text:"Explore Services",link:"#",color:"transparent",border:"1px solid gray"}]}}/>
-      <Images />
-      <BrandsContainer />
-      <Benifits  heading="See why partnering with us is the smartest move."
+      <NavbarContainer data={{
+        heading: "Unlock Growth with Next-Gen AI & Automation Solutions",
+        para: "Transform your business operations through strategic automation, advanced machine learning, and personalized AI consulting.",
+        buttons: [{ text: "Get Started", link: "#", color: "#F1813B", border: "none" }, { text: "Explore Services", link: "#", color: "transparent", border: "1px solid gray" }]
+      }} />
+      <ServicesContainer listData={services} ServiceCardData={ServiceCardData} links={ServiceLinkData} />
+      <Benifits heading="See why partnering with us is the smartest move."
         BenefitsData={benefits}
       />
-      <Slider images={ImagesSlide}/>
-      <ServicesContainer listData={services}  ServiceCardData={ServiceCardData} links ={ServiceLinkData} />
+      <Slider images={ImagesSlide} />
+      <BrandsContainer />
+      <Images />
+
       <WorkProcess steps={steps} />
       <Differences title="Business Challenges & Innovative Solutions" heading="Common Challenges Businesses Face:"
-      heading2="QuantumCrafters' Cutting-Edge Solutions:" challenges={challenges} solutions={solutions}  bgcolor="#F5F7F9" bgcolor2="black" textColor="black"
-       textColor2="white" iconcolor="gray" iconcolor2="#F1813B"/>
+        heading2="QuantumCrafters' Cutting-Edge Solutions:" challenges={challenges} solutions={solutions} bgcolor="#F5F7F9" bgcolor2="black" textColor="black"
+        textColor2="white" iconcolor="gray" iconcolor2="#F1813B" />
       <ClientStories />
-      <LeaderComponent/>
-      <Questions questions={ServiceFaq}/>
+      <LeaderComponent />
+      <Questions questions={ServiceFaq} />
       {/* <AboutUs /> */}
       <Form heading="Need a custom quote?" desc="Don't let your ideas sit idle—slide
         into our inbox and let's make magic!"/>
