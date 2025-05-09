@@ -43,7 +43,7 @@ const page = () => {
       <ClientStories />
       <LeaderComponent/>
       <Questions questions={ServiceFaq}/>
-      <AboutUs />
+      {/* <AboutUs /> */}
       <Form heading="Need a custom quote?" desc="Don't let your ideas sit idle—slide
         into our inbox and let's make magic!"/>
       <ContactSection />
