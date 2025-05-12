@@ -1,6 +1,9 @@
-
+# *
 User-agent: *
 Allow: /
-Disallow: /admin/
+
+# Host
 Host: https://www.qcsstudio.com
+
+# Sitemaps
 Sitemap: https://www.qcsstudio.com/sitemap.xml
