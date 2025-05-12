@@ -13,7 +13,6 @@ const Page = () => {
       "https://www.linkedin.com/company/qcsstudio",
       "https://www.instagram.com/qcsstudio"
     ],
-    
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+91 8264017346",
