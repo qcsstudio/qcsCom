@@ -1,12 +1,32 @@
+'use client'
 import Link from 'next/link';
 import React from 'react';
+import { motion } from 'framer-motion';
+import { child, container } from '@/components/Animation/Animation';
 
+// className="text-2xl md:text-3xl font-bold text-[#0F0F0F] mb-2"
 const Cardscroll = ({ card, link }) => {
   const { services } = card;
 
   return (
     <div className="p-6 rounded-2xl shadow-lg bg-[#F5F7F9]">
-      <h2 className="text-2xl md:text-3xl font-bold text-[#0F0F0F] mb-2">{card.heading}</h2>
+    <motion.h2
+        className="text-2xl md:text-3xl font-bold text-[#0F0F0F] mb-2 flex flex-wrap"
+        variants={container}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        {card.heading.split(' ').map((word, index) => (
+          <motion.span
+            key={index}
+            variants={child}
+            className="inline-block mr-2"  // 'mr-2' adds margin-right between words
+          >
+            {word}
+          </motion.span>
+        ))}
+      </motion.h2>
       <p className="text-[#0F0F0F] text-sm font-medium mb-4">{card.desc}</p>
       <div className="flex flex-wrap gap-2 mb-4">
         {services?.map((service, index) => (

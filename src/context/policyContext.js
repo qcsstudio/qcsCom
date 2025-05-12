@@ -1,6 +1,6 @@
 
 "use client"
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useState } from 'react';
 
 export const PolicyContext = createContext();
 
@@ -17,18 +17,18 @@ export const PolicyProvider = ({ children }) => {
       const data = await res.json();
       console.log("Fetched data:", data);
 
-      // Check if the response has the expected data structure
+     
       if (data && data.data) {
-        setPolicyData(data.data.data); // Set the data if it's available
+        setPolicyData(data.data.data); 
       } else {
         console.error("No data found in the response.");
-        setPolicyData([]); // If no data, set empty array
+        setPolicyData([]); 
       }
     } catch (err) {
       console.error("Error fetching policies:", err);
-      setPolicyData([]); // In case of error, set empty data
+      setPolicyData([]);
     } finally {
-      setLoading(false); // Once data is fetched, stop loading
+      setLoading(false); 
     }
   };
 
