@@ -11,7 +11,6 @@ export async function GET(req) {
         { status: 400 }
       );
     }
-
     const response = await fetch(`https://www.qcsstudio.in/api/admin/Policies?type=${type}`);
     const data = await response.json();
 
