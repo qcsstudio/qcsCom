@@ -44,7 +44,6 @@ const page = () => {
       <Slider images={ImagesSlide} />
       <BrandsContainer />
       <Images />
-
       <WorkProcess steps={steps} />
       <Differences title="Business Challenges & Innovative Solutions" heading="Common Challenges Businesses Face:"
         heading2="QuantumCrafters' Cutting-Edge Solutions:" challenges={challenges} solutions={solutions} bgcolor="#F5F7F9" bgcolor2="black" textColor="black"

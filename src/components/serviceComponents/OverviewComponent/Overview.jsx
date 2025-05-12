@@ -1,24 +1,33 @@
-import React from 'react'
+'use client'
+import React from 'react';
+import { motion } from "framer-motion";
+import { fadeInVariant } from '../../Animation/Animation';
+
+
 
 const Overview = () => {
   return (
-   <>
-    <div className=' mt-10 bg-[#F5F7F9] rounded-xl  p-20 font-sans'>
-        <h3 className='text-3xl font-bold  text-[#F1813B] font-syne'>Overview 
-        </h3>
-        <p className=' text-xl font-normal mt-3 text-[#00000]'>At QuantumCrafters Studio, we specialize in
-             cutting-edge AI-driven solutions, custom SaaS development, and digital marketing strategies that
-              help startups and enterprises scale faster. Whether you're looking to automate workflows, build
-               next-gen web platforms, or boost your online visibility, our result-oriented services are
-               tailored to maximize ROI and future-proof your business. Let's transform ideas into impact —
-                with innovation, speed, and smart execution.
+    <>
+      <div className=' mt-10 bg-[#F5F7F9] rounded-xl  p-20 font-sans'>
+        <motion.h3
+          variants={fadeInVariant}
+          initial="hidden"
+          animate="visible"
+          className='text-3xl font-bold  text-[#F1813B] font-syne'>Overview
+        </motion.h3>
+        <p className=' text-xl font-normal mt-8 text-[#00000]'>At QuantumCrafters Studio, we specialize in
+          cutting-edge AI-driven solutions, custom SaaS development, and digital marketing strategies that
+          help startups and enterprises scale faster. Whether you're looking to automate workflows, build
+          next-gen web platforms, or boost your online visibility, our result-oriented services are
+          tailored to maximize ROI and future-proof your business. Let's transform ideas into impact —
+          with innovation, speed, and smart execution.
 
         </p>
-        
-    </div>
-    
-   </>
+
+      </div>
+
+    </>
   )
 }
 
-export default Overview
+export default Overview;

@@ -1,6 +1,8 @@
 'use client';
 import { PolicyContext } from '@/context/policyContext';
 import { useState, useEffect, useContext } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation'; // ✅ Import hooks
+import Link from 'next/link';
 
 const policyTypes = [
   { key: 'privacy_policy', label: 'Privacy Policy' },
@@ -13,26 +15,35 @@ const policyTypes = [
 ];
 
 export default function PolicyContainer() {
-  const { fetchPolicies, policyData, loading } = useContext(PolicyContext);
-  const [activePolicy, setActivePolicy] = useState('privacy_policy');
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
+  const { fetchPolicies, policyData, loading } = useContext(PolicyContext);
+
+  // ✅ Get default type from URL
+  const initialType = searchParams.get('type') || 'terms_service';
+  const [activePolicy, setActivePolicy] = useState(initialType);
+
+  // ✅ Fetch data on type change
   useEffect(() => {
     fetchPolicies(activePolicy);
+    // Update URL without reloading the page
+    router.push(`?type=${activePolicy}`);
   }, [activePolicy]);
 
   return (
     <div className="w-[95%] mx-auto px-4 py-8 bg-white text-gray-800">
-      <div className="bg-black text-white py-8 px-6 mb-8 rounded-xl ">
-        <h1 className="text-4xl font-bold text-center capitalize">{activePolicy.replace(/_/g, ' ')}</h1>
+      <div className="bg-black text-white py-8 px-6 mb-8 rounded-xl">
+        <h1 className="text-4xl font-bold text-center capitalize">
+          {activePolicy.replace(/_/g, ' ')}
+        </h1>
       </div>
-
-     
 
       {loading ? (
         <div className="text-center py-4">Loading...</div>
       ) : policyData.length > 0 ? (
         policyData.map((item, index) => (
-          <div key={index} className=" py-4">
+          <div key={index} className="py-4">
             <div dangerouslySetInnerHTML={{ __html: item.description }} />
           </div>
         ))
@@ -40,15 +51,14 @@ export default function PolicyContainer() {
         <div className="text-center py-4">No policies available</div>
       )}
 
-       {/* Buttons to switch policies */}
-       <div className="flex  gap-4 mb-8 flex-wrap">
+      <div className="flex gap-4 mb-8 flex-wrap">
         {policyTypes.map((type) => (
           <button
             key={type.key}
+            onClick={() => setActivePolicy(type.key)}
             className={`px-4 py-2 rounded ${
               activePolicy === type.key ? 'bg-[#ec6b1a] text-white' : 'bg-[#F1813B] text-white'
             }`}
-            onClick={() => setActivePolicy(type.key)}
           >
             {type.label}
           </button>
