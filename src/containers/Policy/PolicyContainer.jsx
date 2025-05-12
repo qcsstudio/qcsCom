@@ -1,8 +1,7 @@
 'use client';
 import { PolicyContext } from '@/context/policyContext';
 import { useState, useEffect, useContext } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation'; // ✅ Import hooks
-import Link from 'next/link';
+import { useRouter, useSearchParams } from 'next/navigation'; 
 
 const policyTypes = [
   { key: 'privacy_policy', label: 'Privacy Policy' },
@@ -20,14 +19,13 @@ export default function PolicyContainer() {
 
   const { fetchPolicies, policyData, loading } = useContext(PolicyContext);
 
-  // ✅ Get default type from URL
+  
   const initialType = searchParams.get('type') || 'terms_service';
   const [activePolicy, setActivePolicy] = useState(initialType);
 
-  // ✅ Fetch data on type change
+  
   useEffect(() => {
     fetchPolicies(activePolicy);
-    // Update URL without reloading the page
     router.push(`?type=${activePolicy}`);
   }, [activePolicy]);
 
