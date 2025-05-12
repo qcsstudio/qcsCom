@@ -1,5 +1,4 @@
-
-"use client"
+'use client';
 import React, { createContext, useState } from 'react';
 
 export const PolicyContext = createContext();
@@ -10,25 +9,19 @@ export const PolicyProvider = ({ children }) => {
 
   const fetchPolicies = async (type) => {
     setLoading(true);
-    const url = `/api/privacy-policy?type=${type}`; 
-
     try {
-      const res = await fetch(url);
+      const res = await fetch(`/api/privacy-policy?type=${type}`);
       const data = await res.json();
-      console.log("Fetched data:", data);
-
-     
       if (data && data.data) {
-        setPolicyData(data.data.data); 
+        setPolicyData(data.data.data);
       } else {
-        console.error("No data found in the response.");
-        setPolicyData([]); 
+        setPolicyData([]);
       }
     } catch (err) {
-      console.error("Error fetching policies:", err);
+      console.error('Error fetching policies:', err);
       setPolicyData([]);
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 

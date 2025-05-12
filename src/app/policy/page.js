@@ -1,14 +1,5 @@
-import Navbar from '@/components/NavbarComponent/Navbar';
-import PolicyContainer from '@/containers/Policy/PolicyContainer';
-import React from 'react';
+import { redirect } from 'next/navigation';
 
-const page = () => {
-  return (
-  <>
-  <Navbar/>
-  <PolicyContainer />
-  </>
-  )
-};
-
-export default page;
+export default function Policies() {
+  redirect('/policy/terms_service'); // Default policy page
+}
