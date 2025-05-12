@@ -16,8 +16,9 @@ export const child = {
   hidden: {
     opacity: 0,
     y: 20,
-    filter: 'blur(8px)', // Starting with blur
+    filter: 'blur(8px)',
   },
+  
   visible: {
     opacity: 1,
     y: 0,
