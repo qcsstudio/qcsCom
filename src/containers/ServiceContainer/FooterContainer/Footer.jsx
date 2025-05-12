@@ -83,7 +83,7 @@ const Footer = () => {
             <span>
               © 2025 QuantumCrafters Studio Pvt. Ltd. All rights reserved.
             </span>
-            <Link href="/policy" >
+            <Link href="/privacy-policy" >
               <span className='text-base' >Privacy Policy/Terms of Service</span>
             </Link>
           </div>
