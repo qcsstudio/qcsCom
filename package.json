@@ -10,6 +10,7 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "@tailwindcss/oxide": "^4.1.6",
     "framer-motion": "^12.10.5",
     "lightningcss": "^1.30.0",
     "lucide-react": "^0.492.0",
@@ -28,5 +29,9 @@
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
     "tailwindcss": "^4"
+  },
+   "optionalDependencies": {
+    "@tailwindcss/oxide-linux-x64-gnu": "^4.0.1",
+    "lightningcss-linux-x64-gnu": "^1.29.1"
   }
 }
