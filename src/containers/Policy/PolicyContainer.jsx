@@ -15,9 +15,8 @@ const policyTypes = [
 
 export default function PolicyContainer() {
   const router = useRouter();
-  
-  const searchParams = useSearchParams();
 
+  const searchParams = useSearchParams();
   const { fetchPolicies, policyData, loading } = useContext(PolicyContext);
 
   
