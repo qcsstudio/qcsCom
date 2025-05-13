@@ -1,6 +1,8 @@
 'use client';
 import { useState } from "react";
 import Link from "next/link";
+import {Syne,Unbounded} from  "next/font/google";
+
 
 // Tab ke data yahan define hain
 const tabData = [
@@ -55,11 +57,11 @@ function TabPanel({ content }) {
 
       <div>
 
-        {content.heading && <h2 className="text-4xl font-bold mb-4">{content.heading}</h2>}
-        {content.description && <p className="mb-4 text-[21px]">{content.description}</p>}
+        {content.heading && <h2 className={`text-4xl font-bold mb-4 ${unbounded.className}`}>{content.heading}</h2>}
+        {content.description && <p className={`mb-4 text-[21px] ${syne.className}`}>{content.description}</p>}
 
         {content.list && (
-          <ul className="pl-5 space-y-2 mb-4 list-disc text-[21px]">
+          <ul className={`pl-5 space-y-2 mb-4 list-disc text-[21px] ${syne.className}`}>
             {content.list.map((item, i) => (
               <li key={i}>
                 {item.strong && <strong>{item.strong}</strong>}
@@ -73,7 +75,7 @@ function TabPanel({ content }) {
 
 
         {content.buttons && (
-          <div className="flex gap-4">
+          <div className={`flex gap-4 ${syne.className}`}>
             {content.buttons.map((btn, i) => (
               <Link key={i} href={btn.link}>
                 <button
@@ -93,43 +95,45 @@ function TabPanel({ content }) {
   );
 }
 
-// Main Component
+const syne = Syne({subsets: ['latin'],weight: '400'})
+const unbounded = Unbounded({subsets: ['latin'],weight: '600'})
+
 export default function Solutions() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
     <>
-      <div className=" mt-10 ">
-        <div className=" bg-[#F5F7F9] mb-10 rounded-xl px-20 py-10">
-          <h3 className='text-3xl font-bold text-[#F1813B]  mb-5'>What We Offer ?</h3>
-          <p className=' text-xl font-normal mt-3'>We provide AI-powered IT services, innovative SaaS
+      <div className=" mt-15 ">
+        <div className="   rounded-xl px-20 py-3">
+          <h3 className={`text-[2.8rem] font-bold text-center mb-5 ${unbounded.className}`}>What We Offer ?</h3>
+          {/* <p className={`text-xl  mt-3 ${syne.className}`}>We provide AI-powered IT services, innovative SaaS
             platforms, and hands-on training programs to drive business success and empower future-ready careers.
-          </p>
+          </p> */}
         </div>
 
         {/* Tabs */}
         
-        <div className="flex border-gray-200 mt-5 w-[90%] mx-auto">
+        <div className={`flex border-gray-200  w-[90%] mx-auto ${unbounded.className}`}>
           {tabData.map((tab, index) => (
-            <div key={index} className="flex items-center  ">
+            <div key={index} className="flex items-center ">
               <button
                 onClick={() => setActiveTab(index)}
-                className={`p-4 px-4 text-[25px] font-medium transition-all duration-200 h-[99px] w-[398px] ${activeTab === index
+                className={`p-4 px-3 text-[23px] font-medium transition-all duration-200 h-[99px] w-[382px] box-border ${activeTab === index
                   ? "bg-[#F1813B] text-white rounded-t-3xl"
-                  : "text-gray-700 hover:text-[#F1813B]"
+                  : "text-black/60 "
                   }`}
               >
                 {tab.label}
               </button>
 
               {index < tabData.length - 1 && (
-                <div className="h-14 border-r-2 border-gray-500 mx-2" />
+                <div className="h-15 border-r-2 border-gray-500 mx-4" />
               )}
             </div>
           ))}
         </div>
 
-        <div className="bg-[#F5F7F9] rounded-xl p-8 flex flex-col md:flex-row gap-8 items-start w-[90%] mx-auto">
+        <div className="bg-[#F5F7F9] rounded-b-xl p-8 flex flex-col md:flex-row gap-8 items-start w-[90%] mx-auto">
           {/* Left: Text */}
           <div className="flex-1">
             <TabPanel content={tabData[activeTab].content} />

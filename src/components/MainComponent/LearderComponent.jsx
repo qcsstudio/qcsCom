@@ -1,6 +1,9 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
+import { Unbounded,Syne } from 'next/font/google';
 
+const unbounded = Unbounded({subsets: ['latin'],weight: '600'})
+const syne = Syne({subsets: ['latin'],weight: '500'})
 const testimonials = [
   {
     id: 2,
@@ -22,9 +25,12 @@ export default function LeaderComponent() {
   const playerRefs = useRef({});
   const containerRefs = useRef({});
   const [activeVideo, setActiveVideo] = useState(null);
+  const [isClient, setIsClient] = useState(false); 
 
-  // Load YouTube IFrame API
+ 
   useEffect(() => {
+    setIsClient(true);
+
     if (!window.YT) {
       const tag = document.createElement('script');
       tag.src = 'https://www.youtube.com/iframe_api';
@@ -66,7 +72,6 @@ export default function LeaderComponent() {
     const player = playerRefs.current[id];
 
     if (player && player.playVideo) {
-      // Pause previous
       if (activeVideo !== null && activeVideo !== id) {
         const prevPlayer = playerRefs.current[activeVideo];
         if (prevPlayer && prevPlayer.pauseVideo) {
@@ -81,9 +86,9 @@ export default function LeaderComponent() {
 
   return (
     <>
-      <h2 className="text-5xl font-bold text-center mt-10 my-5">Trusted by Industry Leaders</h2>
-     
-      <div className=" p-3 w-[80%]   mx-auto rounded-xl">
+      <h2 className={`text-[40px] font-bold text-center mt-10 my-5 ${unbounded.className}`}>Trusted by Industry Leaders</h2>
+
+      <div className="p-3 w-[80%] mx-auto rounded-xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {testimonials.map(({ id, name, title, videoUrl }) => (
             <div
@@ -92,20 +97,24 @@ export default function LeaderComponent() {
               ref={(el) => (containerRefs.current[id] = el)}
               onClick={() => handlePlay(id)}
             >
-              <iframe
-                id={`yt-player-${id}`}
-                src={videoUrl}
-                width="100%"
-                height="315"
-                title={name}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="rounded-2xl w-full pointer-events-none"
-              ></iframe>
+              {isClient ? (
+                <iframe
+                  id={`yt-player-${id}`}
+                  src={videoUrl}
+                  width="100%"
+                  height="315"
+                  title={name}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="rounded-2xl w-full "
+                ></iframe>
+              ) : (
+                <div className="w-full h-[315px] bg-gray-300 rounded-2xl animate-pulse"></div>
+              )}
               <div className="text-center mt-4">
-                <h3 className="text-xl font-semibold">{name}</h3>
-                <p className="text-sm text-gray-600">{title}</p>
+                <h3 className={`text-xl font-semibold ${unbounded.className}`}>{name}</h3>
+                <p className={`text-sm text-gray-600 ${syne.className}`}>{title}</p>
               </div>
             </div>
           ))}

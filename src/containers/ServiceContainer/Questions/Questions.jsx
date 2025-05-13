@@ -1,10 +1,12 @@
 'use client'
+import { Syne, Unbounded } from "next/font/google";
 import { useState } from "react";
 import { FaPlus  } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 
 
-
+const syne = Syne({subsets: ['latin'],weight: '400'})
+const unbounded = Unbounded({subsets: ['latin'],weight: '600'})
 const Questions = ({questions}) => {
  
   const [openIndex, setOpenIndex] = useState(null);
@@ -18,20 +20,21 @@ const Questions = ({questions}) => {
       <div className=' w-[250px] mx-auto my-6 '>
         <h4 className=' flex justify-center gap-2  bg-gray-100 rounded-e-lg'>
           <img src='/images/Images/servicesLogo.png' />
-          <span className=' font-semibold text-sm mt-1 '>Frequently Asked Questions</span>
-        </h4>
+          <span className="font-semibold text-sm mt-1 ">Frequently Asked Questions</span>
+      </h4>
       </div>
-      <h1 className="text-center font-bold text-4xl mb-6">Our Stories & Team</h1>
+     
       <div className="flex flex-col md:flex-row justify-between items-start  max-w-6xl mx-auto">
         {/* Left Section */}
+        
         <div className="md:w-1/2 space-y-4 p">
 
-          <h2 className=" text-center lg:text-start text-3xl md:text-6xl font-bold leading-tight mt-3">
-            FAQ It Up! Your curiosity
+          <h2 className={`text-center lg:text-start text-3xl md:text-[48px] font-bold leading-tight mt-3 ${unbounded.className}`}>
+            FAQ It Up! Your curiosity<br/>
             meets our expertise
             let's clear things up!
           </h2>
-          <p className="text-gray-500 font-medium text-lg text-center lg:text-start sm:text-lg lg:w-[80%] ">
+          <p className={`text-gray-500 font-medium text-lg text-center lg:text-start lg:w-[80%] ${syne.className}`}>
             We've gathered all the important info right here. Explore our FAQs and find the answers you need.
           </p>
         </div>

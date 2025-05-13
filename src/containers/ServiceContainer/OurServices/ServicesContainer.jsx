@@ -2,6 +2,10 @@ import React from 'react';
 import ListComp from '@/components/serviceComponents/ServicesComponent/ListComp';
 import Scrollcomp from '@/components/serviceComponents/ServicesComponent/Scrollcomp';
 import { services } from '@/components/serviceComponents/ServicesComponent/ListCompData';
+import { Unbounded,Syne } from 'next/font/google';
+
+const syne = Syne({subsets: ['latin'],weight: '400'})
+const unbounded = Unbounded({subsets: ['latin'],weight: '500'})
 
 const ServicesContainer = ({listData,ServiceCardData ,links}) => {
     return (
@@ -12,10 +16,10 @@ const ServicesContainer = ({listData,ServiceCardData ,links}) => {
                     <span className="font-semibold text-sm mt-1">Our Services</span>
                 </h4>
             </div>
-            <h1 className="w-full md:w-[70%] mx-auto text-center font-medium text-2xl md:text-4xl mt-5 px-2">
+            <h1 className={`w-full md:w-[70%] mx-auto text-center font-medium text-2xl md:text-4xl mt-5 px-2 ${unbounded.className}`}>
                 Services designed to help your brand shine brighter.
             </h1>
-            <div className="flex flex-col lg:flex-row p-2 mt-5 gap-6 ">
+            <div className="flex flex-col lg:flex-row p-2 mt-8 gap-6 ">
                 <ListComp listData={listData} />
                 <Scrollcomp ServiceCardData={ServiceCardData} LinkData={links}/>
             </div>

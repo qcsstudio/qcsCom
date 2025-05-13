@@ -3,15 +3,17 @@ import Link from 'next/link';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { child, container } from '@/components/Animation/Animation';
+import { Syne, Unbounded } from 'next/font/google';
 
-// className="text-2xl md:text-3xl font-bold text-[#0F0F0F] mb-2"
+const syne = Syne({subsets: ['latin'],weight: '400'})
+const unbounded = Unbounded({subsets: ['latin'],weight: '700'})
 const Cardscroll = ({ card, link }) => {
   const { services } = card;
 
   return (
     <div className="p-6 rounded-2xl shadow-lg bg-[#F5F7F9]">
     <motion.h2
-        className="text-2xl md:text-3xl font-bold text-[#0F0F0F] mb-2 flex flex-wrap"
+        className="text-2xl md:text-[26px]  text-[#0F0F0F] mb-2 flex flex-wrap"
         variants={container}
         initial="hidden"
         whileInView="visible"
@@ -21,14 +23,14 @@ const Cardscroll = ({ card, link }) => {
           <motion.span
             key={index}
             variants={child}
-            className="inline-block mr-2"  // 'mr-2' adds margin-right between words
+            className={`inline-block mr-2 ${unbounded.className}`}  
           >
             {word}
           </motion.span>
         ))}
       </motion.h2>
-      <p className="text-[#0F0F0F] text-sm font-medium mb-4">{card.desc}</p>
-      <div className="flex flex-wrap gap-2 mb-4">
+      <p className={`text-[#0F0F0F] text-[15px] font-medium mb-4 ${syne.className} `}>{card.desc}</p>
+      <div className={`flex flex-wrap gap-2 mb-4 ${syne.className}`}>
         {services?.map((service, index) => (
           <span
             key={index}
@@ -41,7 +43,7 @@ const Cardscroll = ({ card, link }) => {
 
       {link ? (
         <Link href={link}>
-          <button className="w-full font-semibold text-lg bg-white py-2 rounded-md hover:bg-gray-500 hover:text-white">
+          <button className={`w-full text-lg bg-white py-2 font-extrabold rounded-md ${syne.className} hover:bg-gray-500 hover:text-white `}>
             Get Started
           </button>
         </Link>

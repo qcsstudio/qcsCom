@@ -9,6 +9,7 @@ import Footer from '@/containers/ServiceContainer/FooterContainer/Footer'
 import NavbarContainer from '@/containers/ServiceContainer/NavbarContainer/NavbarContainer'
 import ServicesContainer from '@/containers/ServiceContainer/OurServices/ServicesContainer'
 import ClientStories from '@/containers/ServiceContainer/Stories/Clientstories'
+import { HomeTestimonial } from '@/containers/ServiceContainer/Stories/TestimonialsData'
 import React from 'react'
 
 const page = () => {
@@ -22,7 +23,7 @@ const page = () => {
         <ServicesContainer listData={courses} ServiceCardData={CardData} links ={CourseLinkData}  />
         <Choices title="Why QuantumCrafter Studio is the right Choice for you" data={coursesboxes}/>
         <AboutUs/>
-        <ClientStories/>
+        <ClientStories heading="Success Stories: Real Results, Real Impact" testimonials={HomeTestimonial}/>
         <FormComponent heading="Ready to Launch Your Tech Career?" desc="Contact Us Today!"/>
         <NewsletterSignup/>
         <Footer/>

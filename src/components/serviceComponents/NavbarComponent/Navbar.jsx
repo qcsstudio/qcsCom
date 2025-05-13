@@ -4,6 +4,11 @@ import { IoGlobeOutline } from "react-icons/io5";
 import { HiMenu, HiX } from "react-icons/hi";
 import Link from "next/link";
 import Image from 'next/image';
+import { Syne,Unbounded } from "next/font/google";
+
+
+const syne = Syne({ subsets: ["latin"], weight: "400" });
+const unbounded = Unbounded({subsets: ['latin'],weight: '700'})
 
 const Navbar = ({ heading, para }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,9 +20,7 @@ const Navbar = ({ heading, para }) => {
           <Image src='/images/Images/NavLogo.png' alt="logo" width={194.82} height={40} />
         </Link>
 
-
-
-        <div className="hidden md:flex space-x-11 text-[17px]">
+        <div className={`hidden md:flex space-x-11 text-[17px] ${syne.className}`}>
           <Link href="/services" className="hover:text-gray-400">Services</Link>
           <Link href="/courses" className="hover:text-gray-400">Courses</Link>
           <Link href="/aboutus" className="hover:text-gray-400">About Us</Link>
@@ -33,7 +36,7 @@ const Navbar = ({ heading, para }) => {
         </div>
 
 
-        <div className="hidden md:flex items-center space-x-4 gap-2">
+        <div className={`hidden md:flex items-center space-x-4 gap-2 ${syne.className}`}>
           <div className="flex items-center text-white">
             <IoGlobeOutline className="w-5 h-5 me-1" />En
           </div>
@@ -62,9 +65,9 @@ const Navbar = ({ heading, para }) => {
         </div>
       )}
 
-      <div className="text-center py-1 md:py-4 px-5  mt-10 sm:mt-24 md:mt-20">
-        <h1 className="text-2xl md:text-[61px] font-bold">{heading}</h1>
-        <p className="text-[#FFFFFF] text-sm md:text-2xl mt-4 max-w-4xl mx-auto">{para}</p>
+      <div className={`text-center py-1 md:py-4 px-5  mt-10 sm:mt-24 md:mt-15  `}>
+        <h1 className={`text-2xl md:text-[61px] font-black ${unbounded.className}`}>{heading}</h1>
+        <p className={`text-[#FFFFFF] text-sm md:text-2xl mt-4 max-w-4xl mx-auto ${syne.className}`}>{para}</p>
       </div>
     </>
   );

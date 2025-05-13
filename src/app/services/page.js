@@ -22,6 +22,7 @@ import { challenges, solutions } from '@/containers/ServiceContainer/OurDifferen
 import { services } from '@/components/serviceComponents/ServicesComponent/ListCompData'
 import { ServiceCardData, ServiceLinkData } from '@/components/serviceComponents/ServicesComponent/CardData'
 import Overview from '@/components/serviceComponents/OverviewComponent/Overview'
+import { HomeTestimonial } from '@/containers/ServiceContainer/Stories/TestimonialsData'
 
 export const metadata = {
   title: " AI-Powered IT & SaaS Development Services in Mohali | QuantumCrafters",
@@ -48,7 +49,7 @@ const page = () => {
       <Differences title="Business Challenges & Innovative Solutions" heading="Common Challenges Businesses Face:"
         heading2="QuantumCrafters' Cutting-Edge Solutions:" challenges={challenges} solutions={solutions} bgcolor="#F5F7F9" bgcolor2="black" textColor="black"
         textColor2="white" iconcolor="gray" iconcolor2="#F1813B" />
-      <ClientStories />
+      <ClientStories heading="Hear Stories Straight From the People We Helped" testimonials={HomeTestimonial}/>
       <LeaderComponent />
       <Questions questions={ServiceFaq} />
       {/* <AboutUs /> */}

@@ -6,14 +6,17 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
+import { Syne, Unbounded } from "next/font/google";
 
+const syne = Syne({subsets: ['latin'],weight: '400'})
+const unbounded = Unbounded({subsets: ['latin'],weight: '600'})
 const Benefits = ({heading,BenefitsData}) => {
   
  
   return (
     <>
       <div className="w-[90%] md:w-[85%] mx-auto py-10">
-        <h2 className="text-center text-3xl md:text-4xl font-bold mb-8">
+        <h2 className={`text-center text-3xl md:text-[35px] font-bold mb-8 ${unbounded.className}`}>
           {heading}
         </h2>
 
@@ -35,7 +38,7 @@ const Benefits = ({heading,BenefitsData}) => {
             <SwiperSlide key={index} className="flex items-center justify-center">
               <div className="bg-[#F5F7F9] rounded-lg p-4 sm:h-[400px] flex flex-col sm:justify-between">
                 <div>
-                  <h3 className="font-semibold text-lg md:text-2xl mb-2">{benefit.title}</h3>
+                  <h3 className={`font-semibold text-lg md:text-2xl mb-2 ${unbounded.className}`}>{benefit.title}</h3>
                   <p className="text-gray-600 text-base md:text-xl  font-medium ">
                     {benefit.description}
                   </p>
