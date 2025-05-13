@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import {Syne,Unbounded} from 'next/font/google';
 
 
-const syne = Syne({subsets:['Latin'],Weight:'400'})
-const unbounded = Unbounded({subsets:['Latin'],Weight:'400'})
+const syne = Syne({subsets:['latin'],Weight:'400'})
+const unbounded = Unbounded({subsets:['latin'],Weight:'400'})
 export default function NewsletterSignup() {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -34,7 +34,6 @@ export default function NewsletterSignup() {
           Sign up for the newsletter to stay up-to-date on all latest events and news from QuantumCrafter Studio
         </p>
       </div>
-
       <form className='w-full md:max-w-2xl'  onSubmit={handleSubmit}>
         <div className={`flex flex-col gap-3 w-full ${syne.className}`}>
           <div className="flex gap-3 w-full">
@@ -46,6 +45,7 @@ export default function NewsletterSignup() {
               onChange={handleChange}
               className="w-1/2 px-4 py-2 rounded-full border border-gray-200 text-sm placeholder-gray-400 focus:outline-none"
             />
+            
             <input
               type="text"
               name="lastName"

@@ -3,8 +3,8 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from "react-icons/fa"
 import Link from 'next/link';
 import { Unbounded, Syne } from 'next/font/google';
 
-const syne = Syne({ subsets: ['Latin'], Weight: '400' })
-const unbounded = Unbounded({ subsets: ['Latin'], Weight: '400' })
+const syne = Syne({ subsets: ['latin'], Weight: '400' })
+const unbounded = Unbounded({ subsets: ['latin'], Weight: '400' })
 const Footer = () => {
   return (
     <>
