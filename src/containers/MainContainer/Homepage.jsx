@@ -8,6 +8,7 @@ import FormComponent from '@/components/MainComponent/FormComponent'
 import Footer from '../ServiceContainer/FooterContainer/Footer'
 import NewsletterSignup from '@/components/MainComponent/NewsletterSignup'
 import WeAre from '@/components/MainComponent/WeAre'
+import { HomeTestimonial } from '../ServiceContainer/Stories/TestimonialsData'
 
 const Homepage = () => {
   return (
@@ -21,7 +22,7 @@ const Homepage = () => {
       <Solutions/>
       <LeaderComponent/>
 
-      <ClientStories />
+      <ClientStories heading="Hear Stories Straight From the People We Helped" testimonials={HomeTestimonial}/>
       <FormComponent heading="Have a Query? Let's Talk!!"  />
       <NewsletterSignup/>
       <Footer/>

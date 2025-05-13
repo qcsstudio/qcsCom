@@ -1,13 +1,17 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import { Syne } from "next/font/google";
+import { Geist, Geist_Mono, Syne, Unbounded } from "next/font/google";
 import "./globals.css";
 import { PolicyProvider } from "@/context/policyContext";
 
 const syne = Syne({
-  variable: "--font-syne",
+  weight: ["400", "700"],
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  variable: "--font-syne",
 });
+const unbounded = Unbounded({
+  subsets: ['latin'],
+  weight: ['400', '700'],  // jo weight chahiye uske according
+  variable: '--font-unbounded',
+})
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +33,7 @@ export const metadata  = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={syne.variable}>
+    <html lang="en" className={`${unbounded.variable} ${syne.variable}`}>
        <head>
         {/* Google Analytics Script */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGNFYNFQQ2"></script>

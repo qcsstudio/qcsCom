@@ -91,7 +91,7 @@ export const CourseLinkData = {
         "SEO Optimization & Lighthouse Performance Tuning",
         "Conversion-Ready Layouts & A/B Testing"
       ],
-      heading:" Web Development That Drives Growth, Not Just Traffic",
+      heading:"Web Development That Drives Growth, Not Just Traffic",
       desc:"We engineer custom, AI-powered websites, powerful web applications, and scalable SaaS platforms using React, Node.js, Shopify & WordPress—built for speed, SEO, and conversions. We craft digital experiences that convert, scale, and lead.",
       link:""
     },
@@ -104,7 +104,7 @@ export const CourseLinkData = {
         "User Personas, Journey Maps, Flows",
         "UI/UX for Landing Pages & Websites"
       ],
-      heading:" Designs That Inspire Action & Elevate Experiences",
+      heading:"Designs That Inspire Action & Elevate Experiences",
       desc:"QuantumCrafters Studio blends strategy, aesthetics, and behavior-driven UX to craft stunning, mobile-first interfaces. From SaaS dashboards to eCommerce journeys—we design experiences that convert, delight, and scale across web and mobile.",
       
     },
