@@ -1,13 +1,16 @@
 import React from 'react'
 import {BrandsData} from '@/containers/ServiceContainer/BrandsContainer/BrandsData.jsx'
+import { Syne } from 'next/font/google';
 
+const syne = Syne({subsets:['latin'],weight:'variable'})
 const Brands = ({title}) => {
  
   return (
    <>
-      <h1 className="text-4xl w-[85%] mx-auto text-center font-bold mt-10 ">
+      <h1 className="text-4xl w-[85%] mx-auto text-center font-bold mt-10 font-syne ">
         {title}
       </h1>
+      
       
       <div className=' w-full md:w-[85%]  m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  md:justify-evenly  gap-10 my-10 '>
         {BrandsData.map((stat, index) => (
