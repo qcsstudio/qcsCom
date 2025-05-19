@@ -13,9 +13,9 @@ export default {
         foreground: "var(--foreground)",
       },
       fontFamily: {
+        syne: ['var(--font-syne)'],
+        unbounded: ['var(--font-unbounded)'],
         outfit: ["Outfit", "sans-serif"],
-        syne: ["Syne", "sans-serif"],
-        unbounded: ['var(--font-unbounded)', 'cursive'], // <-- yeh line add karo
         nats: ["NATS", "sans-serif"],
         montserrat: ["var(--font-montserrat)", "sans-serif"],
 

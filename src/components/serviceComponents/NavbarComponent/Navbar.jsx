@@ -18,6 +18,7 @@ const Navbar = ({ heading, para }) => {
       <nav className="w-full flex justify-between items-center py-4 px-4 md:px-8">
         <Link href="/">
           <Image src='/images/Images/NavLogo.png' alt="logo" width={194.82} height={40} />
+          {/* <Image src='/images/Images/QCS Logo.png' alt="logo" width={194.82} height={40} /> */}
         </Link>
 
         <div className={`hidden md:flex space-x-11 text-[17px] ${syne.className}`}>
