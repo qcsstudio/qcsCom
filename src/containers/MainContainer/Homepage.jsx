@@ -15,7 +15,7 @@ const Homepage = () => {
     <>
     <NavbarContainer data={{heading:"Automate Your Business. Scale with Smart SaaS. Achieve Career Excellence",
         para:"QuantumCrafters Studio is your partner in digital transformation powering businesses with AI-driven IT solutions",
-        buttons:[{text:"Reach out to Expert Now",link:"#",color:"#F1813B"},]}}/>
+        buttons:[{text:"Reach out to Expert Now",link: "/contactus",color:"#F1813B"},]}}/>
 
       {/* <PlatformComponent/> */}
       <WeAre/>

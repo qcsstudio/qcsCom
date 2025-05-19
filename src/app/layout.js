@@ -3,28 +3,28 @@ import "./globals.css";
 import { PolicyProvider } from "@/context/policyContext";
 // import { Syne } from 'next/font/google';
 
-const syne = Syne({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-syne',  // Important for Tailwind
-});
-
-const unbounded = Unbounded({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-unbounded',
-});
-
 // const syne = Syne({
-//   weight: ["400", "700"],
-//   subsets: ["latin"],
-//   variable: "--font-syne",
+//   subsets: ['latin'],
+//   display: 'swap',
+//   variable: '--font-syne',  // Important for Tailwind
 // });
+
 // const unbounded = Unbounded({
 //   subsets: ['latin'],
-//   weight: ['400', '700'],  // jo weight chahiye uske according
+//   display: 'swap',
 //   variable: '--font-unbounded',
-// })
+// });
+
+const syne = Syne({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-syne",
+});
+const unbounded = Unbounded({
+  subsets: ['latin'],
+  weight: ['400', '700'],  // jo weight chahiye uske according
+  variable: '--font-unbounded',
+})
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
