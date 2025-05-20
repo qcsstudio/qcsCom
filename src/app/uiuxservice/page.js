@@ -1,3 +1,4 @@
+"use client"
 import UiUxService from '@/containers/UIUXserviceContainer/UiUxService'
 import React from 'react'
 
@@ -9,4 +10,4 @@ const page = () => {
   )
 }
 
-export default page
+export default page;

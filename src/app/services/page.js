@@ -19,8 +19,6 @@ import { ImagesSlide } from '@/containers/ServiceContainer/SliderContainer/Slide
 import { steps } from '@/containers/ServiceContainer/WorkProcess/WorkProcessData'
 import { ServiceFaq } from '@/containers/ServiceContainer/Questions/faqsData'
 import { challenges, solutions } from '@/containers/ServiceContainer/OurDifferences/DifferencesData'
-import { services } from '@/components/serviceComponents/ServicesComponent/ListCompData'
-import { ServiceCardData, ServiceLinkData } from '@/components/serviceComponents/ServicesComponent/CardData'
 import Overview from '@/components/serviceComponents/OverviewComponent/Overview'
 import { HomeTestimonial } from '@/containers/ServiceContainer/Stories/TestimonialsData'
 
@@ -37,8 +35,8 @@ const page = () => {
         para: "Transform your business operations through strategic automation, advanced machine learning, and personalized AI consulting.",
         buttons: [{ text: "Get Started", link: "#", color: "#F1813B", border: "none" }, { text: "Explore Services", link: "#", color: "transparent", border: "1px solid gray" }]
       }} />
-      <Overview/>
-      <ServicesContainer listData={services} ServiceCardData={ServiceCardData} links={ServiceLinkData} />
+      <Overview />
+      <ServicesContainer />
       <Benifits heading="See why partnering with us is the smartest move."
         BenefitsData={benefits}
       />
@@ -49,7 +47,7 @@ const page = () => {
       <Differences title="Business Challenges & Innovative Solutions" heading="Common Challenges Businesses Face:"
         heading2="QuantumCrafters' Cutting-Edge Solutions:" challenges={challenges} solutions={solutions} bgcolor="#F5F7F9" bgcolor2="black" textColor="black"
         textColor2="white" iconcolor="gray" iconcolor2="#F1813B" />
-      <ClientStories heading="Hear Stories Straight From the People We Helped" testimonials={HomeTestimonial}/>
+      <ClientStories heading="Hear Stories Straight From the People We Helped" testimonials={HomeTestimonial} />
       <LeaderComponent />
       <Questions questions={ServiceFaq} />
       {/* <AboutUs /> */}
