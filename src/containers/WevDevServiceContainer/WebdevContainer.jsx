@@ -28,10 +28,7 @@ const WebdevContainer = () => {
             <Platforms heading="Tech Stack We Work On" para="We work on powerful, popular, customisable and scalable platforms to deliver the best solutions for our clients." images={ImagesSlide2} />
             <Platforms images={ImagesSlide3} />
             <Industries heading="Industries We Dominate" Data={webIndustries} />
-
-
             <CaseStudies data={caseStudiesData} data2={crmStatsData} />
-
             <Questions questions={WebDevelopmentFaq} />
             <Form heading="Lets
                 Build Something Powerful Together" desc="Your business deserves more than a basic website. Let us help you build a web experience that attracts, converts, and grows." />
