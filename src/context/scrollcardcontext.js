@@ -1,8 +1,7 @@
-'use client';
-import React, { createContext, useEffect, useState } from 'react';
+'use client'
+import { ServiceCardData, ServiceLinkData } from '@/components/serviceComponents/ServicesComponent/CardData';
 import { services } from '@/components/serviceComponents/ServicesComponent/ListCompData';
-import { ServiceCardData } from '@/components/serviceComponents/ServicesComponent/CardData';
-import { ServiceLinkData } from '@/components/serviceComponents/ServicesComponent/CardData';
+import React, { createContext, useEffect, useRef, useState } from 'react';
 
 const initialState = {
   carddata: null,
@@ -18,15 +17,23 @@ const Scrollcardcontext = ({ children }) => {
   const [carddata, setCarddata] = useState(null);
   const [listData, setListData] = useState([]);
   const [links, setLinks] = useState([]);
+  const cardRefs = useRef([]); // <-- Refs for scrolling
 
   function GetServiceCardAPI() {
     const updatedCardData = ServiceCardData.map((card, index) => ({
       ...card,
-      link: ServiceLinkData[index] || "", // link add karo yaha
+      link: ServiceLinkData[index] || "",
     }));
     setCarddata(updatedCardData);
     setLinks(ServiceLinkData);
     setListData(services);
+  }
+
+  function scrollToCard(index) {
+    const ref = cardRefs.current[index];
+    if (ref && ref.scrollIntoView) {
+      ref.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   useEffect(() => {
@@ -36,7 +43,7 @@ const Scrollcardcontext = ({ children }) => {
   }, []);
 
   return (
-    <cardcontext.Provider value={{ carddata, links, listData }}>
+    <cardcontext.Provider value={{ carddata, links, listData, cardRefs, scrollToCard }}>
       {children}
     </cardcontext.Provider>
   );

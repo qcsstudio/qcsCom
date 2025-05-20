@@ -6,11 +6,10 @@
     "Data Analytics",
    
   ];
+
  export const services = [
     "Custom Web Development (Frontend & Backend)",
     "UI/UX Design & Experience",
-    " Digital Marketing & Automation",
-    " AI Strategy & Consulting",
-   
-   
+    "Digital Marketing & Automation",
+    "AI Strategy & Consulting",
   ];
