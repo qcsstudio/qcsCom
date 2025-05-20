@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import Blog from '@/models/blogs';
 import connectMongo from '@/lib/mongodb';
 
-export async function GET(req, { params }) {
+export async function GET(req,{ params }) {
   const { slug } =   params;
   await connectMongo();
  

@@ -33,7 +33,7 @@ export default function ProposalForm() {
         email: "",
         Location: "",
         contactNumber: "",
-        budget: "",
+        service: "",
         description: "",
         file: null,
         updates: false
@@ -94,7 +94,7 @@ export default function ProposalForm() {
 
                 {/* Right Panel - Form */}
                 <div className="lg:col-span-2 bg-white px-6 space-y-6 border-2 border-gray-300 rounded-xl">
-                    <h3 className="text-4xl font-bold text-center mt-10">Request a Proposal</h3>
+                    <h3 className="text-4xl font-bold text-center mt-10">Tell us about your <span className="text-[#F1813B]">Project</span></h3>
                     <form className="space-y-7" onSubmit={handleSubmit}>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-black">
                             <input
@@ -139,14 +139,12 @@ export default function ProposalForm() {
 
                         </div>
                         <select
-                            type="text"
-                            name="budget"
-                            value={formData.budget}
+                            name="service"
+                            value={formData.service}
                             onChange={handleChange}
-                            placeholder="Select a budget range"
                             className="w-full placeholder-black border-gray-300 rounded border-b-2 p-2 focus:outline-none"
                         >
-                            <option value="Services">Services</option>
+                            <option value="" disabled hidden>Looking for *</option>
                             <option value="AI-Poewred IT Services">AI-Poewred IT Services</option>
                             <option value="AI-Based SAAS Products">AI-Based SAAS Products</option>
                             <option value="Institutional training">Institutional training</option>
@@ -156,7 +154,7 @@ export default function ProposalForm() {
                             name="description"
                             value={formData.description}
                             onChange={handleChange}
-                            placeholder="Tell us about your Project"
+                            placeholder="How can we help?"
                             rows="5"
                             className="w-full placeholder-black rounded-xl bg-[#F2F2F2] p-2 focus:outline-none"
                         ></textarea>
