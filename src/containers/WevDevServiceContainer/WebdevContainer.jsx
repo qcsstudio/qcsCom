@@ -15,7 +15,6 @@ import { caseStudiesData, crmStatsData } from '@/components/WebdeveServicesCompo
 import Industries from '@/components/WebdeveServicesComponent/Industries'
 import NavbarContainer from '../ServiceContainer/NavbarContainer/NavbarContainer'
 
-
 const WebdevContainer = () => {
     return (
         <>
