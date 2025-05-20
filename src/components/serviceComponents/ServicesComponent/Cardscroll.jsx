@@ -1,3 +1,4 @@
+// Cardscroll.js
 'use client'
 import Link from 'next/link';
 import React from 'react';
@@ -5,31 +6,32 @@ import { motion } from 'framer-motion';
 import { child, container } from '@/components/Animation/Animation';
 import { Syne, Unbounded } from 'next/font/google';
 
-const syne = Syne({subsets: ['latin'],weight: '400'})
-const unbounded = Unbounded({subsets: ['latin'],weight: '700'})
-const Cardscroll = ({ card, link }) => {
-  const { services } = card;
+const syne = Syne({ subsets: ['latin'], weight: '400' });
+const unbounded = Unbounded({ subsets: ['latin'], weight: '700' });
+
+const Cardscroll = ({ card }) => {
+  const { services, link, heading, desc } = card;
 
   return (
     <div className="p-6 rounded-2xl shadow-lg bg-[#F5F7F9]">
-    <motion.h2
-        className="text-2xl md:text-[26px]  text-[#0F0F0F] mb-2 flex flex-wrap"
+      <motion.h2
+        className="text-2xl md:text-[26px] text-[#0F0F0F] mb-2 flex flex-wrap"
         variants={container}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
-        {card.heading.split(' ').map((word, index) => (
+        {heading.split(' ').map((word, index) => (
           <motion.span
             key={index}
             variants={child}
-            className={`inline-block mr-2 ${unbounded.className}`}  
+            className={`inline-block mr-2 ${unbounded.className}`}
           >
             {word}
           </motion.span>
         ))}
       </motion.h2>
-      <p className={`text-[#0F0F0F] text-[15px] font-medium mb-4 ${syne.className} `}>{card.desc}</p>
+      <p className={`text-[#0F0F0F] text-[15px] font-medium mb-4 ${syne.className}`}>{desc}</p>
       <div className={`flex flex-wrap gap-2 mb-4 ${syne.className}`}>
         {services?.map((service, index) => (
           <span
@@ -41,20 +43,21 @@ const Cardscroll = ({ card, link }) => {
         ))}
       </div>
 
-      {link ? (
-        <Link href={link}>
-          <button className={`w-full text-lg bg-white py-2 font-extrabold rounded-md ${syne.className} hover:bg-gray-500 hover:text-white `}>
-            Get Started
-          </button>
-        </Link>
-      ) : (
-        <button
-          disabled
-          className="w-full font-semibold text-lg bg-gray-300 py-2 rounded-md text-gray-500 cursor-not-allowed"
-        >
-          Coming Soon
-        </button>
-      )}
+   {link && typeof link === 'string' && link.trim() !== '' ? (
+  <Link href={link}>
+    <button className={`w-full text-lg bg-white py-2 font-extrabold rounded-md ${syne.className} hover:bg-gray-500 hover:text-white`}>
+      Get Started
+    </button>
+  </Link>
+) : (
+  <button
+    disabled
+    className="w-full font-semibold text-lg bg-gray-300 py-2 rounded-md text-gray-500 cursor-not-allowed"
+  >
+    Coming Soon
+  </button>
+)}
+
     </div>
   );
 };

@@ -320,6 +320,93 @@ export const ServiceFaq = [{
     },
     
   ];
+  export const AiserviceFaq = [
+    {
+      question:"Is AI only for large enterprises?" ,
+      answer:" Not at all. We specialize in affordable AI setups for startups and SMEs." 
+    },
+    {
+      question:" Do you help us identify where AI can be used?" ,
+      answer:"Yes. We conduct discovery audits to pinpoint areas with maximum impact." 
+    },
+    {
+      question:" Can you integrate AI into our existing tools (CRM, ERP)?" ,
+      answer:"Definitely. We specialize in seamless AI integration with your business stack." 
+    },
+    {
+      question:" What if we don’t have clean or structured data?" ,
+      answer:" No worries. We offer data cleaning, structuring, and transformation support." 
+    },
+    {
+      question:"How long does it take to launch an AI use case?" ,
+      answer:"  Depends on complexity. POCs can be delivered in 2–4 weeks." 
+    },
+    {
+      question:"Do you use GenAI tools like ChatGPT for businesses?" ,
+      answer:"Yes! From chatbots to content workflows—we deploy ChatGPT, LangChain, and other GenAI tools" 
+    },
+    {
+      question:"What are your engagement models?" ,
+      answer:" We offer project-based, retainer, and hybrid consulting based on your goals." 
+    },
+    {
+      question:"Can you train our internal team post-deployment?" ,
+      answer:" Absolutely. We include handover, documentation, and team workshops." 
+    },
+    {
+      question:"Will AI reduce our headcount?" ,
+      answer:"AI is designed to assist, not replace. It reduces repetition and improves focus." 
+    },
+    {
+      question:" Is your AI stack secure and GDPR compliant?" ,
+      answer:" Yes. We follow data privacy standards and deploy on secure cloud infrastructure." 
+    },
+    
+  ];
+
+  export const DigitalserviceFaq = [
+    {
+      question:"Do you offer SEO-only plans?" ,
+      answer:" Yes! We offer stand-alone SEO packages for technical, content, and local SEO." 
+    },
+    {
+      question:" What platforms do you advertise on?" ,
+      answer:" Google, Meta (Facebook + IG), LinkedIn, and YouTube. We pick what’s right for your audience." 
+    },
+    {
+      question:"Can you manage our LinkedIn personal brand too? " ,
+      answer:"Absolutely. We build founder or leader visibility with AI-assisted LinkedIn growth." 
+    },
+    {
+      question:" Do you offer AI-powered content marketing?" ,
+      answer:"Yes. We blend human copywriting with tools like ChatGPT, Jasper, and Writesonic." 
+    },
+    {
+      question:"Can you build my lead funnels and landing pages?" ,
+      answer:" Definitely. We design high-converting pages integrated with automation and analytics." 
+    },
+    {
+      question:"What makes your performance marketing different?" ,
+      answer:"We go beyond traffic. We track behavior, optimize per funnel stage, and A/B test at scale." 
+    },
+    {
+      question:" Do you work with agencies too?" ,
+      answer:" Yes! We’re happy to white-label or collaborate with design/tech/PR agencies." 
+    },
+    {
+      question:"Will you integrate with our CRM or pipeline tools?" ,
+      answer:"  Yes. We work with HubSpot, Zoho, Notion, Airtable, etc., to sync your marketing ops." 
+    },
+    {
+      question:"Can you automate my email campaigns and follow-ups?" ,
+      answer:" Yes. We set up fully automated lead nurturing flows tailored to your funnel." 
+    },
+    {
+      question:" How soon will I see results?" ,
+      answer:" Organic SEO can take 2–4 months; paid and automation results start from week 1–2." 
+    },
+    
+  ];
 
 
   

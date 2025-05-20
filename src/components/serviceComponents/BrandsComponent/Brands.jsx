@@ -10,7 +10,7 @@ const Brands = ({title}) => {
       <h1 className="text-4xl w-[85%] mx-auto text-center font-bold mt-10 font-syne ">
         {title}
       </h1>
-      
+
       
       <div className=' w-full md:w-[85%]  m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  md:justify-evenly  gap-10 my-10 '>
         {BrandsData.map((stat, index) => (
@@ -23,7 +23,7 @@ const Brands = ({title}) => {
           </div>
             
 
-              <p className="mt-2 text-base px-5 text-[#000000]">{stat.desc}</p>
+              <p className="mt-2 text-base px-5 text-[#000000]  font-unbounded ">{stat.desc}</p>
             
             </div>
         ))}

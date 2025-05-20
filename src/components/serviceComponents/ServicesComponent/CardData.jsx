@@ -93,7 +93,7 @@ export const CourseLinkData = {
       ],
       heading:"Web Development That Drives Growth, Not Just Traffic",
       desc:"We engineer custom, AI-powered websites, powerful web applications, and scalable SaaS platforms using React, Node.js, Shopify & WordPress—built for speed, SEO, and conversions. We craft digital experiences that convert, scale, and lead.",
-      link:""
+     
     },
     {
       services:["Responsive Web & Mobile UI Design",
@@ -106,7 +106,7 @@ export const CourseLinkData = {
       ],
       heading:"Designs That Inspire Action & Elevate Experiences",
       desc:"QuantumCrafters Studio blends strategy, aesthetics, and behavior-driven UX to craft stunning, mobile-first interfaces. From SaaS dashboards to eCommerce journeys—we design experiences that convert, delight, and scale across web and mobile.",
-      
+     
     },
     {
       services:["SEO (Technical + Content + Local + Schema)",
@@ -124,11 +124,8 @@ export const CourseLinkData = {
       ],
         heading:"AI-Powered Digital Marketing That Works While You Sleep",
         desc:"At QuantumCrafters Studio, we blend high-impact SEO, viral social media branding, and smart automation to turn traffic into leads—organically/Paid and at scale. From content to conversion, we build marketing engines that never sleep and always perform.",
-        
+       
     },
-   
-    
-    
     {
       services:["AI Strategy & Feasibility Assessment",
         "Workflow Automation & RPA Consulting",
@@ -141,21 +138,16 @@ export const CourseLinkData = {
       ],
         heading : "AI Strategy, Automation & Scalable Intelligence for Businesses",
         desc:"QuantumCrafters Studio helps you turn ideas into intelligent systems—from automation to predictive analytics. We build AI-powered workflows, GenAI integrations, and data-driven platforms that optimize decisions, cut costs, and fuel growth.",
-        link:""
-      },
-
-   
-
-    
+       
+      },   
     ];
 
-export const ServiceLinkData = {
-  links:[
+export const ServiceLinkData =[
     "/webdevelopmentservice",
     "/uiuxservice",
     "/digitalmarketingservice",
     "/aiservice",
     
   ]
-}
+
  

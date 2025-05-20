@@ -1,15 +1,20 @@
+'use client'
 import { FaEnvelope, FaWhatsapp } from "react-icons/fa";
 import { BsExclamationCircle } from "react-icons/bs";
-import Link from "next/link";
+import { useContext } from "react";
+import { cardcontext } from "@/context/scrollcardcontext";
+
 
 function ContactSection() {
+  const { carddata } = useContext(cardcontext);
+
+  console.log("carddata" , carddata)
   return (
     <div id="contactus" className="bg-gray-100 py-10 px-5 text-center mt-40 lg:mt-10 m-auto">
       <h2 className="text-3xl font-bold text-gray-900">Ready to Innovate?</h2>
       <p className="text-gray-600 mt-2">
         Unlock exponential growth with QuantumCrafters' powerful AI solutions.
       </p>
-
       <div className="mt-6 w-[85%] mx-auto flex flex-col md:flex-row justify-center gap-4">
         {/* Card 1 - Email */}
         <a
@@ -51,6 +56,16 @@ function ContactSection() {
           </div>
         </div>
       </div>
+
+      {/* newsection */}
+       {/* <div>
+        {carddata?.map((item,index)=>(
+          <div key={index}>
+            <p>{item.heading}</p>
+            </div>
+        ))}
+      </div> */}
+      {/* endsection */}
     </div>
   );
 }

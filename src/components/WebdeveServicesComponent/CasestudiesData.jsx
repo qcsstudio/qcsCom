@@ -38,6 +38,7 @@ export const caseStudiesData2 = [
       offsetTop: false,
     },
   ];
+
   
  export const crmStatsData = [
     {
@@ -54,3 +55,44 @@ export const caseStudiesData2 = [
     },
   ];
  
+  
+  export const caseStudiesAi = [
+    {
+      title: "Retail AI Automation",
+      description: "Automated inventory management and customer segmentation using ML clustering. ",
+      image: "", // you can later replace with actual image URL if needed
+      offsetTop: false,
+    },
+    {
+      title: "AI in Social Media Automation",
+      description: "Developed a content scheduler and AI-driven caption assistant for marketing teams. ",
+      image: "",
+      offsetTop: true,
+    },
+    {
+      title: "HRMS Automation + AI Chatbot",
+      description: "Integrated AI chatbot in internal HRMS to streamline employee support.",
+      image: "",
+      offsetTop: false,
+    },
+  ];
+  export const caseStudiesDigital = [
+    {
+      title: " B2B SaaS Growth Campaign",
+      description: "Developed and executed a full-funnel LinkedIn + Google campaign for a tech startup.  ",
+      image: "", // you can later replace with actual image URL if needed
+      offsetTop: false,
+    },
+    {
+      title: " E-Commerce Performance Boost",
+      description: "Revamped SEO, built Google Shopping feeds, and launched email recovery automation.  ",
+      image: "",
+      offsetTop: true,
+    },
+    {
+      title: " EdTech LinkedIn Funnel",
+      description: "Built founder branding, lead magnet content, and ad funnel targeting college partners. ",
+      image: "",
+      offsetTop: false,
+    },
+  ];

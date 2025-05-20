@@ -88,3 +88,67 @@ export const steps3 = [
             "Smooth collaboration using Zeplin, Figma Inspect, and handoff-ready assets.",
     },
 ];
+export const aisolutions = [
+    {
+        number: 1,
+        title: " AI Opportunity Discovery",
+        content:
+            "  Identify automation gaps, data bottlenecks, and decision-making delays.",
+    },
+    {
+        number: 2,
+        title: "Use Case Prioritization & AI Roadmapping",
+        content:
+            " Map scalable, cost-effective solutions aligned with business goals.",
+    },
+    {
+        number: 3,
+        title: " Prototype Development & Validation",
+        content:
+            "Develop proof-of-concepts to evaluate performance before scaling.",
+    },
+    {
+        number: 4,
+        title: "Technology Stack Design & Integration",
+        content:
+            " Design AI/ML pipeline, integrate APIs, and sync with existing systems.",
+    },
+    {
+        number: 5,
+        title: "Deployment, Training & Support",
+        content:
+            " Launch intelligent systems with stakeholder training and documentation.",
+    },
+];
+export const Digitalsolutions = [
+    {
+        number: 1,
+        title: " Discovery & Audit",
+        content:
+            " We assess your current digital presence, competition, and gaps.",
+    },
+    {
+        number: 2,
+        title: " Strategy & Channel Planning",
+        content:
+            "  We map a funnel-focused strategy tailored to your business goals.",
+    },
+    {
+        number: 3,
+        title: "Campaign & Content Execution",
+        content:
+            "We launch SEO, PPC, social, and email campaigns with performance focus.",
+    },
+    {
+        number: 4,
+        title: "Automation & AI Setup",
+        content:
+            " We automate repetitive tasks and workflows with tools like Zapier, Make, ChatGPT, etc.",
+    },
+    {
+        number: 5,
+        title: "Monitoring, Reporting & Optimization",
+        content:
+            " Weekly insights + continuous A/B testing for improved ROI.",
+    },
+];

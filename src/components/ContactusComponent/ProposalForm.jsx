@@ -31,7 +31,7 @@ export default function ProposalForm() {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
-        skypeId: "",
+        Location: "",
         contactNumber: "",
         budget: "",
         description: "",
@@ -67,7 +67,7 @@ export default function ProposalForm() {
         console.log("Captcha Token:", captchaToken);
         alert("form submitted successfully")
 
-        
+
     };
 
     return (
@@ -116,14 +116,6 @@ export default function ProposalForm() {
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input
-                                type="text"
-                                name="skypeId"
-                                value={formData.skypeId}
-                                onChange={handleChange}
-                                placeholder="Skype ID"
-                                className="w-full placeholder-black border-gray-300 border-b-2 rounded p-2 focus:outline-none"
-                            />
                             <div className="flex items-center border-gray-300 border-b-2 gap-1 p-2">
                                 <Image src="/images/Images/flag.png" width={22} height={16} alt="image" />
                                 <span className="mr-2">+91</span>
@@ -136,24 +128,37 @@ export default function ProposalForm() {
                                     className="w-full placeholder-black focus:outline-none rounded"
                                 />
                             </div>
-                        </div>
+                            <input
+                                type="text"
+                                name="Location"
+                                value={formData.Location}
+                                onChange={handleChange}
+                                placeholder="Location"
+                                className="w-full placeholder-black border-gray-300 border-b-2 rounded p-2 focus:outline-none"
+                            />
 
-                        <input
+                        </div>
+                        <select
                             type="text"
                             name="budget"
                             value={formData.budget}
                             onChange={handleChange}
                             placeholder="Select a budget range"
                             className="w-full placeholder-black border-gray-300 rounded border-b-2 p-2 focus:outline-none"
-                        />
+                        >
+                            <option value="Services">Services</option>
+                            <option value="AI-Poewred IT Services">AI-Poewred IT Services</option>
+                            <option value="AI-Based SAAS Products">AI-Based SAAS Products</option>
+                            <option value="Institutional training">Institutional training</option>
+                        </select>
 
                         <textarea
                             name="description"
                             value={formData.description}
                             onChange={handleChange}
-                            placeholder="Product description"
+                            placeholder="Tell us about your Project"
                             rows="5"
-                            className="w-full placeholder-black bg-[#F2F2F2] p-2 focus:outline-none"
+                            className="w-full placeholder-black rounded-xl bg-[#F2F2F2] p-2 focus:outline-none"
                         ></textarea>
 
                         <div className="flex items-center gap-2">

@@ -13,7 +13,7 @@ const NavbarContainer = ({data}) => {
       />
       <div className={`my-6 flex flex-wrap gap-4 justify-center ${unbounded.className}`}>
         {buttons?.map((item,index)=>{
-          return <Button key={index} text={item.text} color={item.color} border={item.border} />
+          return <Button key={index} text={item.text} color={item.color} border={item.border} link={item.link}/>
         })}
         
         
