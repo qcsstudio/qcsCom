@@ -17,6 +17,10 @@ export async function POST(req) {
   await connectMongo();
   try {
     const data = await req.json();
+       if (!data.heading || !data.content) {
+      return NextResponse.json({ error: 'Missing heading or content' }, { status: 404 });
+    }
+
     const blog = new Blog(data);
     await blog.save();
     return NextResponse.json(blog, { status: 201 });

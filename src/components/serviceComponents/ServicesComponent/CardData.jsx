@@ -37,8 +37,7 @@
         desc:"Grow faster with ROI-driven strategies and AI-powered campaigns. We blend organic reach and paid ads with automation to generate consistent, high-quality leads and brand visibility.",
         
     },
-   
-    
+
     {
       services:["AI Opportunity Mapping",
         "Proof of Concept (PoC) Creation",
@@ -65,8 +64,6 @@
       desc:"Empower your business with intelligent automation. We help you plan, build, and deploy scalable AI systems tailored to your workflows and goals.",
       
     },
-
-    
     ];
 
 export const CourseLinkData = {

@@ -17,7 +17,7 @@ export default function PolicyPageTemplate({ type, title, activeKey }) {
       </div>
 
       {loading ? (
-        <div className="text-center py-4">Loading...</div>
+        <div className="w-6 h-6 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto my-5"/>
       ) : policyData.length > 0 ? (
         policyData.map((item, index) => (
           <div key={index} className="py-4">
