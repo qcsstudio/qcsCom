@@ -61,3 +61,4 @@ export async function DELETE(req ,{ params }) {
     return NextResponse.json({ error: 'Failed to delete blog', message: error.message }, { status: 500 });
   }
 }
+
