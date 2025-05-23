@@ -39,35 +39,36 @@ export default function BlogList() {
       </div>
       <h1 className="text-4xl font-semibold text-center mb-4">Beyond the Canvas Stories from QuantumCrafter Studio</h1>
 
-
-      <div className='w-full flex gap-3 bg-red-300'>
-        <div className=' w-[70%] flex border border-black flex-wrap  '>
-          
-          {blogs.length === 0 ? (
-            <p className="text-center text-gray-600">No blogs found.</p>
-          ) : (
-            blogs.map((blog, index) => (
-              <div
-                key={index}
-                className="border border-gray-300 w-[406px] h-[460px] rounded-lg p-1 mb-6 shadow hover:shadow-lg transition-shadow duration-300"
-              >
-                <img
-                  src={blog.thumbnail}
-                  alt={blog.heading}
-                  className="w-full h-48 object-cover rounded-md mb-4"
-                  loading="lazy"
-                />
-                <h3 className="text-xl font-semibold mb-2">{blog.heading}</h3>
-                <p className="text-gray-700 mb-3">{blog.description}</p>
-                <p className="text-sm text-gray-500">
-                  <strong>Created:</strong> {new Date(blog.createdAt).toLocaleString()}
-                </p>
-              </div>
-            ))
-          )}
-        </div>
-        <div className=' border w-[406px] h-[460px] border-gray-300 rounded-lg'></div>
+    <div className='flex'>
+      <div className="w-[70%] grid grid-cols-1 sm:grid-cols-2 gap-3  ">
+        {blogs.length === 0 ? (
+          <p className="text-center text-gray-600 col-span-full">No blogs found.</p>
+        ) : (
+          blogs.map((blog, index) => (
+            <div
+              key={index}
+              className="border border-gray-300 rounded-lg p-1 shadow hover:shadow-lg transition-shadow duration-300"
+            >
+              <img
+                src={blog.thumbnail}
+                alt={blog.heading}
+                className="w-full h-48 object-cover rounded-md mb-4"
+                loading="lazy"
+              />
+              <h3 className="text-xl font-semibold mb-2">{blog.heading}</h3>
+              <p className="text-gray-700 mb-3">{blog.description}</p>
+              <p className="text-sm text-gray-500">
+                <strong>Created:</strong> {new Date(blog.createdAt).toLocaleString()}
+              </p>
+            </div>
+          ))
+        )}
       </div>
+      <div className='border-gray-500 border w-[30%]'>
+
+      </div>
+      </div>
+
     </div>
   );
 }

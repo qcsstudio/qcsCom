@@ -90,8 +90,8 @@
       "Thursday",
       "Friday"
     ],
-    "opens": "09:30",
-    "closes": "18:30"
+    "opens": "09:30 AM",
+    "closes": "18:30 PM"
   },
   "sameAs": [
     "https://www.linkedin.com/company/qcsstudio/",
