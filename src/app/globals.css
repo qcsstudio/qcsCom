@@ -2,7 +2,55 @@
 
 
 
+/* Add to your global CSS file */
+.tiptap-table {
+  border-collapse: collapse;
+  margin: 1rem 0;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  width: 100%;
+}
 
+.tiptap-table td,
+.tiptap-table th {
+  border: 1px solid #e2e8f0;
+  padding: 0.75rem 1rem;
+  position: relative;
+  min-width: 100px;
+}
+
+.tiptap-table th {
+  background-color: #f8fafc;
+  font-weight: 600;
+  text-align: left;
+}
+
+.tiptap-table tr:hover td {
+  background-color: #f8fafc;
+}
+
+/* Handle table resizing */
+.tiptap-table .resize-handle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: rgba(0, 0, 0, 0.1);
+  cursor: col-resize;
+  transition: background 0.2s;
+}
+
+.tiptap-table .resize-handle:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Add scroll for mobile */
+.table-wrapper {
+  overflow-x: auto;
+  margin: 1rem 0;
+}
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }

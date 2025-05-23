@@ -13,6 +13,7 @@ import { TableRow } from '@tiptap/extension-table-row';
 import { TableCell } from '@tiptap/extension-table-cell';
 import { TableHeader } from '@tiptap/extension-table-header';
 import { useState, useCallback, useEffect, useRef } from 'react';
+import '../../app/globals.css'
 
 const TiptapEditor = ({ content = '', onChange = () => {} }) => {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -50,10 +51,10 @@ const TiptapEditor = ({ content = '', onChange = () => {} }) => {
         },
       }),
       Table.configure({
-        resizable: true,
-        HTMLAttributes: {
-          class: 'border-collapse border border-gray-300',
-        },
+  resizable: true,
+  HTMLAttributes: {
+    class: 'border-collapse w-full my-4 [&_th]:bg-gray-100 [&_th]:p-2 [&_td]:p-2 [&_th]:border [&_td]:border [&_th]:border-gray-300 [&_td]:border-gray-200',
+  },
       }),
       TableRow,
       TableHeader,
@@ -66,10 +67,10 @@ const TiptapEditor = ({ content = '', onChange = () => {} }) => {
       }
     },
     editorProps: {
-      attributes: {
-        class: 'prose max-w-none focus:outline-none min-h-[200px] p-4',
-      },
-    },
+  attributes: {
+    class: 'prose max-w-none focus:outline-none min-h-[200px] p-4 [&_.tiptap-table]:!my-4',
+  },
+},
   });
 
   // Close menu when clicking outside
@@ -515,33 +516,33 @@ const TiptapEditor = ({ content = '', onChange = () => {} }) => {
         ) : (
           <>
             <button
-              onClick={addRowBefore}
-              className="p-1 rounded hover:bg-gray-100"
-              title="Add Row Before"
-            >
-              +Row
-            </button>
-            <button
-              onClick={addColumnBefore}
-              className="p-1 rounded hover:bg-gray-100"
-              title="Add Column Before"
-            >
-              +Col
-            </button>
-            <button
-              onClick={deleteRow}
-              className="p-1 rounded hover:bg-gray-100"
-              title="Delete Row"
-            >
-              -Row
-            </button>
-            <button
-              onClick={deleteColumn}
-              className="p-1 rounded hover:bg-gray-100"
-              title="Delete Column"
-            >
-              -Col
-            </button>
+          onClick={addRowBefore}
+          className="px-3 py-1.5 text-sm bg-gray-100 hover:bg-gray-200 rounded-md"
+          title="Add Row Before"
+        >
+          + Row
+        </button>
+        <button
+          onClick={addColumnBefore}
+          className="px-3 py-1.5 text-sm bg-gray-100 hover:bg-gray-200 rounded-md"
+          title="Add Column Before"
+        >
+          + Column
+        </button>
+        <button
+          onClick={deleteRow}
+          className="px-3 py-1.5 text-sm bg-red-50 hover:bg-red-100 text-red-600 rounded-md"
+          title="Delete Row"
+        >
+          - Row
+        </button>
+        <button
+          onClick={deleteColumn}
+          className="px-3 py-1.5 text-sm bg-red-50 hover:bg-red-100 text-red-600 rounded-md"
+          title="Delete Column"
+        >
+          - Column
+        </button>
           </>
         )}
       </div>
