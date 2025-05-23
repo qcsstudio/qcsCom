@@ -11,21 +11,25 @@ import { AiserviceFaq, DigitalserviceFaq } from '../ServiceContainer/Questions/f
 import Form from '../ServiceContainer/FormContainer/Form'
 import ContactSection from '@/components/serviceComponents/ContactUs/Contactus'
 import Footer from '../ServiceContainer/FooterContainer/Footer'
+import Platforms from '@/components/WebdeveServicesComponent/Platforms'
+import { DigitalSlide1, DigitalSlide2} from '../ServiceContainer/SliderContainer/SliderImages'
 
 const Digitalservice = () => {
   return (
     <>
     <NavbarContainer data={{
-                heading: "Growth That’s Smarter, Not Harder.",
+                heading: "Growth That's Smarter, Not Harder.",
                 para: "Our digital marketing services combine data, creativity, and automation to help you reach the right audience, at the right time, with the right message—across organic and paid channels.",
                 buttons: [{ text: "Request a Free Marketing Audit", link: "#", color: "#F1813B", border: "none" }, { text: "Book Strategy Call", link: "#", color: "transparent", border: "1px solid gray" }]
             }} />
             <WorkProcess steps={Digitalsolutions} />
             <Benifits heading="Key Features / Capabilities" BenefitsData={WebBenifitsData3} />
+            <Platforms heading="Tech Stack We Work On" para="We work on powerful, popular, customisable and scalable platforms to deliver the best solutions for our clients." images={DigitalSlide1} />
+            <Platforms images={DigitalSlide2} />
             <CaseStudies data={caseStudiesDigital} data2={crmStatsData} />
             <Questions questions={DigitalserviceFaq} />
-            <Form heading=" Let’s Accelerate Your Growth"
-                desc="Let’s turn your brand into a lead magnet. With the right mix of content, ads, and automation—we’ll make your marketing work harder (and smarter)." />
+            <Form heading=" Let's Accelerate Your Growth"
+                desc="Let's turn your brand into a lead magnet. With the right mix of content, ads, and automation—we'll make your marketing work harder (and smarter)." />
             <ContactSection />
             <Footer />
     
