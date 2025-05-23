@@ -11,6 +11,8 @@ import Form from '../ServiceContainer/FormContainer/Form'
 import ContactSection from '@/components/serviceComponents/ContactUs/Contactus'
 import Footer from '../ServiceContainer/FooterContainer/Footer'
 import NavbarContainer from '../ServiceContainer/NavbarContainer/NavbarContainer'
+import Platforms from '@/components/WebdeveServicesComponent/Platforms'
+import { ImagesSlide2, ImagesSlide3 } from '../ServiceContainer/SliderContainer/SliderImages'
 
 const UiUxService = () => {
     return (
@@ -23,6 +25,8 @@ const UiUxService = () => {
            
             <WorkProcess steps={steps3} />
             <Benifits heading="Key Features / Capabilities" BenefitsData={WebBenifitsData3} />
+            {/* <Platforms heading="Tech Stack We Work On" para="We work on powerful, popular, customisable and scalable platforms to deliver the best solutions for our clients." images={ImagesSlide2} />
+            <Platforms images={ImagesSlide3} /> */}
             <CaseStudies data={caseStudiesData2} data2={crmStatsData}/>
             <Questions questions={UIUXServiceFaq} />
             <Form heading=" Ready to Elevate Your Digital Experience?"

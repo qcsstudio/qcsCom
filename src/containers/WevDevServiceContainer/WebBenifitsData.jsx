@@ -123,7 +123,7 @@ export const WebBenifitsData3 = [
   export const webIndustries = [
     {
       title:"SaaS & Product Startups",
-      image:"/images/Images/Webindustry.png"
+      image:"/images/Images/Webindustry1.png"
     },
     {
       title:"E-Commerce, Retail & D2C Brands",

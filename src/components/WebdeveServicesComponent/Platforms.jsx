@@ -15,11 +15,11 @@ const Platforms = ({ heading, para, images }) => {
       //  pauseOnHover={true}
       //   pauseOnClick={true}
         >
-        <div className="flex gap-6 px-4">
+        <div className="flex gap-6 px-4 mb-5">
           {images.map((slide, index) => (
             <div
               key={index}
-              className="h-16 md:h-20 w-40 md:w-52 flex items-center justify-center rounded-lg flex-shrink-0"
+              className="h-16 md:h-20 w-30  flex items-center justify-center rounded-lg flex-shrink-0  "
             >
               <img
                 src={slide}

@@ -2,6 +2,7 @@
   import "./globals.css";
   import { PolicyProvider } from "@/context/policyContext";
   import Scrollcardcontext from "@/context/scrollcardcontext";
+  import Script from "next/script";
 
   // import { Syne } from 'next/font/google';
 
@@ -62,6 +63,88 @@
               `,
             }}
           />
+          <Script id="org-schema" type="application/ld+json" strategy="afterInteractive">
+  {JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "QuantumCrafters Studio Pvt. Ltd.",
+  "url": "https://www.qcsstudio.com/",
+  "logo": "https://www.qcsstudio.com/images/Images/footerlogo.png",
+  "description": "QuantumCrafters Studio offers AI-powered IT services, innovative AI-based SaaS products, and institutional training programs tailored for the digital age.",
+  "email": "info@qcsstudio.com",
+  "telephone": "+91 8264017346",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "D266 (C) 203, Second Floor Ram Hari Tower, Phase 8B",
+    "addressLocality": "Mohali",
+    "addressRegion": "Punjab",
+    "postalCode": "160055",
+    "addressCountry": "IN"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "09:30",
+    "closes": "18:30"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/qcsstudio/",
+    "https://www.instagram.com/qcsstudio/"
+  ],
+  "department": [
+    {
+      "@type": "LocalBusiness",
+      "name": "AI-Powered IT Services",
+      "url": "https://www.qcsstudio.com/",
+      "description": "AI-driven automation, analytics, and workflow optimization tailored for enterprise digital transformation."
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": "AI-Based SaaS Products",
+      "url": "https://www.qcsstudio.com/",
+      "description": "Cutting-edge SaaS tools powered by artificial intelligence to streamline business operations and growth."
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": "Institutional Training",
+      "url": "https://www.qcsstudio.com/",
+      "description": "Practical, hands-on training programs in AI, software development, and automation for institutions and learners."
+    }
+  ]
+}
+)}
+</Script>
+
+<Script id="localbiz-schema" type="application/ld+json" strategy="afterInteractive">
+  {JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "QuantumCrafters Studio",
+  "image": "https://www.qcsstudio.com/images/Images/footerlogo.png",
+  "url": "https://www.qcsstudio.com",
+  "telephone": "+91-8264017346",
+  "email": "info@qcsstudio.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "D266 (C) 203, Second Floor Ram Hari Tower, Phase 8B",
+    "addressLocality": "Mohali",
+    "postalCode": "160055",
+    "addressCountry": "IN"
+  },
+  "openingHours": "Mo-Fr 09:30-18:30",
+  "sameAs": [
+    "https://www.linkedin.com/company/qcsstudio/?viewAsMember=true",
+    "https://www.instagram.com/qcsstudio/"
+  ]
+}
+)}
+</Script>
         </head>
         <body className={`${syne.variable} ${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
           <Scrollcardcontext>
