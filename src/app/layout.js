@@ -81,17 +81,7 @@
     "postalCode": "160055",
     "addressCountry": "IN"
   },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday"
-    ],
-    
-  },
+ 
   "sameAs": [
     "https://www.linkedin.com/company/qcsstudio/",
     "https://www.instagram.com/qcsstudio/"
@@ -141,8 +131,7 @@
     "https://www.linkedin.com/company/qcsstudio/?viewAsMember=true",
     "https://www.instagram.com/qcsstudio/"
   ]
-}
-)}
+})}
 </Script>
         </head>
         <body className={`${syne.variable} ${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>

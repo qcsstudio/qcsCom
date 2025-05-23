@@ -39,15 +39,15 @@ export default function BlogList() {
       </div>
       <h1 className="text-4xl font-semibold text-center mb-4">Beyond the Canvas Stories from QuantumCrafter Studio</h1>
 
-    <div className='flex gap-3'>
-      <div className="w-[70%] grid grid-cols-1 sm:grid-cols-2 gap-3  ">
+    <div className='flex gap-6'>
+      <div className="w-[70%] grid grid-cols-1 sm:grid-cols-2 gap-6  ">
         {blogs.length === 0 ? (
           <p className="text-center text-gray-600 col-span-full">No blogs found.</p>
         ) : (
           blogs.map((blog, index) => (
             <div
               key={index}
-              className="border border-gray-300 rounded-lg p-1 shadow hover:shadow-lg transition-shadow duration-300"
+              className="bg-[#F5F7F9] rounded-lg p-3 shadow hover:shadow-lg transition-shadow duration-300"
             >
               <img
                 src={blog.thumbnail}
@@ -64,7 +64,7 @@ export default function BlogList() {
           ))
         )}
       </div>
-      <div className='rounded-lg w-[30%] h-[460px] bg-[#F5F7F9]'>
+      <div className='rounded-lg w-[30%] h-[460px] p-3 bg-[#F5F7F9]'>
 
       </div>
       </div>
