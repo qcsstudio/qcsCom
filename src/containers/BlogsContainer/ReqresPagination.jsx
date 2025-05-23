@@ -39,7 +39,7 @@ export default function BlogList() {
       </div>
       <h1 className="text-4xl font-semibold text-center mb-4">Beyond the Canvas Stories from QuantumCrafter Studio</h1>
 
-    <div className='flex'>
+    <div className='flex gap-3'>
       <div className="w-[70%] grid grid-cols-1 sm:grid-cols-2 gap-3  ">
         {blogs.length === 0 ? (
           <p className="text-center text-gray-600 col-span-full">No blogs found.</p>
@@ -64,7 +64,7 @@ export default function BlogList() {
           ))
         )}
       </div>
-      <div className='border-gray-500 border w-[30%]'>
+      <div className='rounded-lg w-[30%] h-[460px] bg-[#F5F7F9]'>
 
       </div>
       </div>
