@@ -3,6 +3,7 @@ import { Syne, Unbounded } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
+import { FaChevronRight ,FaChevronLeft } from "react-icons/fa";
 
 const unbounded = Unbounded({ subsets: ['latin'], weight: '700' });
 const syne = Syne({ subsets: ['latin'], weight: '400' });
@@ -101,8 +102,10 @@ export default function BlogList() {
                 key={index}
                 className="bg-[#F5F7F9] rounded-lg p-3 shadow hover:shadow-lg transition-shadow duration-300"
               >
-                <img
+                <Image
                   src={blog.thumbnail}
+                  width={364.06}
+                  height={242}
                   alt={blog.heading}
                   className="w-full h-[242px] object-cover rounded-md mb-4"
                   loading="lazy"
@@ -134,7 +137,7 @@ export default function BlogList() {
               disabled={currentPage === 1}
               className="px-3 py-1 rounded border disabled:opacity-50"
             >
-              &lt;
+               <FaChevronLeft />
             </button>
 
             {getPageNumbers(totalPages, currentPage).map((page, index) =>
@@ -162,7 +165,7 @@ export default function BlogList() {
               disabled={currentPage === totalPages}
               className="px-3 py-1 rounded border disabled:opacity-50"
             >
-              &gt;
+              <FaChevronRight />
             </button>
           </div>
         </div>
@@ -181,8 +184,10 @@ export default function BlogList() {
                   key={index}
                   className="flex gap-3 items-start border-b border-gray-300 pb-3 hover:bg-gray-100 transition rounded-md p-2"
                 >
-                  <img
+                  <Image
                     src={blog.thumbnail}
+                    width={64}
+                    height={64}
                     alt={blog.heading}
                     className="w-16 h-16 object-cover rounded-md"
                   />

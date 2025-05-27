@@ -4,6 +4,7 @@ import { useParams } from 'next/navigation';
 import NavbarContainer from '@/containers/ServiceContainer/NavbarContainer/NavbarContainer';
 import { Syne, Unbounded } from 'next/font/google';
 import Link from 'next/link';
+import { FaChevronRight ,FaChevronLeft } from "react-icons/fa";
 
 const unbounded = Unbounded({ subsets: ['latin'], weight: '700' });
 const syne = Syne({ subsets: ['latin'], weight: '400' });
@@ -207,7 +208,7 @@ export default function Page() {
             disabled={currentPage === 1}
             className="px-3 py-1 rounded border disabled:opacity-50"
           >
-            &lt;
+            <FaChevronLeft />
           </button>
 
           {getPageNumbers(totalPages, currentPage).map((page, index) =>
@@ -235,7 +236,7 @@ export default function Page() {
             disabled={currentPage === totalPages}
             className="px-3 py-1 rounded border disabled:opacity-50"
           >
-            &gt;
+            <FaChevronRight />
           </button>
         </div>
 
