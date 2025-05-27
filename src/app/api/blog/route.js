@@ -18,7 +18,7 @@ export async function POST(req) {
   await connectMongo(); 
   try {
     const data = await req.json();
-       if (!data.heading || !data.content) {
+       if (!data.heading || !data.description) {
       return NextResponse.json({ error: 'Missing heading or content' }, { status: 404 });
     }
 

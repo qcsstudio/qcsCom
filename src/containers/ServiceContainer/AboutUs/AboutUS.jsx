@@ -34,6 +34,12 @@ const members = [
     position: "Digital Marketing Manager",
     link: "https://www.linkedin.com/in/diksha-chauhan-829333163/"
   },
+  {
+    name: "Puneet Verma",
+    image: "/images/Images/teammember5.jpeg",
+    position: "Team Lead/Software Developer",
+    link: "https://www.linkedin.com/in/puneetvermax/"
+  },
 ];
 
 const AboutUs = () => {
