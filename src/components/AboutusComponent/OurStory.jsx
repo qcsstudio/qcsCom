@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const OurStory = () => {
   return (
@@ -49,7 +50,7 @@ const OurStory = () => {
 
 
           <div className="sm:w-1/3 mt-6 sm:mt-0">
-            <div className="w-full h-40 sm:h-full bg-[#D9D9D9] rounded-lg"></div>
+            <Image src="/images/Images/Mask group.png" width={439} height={359} alt="Ravi k Sankhyan" className="w-full h-40 sm:h-full rounded-lg"/>
           </div>
         </div>
       </div>
