@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { HomeIcon, UserIcon, Cog6ToothIcon, ChartBarIcon } from '@heroicons/react/24/outline';
 import JobPostForm from '../JobPostingComponent/JobPostForm';
+import BlogPostForm from '../BlogPostComponent/BlogPostForm';
 
 const Sidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -19,7 +20,7 @@ const Sidebar = () => {
       case 'jobposts':
         return <JobPostForm />;
       case 'blogposts':
-        return <></>;
+        return <BlogPostForm/>;
       case 'settings':
         return <></>;
       case 'analytics':
