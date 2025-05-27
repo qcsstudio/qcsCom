@@ -13,8 +13,9 @@ export async function GET() {
   }
 }
 
-export async function POST(req,res) {
-  await connectMongo();
+
+export async function POST(req) {
+  await connectMongo(); 
   try {
     const data = await req.json();
        if (!data.heading || !data.content) {

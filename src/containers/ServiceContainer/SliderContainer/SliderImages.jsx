@@ -5,33 +5,72 @@ export const ImagesSlide = [
     "/images/Images/slide4.png",
     "/images/Images/slide5.png",
     "/images/Images/slide6.png",
-  ];
-export const ImagesSlide2 = [
-    "/images/Images/platformLogo1.png",
-    "/images/Images/platformLogo2.png",
-    "/images/Images/platformLogo3.png",
-    "/images/Images/platformLogo4.png",
-    "/images/Images/platformLogo5.png",
-    "/images/Images/platformLogo6.png",
-    "/images/Images/platformLogo7.png",
-    "/images/Images/platformLogo8.png",
-    "/images/Images/platformLogo9.png",
-    "/images/Images/platformLogo10.png",
-    "/images/Images/platformLogo11.png",
-    "/images/Images/platformLogo12.png",
-] 
-export const ImagesSlide3 = [
-    "/images/Images/platformLogo13.png",
-    "/images/Images/platformLogo14.png",
-    "/images/Images/platformLogo15.png",
-    "/images/Images/platformLogo16.png",
-    "/images/Images/platformLogo17.png",
-    "/images/Images/platformLogo18.png",
-    "/images/Images/platformLogo19.png",
-    "/images/Images/platformLogo20.png",
-    "/images/Images/platformLogo21.png",
-    "/images/Images/platformLogo22.png",
-    "/images/Images/platformLogo23.png",
-    "/images/Images/platformLogo24.png",
-    
+];
+export const webdevSlide1 = [
+    "/images/webdev/webdevplatform1.png",
+    "/images/webdev/webdevplatform2.png",
+    "/images/webdev/webdevplatform3.png",
+    "/images/webdev/webdevplatform4.png",
+    "/images/webdev/webdevplatform5.png",
+    "/images/webdev/webdevplatform6.png",
+    "/images/webdev/webdevplatform7.png",
+    "/images/webdev/webdevplatform8.png",
+]
+export const webdevSlide2 = [
+    "/images/webdev/webdevplatform9.png",
+    "/images/webdev/webdevplatform10.png",
+    "/images/webdev/webdevplatform11.png",
+    "/images/webdev/webdevplatform12.png",
+    "/images/webdev/webdevplatform13.png",
+    "/images/webdev/webdevplatform14.png",
+    "/images/webdev/webdevplatform15.png",
+    "/images/webdev/webdevplatform16.png",
+]
+export const AiSlide1 = [
+    "/images/AiMl/AiMlplatform1.png",
+    "/images/AiMl/AiMlplatform2.png",
+    "/images/AiMl/AiMlplatform3.png",
+    "/images/AiMl/AiMlplatform4.png",
+    "/images/AiMl/AiMlplatform5.png",
+    "/images/AiMl/AiMlplatform6.png",
+    "/images/AiMl/AiMlplatform7.png",
+    "/images/AiMl/AiMlplatform8.png",
+    "/images/AiMl/AiMlplatform9.png",
+]
+export const AiSlide2 = [
+    "/images/AiMl/AiMlplatform10.png",
+    "/images/AiMl/AiMlplatform11.png",
+    "/images/AiMl/AiMlplatform12.png",
+    "/images/AiMl/AiMlplatform13.png",
+    "/images/AiMl/AiMlplatform14.png",
+    "/images/AiMl/AiMlplatform15.png",
+    "/images/AiMl/AiMlplatform16.png",
+    "/images/AiMl/AiMlplatform17.png",
+    "/images/AiMl/AiMlplatform18.png",
+    "/images/AiMl/AiMlplatform19.png",
+]
+export const DigitalSlide1 = [
+    "/images/digital marketing/DigitalPlatform1.png",
+    "/images/digital marketing/DigitalPlatform2.png",
+    "/images/digital marketing/DigitalPlatform3.png",
+    "/images/digital marketing/DigitalPlatform4.png",
+    "/images/digital marketing/DigitalPlatform5.png",
+    "/images/digital marketing/DigitalPlatform6.png",
+    "/images/digital marketing/DigitalPlatform7.png",
+    "/images/digital marketing/DigitalPlatform8.png",
+    "/images/digital marketing/DigitalPlatform9.png",
+    "/images/digital marketing/DigitalPlatform10.png",
+
+]
+export const DigitalSlide2 = [
+    "/images/digital marketing/DigitalPlatform11.png",
+    "/images/digital marketing/DigitalPlatform12.png",
+    "/images/digital marketing/DigitalPlatform13.png",
+    "/images/digital marketing/DigitalPlatform14.png",
+    "/images/digital marketing/DigitalPlatform15.png",
+    "/images/digital marketing/DigitalPlatform16.png",
+    "/images/digital marketing/DigitalPlatform17.png",
+    "/images/digital marketing/DigitalPlatform18.png",
+    "/images/digital marketing/DigitalPlatform19.png",
+    "/images/digital marketing/DigitalPlatform20.png",
 ] 
