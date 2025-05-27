@@ -13,7 +13,7 @@ export async function GET() {
   }
 }
 
-export async function POST(req) {
+export async function POST(req,res) {
   await connectMongo();
   try {
     const data = await req.json();
