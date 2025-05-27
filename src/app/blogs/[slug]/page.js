@@ -5,6 +5,7 @@ import NavbarContainer from '@/containers/ServiceContainer/NavbarContainer/Navba
 import { Syne, Unbounded } from 'next/font/google';
 import Link from 'next/link';
 import { FaChevronRight ,FaChevronLeft } from "react-icons/fa";
+import Image from 'next/image';
 
 const unbounded = Unbounded({ subsets: ['latin'], weight: '700' });
 const syne = Syne({ subsets: ['latin'], weight: '400' });
@@ -86,7 +87,7 @@ export default function Page() {
     } else if (currentPage >= totalPages - 2) {
       pages.push(1, '...', totalPages - 2, totalPages - 1, totalPages);
     } else {
-      pages.push(1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages);
+      pages.push(1, '...', currentPage - 1, currentPage, currentPage + 1, "...", totalPages);
     }
   }
   return pages;
@@ -112,8 +113,10 @@ export default function Page() {
       <div className="w-[90%] flex gap-6 mx-auto p-6">
         {/* Blog Detail */}
         <div className="w-[70%]">
-          <img
+          <Image
             src={blog.thumbnail}
+            width={800.213}
+            height={288}
             alt={blog.heading}
             className="w-full h-72 object-fill rounded-lg mb-6"
           />
@@ -129,7 +132,7 @@ export default function Page() {
 
         {/* Recent Posts */}
         <div className="rounded-lg w-[30%] h-[530px] px-5 py-8 bg-[#F5F7F9] overflow-y-auto no-scrollbar">
-          <h2 className={`text-[26px] font-bold mb-4 ${unbounded.className}`}>Recent Post's</h2>
+          <h2 className={`text-[26px] font-bold mb-4 ${unbounded.className}`}>Recent Post&#39;s</h2>
           <div className="space-y-4">
             {blogs
               .slice()
@@ -141,8 +144,10 @@ export default function Page() {
                   href={`/blogs/${encodeURIComponent(recentBlog.heading)}`}
                   className="flex gap-3 items-start border-b border-gray-300 pb-3 hover:bg-gray-100 transition rounded-md p-2"
                 >
-                  <img
+                  <Image
                     src={recentBlog.thumbnail}
+                    width={64}
+                    height={64}
                     alt={recentBlog.heading}
                     className="w-16 h-16 object-cover rounded-md"
                   />
@@ -175,8 +180,10 @@ export default function Page() {
                 key={i}
                 className="bg-[#F5F7F9] rounded-lg p-3 shadow hover:shadow-lg transition-shadow duration-300"
               >
-                <img
+                <Image
                   src={blog.thumbnail}
+                  width={364.06}
+                  height={242}
                   alt={blog.heading}
                   className="w-full h-48 object-cover rounded-md mb-4"
                   loading="lazy"
