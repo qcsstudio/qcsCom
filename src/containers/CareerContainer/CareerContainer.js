@@ -1,6 +1,7 @@
 import React from 'react'
 import NavbarContainer from '../ServiceContainer/NavbarContainer/NavbarContainer'
 import CareerJobsComponent from '@/components/CareerJobsComponent/CareerJobsComponent'
+import Footer from '../ServiceContainer/FooterContainer/Footer'
 
 const CareerContainer = () => {
   return (
@@ -12,6 +13,7 @@ const CareerContainer = () => {
         }} />
         </div> 
         <CareerJobsComponent />     
+        <Footer />
     </>
   )
 }
