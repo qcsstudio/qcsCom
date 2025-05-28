@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 
-const FileDropzone = () => {
+const FileDropzone = ({ onFileSelected }) => {  // Added onFileSelected prop
   const [files, setFiles] = useState([]);
   const [error, setError] = useState('');
 
@@ -16,9 +16,12 @@ const FileDropzone = () => {
       setError('');
       const filesWithPreview = acceptedFiles.map(file => ({
         ...file,
-        preview: URL.createObjectURL(file)
+        preview: file.type.startsWith('image/') ? URL.createObjectURL(file) : null
       }));
       setFiles(filesWithPreview);
+      if (onFileSelected) {  // Added null check
+        onFileSelected(acceptedFiles[0]); // Pass selected file to parent
+      }
     },
     onDropRejected: fileRejections => {
       setError(fileRejections[0].errors[0].message);
@@ -69,18 +72,20 @@ const FileDropzone = () => {
                 key={index}
                 className="flex items-center p-2 border rounded bg-gray-50"
               >
-                {file.type.startsWith('image/') && (
+                {file.preview && (  // Only show preview for images
                   <img
                     src={file.preview}
                     alt={file.name}
                     className="w-12 h-12 object-cover mr-3 rounded"
+                    onLoad={() => {
+                      // Revoke the data uri to avoid memory leaks
+                      URL.revokeObjectURL(file.preview);
+                    }}
                   />
                 )}
                 <div>
                   <p className="font-medium">{file.name}</p>
-                  <p className="text-sm text-gray-500">
-                    {(file.size / 1024).toFixed(1)} KB
-                  </p>
+                  
                 </div>
               </div>
             ))}
