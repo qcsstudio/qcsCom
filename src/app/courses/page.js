@@ -1,5 +1,6 @@
 import Choices from '@/components/CoursesComponent/Choices'
 import { coursesboxes } from '@/components/CoursesComponent/ChoicesboxData'
+import CoursesHeader from '@/components/CoursesHeader/CoursesHeader'
 import FormComponent from '@/components/MainComponent/FormComponent'
 import NewsletterSignup from '@/components/MainComponent/NewsletterSignup'
 import { CardData, CourseLinkData } from '@/components/serviceComponents/ServicesComponent/CardData'
@@ -16,10 +17,7 @@ const page = () => {
   return (
     <>
       
-        <NavbarContainer data={{heading:"IGNITE YOUR TECH PASSION LAUNCH YOUR DREAM CAREER",
-          para:"Discover tech mentorship and education tailored to your interests, strengths, and goals. Whether you're into coding, design, data, or marketing, we help you align your passion with the right skills for real-world success.",
-          buttons:[{text:"Enroll Now",link:"#",color:"#F1813B"},{text:"Explore Services",link:"#",color:"#transparent", border:"1px solid gray"}]}}/>
-
+       <CoursesHeader/>
         <ServicesContainer listData={courses} ServiceCardData={CardData} links ={CourseLinkData}  />
         <Choices title="Why QuantumCrafter Studio is the right Choice for you" data={coursesboxes}/>
         <AboutUs/>
