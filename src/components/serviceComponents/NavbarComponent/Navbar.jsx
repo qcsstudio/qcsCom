@@ -75,3 +75,5 @@ const Navbar = ({ heading, para }) => {
 };
 
 export default Navbar;
+
+

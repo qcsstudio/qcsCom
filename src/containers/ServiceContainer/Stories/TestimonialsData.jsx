@@ -42,11 +42,11 @@
     image: "/images/Images/client3.png",
   },
   {
-    name: "Omkar",
-    title: "Backend Developer",
+    name: "Omkar ",
+    title: "Full Stack Developer",
     quote:
-      "I was initially hesitant about backend development, but joining QCS as a Backend Intern has been a game-changer. The hands-on experience and real-world projects have boosted my skills and confidence. I'm excited about the growth opportunities",
-    image: "https://www.qcsstudio.in/_next/static/media/Omkar.d01374a0.png",
+      "I was initially hesitant about full stack development, but joining QCS as a Full Stack Intern has been a game-changer. The hands-on experience and real-world projects have boosted my skills and confidence. I'm excited about the growth opportunities",
+    image: "/images/Clientstories/OmkarKhallar.png",
   },
   {
     name: "Navjot Kaur",
