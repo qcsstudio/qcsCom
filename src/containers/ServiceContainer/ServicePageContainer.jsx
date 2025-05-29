@@ -41,7 +41,8 @@ const ServicePageContainer = () => {
             <NavbarContainer data={{
                 heading: "Unlock Growth with Next-Gen AI & Automation Solutions",
                 para: "Transform your business operations through strategic automation, advanced machine learning, and personalized AI consulting.",
-                buttons: [{ text: "Get Started", link: "#", color: "#F1813B", border: "none" }, { text: "Explore Services", link: "#", color: "transparent", border: "1px solid gray" }]
+                buttons: [{ text: "Get Started", link: "#", color: "#F1813B", border: "none" }, { text: "Explore Services", link: "#", color: "transparent", border: "1px solid black" }],
+             image:"/images/Hero Images/Heroimage-service.png"
             }} />
             <Overview />
             <ServicesContainer />

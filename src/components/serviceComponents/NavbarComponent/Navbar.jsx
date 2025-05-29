@@ -15,7 +15,9 @@ const Navbar = ({ heading, para }) => {
 
   return (
     <>
-      <nav className="w-full flex justify-between items-center py-4 px-4 md:px-8">
+    {/* navbar */}
+
+      <nav className="w-[90%] mx-auto flex justify-between items-center  text-black py-4 ">
         <Link href="/">
           <Image src='/images/Images/NavLogo.png' alt="logo" width={194.82} height={40} />
           {/* <Image src='/images/Images/QCS Logo.png' alt="logo" width={194.82} height={40} /> */}
@@ -32,26 +34,26 @@ const Navbar = ({ heading, para }) => {
 
         <div className="flex items-center md:hidden">
           <button onClick={() => setMenuOpen(!menuOpen)}>
-            {menuOpen ? <HiX className="text-white w-6 h-6" /> : <HiMenu className="text-white w-6 h-6" />}
+            {menuOpen ? <HiX className=" w-6 h-6" /> : <HiMenu className=" w-6 h-6" />}
           </button>
         </div>
 
 
         <div className={`hidden md:flex items-center space-x-4 gap-2 ${syne.className}`}>
-          <div className="flex items-center text-white">
+          <div className="flex items-center ">
             <IoGlobeOutline className="w-5 h-5 me-1" />En
           </div>
           <Link href='/contactus' >
-            <button className="border border-white px-4 py-1 rounded-md hover:bg-white hover:text-black" >
+            <button className="border  px-4 py-1 rounded-md hover:bg-white hover:text-black" >
               Get a Quote
             </button>
           </Link>
         </div>
       </nav>
 
-
+      {/* responsive navbar */}
       {menuOpen && (
-        <div className="md:hidden flex flex-col items-center bg-black py-4 space-y-4 text-white">
+        <div className="md:hidden flex flex-col items-center bg-black py-4 space-y-4 ">
           <Link href="/services">Services</Link>
           <Link href="/courses">Projects</Link>
           <Link href="services/#aboutus">About Us</Link>
@@ -65,11 +67,7 @@ const Navbar = ({ heading, para }) => {
           </button>
         </div>
       )}
-
-      <div className={`text-center py-1 md:py-4 px-5  mt-10 sm:mt-24 md:mt-15  `}>
-        <h1 className={`text-2xl md:text-[61px] font-black ${unbounded.className}`}>{heading}</h1>
-        <p className={`text-[#FFFFFF] text-sm md:text-2xl mt-4 max-w-4xl mx-auto ${syne.className}`}>{para}</p>
-      </div>
+      
     </>
   );
 };
