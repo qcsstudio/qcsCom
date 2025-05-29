@@ -13,20 +13,24 @@ import { HomeTestimonial } from '../ServiceContainer/Stories/TestimonialsData'
 const Homepage = () => {
   return (
     <>
-    <NavbarContainer data={{heading:"Automate Your Business. Scale with Smart SaaS. Achieve Career Excellence",
-        para:"QuantumCrafters Studio is your partner in digital transformation powering businesses with AI-driven IT solutions",
-        buttons:[{text:"Reach out to Expert Now",link: "/contactus",color:"#F1813B"},]}}/>
+      <NavbarContainer data=
+        {{
+          heading: "Automate Your Business. Scale with Smart SaaS. Achieve Career Excellence",
+          para: "QuantumCrafters Studio is your partner in digital transformation powering businesses with AI-driven IT solutions",
+          buttons: [{ text: "Reach out to Expert Now", link: "/contactus", color: "#F1813B" }]
+        }}
+      />
 
       {/* <PlatformComponent/> */}
-      <WeAre/>
-      <Solutions/>
-      <LeaderComponent/>
+      <WeAre />
+      <Solutions />
+      <LeaderComponent />
 
-      <ClientStories heading="Hear Stories Straight From the People We Helped" testimonials={HomeTestimonial}/>
-      <FormComponent heading="Have a Query? Let's Talk!!"  />
-      <NewsletterSignup/>
-      <Footer/>
-    
+      <ClientStories heading="Hear Stories Straight From the People We Helped" testimonials={HomeTestimonial} />
+      <FormComponent heading="Have a Query? Let's Talk!!" />
+      <NewsletterSignup />
+      <Footer />
+
     </>
   )
 }
