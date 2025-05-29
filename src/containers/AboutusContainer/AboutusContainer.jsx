@@ -14,7 +14,8 @@ const AboutusContainer = () => {
         <>
             <NavbarContainer data={{
                 heading: "IT Solutions and Tech Education For Your Growth",
-                para: "At QuantumCrafters Studio, we're not just building technology—we're crafting stories of transformation. We began with a simple belief: education should unlock potential, not limit it, and AI should empower, not overwhelm."
+                para: "At QuantumCrafters Studio, we're not just building technology—we're crafting stories of transformation. We began with a simple belief: education should unlock potential, not limit it, and AI should empower, not overwhelm.",
+                image:"/images/Hero Images/Heroimage-aboutus.png"
             }} />
             <Ourstory/>
             <VisionMissionCards/>
