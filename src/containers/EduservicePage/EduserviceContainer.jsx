@@ -62,7 +62,9 @@ const EduserviceContainer = () => {
    <>
      <NavbarContainer data={{heading:"Design Intuitive Interfaces. Shape Digital Experiences.",
         para:"Learn how to design stunning, user-first websites and apps with industry-standard tools and project-based learning. Get mentored, build real portfolios, and kickstart your career in design.",
-        buttons:[{text:"Enroll Now",link:"#",color:"#F1813B",border:"none"},{text:"Download Curriculum",link:"#",color:"transparent",border:"1px solid gray"}]}}/>
+        buttons:[{text:"Enroll Now",link:"#",color:"#F1813B",border:"none"},{text:"Download Curriculum",link:"#",color:"transparent",border:"1px solid gray"}],
+        image:"/images/Hero Images/Heroimage-uiuxcourse.png"
+        }}/>
       <WhyLearnUIUX title="Why Learn UI/UX Design?" data={UiUxreasons}/>
       <OurServices data={UiUxcurriculum}/>
 
