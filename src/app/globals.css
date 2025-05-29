@@ -468,3 +468,109 @@
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
 }
+
+/* new */
+
+
+/* Static multi-hue gradient */
+.bg-gradient-parallax {
+  background: linear-gradient(
+    135deg,
+    #3b82f6 0%,
+    #ec4899 25%,
+    #10b981 50%,
+    #facc15 75%,
+    #6366f1 100%
+	
+  );
+  background-size: 400% 400%;
+  will-change: transform, background-position, background-size;
+}
+
+/* 60% top-left triangle */
+.clip-gradient {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 40%,
+    0 100%
+  );
+}
+
+/* 40% bottom-right */
+.clip-images {
+  clip-path: polygon(
+    100% 40%,
+    100% 100%,
+    0 100%
+  );
+}
+
+/* Movement 1: horizontal slide */
+@keyframes gradientSlideH {
+  0%   { background-position:   0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position:   0% 50%; }
+}
+.movement1 {
+  animation: gradientSlideH 20s linear infinite;
+}
+
+/* Movement 2: vertical slide */
+@keyframes gradientSlideV {
+  0%   { background-position: 50%   0%; }
+  50%  { background-position: 50% 100%; }
+  100% { background-position: 50%   0%; }
+}
+.movement2 {
+  animation: gradientSlideV 25s ease-in-out infinite;
+}
+
+/* Movement 3: diagonal slide */
+@keyframes gradientSlideD {
+  0%   { background-position:   0%   0%; }
+  50%  { background-position: 100% 100%; }
+  100% { background-position:   0%   0%; }
+}
+.movement3 {
+  animation: gradientSlideD 22s ease-out infinite;
+}
+
+/* Movement 4: gentle pulse (scale background) */
+@keyframes gradientPulse {
+  0%   { transform: scale(1)   translateZ(0); }
+  50%  { transform: scale(1.1) translateZ(0); }
+  100% { transform: scale(1)   translateZ(0); }
+}
+.movement4 {
+  animation: gradientPulse 18s ease-in-out infinite;
+}
+
+/* Movement 5: background-size drift */
+@keyframes gradientDrift {
+  0%   { background-size: 300% 300%; }
+  50%  { background-size: 400% 400%; }
+  100% { background-size: 300% 300%; }
+}
+.movement5 {
+  animation: gradientDrift 30s ease-in-out infinite;
+}
+
+/* Multi-hue palettes for each layer */
+.bg-layer-1 { background: linear-gradient(45deg, #ff0055, #ff7700); }
+.bg-layer-2 { background: linear-gradient(135deg, #00ddff, #0044ff); }
+.bg-layer-3 { background: linear-gradient(225deg, #10b981, #facc15); }
+.bg-layer-4 { background: linear-gradient(315deg, #ec4899, #6366f1); }
+.bg-layer-5 { background: conic-gradient(from 90deg, #3b82f6, #7c3aed, #f43f5e, #fbbf24); }
+
+/* Make sure these layers all overlap and blend */
+.clip-gradient .bg-layer-1,
+.clip-gradient .bg-layer-2,
+.clip-gradient .bg-layer-3,
+.clip-gradient .bg-layer-4,
+.clip-gradient .bg-layer-5 {
+  position: absolute;
+  inset: 0;
+  opacity: 0.7;
+  mix-blend-mode: screen;
+}

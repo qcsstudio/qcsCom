@@ -1,6 +1,7 @@
+'use client';
 import Images from '@/containers/ServiceContainer/Iamgescontainer/Images'
 import ServicesContainer from '@/containers/ServiceContainer/OurServices/ServicesContainer'
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import Form from '@/containers/ServiceContainer/FormContainer/Form'
 import Footer from '@/containers/ServiceContainer/FooterContainer/Footer'
 import Differences from '@/containers/ServiceContainer/OurDifferences/Differences'
@@ -21,13 +22,25 @@ import { ServiceFaq } from '@/containers/ServiceContainer/Questions/faqsData'
 import { challenges, solutions } from '@/containers/ServiceContainer/OurDifferences/DifferencesData'
 import Overview from '@/components/serviceComponents/OverviewComponent/Overview'
 import { HomeTestimonial } from '@/containers/ServiceContainer/Stories/TestimonialsData'
+import { usePathname } from 'next/navigation';
+import Scrollcardcontext, { cardcontext } from '@/context/scrollcardcontext';
 
-export const metadata = {
-  title: " AI-Powered IT & SaaS Development Services in Mohali | QuantumCrafters",
-  description: "  Discover reliable IT solutions and custom SaaS development at QuantumCrafters—Mohali's go-to tech partner for cutting-edge digital innovation and scalable growth.",
-};
+// export const metadata = {
+//   title: " AI-Powered IT & SaaS Development Services in Mohali | QuantumCrafters",
+//   description: "  Discover reliable IT solutions and custom SaaS development at QuantumCrafters—Mohali's go-to tech partner for cutting-edge digital innovation and scalable growth.",
+// };
 
 const page = () => {
+  const pathname = usePathname();
+  const currPath = pathname.split("/")[1];
+
+  const {setScrollCardData} = useContext(cardcontext);
+
+  useEffect(() => {
+    if(currPath){
+      setScrollCardData(currPath);
+    }
+  }, [currPath]);
   return (
     <>
       <NavbarContainer data={{

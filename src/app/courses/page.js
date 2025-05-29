@@ -1,3 +1,4 @@
+"use client"
 import Choices from '@/components/CoursesComponent/Choices'
 import { coursesboxes } from '@/components/CoursesComponent/ChoicesboxData'
 import CoursesHeader from '@/components/CoursesHeader/CoursesHeader'
@@ -11,14 +12,27 @@ import NavbarContainer from '@/containers/ServiceContainer/NavbarContainer/Navba
 import ServicesContainer from '@/containers/ServiceContainer/OurServices/ServicesContainer'
 import ClientStories from '@/containers/ServiceContainer/Stories/Clientstories'
 import { HomeTestimonial } from '@/containers/ServiceContainer/Stories/TestimonialsData'
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
+import { usePathname } from 'next/navigation';
+import Scrollcardcontext, { cardcontext } from '@/context/scrollcardcontext';
 
 const page = () => {
+    const pathname = usePathname();
+    const currPath = pathname.split("/")[1];
+  
+    const {setScrollCardData} = useContext(cardcontext);
+  
+    useEffect(() => {
+      if(currPath){
+        setScrollCardData(currPath);
+      }
+    }, [currPath]);
+
   return (
     <>
       
        <CoursesHeader/>
-        <ServicesContainer listData={courses} ServiceCardData={CardData} links ={CourseLinkData}  />
+        <ServicesContainer  />
         <Choices title="Why QuantumCrafter Studio is the right Choice for you" data={coursesboxes}/>
         <AboutUs/>
         <ClientStories heading="Success Stories: Real Results, Real Impact" testimonials={HomeTestimonial}/>
