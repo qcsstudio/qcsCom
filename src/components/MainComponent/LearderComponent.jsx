@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import { Unbounded,Syne } from 'next/font/google';
+import Heading from '../HeadingComponent/Heading';
 
 const unbounded = Unbounded({subsets: ['latin'],weight: '600'})
 const syne = Syne({subsets: ['latin'],weight: '500'})
@@ -86,9 +87,9 @@ export default function LeaderComponent() {
 
   return (
     <>
-      <h2 className={`text-[40px] font-bold text-center mt-10 my-5 ${unbounded.className}`}>Trusted by Industry Leaders</h2>
+      <Heading heading="Trusted by Industry Leaders"/>
 
-      <div className="p-3 w-[80%] mx-auto rounded-xl">
+      <div className="sm:p-5 w-[90%] mx-auto rounded-xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {testimonials.map(({ id, name, title, videoUrl }) => (
             <div

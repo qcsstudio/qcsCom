@@ -5,7 +5,7 @@ import Scrollcomp from '@/components/serviceComponents/ServicesComponent/Scrollc
 import { Unbounded } from 'next/font/google';
 import { cardcontext } from '@/context/scrollcardcontext';
 
-const unbounded = Unbounded({ subsets: ['latin'], weight: '500' });
+const unbounded = Unbounded({ subsets: ['latin'], weight: '700' });
 
 const ServicesContainer = () => {
   const { listData, carddata, links } = useContext(cardcontext);
@@ -20,7 +20,7 @@ const ServicesContainer = () => {
           <span className="font-semibold text-sm mt-1">Our Services</span>
         </h4>
       </div>
-      <h1 className={`w-full md:w-[70%] mx-auto text-center font-medium text-2xl md:text-4xl mt-5 px-2 ${unbounded.className}`}>
+      <h1 className={`w-full md:w-[70%] mx-auto text-center lg:text-[40px] sm:text-4xl text-3xl mt-5 px-2 ${unbounded.className}`}>
         Services designed to help your brand shine brighter.
       </h1>
       <div className="flex flex-col lg:flex-row p-2 mt-8 gap-6 ">

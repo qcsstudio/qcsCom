@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Syne, Unbounded } from "next/font/google";
+import Heading from "../HeadingComponent/Heading";
 
 
 // Tab ke data yahan define hain
@@ -106,11 +107,11 @@ export default function Solutions() {
 
   return (
     <>
-      <div className=" mt-15 hidden  lg:block">
-        <div className="   rounded-xl px-20 py-3">
-          <h3 className={`text-[2.8rem] font-bold text-center mb-5 ${unbounded.className}`}>What We Offer ?</h3>
+      <div className=" hidden  lg:block">
+       
+          <Heading heading="What We Offer ?"/>
 
-        </div>00
+        
 
         {/* Tabs */}
 
@@ -156,11 +157,11 @@ export default function Solutions() {
       </div>
 
       {/* responsive design */}
-      <div className="flex flex-wrap justify-center gap-6  lg:hidden w-[95%] mx-auto">
+      <div className="flex flex-wrap md:flex-nowrap justify-center gap-6 mt-5  lg:hidden w-[95%]  mx-auto">
   {tabData.map((tab, i) => (
     <div
       key={i}
-      className="max-w-[380px] w-full rounded-[20px] overflow-hidden shadow-md bg-white"
+      className=" w-full md:w-[50%] rounded-[20px] overflow-hidden shadow-md bg-white"
     >
       {/* Orange Header */}
       <div className="bg-[#F1813B] text-white text-center py-3 px-4 text-[18px] font-semibold rounded-t-[20px]">

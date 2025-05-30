@@ -140,9 +140,6 @@ export default function NavbarContainer({ data }) {
 
       </div>
 
-
-
-
     </section>
   );
 }

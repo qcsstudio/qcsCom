@@ -5,7 +5,7 @@ const syne = Syne({subsets: ['latin'],weight: '400'})
 const unbounded = Unbounded({subsets: ['latin'],weight: '700'})
 const FormComponent = ({heading,desc}) => {
   return (
-    <div className=' lg:w-[85%]  h-[517px] m-auto relative bg-[#F5F7F9] p-2 mt-8 rounded-xl '>
+    <div className=' lg:w-[90%]  h-[517px] m-auto relative bg-[#F5F7F9] p-2 mt-8 rounded-xl '>
       <div className={`w-[97%] lg:w-[80%] bg-[#F1813B] absolute rounded-xl h-[500px] z-10 ${unbounded.className}`}>
         <h2 className='text-white sm:text-[48px]  text-4xl text-center lg:text-start  mt-10 lg:w-[50%] xl:w-[50%] lg:mt-20 lg:ms-8'>{heading}</h2>
         <p className='text-white text-xl sm:text-2xl font-normal px-4 lg:px-0 mt-4 ms-4 lg:ms-8 lg:w-[43%] sm:w-[70%] md:w-[60%] sm:mx-auto'>{desc}</p>

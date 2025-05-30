@@ -1,4 +1,5 @@
 'use client'
+import Heading from '@/components/HeadingComponent/Heading';
 import React from 'react'
 import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
@@ -28,12 +29,8 @@ const Slider = ({images}) => {
 
   return (
     <>
-    <h2 className="text-center text-3xl md:text-5xl font-bold -mt-10 sm:my-5 px-4">
-    We don't just work together, we grow together.
-      </h2>
-    
-
-      <Marquee speed={250} gradient={false} direction={direction}>
+    <Heading heading="We don't just work together, we grow together."/>
+        <Marquee speed={250} gradient={false} direction={direction}>
         <div className="flex gap-6 px-4">
           {images.map((slide, index) => (
             <div
