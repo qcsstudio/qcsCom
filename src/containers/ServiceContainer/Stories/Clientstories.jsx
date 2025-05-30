@@ -6,21 +6,19 @@ import 'swiper/css/grid';
 import 'swiper/css/pagination';
 import { Grid, Pagination, Autoplay } from "swiper/modules";
 import { Unbounded,Syne} from "next/font/google";
+import Heading from "@/components/HeadingComponent/Heading";
 
 const unbounded = Unbounded({ subsets: ['latin'], weight: '700' })
 const syne = Syne({ subsets: ['latin'], weight: '400' })
 
 
 
-const ClientStories = ({ heading ,testimonials}) => {
+const ClientStories = ({ testimonials}) => {
   return (
     <>
 
-      <h2 className={` lg:mt-10 sm:text-[38px] w-full 
-        mx-auto font-bold text-center ${unbounded.className}`}>
-        {heading}
-      </h2>
-      <div className="w-[85%] mx-auto text-center mb-16 mt-8">
+      <Heading heading="Hear Stories Straight From the People We Helped"/>
+      <div className="w-[90%] mx-auto text-center mb-16 mt-8">
         <Swiper
           modules={[Grid, Autoplay]}
           grid={{ rows: 2, fill: "cols" }}

@@ -27,7 +27,7 @@ export default function NewsletterSignup() {
   };
 
   return (
-    <div className="bg-[#F5F7F9] rounded-xl p-8 mt-50 lg:my-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8 w-full max-w-6xl mx-auto">
+    <div className="bg-[#F5F7F9] rounded-xl p-8 mt-50 lg:my-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8 w-[90%]  mx-auto">
       <div className="max-w-md">
         <h2 className={`text-5xl font-semibold text-black mb-1 ${unbounded.className}`}>Stay Updated</h2>
         <p className={`text-base font-medium text-gray-600 mt-2 ${syne.className}`}>

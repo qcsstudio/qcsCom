@@ -22,12 +22,12 @@ const Homepage = () => {
         }}
       />
 
-      {/* <PlatformComponent/> */}
+      <PlatformComponent/>
       <WeAre />
       <Solutions />
       <LeaderComponent />
 
-      <ClientStories heading="Hear Stories Straight From the People We Helped" testimonials={HomeTestimonial} />
+      <ClientStories testimonials={HomeTestimonial} />
       <FormComponent heading="Have a Query? Let's Talk!!" />
       <NewsletterSignup />
       <Footer />

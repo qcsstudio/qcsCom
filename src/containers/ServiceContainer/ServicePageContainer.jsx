@@ -22,7 +22,7 @@ import { challenges, solutions } from '@/containers/ServiceContainer/OurDifferen
 import Overview from '@/components/serviceComponents/OverviewComponent/Overview'
 import { HomeTestimonial } from '@/containers/ServiceContainer/Stories/TestimonialsData'
 import { usePathname } from 'next/navigation';
-import Scrollcardcontext, { cardcontext } from '@/context/scrollcardcontext';
+import { cardcontext } from '@/context/scrollcardcontext';
 
 
 const ServicePageContainer = () => {
@@ -42,17 +42,15 @@ const ServicePageContainer = () => {
                 heading: "Unlock Growth with Next-Gen AI & Automation Solutions",
                 para: "Transform your business operations through strategic automation, advanced machine learning, and personalized AI consulting.",
                 buttons: [{ text: "Get Started", link: "#", color: "#F1813B", border: "none" }, { text: "Explore Services", link: "#", color: "transparent", border: "1px solid black" }],
-             image:"/images/Hero Images/Heroimage-service.png"
+                image: "/images/Hero Images/Heroimage-service.png"
             }} />
             <Overview />
             <ServicesContainer />
-            <Benifits heading="See why partnering with us is the smartest move."
-                BenefitsData={benefits}
-            />
-            <Slider images={ImagesSlide} />
-            <BrandsContainer />
             <Images />
-            <WorkProcess steps={steps} />
+            <BrandsContainer />
+            <Benifits BenefitsData={benefits}/>
+            <Slider images={ImagesSlide} />
+            {/* <WorkProcess steps={steps} /> */}
             <Differences title="Business Challenges & Innovative Solutions" heading="Common Challenges Businesses Face:"
                 heading2="QuantumCrafters' Cutting-Edge Solutions:" challenges={challenges} solutions={solutions} bgcolor="#F5F7F9" bgcolor2="black" textColor="black"
                 textColor2="white" iconcolor="gray" iconcolor2="#F1813B" />
@@ -61,7 +59,7 @@ const ServicePageContainer = () => {
             <Questions questions={ServiceFaq} />
             {/* <AboutUs /> */}
             <Form heading="Need a custom quote?" desc="Don't let your ideas sit idle—slide
-        into our inbox and let's make magic!"/>
+                into our inbox and let's make magic!"/>
             <ContactSection />
             <Footer />
         </>

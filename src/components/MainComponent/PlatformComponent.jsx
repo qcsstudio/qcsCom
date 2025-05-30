@@ -25,7 +25,7 @@ const platformImages = [
 
 const PlatformComponent = () => {
   return (
-    <div className="w-[95%] flex flex-wrap justify-evenly items-center m-auto my-10">
+    <div className="w-[95%] flex flex-wrap justify-evenly items-center m-auto mt-20">
       {platformImages.map((item, index) => (
         <img
           key={index}

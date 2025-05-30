@@ -15,7 +15,7 @@ const Cardscroll = ({ card }) => {
   return (
     <div className="p-6 rounded-2xl shadow-lg bg-[#F5F7F9]">
       <motion.h2
-        className="text-2xl md:text-[26px] text-[#0F0F0F] mb-2 flex flex-wrap"
+        className="text-lg md:text-[26px] text-[#0F0F0F] mb-2 flex flex-wrap"
         variants={container}
         initial="hidden"
         whileInView="visible"
@@ -36,7 +36,7 @@ const Cardscroll = ({ card }) => {
         {services?.map((service, index) => (
           <span
             key={index}
-            className="px-3 py-1 bg-white text-[#0F0F0F] text-sm font-medium rounded-full flex items-center gap-1 border"
+            className="px-3 py-1 bg-white text-[#0F0F0F] text-xs sm:text-sm font-medium rounded-full flex items-center gap-1 border"
           >
             {service}
           </span>

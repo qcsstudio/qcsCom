@@ -1,27 +1,24 @@
 'use client'
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, FreeMode } from "swiper/modules";
+import { Navigation, Pagination, FreeMode, Autoplay } from "swiper/modules"; // ✅ Autoplay import kiya
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import { Syne, Unbounded } from "next/font/google";
+import Heading from "@/components/HeadingComponent/Heading";
 
-const syne = Syne({subsets: ['latin'],weight: '400'})
-const unbounded = Unbounded({subsets: ['latin'],weight: '600'})
-const Benefits = ({heading,BenefitsData}) => {
-  
- 
+const syne = Syne({ subsets: ['latin'], weight: '400' });
+const unbounded = Unbounded({ subsets: ['latin'], weight: '600' });
+
+const Benefits = ({BenefitsData }) => {
   return (
     <>
-      <div className="w-[90%] md:w-[85%] mx-auto py-10">
-        <h2 className={`text-center text-3xl md:text-[35px] font-bold mb-8 ${unbounded.className}`}>
-          {heading}
-        </h2>
-
+      <Heading heading="See why partnering with us is the smartest move." />
+      <div className="w-[90%] mx-auto py-10">
         <Swiper
-          modules={[Navigation, Pagination, FreeMode]}
+          modules={[Navigation, Pagination, FreeMode, Autoplay]}
           spaceBetween={16}
           slidesPerView={1.2}
           breakpoints={{
@@ -31,7 +28,11 @@ const Benefits = ({heading,BenefitsData}) => {
           }}
           loop={true}
           freeMode={true}
-          speed={3000}
+          autoplay={{
+            delay: 3000, // ✅ 3 seconds delay
+            disableOnInteraction: false, // ✅ user swipe kare to bhi chalu rahe
+          }}
+          speed={1000}
           className="pb-10"
         >
           {BenefitsData.map((benefit, index) => (
@@ -39,22 +40,20 @@ const Benefits = ({heading,BenefitsData}) => {
               <div className="bg-[#F5F7F9] rounded-lg p-4 sm:h-[400px] flex flex-col sm:justify-between">
                 <div>
                   <h3 className={`font-semibold text-lg md:text-2xl mb-2 ${unbounded.className}`}>{benefit.title}</h3>
-                  <p className="text-gray-600 text-base md:text-xl  font-medium ">
+                  <p className={`text-gray-600 text-base md:text-xl font-medium ${syne.className}`}>
                     {benefit.description}
                   </p>
                 </div>
                 <img
                   src={benefit.image}
                   alt={benefit.title}
-                  className="mix-blend-multiply  sm:object-none "
+                  className="mix-blend-multiply sm:object-none"
                 />
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
-
-      
     </>
   );
 };
