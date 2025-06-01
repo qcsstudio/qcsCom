@@ -285,7 +285,7 @@ const CareerJobsComponent = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/career');
+        const response = await fetch('/api/career');
         if (!response.ok) {
           throw new Error('Failed to fetch jobs');
         }
