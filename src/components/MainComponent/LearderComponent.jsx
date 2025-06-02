@@ -94,6 +94,41 @@ export default function LeaderComponent() {
   };
 
   return (
+
+    <>
+      <Heading heading="Trusted by Industry Leaders"/>
+
+      <div className=" w-[90%] mx-auto rounded-xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {testimonials.map(({ id, name, title, videoUrl }) => (
+            <div
+              key={id}
+              className="rounded-2xl p-3 video-container cursor-pointer bg-gray-100"
+              ref={(el) => (containerRefs.current[id] = el)}
+              onClick={() => handlePlay(id)}
+            >
+              {isClient ? (
+                <iframe
+                  id={`yt-player-${id}`}
+                  src={videoUrl}
+                  width="100%"
+                  height="315"
+                  title={name}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="rounded-2xl w-full "
+                ></iframe>
+              ) : (
+                <div className="w-full h-[315px] bg-gray-300 rounded-2xl animate-pulse"></div>
+              )}
+              <div className="text-center mt-4">
+                <h3 className={`text-xl font-semibold ${unbounded.className}`}>{name}</h3>
+                <p className={`text-sm text-gray-600 ${syne.className}`}>{title}</p>
+              </div>
+            </div>
+          ))}
+
     <section className="py-10 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <Heading heading="Trusted by Industry Leaders" />
 
@@ -149,6 +184,7 @@ export default function LeaderComponent() {
             allowFullScreen
             className="absolute top-0 left-0 w-full h-full"
           />
+
         </div>
       ) : (
         <div className="w-full aspect-video bg-gray-300 rounded-xl animate-pulse"></div>

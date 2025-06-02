@@ -108,8 +108,16 @@ export default function Solutions() {
 
   return (
     <>
+
+      <div className=" hidden  lg:block">
+
+        <Heading heading="What We Offer ?" />
+
+
+
       <div className="hidden lg:block">
         <Heading heading="What We Offer ?" />
+
 
         {/* Tabs */}
         <motion.div
@@ -188,6 +196,66 @@ export default function Solutions() {
 
 
       {/* responsive design */}
+
+      <div className="flex flex-wrap md:flex-nowrap justify-center gap-6 mt-5 lg:hidden w-[90%] mx-auto">
+  {tabData.map((tab, i) => (
+    <div
+      key={i}
+      className="w-full md:w-[50%] lg:w-[32%] bg-white rounded-[20px] shadow-md flex flex-col"
+    >
+      {/* Orange Header */}
+      <div className="bg-[#F1813B] text-white text-center py-3 px-4 text-[18px] font-semibold rounded-t-[20px]">
+        {tab.label}
+      </div>
+
+      {/* Card Body */}
+      <div className="flex flex-col justify-between flex-grow px-5 py-6 h-full">
+        <div>
+          {/* Heading */}
+          {tab.content.heading && (
+            <h3 className={`text-[18px] font-bold mb-3 ${unbounded.className}`}>
+              {tab.content.heading}
+            </h3>
+          )}
+
+          {/* Description */}
+          {tab.content.description && (
+            <p className={`text-[14px] mb-4 text-gray-700 ${syne.className}`}>
+              {tab.content.description}
+            </p>
+          )}
+
+          {/* Bullet List */}
+          {tab.content.list && (
+            <ul className={`list-disc pl-5 mb-5 space-y-2 text-[14px] text-gray-800 ${syne.className}`}>
+              {tab.content.list.map((item, index) => (
+                <li key={index}>
+                  {item.strong && <strong>{item.strong}</strong>}
+                  {item.text || item}
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {/* Sub Description */}
+          {tab.content.subDescription && (
+            <p className={`text-[14px] mb-4 text-gray-600 ${syne.className}`}>
+              {tab.content.subDescription}
+            </p>
+          )}
+        </div>
+
+        {/* Button Always At Bottom */}
+        {tab.content.buttons && tab.content.buttons.length > 0 && (
+          <div className="mt-4">
+            <Link href={tab.content.buttons[0].link}>
+              <button className="bg-[#F1813B] text-white text-sm font-semibold py-2 px-3 rounded-md hover:bg-[#da6c27] transition w-full">
+                {tab.content.buttons[0].text}
+              </button>
+            </Link>
+          </div>
+        )}
+
       <div className="flex flex-wrap md:flex-nowrap justify-center gap-6 mt-5 lg:hidden w-[95%] mx-auto">
         {tabData.map((tab, i) => (
           <motion.div
@@ -263,7 +331,9 @@ export default function Solutions() {
             </div>
           </motion.div>
         ))}
+
       </div>
+
 
     </>
   );
