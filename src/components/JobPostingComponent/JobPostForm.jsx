@@ -9,6 +9,7 @@ import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import { FilterMatchMode } from 'primereact/api';
 import { Toast } from 'primereact/toast';
+import { ConfirmDialog, confirmDialog } from 'primereact/confirmdialog';
 
 const unbounded = Unbounded({ subsets: ['latin'], weight: '500' });
 
@@ -26,22 +27,24 @@ const JobPostForm = () => {
   });
   const [editingId, setEditingId] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState("");
   const [filters, setFilters] = useState({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
   });
   const [globalFilterValue, setGlobalFilterValue] = useState('');
   const toast = useRef(null);
 
-  // Fetch Jobs
+  // Fetch Jobs with error handling
   const fetchJobs = async () => {
     try {
-      const res = await fetch("/api/career");
-      const data = await res.json();
+      const response = await fetch("/api/career");
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
       setJobs(data);
-    } catch (err) {
-      showToast('error', 'Error', 'Failed to fetch jobs');
-      console.error("Failed to fetch jobs:", err);
+    } catch (error) {
+      console.error("Failed to fetch jobs:", error);
+      showToast('error', 'Fetch Error', 'Failed to load job postings. Please try again.');
     }
   };
 
@@ -54,72 +57,120 @@ const JobPostForm = () => {
     toast.current.show({ severity, summary, detail, life: 3000 });
   };
 
-  // Form Submit Handler
+  // Form Validation
+  const validateForm = () => {
+    const requiredFields = ['heading', 'description', 'location', 'experience', 'skills', 'workHours'];
+    const missingFields = requiredFields.filter(field => !formData[field] || formData[field].toString().trim() === '');
+
+    if (missingFields.length > 0) {
+      showToast('warn', 'Validation Error', `Missing required fields: ${missingFields.join(', ')}`);
+      return false;
+    }
+    return true;
+  };
+
+  // Form Submit Handler with improved error handling
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
     setIsSubmitting(true);
-    setError("");
-
-    const method = editingId ? "PUT" : "POST";
-    const url = editingId
-      ? `/api/career/${encodeURIComponent(formData.heading)}`
-      : `/api/career`;
 
     try {
-      const res = await fetch(url, {
+      const url = editingId 
+        ? `/api/career/${encodeURIComponent(editingId)}` 
+        : "/api/career";
+      const method = editingId ? "PUT" : "POST";
+
+      console.log("Submitting with:", { url, method, data: formData }); // Debug log
+
+      const response = await fetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
-      if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(errorData.error || "Failed to save job posting");
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || result.message || 'Failed to save job');
       }
 
-      showToast('success', 'Success', editingId ? 'Job updated successfully' : 'Job created successfully');
+      showToast(
+        'success', 
+        'Success', 
+        editingId ? 'Job updated successfully' : 'Job created successfully'
+      );
+      
       setModalOpen(false);
-      setFormData({
-        heading: "",
-        description: "",
-        location: "",
-        experience: "",
-        skills: "",
-        workHours: ""
-      });
-      setEditingId(null);
-      fetchJobs();
-    } catch (err) {
-      console.error("Submission error:", err);
-      showToast('error', 'Error', err.message);
-      setError(err.message);
+      resetForm();
+      await fetchJobs(); // Ensure fresh data is loaded
+    } catch (error) {
+      console.error("Submission error:", error);
+      showToast('error', 'Submission Error', error.message);
+      
+      // Special handling for update conflicts
+      if (editingId && error.message.includes('heading')) {
+        fetchJobs(); // Refresh data if heading conflict
+      }
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  // Delete Job
-  const handleDelete = async (job) => {
-    try {
-      const res = await fetch(`/api/career/${encodeURIComponent(job.heading)}`, {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-      });
-
-      if (!res.ok) throw new Error('Failed to delete job posting');
-      
-      showToast('success', 'Success', 'Job deleted successfully');
-      fetchJobs();
-    } catch (err) {
-      showToast('error', 'Error', err.message);
-    }
+  // Delete Job with confirmation
+  const handleDelete = (job) => {
+    confirmDialog({
+      message: 'Are you sure you want to delete this job posting?',
+      header: 'Confirm Deletion',
+      icon: 'pi pi-exclamation-triangle',
+      acceptClassName: 'p-button-danger',
+      accept: async () => {
+        try {
+          const response = await fetch(
+            `/api/career/${encodeURIComponent(job.heading)}`, 
+            { method: "DELETE" }
+          );
+          
+          if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error || 'Failed to delete job');
+          }
+          
+          showToast('success', 'Success', 'Job deleted successfully');
+          await fetchJobs();
+        } catch (error) {
+          console.error("Delete error:", error);
+          showToast('error', 'Delete Error', error.message);
+        }
+      }
+    });
   };
 
-  // Edit Job
+  // Edit Job - Load data into form
   const handleEdit = (job) => {
-    setFormData(job);
-    setEditingId(job.heading); // Store the heading as the identifier
+    setFormData({
+      heading: job.heading,
+      description: job.description,
+      location: job.location,
+      experience: job.experience,
+      skills: job.skills,
+      workHours: job.workHours
+    });
+    setEditingId(job.heading);
     setModalOpen(true);
+  };
+
+  // Reset form to initial state
+  const resetForm = () => {
+    setFormData({
+      heading: "",
+      description: "",
+      location: "",
+      experience: "",
+      skills: "",
+      workHours: ""
+    });
+    setEditingId(null);
   };
 
   // Search Functionality
@@ -134,14 +185,15 @@ const JobPostForm = () => {
   // Table Header with Search
   const renderHeader = () => {
     return (
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <h2 className={`text-2xl font-bold ${unbounded.className}`}>Job Postings</h2>
-        <span className="p-input-icon-left">
+        <span className="p-input-icon-left w-full md:w-auto">
           <i className="pi pi-search" />
           <InputText
             value={globalFilterValue}
             onChange={onGlobalFilterChange}
             placeholder="Search jobs..."
+            className="w-full"
           />
         </span>
       </div>
@@ -167,6 +219,7 @@ const JobPostForm = () => {
           onClick={() => handleEdit(rowData)}
           tooltip="Edit"
           tooltipOptions={{ position: 'top' }}
+          aria-label="Edit"
         />
         <Button
           icon="pi pi-trash"
@@ -174,6 +227,7 @@ const JobPostForm = () => {
           onClick={() => handleDelete(rowData)}
           tooltip="Delete"
           tooltipOptions={{ position: 'top' }}
+          aria-label="Delete"
         />
       </div>
     );
@@ -182,8 +236,9 @@ const JobPostForm = () => {
   const header = renderHeader();
 
   return (
-    <div className="p-6">
+    <div className="p-4 md:p-6">
       <Toast ref={toast} position="top-right" />
+      <ConfirmDialog />
 
       {/* DataTable */}
       <div className="card">
@@ -198,20 +253,26 @@ const JobPostForm = () => {
           globalFilterFields={['heading', 'location', 'experience', 'skills']}
           header={header}
           emptyMessage="No job postings found."
+          loading={jobs.length === 0}
+          scrollable
+          scrollHeight="flex"
+          responsiveLayout="scroll"
         >
-          <Column field="heading" header="Position" sortable />
-          <Column field="location" header="Location" sortable />
-          <Column field="experience" header="Experience" sortable />
-          <Column field="skills" header="Skills" sortable />
+          <Column field="heading" header="Position" sortable style={{ width: '20%' }} />
+          <Column field="location" header="Location" sortable style={{ width: '15%' }} />
+          <Column field="experience" header="Experience" sortable style={{ width: '15%' }} />
+          <Column field="skills" header="Skills" sortable style={{ width: '15%' }} />
           <Column 
             field="description" 
             header="Description" 
             body={descriptionBodyTemplate} 
+            style={{ width: '25%' }}
           />
           <Column 
             body={actionBodyTemplate} 
             header="Actions" 
-            style={{ width: '8rem' }} 
+            style={{ width: '10%' }} 
+            exportable={false}
           />
         </DataTable>
       </div>
@@ -219,20 +280,13 @@ const JobPostForm = () => {
       {/* Floating Add Button */}
       <Button
         icon="pi pi-plus"
-        className="p-button-rounded p-button-raised fixed bottom-5 right-5"
+        className="p-button-rounded p-button-raised fixed bottom-5 right-5 shadow-lg"
         onClick={() => {
-          setFormData({
-            heading: "",
-            description: "",
-            location: "",
-            experience: "",
-            skills: "",
-            workHours: ""
-          });
-          setEditingId(null);
+          resetForm();
           setModalOpen(true);
         }}
         tooltip="Add New Job"
+        aria-label="Add Job"
       />
 
       {/* Job Form Dialog */}
@@ -240,26 +294,20 @@ const JobPostForm = () => {
         visible={modalOpen}
         onHide={() => {
           setModalOpen(false);
-          setEditingId(null);
-          setFormData({
-            heading: "",
-            description: "",
-            location: "",
-            experience: "",
-            skills: "",
-            workHours: ""
-          });
+          resetForm();
         }}
         style={{ width: '50vw' }}
         header={editingId ? "Edit Job Posting" : "Add Job Posting"}
         modal
         className="p-fluid"
         breakpoints={{ '960px': '75vw', '641px': '90vw' }}
+        dismissableMask
+        closeOnEscape
       >
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Job Title */}
           <div className="field">
-            <label htmlFor="heading" className="font-medium">
+            <label htmlFor="heading" className="font-medium block mb-2">
               Job Title *
             </label>
             <InputText
@@ -269,12 +317,18 @@ const JobPostForm = () => {
                 setFormData({ ...formData, heading: e.target.value })
               }
               required
+              disabled={!!editingId}
+              className="w-full"
+              aria-describedby="heading-help"
             />
+            <small id="heading-help" className="p-error block mt-1">
+              {!formData.heading && 'Job title is required'}
+            </small>
           </div>
 
           {/* Job Description */}
           <div className="field">
-            <label htmlFor="description" className="font-medium">
+            <label htmlFor="description" className="font-medium block mb-2">
               Description *
             </label>
             <TiptapEditor
@@ -282,12 +336,16 @@ const JobPostForm = () => {
               onChange={(html) =>
                 setFormData({ ...formData, description: html })
               }
+              className="border rounded p-2 min-h-[200px]"
             />
+            <small className="p-error block mt-1">
+              {!formData.description && 'Description is required'}
+            </small>
           </div>
 
           {/* Location */}
           <div className="field">
-            <label htmlFor="location" className="font-medium">
+            <label htmlFor="location" className="font-medium block mb-2">
               Location *
             </label>
             <InputText
@@ -297,12 +355,13 @@ const JobPostForm = () => {
                 setFormData({ ...formData, location: e.target.value })
               }
               required
+              className="w-full"
             />
           </div>
 
           {/* Experience */}
           <div className="field">
-            <label htmlFor="experience" className="font-medium">
+            <label htmlFor="experience" className="font-medium block mb-2">
               Experience Required *
             </label>
             <InputText
@@ -312,12 +371,13 @@ const JobPostForm = () => {
                 setFormData({ ...formData, experience: e.target.value })
               }
               required
+              className="w-full"
             />
           </div>
 
           {/* Skills */}
           <div className="field">
-            <label htmlFor="skills" className="font-medium">
+            <label htmlFor="skills" className="font-medium block mb-2">
               Required Skills *
             </label>
             <InputText
@@ -327,12 +387,13 @@ const JobPostForm = () => {
                 setFormData({ ...formData, skills: e.target.value })
               }
               required
+              className="w-full"
             />
           </div>
 
           {/* Work Hours */}
           <div className="field">
-            <label htmlFor="workHours" className="font-medium">
+            <label htmlFor="workHours" className="font-medium block mb-2">
               Work Hours *
             </label>
             <InputText
@@ -342,38 +403,28 @@ const JobPostForm = () => {
                 setFormData({ ...formData, workHours: e.target.value })
               }
               required
+              className="w-full"
             />
           </div>
 
-          {error && (
-            <div className="p-4 bg-red-100 text-red-700 rounded-md">
-              Error: {error}
-            </div>
-          )}
-
-          <div className="flex justify-end gap-2 mt-4">
+          <div className="flex justify-end gap-2 mt-6">
             <Button
               label="Cancel"
               icon="pi pi-times"
               className="p-button-text"
               onClick={() => {
                 setModalOpen(false);
-                setEditingId(null);
-                setFormData({
-                  heading: "",
-                  description: "",
-                  location: "",
-                  experience: "",
-                  skills: "",
-                  workHours: ""
-                });
+                resetForm();
               }}
+              type="button"
+              disabled={isSubmitting}
             />
             <Button
-              label={isSubmitting ? "Saving..." : "Save"}
+              label={isSubmitting ? "Processing..." : "Save"}
               icon="pi pi-check"
               type="submit"
               loading={isSubmitting}
+              disabled={isSubmitting}
             />
           </div>
         </form>
