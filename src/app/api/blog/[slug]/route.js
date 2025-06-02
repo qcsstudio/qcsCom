@@ -20,9 +20,9 @@ export async function GET(req,{ params }) {
 }
 
 
-export async function PUT(req ,{ params }) {
+export async function PUT(req, { params }) {
   await connectMongo();
-  const { slug } =   params;
+  const { slug } = params;
 
   try {
     const data = await req.json();
@@ -44,21 +44,18 @@ export async function PUT(req ,{ params }) {
 }
 
 
-export async function DELETE(req ,{ params }) {
+export async function DELETE(req, { params }) {
   await connectMongo();
   const { slug } = params;
 
   try {
     const deletedBlog = await Blog.findOneAndDelete({ heading: decodeURIComponent(slug) });
-
     if (!deletedBlog) {
       return NextResponse.json({ error: 'Blog not found' }, { status: 404 });
     }
-
     return NextResponse.json({ message: 'Blog deleted successfully' }, { status: 200 });
   } catch (error) {
     console.error('DELETE error:', error);
-    return NextResponse.json({ error: 'Failed to delete blog', message: error.message }, { status: 500 });
+    return NextResponse.json({ error: 'Failed to delete blog' }, { status: 500 });
   }
 }
-

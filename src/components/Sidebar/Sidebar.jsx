@@ -3,26 +3,31 @@ import { useState } from 'react';
 import { HomeIcon, UserIcon, Cog6ToothIcon, ChartBarIcon } from '@heroicons/react/24/outline';
 import JobPostForm from '../JobPostingComponent/JobPostForm';
 import BlogPostForm from '../BlogPostComponent/BlogPostForm';
+import 'primereact/resources/themes/lara-light-indigo/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+import 'primeflex/primeflex.css';
+import Application from '../ApplicationComponent/Application';
 
 const Sidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [activeItem, setActiveItem] = useState('dashboard');
 
   const menuItems = [
-    { id: 1, name: 'JobPosts', icon: HomeIcon },
-    { id: 2, name: 'BlogPosts', icon: UserIcon },
-    { id: 3, name: 'Settings', icon: Cog6ToothIcon },
+    { id: 1, name: 'Job Posts', icon: HomeIcon },
+    { id: 2, name: 'Blog Posts', icon: UserIcon },
+    { id: 3, name: 'Applications', icon: Cog6ToothIcon },
     { id: 4, name: 'Analytics', icon: ChartBarIcon },
   ];
 
   const renderComponent = () => {
     switch (activeItem) {
-      case 'jobposts':
+      case 'job posts':
         return <JobPostForm />;
-      case 'blogposts':
+      case 'blog posts':
         return <BlogPostForm/>;
-      case 'settings':
-        return <></>;
+      case 'applications':
+        return <Application />;
       case 'analytics':
         return <></>;
       default:

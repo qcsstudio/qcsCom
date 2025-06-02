@@ -1,214 +1,319 @@
 "use client";
-import { useEffect, useState } from "react";
-import TiptapEditor from "../EditorComponent/TiptapEditor"; // Your rich text editor
+import { useEffect, useState, useRef } from "react";
+import TiptapEditor from "../EditorComponent/TiptapEditor";
 import { Unbounded } from "next/font/google";
-import { GiCrossMark } from "react-icons/gi";
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
+import { InputText } from 'primereact/inputtext';
+import { Dialog } from 'primereact/dialog';
+import { Button } from 'primereact/button';
+import { FilterMatchMode } from 'primereact/api';
+import { Toast } from 'primereact/toast';
 
-const unbounded = Unbounded({ subsets: ['latin'], weight: '500' })
+const unbounded = Unbounded({ subsets: ['latin'], weight: '500' });
 
 const BlogPostForm = () => {
-  // ---------------- State Management ----------------
+  // State Management
   const [blogs, setBlogs] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
-  const [formData, setFormData] = useState({ heading: "", description: "", thumbnail: "" });
+  const [formData, setFormData] = useState({ 
+    heading: "", 
+    description: "", 
+    thumbnail: "" 
+  });
   const [editingId, setEditingId] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [filters, setFilters] = useState({
+    global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+  });
+  const [globalFilterValue, setGlobalFilterValue] = useState('');
+  const toast = useRef(null);
 
-  // ---------------- Fetch Blogs on Load ----------------
+  // Fetch Blogs
   const fetchBlogs = async () => {
-    const res = await fetch("http://localhost:3000/api/blog");
-    const data = await res.json();
-    setBlogs(data);
+    try {
+      const res = await fetch("http://localhost:3000/api/blog");
+      const data = await res.json();
+      setBlogs(data);
+    } catch (err) {
+      showToast('error', 'Error', 'Failed to fetch blogs');
+      console.error("Failed to fetch blogs:", err);
+    }
   };
 
   useEffect(() => {
     fetchBlogs();
   }, []);
 
-  // ---------------- Handle Form Submit (Create / Update) ----------------
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setError("");
-
-    const method = editingId ? "PUT" : "POST";
-    const url = editingId
-      ? `http://localhost:3000/api/blog/${editingId}`
-      : `http://localhost:3000/api/blog`;
-
-    try {
-      const res = await fetch(url, {
-        method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (!res.ok) throw new Error("Something went wrong");
-
-      setModalOpen(false);
-      setFormData({ heading: "", description: "", thumbnail: "" });
-      setEditingId(null);
-      fetchBlogs(); // Refresh the list
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setIsSubmitting(false);
-    }
+  // Toast Notification
+  const showToast = (severity, summary, detail) => {
+    toast.current.show({ severity, summary, detail, life: 3000 });
   };
 
-  // ---------------- Delete Blog ----------------
-  const handleDelete = async (id) => {
-    await fetch(`http://localhost:3000/api/blog/${id}`, {
-      method: "DELETE",
+  // Form Submit Handler
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+  setError("");
+
+  const method = editingId ? "PUT" : "POST";
+  const url = editingId
+    ? `http://localhost:3000/api/blog/${encodeURIComponent(formData.heading)}`
+    : `http://localhost:3000/api/blog`;
+
+  try {
+    const res = await fetch(url, {
+      method,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
     });
+
+    if (!res.ok) {
+      const errorData = await res.json();
+      throw new Error(errorData.error || "Failed to save blog");
+    }
+
+    showToast('success', 'Success', editingId ? 'Blog updated successfully' : 'Blog created successfully');
+    setModalOpen(false);
+    setFormData({ heading: "", description: "", thumbnail: "" });
+    setEditingId(null);
     fetchBlogs();
+  } catch (err) {
+    console.error("Submission error:", err);
+    showToast('error', 'Error', err.message);
+    setError(err.message);
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
+  // Delete Blog
+const handleDelete = async (blog) => {
+  try {
+    const res = await fetch(`http://localhost:3000/api/blog/${encodeURIComponent(blog.heading)}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (!res.ok) throw new Error('Failed to delete blog');
+    
+    showToast('success', 'Success', 'Blog deleted successfully');
+    fetchBlogs();
+  } catch (err) {
+    showToast('error', 'Error', err.message);
+  }
+};
+
+  // Edit Blog
+const handleEdit = (blog) => {
+  setFormData(blog);
+  setEditingId(blog.heading); // Store the heading as the identifier
+  setModalOpen(true);
+};
+
+  // Search Functionality
+  const onGlobalFilterChange = (e) => {
+    const value = e.target.value;
+    let _filters = { ...filters };
+    _filters['global'].value = value;
+    setFilters(_filters);
+    setGlobalFilterValue(value);
   };
 
-  // ---------------- Open Modal to Edit ----------------
-  const handleEdit = (blog) => {
-    setFormData(blog);
-    setEditingId(blog.id);
-    setModalOpen(true);
+  // Table Header with Search
+  const renderHeader = () => {
+    return (
+      <div className="flex justify-between items-center">
+        <h2 className={`text-2xl font-bold ${unbounded.className}`}>Blog Posts</h2>
+        <span className="p-input-icon-left">
+          <i className="pi pi-search" />
+          <InputText
+            value={globalFilterValue}
+            onChange={onGlobalFilterChange}
+            placeholder=""
+          />
+        </span>
+      </div>
+    );
   };
 
-  // ---------------- UI ----------------
+  // Table Columns Templates
+  const thumbnailBodyTemplate = (rowData) => {
+    return (
+      <img 
+        src={rowData.thumbnail || 'https://placehold.co/100x60'} 
+        alt="thumbnail" 
+        className="w-20 h-16 object-cover rounded" 
+      />
+    );
+  };
+
+  const descriptionBodyTemplate = (rowData) => {
+    return (
+      <div 
+        className="line-clamp-2 max-w-xs" 
+        dangerouslySetInnerHTML={{ __html: rowData.description }} 
+      />
+    );
+  };
+
+const actionBodyTemplate = (rowData) => {
+  return (
+    <div className="flex gap-2">
+      <Button
+        icon="pi pi-pencil"
+        className="p-button-rounded p-button-success p-button-text"
+        onClick={() => handleEdit(rowData)}
+        tooltip="Edit"
+        tooltipOptions={{ position: 'top' }}
+      />
+      <Button
+        icon="pi pi-trash"
+        className="p-button-rounded p-button-danger p-button-text"
+        onClick={() => handleDelete(rowData)} // Pass the full rowData
+        tooltip="Delete"
+        tooltipOptions={{ position: 'top' }}
+      />
+    </div>
+  );
+};
+
+  const header = renderHeader();
+
   return (
     <div className="p-6">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className={`text-4xl text-center font-bold ${unbounded.className}`}>Blogs</h2>
-        <button
-          onClick={() => {
-            setFormData({ heading: "", description: "", thumbnail: "" });
-            setEditingId(null);
-            setModalOpen(true);
-          }}
-          className="bg-blue-600 text-white px-4 py-2 rounded"
+      <Toast ref={toast} position="top-right" />
+
+      {/* DataTable */}
+      <div className="card">
+        <DataTable
+          value={blogs}
+          paginator
+          rows={10}
+          rowsPerPageOptions={[5, 10, 25, 50]}
+          tableStyle={{ minWidth: '50rem' }}
+          filters={filters}
+          filterDisplay="menu"
+          globalFilterFields={['heading']}
+          header={header}
+          emptyMessage="No blog posts found."
         >
-          + Add Blog
-        </button>
+          <Column field="heading" header="Title" sortable />
+          <Column 
+            field="thumbnail" 
+            header="Thumbnail" 
+            body={thumbnailBodyTemplate} 
+          />
+          <Column 
+            field="description" 
+            header="Content" 
+            body={descriptionBodyTemplate} 
+          />
+          <Column 
+            body={actionBodyTemplate} 
+            header="Actions" 
+            style={{ width: '8rem' }} 
+          />
+        </DataTable>
       </div>
 
-      {/* ---------- Table to Display Blogs ---------- */}
-      <table className="w-full border text-sm">
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="border px-2 py-1">ID</th>
-            <th className="border px-2 py-1">Heading</th>
-            <th className="border px-2 py-1">Thumbnail</th>
-            <th className="border px-2 py-1">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {blogs.map((blog, index) => (
-            <tr key={blog.id || index}>
-              <td className="border px-2 py-1">{index + 1}</td>
-              <td className="border px-2 py-1">{blog.heading}</td>
-              <td className="border px-2 py-1">
-                <img src={blog.thumbnail} alt="thumbnail" className="w-20 h-16 object-cover" />
-              </td>
-              <td className="border px-2 py-1 space-x-2">
-                <button
-                  onClick={() => handleEdit(blog)}
-                  className="bg-yellow-500 text-white px-2 py-1 rounded"
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={() => handleDelete(blog.id)}
-                  className="bg-red-500 text-white px-2 py-1 rounded"
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {/* Floating Add Button */}
+      <Button
+        icon="pi pi-plus"
+        className="p-button-rounded p-button-raised fixed bottom-5 right-5"
+        onClick={() => {
+          setFormData({ heading: "", description: "", thumbnail: "" });
+          setEditingId(null);
+          setModalOpen(true);
+        }}
+        tooltip="Add New Blog"
+      />
 
-      {/* ---------- Modal Form for Create / Update ---------- */}
-      {modalOpen && (
-        <div className="fixed inset-0 bg-black/80 flex justify-center items-center z-50">
-          <div className="bg-white p-6 w-full max-w-2xl rounded shadow-lg relative">
-            <div className="flex justify-between">
-              <h3 className="text-lg font-semibold mb-4">
-                {editingId ? "Edit Blog" : "Add Blog"}
-              </h3>
-                  <button
-                  type="button"
-                  onClick={() => {
-                    setModalOpen(false);
-                    setEditingId(null);
-                    setFormData({ heading: "", description: "", thumbnail: "" });
-                  }}
-                 
-                >
-                  <GiCrossMark />
-                </button>
-
-            </div>
-
-
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Heading */}
-              <div>
-                <label className="block text-sm font-medium">Heading *</label>
-                <input
-                  type="text"
-                  value={formData.heading}
-                  onChange={(e) => setFormData({ ...formData, heading: e.target.value })}
-                  required
-                  className="w-full p-2 border rounded"
-                />
-              </div>
-
-              {/* Description */}
-              <div>
-                <label className="block text-sm font-medium">Description *</label>
-                <TiptapEditor
-                  content={formData.description}
-                  onChange={(html) => setFormData({ ...formData, description: html })}
-                />
-              </div>
-
-              {/* Thumbnail */}
-              <div>
-                <label className="block text-sm font-medium">Thumbnail URL *</label>
-                <input
-                  type="text"
-                  value={formData.thumbnail}
-                  onChange={(e) => setFormData({ ...formData, thumbnail: e.target.value })}
-                  required
-                  className="w-full p-2 border rounded"
-                />
-              </div>
-
-              {/* Buttons */}
-              <div className="flex justify-end gap-2">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setModalOpen(false);
-                    setEditingId(null);
-                    setFormData({ heading: "", description: "", thumbnail: "" });
-                  }}
-                  className="bg-gray-300 px-4 py-2 rounded"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="bg-blue-600 text-white px-4 py-2 rounded"
-                >
-                  {isSubmitting ? "Saving..." : "Save"}
-                </button>
-              </div>
-              {error && <p className="text-red-500 text-sm">{error}</p>}
-            </form>
+      {/* Blog Form Dialog */}
+      <Dialog
+        visible={modalOpen}
+        onHide={() => {
+          setModalOpen(false);
+          setEditingId(null);
+          setFormData({ heading: "", description: "", thumbnail: "" });
+        }}
+        style={{ width: '50vw' }}
+        header={editingId ? "Edit Blog Post" : "Add Blog Post"}
+        modal
+        className="p-fluid"
+        breakpoints={{ '960px': '75vw', '641px': '90vw' }}
+      >
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Blog Title */}
+          <div className="field">
+            <label htmlFor="heading" className="font-medium">
+              Title *
+            </label>
+            <InputText
+              id="heading"
+              value={formData.heading}
+              onChange={(e) =>
+                setFormData({ ...formData, heading: e.target.value })
+              }
+              required
+            />
           </div>
-        </div>
-      )}
+
+          {/* Blog Description */}
+          <div className="field">
+            <label htmlFor="description" className="font-medium">
+              Content *
+            </label>
+            <TiptapEditor
+              content={formData.description}
+              onChange={(html) =>
+                setFormData({ ...formData, description: html })
+              }
+            />
+          </div>
+
+          {/* Thumbnail URL */}
+          <div className="field">
+            <label htmlFor="thumbnail" className="font-medium">
+              Thumbnail URL *
+            </label>
+            <InputText
+              id="thumbnail"
+              value={formData.thumbnail}
+              onChange={(e) =>
+                setFormData({ ...formData, thumbnail: e.target.value })
+              }
+              required
+            />
+          </div>
+
+          {error && (
+            <div className="p-4 bg-red-100 text-red-700 rounded-md">
+              Error: {error}
+            </div>
+          )}
+
+          <div className="flex justify-end gap-2 mt-4">
+            <Button
+              label="Cancel"
+              icon="pi pi-times"
+              className="p-button-text"
+              onClick={() => {
+                setModalOpen(false);
+                setEditingId(null);
+                setFormData({ heading: "", description: "", thumbnail: "" });
+              }}
+            />
+            <Button
+              label={isSubmitting ? "Saving..." : "Save"}
+              icon="pi pi-check"
+              type="submit"
+              loading={isSubmitting}
+            />
+          </div>
+        </form>
+      </Dialog>
     </div>
   );
 };
