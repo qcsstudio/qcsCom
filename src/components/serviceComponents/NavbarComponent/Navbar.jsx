@@ -55,7 +55,7 @@ const Navbar = ({ heading, para }) => {
       {menuOpen && (
         <div className="md:hidden flex flex-col items-center bg-black py-4 space-y-4 ">
           <Link href="/services">Services</Link>
-          <Link href="/courses">Projects</Link>
+          <Link href="/courses">Courses</Link>
           <Link href="services/#aboutus">About Us</Link>
           <Link href="/blogs">Blogs</Link>
           <Link href="/services/#contactus">Contact Us</Link>

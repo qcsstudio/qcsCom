@@ -13,8 +13,8 @@ const WeAre = () => {
 
       <div className="bg-gray-50 rounded-xl mt-10 px-4 sm:p-6 sm:flex sm:gap-6">
         {/* Text Section */}
-        <div className="sm:w-[75%] text-[#000000] text-xl space-y-4">
-          <p className={`text-xl font-normal mt-10 text-[#000000] ${syne.className}`}>
+        <div className="sm:w-[75%] text-[#000000]  text-sm lg:text-xl space-y-4">
+          <p className={` text-sm md:text-xl font-normal mt-10 text-[#000000] ${syne.className}`}>
             QuantumCrafters Studio is a forward-thinking tech company empowering startups, SMEs, and students
             through AI-powered IT services, intelligent SaaS solutions, and hands-on career training. From
             smart tools like ElevatrX to practical courses in Web Development, Digital Marketing, and AI,

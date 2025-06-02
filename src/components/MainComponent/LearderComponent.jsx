@@ -89,7 +89,7 @@ export default function LeaderComponent() {
     <>
       <Heading heading="Trusted by Industry Leaders"/>
 
-      <div className="sm:p-5 w-[90%] mx-auto rounded-xl">
+      <div className=" w-[90%] mx-auto rounded-xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {testimonials.map(({ id, name, title, videoUrl }) => (
             <div
