@@ -9,17 +9,17 @@ const Sidebar = () => {
   const [activeItem, setActiveItem] = useState('dashboard');
 
   const menuItems = [
-    { id: 1, name: 'JobPosts', icon: HomeIcon },
-    { id: 2, name: 'BlogPosts', icon: UserIcon },
+    { id: 1, name: 'Job Posts', icon: HomeIcon },
+    { id: 2, name: 'Blog Posts', icon: UserIcon },
     { id: 3, name: 'Settings', icon: Cog6ToothIcon },
     { id: 4, name: 'Analytics', icon: ChartBarIcon },
   ];
 
   const renderComponent = () => {
     switch (activeItem) {
-      case 'jobposts':
+      case 'job posts':
         return <JobPostForm />;
-      case 'blogposts':
+      case 'blog posts':
         return <BlogPostForm/>;
       case 'settings':
         return <></>;
