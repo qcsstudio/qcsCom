@@ -62,8 +62,8 @@ const JobPostForm = () => {
 
     const method = editingId ? "PUT" : "POST";
     const url = editingId
-      ? `http://localhost:3000/api/career/${encodeURIComponent(formData.heading)}`
-      : `http://localhost:3000/api/career`;
+      ? `/api/career/${encodeURIComponent(formData.heading)}`
+      : `/api/career`;
 
     try {
       const res = await fetch(url, {
@@ -101,7 +101,7 @@ const JobPostForm = () => {
   // Delete Job
   const handleDelete = async (job) => {
     try {
-      const res = await fetch(`http://localhost:3000/api/career/${encodeURIComponent(job.heading)}`, {
+      const res = await fetch(`/api/career/${encodeURIComponent(job.heading)}`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
       });

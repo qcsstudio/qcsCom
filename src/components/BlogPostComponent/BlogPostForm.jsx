@@ -59,8 +59,8 @@ const handleSubmit = async (e) => {
 
   const method = editingId ? "PUT" : "POST";
   const url = editingId
-    ? `http://localhost:3000/api/blog/${encodeURIComponent(formData.heading)}`
-    : `http://localhost:3000/api/blog`;
+    ? `/api/blog/${encodeURIComponent(formData.heading)}`
+    : `/api/blog`;
 
   try {
     const res = await fetch(url, {
@@ -91,7 +91,7 @@ const handleSubmit = async (e) => {
   // Delete Blog
 const handleDelete = async (blog) => {
   try {
-    const res = await fetch(`http://localhost:3000/api/blog/${encodeURIComponent(blog.heading)}`, {
+    const res = await fetch(`/api/blog/${encodeURIComponent(blog.heading)}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     });
