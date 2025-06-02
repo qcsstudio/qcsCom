@@ -9,6 +9,38 @@
 
 /* globals.css */
 /* Headings with consistent typography scale */
+
+
+/* For WebKit browsers (Chrome, Safari, Edge) */
+.scrollbar::-webkit-scrollbar {
+  width: 6px; /* Thin scrollbar */
+  height: 6px; /* For horizontal scrollbars */
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: transparent; /* Transparent track */
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #888; /* Gray thumb */
+  border-radius: 3px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #666; /* Darker gray on hover */
+}
+
+/* For Firefox */
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+}
+
+/* For Internet Explorer (if needed) */
+.scrollbar {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
 .prose h3 {
   @apply text-2xl font-semibold mt-8 mb-4 text-gray-900;
 }
