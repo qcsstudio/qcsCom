@@ -1,23 +1,21 @@
 "use client";
+
 import { IoMdPause } from "react-icons/io";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import 'swiper/css/grid';
-import 'swiper/css/pagination';
-import { Grid, Pagination, Autoplay } from "swiper/modules";
-import { Unbounded,Syne} from "next/font/google";
+import { Grid, Autoplay } from "swiper/modules";
+import { Unbounded, Syne } from "next/font/google";
 import Heading from "@/components/HeadingComponent/Heading";
+import { motion } from "framer-motion";
 
-const unbounded = Unbounded({ subsets: ['latin'], weight: '700' })
-const syne = Syne({ subsets: ['latin'], weight: '400' })
+const unbounded = Unbounded({ subsets: ['latin'], weight: '700' });
+const syne = Syne({ subsets: ['latin'], weight: '400' });
 
-
-
-const ClientStories = ({ testimonials}) => {
+const ClientStories = ({ testimonials }) => {
   return (
     <>
-
-      <Heading heading="Hear Stories Straight From the People We Helped"/>
+      <Heading heading="Hear Stories Straight From the People We Helped" />
       <div className="w-[90%] mx-auto text-center mb-16 mt-8">
         <Swiper
           modules={[Grid, Autoplay]}
@@ -39,25 +37,41 @@ const ClientStories = ({ testimonials}) => {
         >
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index}>
-              <div className="p-6 rounded-lg bg-[#F5F7F9] h-[182px] flex">
-                <p className="text-[#F1813B] text-3xl leading-none">
-                  <IoMdPause />
-                </p>
-                <p className={`text-[#0F0F0F] text-left text-sm mt-4 ms-3 font-medium ${syne.className}`}>
-                  {testimonial.quote}
-                </p>
-              </div>
-              <div className="flex items-center mt-4 gap-3">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-14 h-14 rounded-full"
-                />
-                <div className="text-left">
-                  <p className={`font-semibold text-lg ${unbounded.className} text-[#0F0F0F]`}>{testimonial.name}</p>
-                  <p className={`text-xs text-[#0F0F0F]  ${syne.className}`}>{testimonial.title}</p>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="cursor-pointer"
+              >
+                <div className="p-6 rounded-lg bg-[#F5F7F9] h-[182px] flex">
+                  <p className="text-[#050403] text-3xl leading-none">
+                    <IoMdPause />
+                  </p>
+                  <p
+                    className={`text-[#0F0F0F] text-left text-sm mt-4 ms-3 font-medium ${syne.className}`}
+                  >
+                    {testimonial.quote}
+                  </p>
                 </div>
-              </div>
+                <div className="flex items-center mt-4 gap-3">
+                  <img
+                    src={testimonial.image || `https://i.pravatar.cc/150?img=${index + 1}`}
+                    alt={testimonial.name}
+                    className="w-14 h-14 rounded-full object-cover"
+                  />
+                  <div className="text-left">
+                    <p
+                      className={`font-semibold text-lg ${unbounded.className} text-[#0F0F0F]`}
+                    >
+                      {testimonial.name}
+                    </p>
+                    <p className={`text-xs text-[#0F0F0F]  ${syne.className}`}>
+                      {testimonial.title}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -67,7 +81,3 @@ const ClientStories = ({ testimonials}) => {
 };
 
 export default ClientStories;
-
-
-
-
