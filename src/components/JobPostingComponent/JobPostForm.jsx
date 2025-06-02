@@ -36,7 +36,7 @@ const JobPostForm = () => {
   // Fetch Jobs
   const fetchJobs = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/career");
+      const res = await fetch("/api/career");
       const data = await res.json();
       setJobs(data);
     } catch (err) {

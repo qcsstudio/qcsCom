@@ -33,7 +33,7 @@ const BlogPostForm = () => {
   // Fetch Blogs
   const fetchBlogs = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/blog");
+      const res = await fetch("/api/blog");
       const data = await res.json();
       setBlogs(data);
     } catch (err) {
