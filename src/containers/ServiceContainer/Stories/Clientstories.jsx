@@ -45,7 +45,7 @@ const ClientStories = ({ testimonials }) => {
                 className="cursor-pointer"
               >
                 <div className="p-6 rounded-lg bg-[#F5F7F9] h-[182px] flex">
-                  <p className="text-[#050403] text-3xl leading-none">
+                  <p className="text-[#F1813B] text-3xl leading-none">
                     <IoMdPause />
                   </p>
                   <p

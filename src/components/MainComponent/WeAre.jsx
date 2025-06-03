@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Syne, Unbounded } from 'next/font/google'
 import Heading from '../HeadingComponent/Heading'
 
+
 const syne = Syne({ subsets: ['latin'], weight: '400' })
 const unbounded = Unbounded({ subsets: ['latin'], weight: '600' })
 
@@ -38,4 +39,5 @@ const WeAre = () => {
   )
 }
 
-export default WeAre
+export default WeAre;
+  
