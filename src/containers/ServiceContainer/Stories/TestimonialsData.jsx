@@ -60,7 +60,7 @@
     title: "Frontend Developer",
     quote:
       "Joining QCS as a Frontend Developer Intern has been a game-changer. The exposure to real-world projects and guidance from the team have helped me level up my skills and build confidence in my work. Looking forward to more exciting challenges ahead!",
-    image: null,
+    image: "/images/Images/client3.png",
   },
 
   {
