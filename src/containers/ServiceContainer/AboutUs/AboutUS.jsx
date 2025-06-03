@@ -64,7 +64,7 @@ const AboutUs = () => {
       </p>
 
       <div className="flex">
-        <div className="w-[77%]">
+        <div className="w-[77%] ">
           <Swiper
             modules={[Navigation, Pagination, FreeMode, Autoplay]} 
             slidesPerView={3}

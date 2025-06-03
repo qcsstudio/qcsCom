@@ -14,7 +14,7 @@ import { cardcontext } from '@/context/scrollcardcontext';
 import NavbarContainer from '../ServiceContainer/NavbarContainer/NavbarContainer'
 import EnrollNowcomp from '@/components/CoursesComponent/EnrollNowcomp'
 
-const CoursesContainer = () => {
+const   CoursesContainer = () => {
   const pathname = usePathname();
   const currPath = pathname.split("/")[1];
   const { setScrollCardData } = useContext(cardcontext);

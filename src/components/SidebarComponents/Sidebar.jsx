@@ -16,8 +16,8 @@ const Sidebar = () => {
   const menuItems = [
     { id: 1, name: 'Job Posts', icon: HomeIcon },
     { id: 2, name: 'Blog Posts', icon: UserIcon },
-    { id: 3, name: 'Applications', icon: Cog6ToothIcon },
-    { id: 4, name: 'Analytics', icon: ChartBarIcon },
+    { id: 4, name: 'Applications', icon: ChartBarIcon },
+    { id: 3, name: 'Analytics', icon: Cog6ToothIcon },
   ];
 
   const renderComponent = () => {
