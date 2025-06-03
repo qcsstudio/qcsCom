@@ -98,73 +98,73 @@ export default function LeaderComponent() {
       <Heading heading="Trusted by Industry Leaders" />
 
       <div className="max-w-7xl mx-auto">
-      <motion.div
-  className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-10"
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true, amount: 0.4 }}
->
-  {testimonials.map(({ id, name, title, videoUrl }, index) => (
-    <motion.div
-      key={id}
-      ref={(el) => (containerRefs.current[id] = el)}
-      onClick={() => handlePlay(id)}
-      className="bg-white rounded-2xl p-4 cursor-pointer shadow-2xl hover:shadow-yellow-300/30 transition-all"
-      initial={{
-        opacity: 0,
-        scale: 0.3,
-        rotate: Math.random() * 60 - 30, // random rotation
-        y: index % 2 === 0 ? -200 : 200, // alternate fly-in direction
-        x: index % 2 === 0 ? -200 : 200,
-      }}
-      whileInView={{
-        opacity: 1,
-        scale: 1,
-        rotate: 0,
-        x: 0,
-        y: 0,
-      }}
-      transition={{
-        type: 'spring',
-        stiffness: 100,
-        damping: 10,
-        delay: index * 0.2,
-      }}
-      whileHover={{
-        scale: 1.05,
-        rotate: [0, 2, -2, 0],
-        boxShadow: '0 0 20px rgba(255, 255, 0, 0.3)',
-        transition: { duration: 0.3 },
-      }}
-      viewport={{ once: true }}
-    >
-      {isClient ? (
-        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
-          <iframe
-            id={`yt-player-${id}`}
-            src={videoUrl}
-            title={name}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="absolute top-0 left-0 w-full h-full"
-          />
-        </div>
-      ) : (
-        <div className="w-full aspect-video bg-gray-300 rounded-xl animate-pulse"></div>
-      )}
-      <motion.div
-        className="text-center mt-4"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-      >
-        <h3 className={`text-lg sm:text-xl font-semibold ${unbounded.className}`}>{name}</h3>
-        <p className={`text-sm text-gray-600 ${syne.className}`}>{title}</p>
-      </motion.div>
-    </motion.div>
-  ))}
-</motion.div>
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+        >
+          {testimonials.map(({ id, name, title, videoUrl }, index) => (
+            <motion.div
+              key={id}
+              ref={(el) => (containerRefs.current[id] = el)}
+              onClick={() => handlePlay(id)}
+              className="bg-[#e8eaec]  rounded-2xl p-4 cursor-pointer shadow-2xl hover:shadow-yellow-300/30 transition-all"
+              initial={{
+                opacity: 0,
+                scale: 0.3,
+                rotate: Math.random() * 60 - 30, // random rotation
+                y: index % 2 === 0 ? -200 : 200, // alternate fly-in direction
+                x: index % 2 === 0 ? -200 : 200,
+              }}
+              whileInView={{
+                opacity: 1,
+                scale: 1,
+                rotate: 0,
+                x: 0,
+                y: 0,
+              }}
+              transition={{
+                type: 'spring',
+                stiffness: 100,
+                damping: 10,
+                delay: index * 0.2,
+              }}
+              whileHover={{
+                scale: 1.05,
+                rotate: [0, 2, -2, 0],
+                boxShadow: '0 0 20px rgba(255, 255, 0, 0.3)',
+                transition: { duration: 0.3 },
+              }}
+              viewport={{ once: true }}
+            >
+              {isClient ? (
+                <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+                  <iframe
+                    id={`yt-player-${id}`}
+                    src={videoUrl}
+                    title={name}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute top-0 left-0 w-full h-full"
+                  />
+                </div>
+              ) : (
+                <div className="w-full aspect-video bg-gray-300 rounded-xl animate-pulse"></div>
+              )}
+              <motion.div
+                className="text-center mt-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+              >
+                <h3 className={`text-lg sm:text-xl font-semibold ${unbounded.className}`}>{name}</h3>
+                <p className={`text-sm text-gray-600 ${syne.className}`}>{title}</p>
+              </motion.div>
+            </motion.div>
+          ))}
+        </motion.div>
 
       </div>
     </section>

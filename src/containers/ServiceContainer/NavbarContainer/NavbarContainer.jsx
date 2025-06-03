@@ -5,9 +5,10 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 import Navbar from '@/components/serviceComponents/NavbarComponent/Navbar'; // Adjust if needed
 import Button from '@/components/serviceComponents/NavbarComponent/NavButton'; // Adjust if needed
 import Image from 'next/image';
-import { Unbounded } from 'next/font/google';
+import { Syne, Unbounded } from 'next/font/google';
 
 const unbounded = Unbounded({subsets: ['latin'],weight: '700'})
+const syne = Syne({subsets: ['latin'],weight: '600'})
 
 const movements = [
   'movement1', // horizontal slide
@@ -80,7 +81,7 @@ export default function NavbarContainer({ data }) {
         {/* meta title & description */}
         <div className=" relative top-6 flex flex-col justify-center  text-black w-[54%]">
           <motion.h1
-            className="text-4xl md:text-[55px] font-extrabold leading-tight max-w-[710px]"
+            className={`text-4xl md:text-[55px] font-extrabold leading-tight max-w-[710px] ${unbounded.className}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -88,7 +89,7 @@ export default function NavbarContainer({ data }) {
             {heading}
           </motion.h1>
           <motion.p
-            className="mt-2 text-lg md:text-[23px] max-w-[32.5rem] text-start leading-tight"
+            className={`mt-2 text-lg md:text-[23px] max-w-[32.5rem] text-start leading-tight ${syne.className}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 1 }}
@@ -105,7 +106,8 @@ export default function NavbarContainer({ data }) {
           >
           
 {buttons?.map((btn, i) => (
-  <div key={i}>
+  <div key={i}
+  className= {`${syne.className}`}>
     {btn.action ? (
       <button
         onClick={btn.action}

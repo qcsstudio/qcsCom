@@ -22,6 +22,7 @@ export default function NewsletterSignup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    alert("Data Submitted")
     console.log("Form Data Submitted:", formData);
     setFormData({ firstName: "", lastName: "", email: "" });
   };
