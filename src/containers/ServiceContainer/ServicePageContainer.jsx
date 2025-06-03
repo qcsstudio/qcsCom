@@ -41,7 +41,7 @@ const ServicePageContainer = () => {
             <NavbarContainer data={{
                 heading: "Unlock Growth with Next-Gen AI & Automation Solutions",
                 para: "Transform your business operations through strategic automation, advanced machine learning, and personalized AI consulting.",
-                buttons: [{ text: "Get Started", link: "#", color: "#F1813B", border: "none" }, { text: "Explore Services", link: "#", color: "transparent", border: "1px solid black" }],
+                buttons: [{ text: "Let's Automate", link: "/contactus", color: "#F1813B", border: "none" }, { text: "Explore Services", link: "#services", color: "transparent", border: "1px solid black" }],
                 image: "/images/Hero Images/Heroimage-service.png"
             }} />
             <Overview />
@@ -50,7 +50,7 @@ const ServicePageContainer = () => {
             <BrandsContainer />
             <Benifits BenefitsData={benefits}/>
             <Slider images={ImagesSlide} />
-            {/* <WorkProcess steps={steps} /> */}
+            <WorkProcess steps={steps} />
             <Differences title="Business Challenges & Innovative Solutions" heading="Common Challenges Businesses Face:"
                 heading2="QuantumCrafters' Cutting-Edge Solutions:" challenges={challenges} solutions={solutions} bgcolor="#F5F7F9" bgcolor2="black" textColor="black"
                 textColor2="white" iconcolor="gray" iconcolor2="#F1813B" />

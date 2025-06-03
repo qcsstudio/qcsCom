@@ -4,7 +4,7 @@ import NavbarContainer from '../ServiceContainer/NavbarContainer/NavbarContainer
 import Footer from '../ServiceContainer/FooterContainer/Footer'
 import ReqresPagination from './ReqresPagination'
 import BlogList from './ReqresPagination'
-import CreateBlogForm from '@/components/CreateBlogForm/CreateBlogForm'
+// import CreateBlogForm from '@/components/CreateBlogForm/CreateBlogForm'
 
 
 const BlogsContainer = () => {

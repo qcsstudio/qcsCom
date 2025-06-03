@@ -72,7 +72,7 @@ const Footer = () => {
                 </div>
                 <p className={`text-sm mt-2 text-[#FFFFFF] ${syne.className}`}>D266 (C)
                   203, Second Floor
-                  Ram Hari Tower, Phase 8B
+                  Ram Hari Tower, Phase 8B, Industrial Area, Sector 74
                   Mohali - 160055</p>
               </div>
 
@@ -81,7 +81,7 @@ const Footer = () => {
                   <FaClock size={12} className='text-[#F1813B] text-xl' />
                   <p className={`font-semibold text-xs text-[#FFA587] ${unbounded.className}`}>WORKING HOURS</p>
                 </div>
-                <p className={`text-sm mt-2 text-[#FFFFFF] ${syne.className}`}>Mon to Sat: 9.00am - 8.30pm | Sun: Closed</p>
+                <p className={`text-sm mt-2 text-[#FFFFFF] ${syne.className}`}>Mon to Fri: 9.00am - 7.00pm | Sat/Sun: Closed</p>
               </div>
             </div>
 

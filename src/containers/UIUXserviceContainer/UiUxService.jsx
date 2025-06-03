@@ -20,7 +20,7 @@ const UiUxService = () => {
         <NavbarContainer data={{
                         heading: "Design That Connects, Converts & Captivates.",
                         para: "We don't just design interfaces—we craft journeys. At QCS, our UI/UX team blends creativity with behavioral science to deliver intuitive, delightful, and high-converting user experiences across web and mobile platforms.",
-                        buttons: [{ text: "Start a Design Project", link: "#", color: "#F1813B", border: "none" }, { text: "View Portfolio", link: "#", color: "transparent", border: "1px solid gray" }]
+                        buttons: [{ text: "Start a Design Project", link: "/contactus", color: "#F1813B", border: "none" }]
                     }} />
            
             <WorkProcess steps={steps3} />

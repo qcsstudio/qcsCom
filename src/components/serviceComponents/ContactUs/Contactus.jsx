@@ -48,11 +48,13 @@ function ContactSection() {
           <div>
             <BsExclamationCircle className="text-[#F1813B] text-2xl" />
           </div>
+          <a href="/contactus">
           <div className="text-left">
             <h3 className="font-semibold text-gray-800 text-[19px]">
               Book Your AI Strategy Session Today
             </h3>
           </div>
+          </a>
         </div>
       </div>
 

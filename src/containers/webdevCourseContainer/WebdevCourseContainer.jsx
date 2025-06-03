@@ -72,7 +72,7 @@ const WebdevCourseContainer = () => {
         challenges={Webdevroles} solutions={WebdevworkIn} bgcolor="black" bgcolor2="#F5F7F9" textColor="white"
         textColor2="black" iconcolor="#F1813B" iconcolor2="gray" />
       <SalaryInfo data={WebDevcards} />
-      <Choices title="Why Choose QuantumCrafters?" data={webdevcourseboxes} />
+      {/* <Choices title="Why Choose QuantumCrafters?" data={webdevcourseboxes} /> */}
       <ProgramStructure data={webdevProgram} />
       <Questions questions={WebDevelopmentFaq} />
       <FormComponent heading=" Ready to Code Your Future?" desc="Unlock your potential as a Full Stack Developer. Learn by doing, get mentorship that matters, and launch your tech career with confidence." />

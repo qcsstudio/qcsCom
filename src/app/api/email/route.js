@@ -1,3 +1,4 @@
+'use client'
 import { NextResponse } from "next/server";
 import mongoose from "mongoose";
 import connectMongo from "@/lib/mongodb";

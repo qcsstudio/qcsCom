@@ -19,15 +19,15 @@ const WebdevContainer = () => {
     return (
         <>
             <NavbarContainer data={{
-                heading: "We Don't Just Build Websites. We Build Experiences That Perform.",
+                heading: "We Don't Just Build Web Apps. We Build Experiences That Perform.",
                 para: "At QuantumCrafters Studio, we combine top-tier development with modern design and automation. We don't just deliver code—we build platforms that elevate brands, convert leads, and drive business outcomes.",
-                buttons: [{ text: "Book a Free Strategy Call", link: "#", color: "#F1813B", border: "none" }, { text: "See Our Work", link: "#", color: "transparent", border: "1px solid gray" }],
+                buttons: [{ text: "Book a Free Strategy Call", link: "#", color: "#F1813B", border: "none" }],
                 image: "/images/Hero Images/Heroimage-webservice.png"
             }} />
             <WorkProcess steps={steps2} />
             <Benifits heading="Key Features / Capabilities" BenefitsData={WebBenifitsData} />
             <Platforms heading="Tech Stack We Work On" para="We work on powerful, popular, customisable and scalable platforms to deliver the best solutions for our clients." images={webdevSlide1} />
-            <Platforms images={webdevSlide2} />
+            {/* <Platforms images={webdevSlide2} /> */}
             <Industries heading="Industries We Dominate" Data={webIndustries} />
             <CaseStudies data={caseStudiesData} data2={crmStatsData} />
             <Questions questions={WebDevelopmentFaq} />

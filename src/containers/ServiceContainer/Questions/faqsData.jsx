@@ -152,11 +152,11 @@ export const ServiceFaq = [{
     },
     {
       question:"Will I run real ads and campaigns?" ,
-      answer:" Yes. You’ll run actual Google or LinkedIn ad demos and SEO blog publishing." 
+      answer:" Yes. You'll run actual Google or LinkedIn ad demos and SEO blog publishing." 
     },
     {
       question:" Will I learn how to get freelance clients?" ,
-      answer:" Yes. You’ll learn profile optimization, client pitching, and proposal creation." 
+      answer:" Yes. You'll learn profile optimization, client pitching, and proposal creation." 
     },
     {
       question:"What platforms do we focus on?" ,
@@ -168,11 +168,11 @@ export const ServiceFaq = [{
     },
     {
       question:"Will I get access to AI tools like ChatGPT?" ,
-      answer:"  Yes! You’ll use AI tools for content writing, automation, and lead follow-ups." 
+      answer:"  Yes! You'll use AI tools for content writing, automation, and lead follow-ups." 
     },
     {
       question:" Do you help with resume and portfolio building?" ,
-      answer:"Yes. You’ll create a live portfolio of 3+ campaigns and get resume help." 
+      answer:"Yes. You'll create a live portfolio of 3+ campaigns and get resume help." 
     },
     {
       question:"Can I get job or internship support?" ,
@@ -184,7 +184,7 @@ export const ServiceFaq = [{
     },
     {
       question:"Can I balance this course with college or work?" ,
-      answer:"Yes. It’s designed for flexible learning with live weekend mentorship." 
+      answer:"Yes. It's designed for flexible learning with live weekend mentorship." 
     },
     
   ];
@@ -195,7 +195,7 @@ export const ServiceFaq = [{
     },
     {
       question:"What kind of real projects will I do?" ,
-      answer:" You’ll build dashboards, ML models, and work on real datasets like retail, finance, and user behavior" 
+      answer:" You'll build dashboards, ML models, and work on real datasets like retail, finance, and user behavior" 
     },
     {
       question:"Will I learn both Excel and Power BI?" ,
@@ -211,15 +211,15 @@ export const ServiceFaq = [{
     },
     {
       question:" Will I learn SQL?" ,
-      answer:" Yes. You’ll write queries, analyze structured data, and create views for BI tools." 
+      answer:" Yes. You'll write queries, analyze structured data, and create views for BI tools." 
     },
     {
       question:"Can I pursue freelance or remote roles?" ,
       answer:" Definitely. These skills are in demand globally." 
     },
     {
-      question:" What’s the difference between this and a Data Science course?" ,
-      answer:"  Analytics is business-focused. You’ll learn what’s needed in real company dashboards, not heavy math." 
+      question:" What's the difference between this and a Data Science course?" ,
+      answer:"  Analytics is business-focused. You'll learn what's needed in real company dashboards, not heavy math." 
     },
     {
       question:" Are job interviews and placement help provided?" ,
@@ -253,7 +253,7 @@ export const ServiceFaq = [{
     },
     {
       question:"Are AI tools like ChatGPT part of the curriculum?" ,
-      answer:" Yes. You’ll use GenAI tools, APIs, and prompt engineering practices." 
+      answer:" Yes. You'll use GenAI tools, APIs, and prompt engineering practices." 
     },
     {
       question:"  Will I get job support?" ,
@@ -269,7 +269,7 @@ export const ServiceFaq = [{
     },
     {
       question:"Will I build my own AI apps?" ,
-      answer:"  Yes. You’ll create at least 2 complete AI-powered apps from scratch." 
+      answer:"  Yes. You'll create at least 2 complete AI-powered apps from scratch." 
     },
     {
       question:"Can I use this course to transition careers?" ,
@@ -296,7 +296,7 @@ export const ServiceFaq = [{
     },
     {
       question:"Are cloud tools taught practically?" ,
-      answer:" Yes. You’ll deploy and monitor applications using AWS and Azure interfaces." 
+      answer:" Yes. You'll deploy and monitor applications using AWS and Azure interfaces." 
     },
     {
       question:"  Will this course help in placement?" ,
@@ -334,7 +334,7 @@ export const ServiceFaq = [{
       answer:"Definitely. We specialize in seamless AI integration with your business stack." 
     },
     {
-      question:" What if we don’t have clean or structured data?" ,
+      question:" What if we don't have clean or structured data?" ,
       answer:" No worries. We offer data cleaning, structuring, and transformation support." 
     },
     {
@@ -371,7 +371,7 @@ export const ServiceFaq = [{
     },
     {
       question:" What platforms do you advertise on?" ,
-      answer:" Google, Meta (Facebook + IG), LinkedIn, and YouTube. We pick what’s right for your audience." 
+      answer:" Google, Meta (Facebook + IG), LinkedIn, and YouTube. We pick what's right for your audience." 
     },
     {
       question:"Can you manage our LinkedIn personal brand too? " ,
@@ -391,7 +391,7 @@ export const ServiceFaq = [{
     },
     {
       question:" Do you work with agencies too?" ,
-      answer:" Yes! We’re happy to white-label or collaborate with design/tech/PR agencies." 
+      answer:" Yes! We're happy to white-label or collaborate with design/tech/PR agencies." 
     },
     {
       question:"Will you integrate with our CRM or pipeline tools?" ,
