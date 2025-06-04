@@ -70,7 +70,7 @@ const DataAnalyticsCourse = () => {
         challenges={DataAnalyticsroles} solutions={DataAnalyticsworkIn} bgcolor="black" bgcolor2="#F5F7F9" textColor="white"
         textColor2="black" iconcolor="#F1813B" iconcolor2="gray" />
       <SalaryInfo data={DataAnalyticscards} />
-      <Choices title="Why Choose QuantumCrafters?" data={DataAnalyticscourseboxes} />
+      {/* <Choices title="Why Choose QuantumCrafters?" data={DataAnalyticscourseboxes} /> */}
       <ProgramStructure data={DataAnalyticsProgram} />
       <Questions questions={DataAnalyticsFaq} />
       <FormComponent heading="Ready to Analyze Smarter?" desc="Unlock a future-proof career in data. Learn how to read the numbers—and let AI do the rest." />

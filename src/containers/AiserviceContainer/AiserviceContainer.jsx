@@ -21,7 +21,7 @@ const AiserviceContainer = () => {
             <NavbarContainer data={{
                 heading: "Your Business, Powered by Intelligence.",
                 para: "We help startups, SMEs, and enterprises harness AI to drive smarter decisions, automate routine processes, and unlock scalable innovation. Whether you're just starting or scaling fast—well define, design, and deliver the right AI roadmap for you.",
-                buttons: [{ text: "Book a Free AI Consultation", link: "#", color: "#F1813B", border: "none" }, { text: "See Use Cases", link: "#", color: "transparent", border: "1px solid gray" }]
+                buttons: [{ text: "Book a Free AI Consultation", link: "/contactus", color: "#F1813B", border: "none" }]
             }} />
             <WorkProcess steps={aisolutions} />
             <Benifits heading="Key Features / Capabilities" BenefitsData={WebBenifitsData3} />

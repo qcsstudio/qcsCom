@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 
@@ -34,10 +35,11 @@ const CaseStudies = ({data,data2}) => {
               <div className="text-md font-medium">{stat.label}</div>
             </div>
           ))}
-
-          <button className="bg-black text-white py-2 text-md rounded-lg">
+          <Link href="/career">
+          <button className="bg-black text-white py-2 text-md rounded-lg w-full">
             Join Our Team
           </button>
+          </Link>
         </div>
       </div>
     </div>

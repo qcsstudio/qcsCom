@@ -68,7 +68,7 @@ const AiCourse = () => {
                 challenges={Airoles} solutions={AiworkIn} bgcolor="black" bgcolor2="#F5F7F9" textColor="white"
                 textColor2="black" iconcolor="#F1813B" iconcolor2="gray" />
             <SalaryInfo data={Aicards} />
-            <Choices title="Why Choose QuantumCrafters?" data={Aicourseboxes} />
+            {/* <Choices title="Why Choose QuantumCrafters?" data={Aicourseboxes} /> */}
             <ProgramStructure data={AiProgram} />
             <Questions questions={AiFaq} />
             <FormComponent heading="Ready to Get Future-Ready with AI?" desc="Build the skills of tomorrow. Join our AI & Machine Learning program and become part of the smart-tech revolution." />

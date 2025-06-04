@@ -11,14 +11,12 @@ const testimonials = [
   {
     id: 2,
     name: 'QuantamCrafters Studio',
-    title: 'OWNER, GOLDGARDEN',
     videoType: 'youtube',
     videoUrl: 'https://www.youtube.com/embed/IN15BAYqY8I?enablejsapi=1',
   },
   {
     id: 1,
     name: 'ElevatrX',
-    title: 'OWNER, BAYLEAF',
     videoType: 'youtube',
     videoUrl: 'https://www.youtube.com/embed/3491mfemOIo?enablejsapi=1',
   },
@@ -109,7 +107,7 @@ export default function LeaderComponent() {
               key={id}
               ref={(el) => (containerRefs.current[id] = el)}
               onClick={() => handlePlay(id)}
-              className="bg-[#e8eaec]  rounded-2xl p-4 cursor-pointer shadow-2xl hover:shadow-yellow-300/30 transition-all"
+              className="bg-[#e8eaec]  rounded-2xl p-4 cursor-pointer shadow-lg hover:shadow-yellow-300/30 transition-all"
               initial={{
                 opacity: 0,
                 scale: 0.3,
@@ -133,7 +131,7 @@ export default function LeaderComponent() {
               whileHover={{
                 scale: 1.05,
                 rotate: [0, 2, -2, 0],
-                boxShadow: '0 0 20px rgba(255, 255, 0, 0.3)',
+                boxShadow: '0 0 10px rgba(255, 255, 0, 0.3)',
                 transition: { duration: 0.3 },
               }}
               viewport={{ once: true }}

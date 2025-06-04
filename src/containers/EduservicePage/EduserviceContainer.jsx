@@ -72,7 +72,7 @@ const EduserviceContainer = () => {
     challenges={UiUxroles} solutions={UiUxworkIn} bgcolor="black" bgcolor2="#F5F7F9" textColor="white" 
     textColor2="black" iconcolor="#F1813B" iconcolor2="gray"/>
     <SalaryInfo data={UiUxcards}/>
-    <Choices title="Why Choose QuantumCrafters?" data={uiboxes}/>
+    {/* <Choices title="Why Choose QuantumCrafters?" data={uiboxes}/> */}
     <ToolsPlatforms/>
     <ProgramStructure data={cards}/>
     <Questions questions={EduserviceFaq}/>

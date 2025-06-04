@@ -68,7 +68,7 @@ const DigitalMarketingContainer = () => {
                 challenges={Digitalroles} solutions={DigitalworkIn} bgcolor="black" bgcolor2="#F5F7F9" textColor="white"
                 textColor2="black" iconcolor="#F1813B" iconcolor2="gray" />
             <SalaryInfo data={Digitalcards} />
-            <Choices title="Why Choose QuantumCrafters?" data={Digitalcourseboxes} />
+            {/* <Choices title="Why Choose QuantumCrafters?" data={Digitalcourseboxes} /> */}
             <ProgramStructure data={DigitalMarketProgram} />
             <Questions questions={DigitalMarketFaq} />
             <FormComponent heading="Ready to Become a Growth Marketer?" desc="Let’s help you build a high-impact, data-driven digital marketing career—with the tools, projects, and mentorship that matter." />

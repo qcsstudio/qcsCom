@@ -20,7 +20,7 @@ const AboutusContainer = () => {
             <Ourstory/>
             <VisionMissionCards/>
             <OurValues/>
-            <Moments/>
+            {/* <Moments/> */}
             <AboutUs />
             {/* <Form
                 heading="Let's Co-Create the Future"

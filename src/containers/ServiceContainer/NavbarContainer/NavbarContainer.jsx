@@ -107,12 +107,12 @@ export default function NavbarContainer({ data }) {
           
 {buttons?.map((btn, i) => (
   <div key={i}
-  className= {`${syne.className}`}>
+  className= {`${syne.className} cursor-pointer`}>
     {btn.action ? (
       <button
         onClick={btn.action}
         style={{ backgroundColor: `${btn.color}`, border: `${btn.border}` }}
-        className="hover:bg-[rgb(241,129,59)] px-6 py-2 text-sm sm:text-[16px] rounded-md transition-colors duration-200"
+        className="hover:bg-[rgb(241,129,59)] px-6 py-2 text-sm sm:text-[16px] cursor-pointer rounded-md transition-colors duration-200"
       >
         {btn.text}
       </button>
