@@ -69,6 +69,7 @@ const AboutUs = () => {
         ideas to life. Let's make something amazing together!
       </p>
 
+
       {/* ✅ Make flex column on small screens and row on larger */}
       <div className="flex flex-col lg:flex-row gap-5 items-center  justify-evenly lg:items-start">
         {/* ✅ Set width full for small and fixed for large */}

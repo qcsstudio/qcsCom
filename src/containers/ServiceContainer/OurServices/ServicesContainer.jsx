@@ -7,6 +7,7 @@ import { cardcontext } from '@/context/scrollcardcontext';
 import { motion } from 'framer-motion';
 import { child, container } from '@/components/Animation/Animation';
 
+
 const unbounded = Unbounded({ subsets: ['latin'], weight: '700' });
 
 const ServicesContainer = () => {
@@ -15,6 +16,7 @@ const ServicesContainer = () => {
   if (!carddata || !listData || !links) return null; // Add loading/fallback if needed
 
   return (
+
     <div className="w-[90%] max-w-7xl mx-auto mt-10" id="services">
       <div className="w-[133px] mx-auto">
         <h4 className="flex justify-center gap-2 bg-gray-100 rounded-e-lg px-2 py-1">
@@ -22,6 +24,7 @@ const ServicesContainer = () => {
           <span className="font-semibold text-sm mt-1">Our Services</span>
         </h4>
       </div>
+
       <motion.h3
         className={`w-full md:w-[70%] mx-auto text-center lg:text-[40px] sm:text-4xl text-3xl mt-5 px-2 ${unbounded.className}`}
         variants={container}
