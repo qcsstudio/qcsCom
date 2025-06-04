@@ -22,7 +22,6 @@ const ServicesContainer = () => {
           <span className="font-semibold text-sm mt-1">Our Services</span>
         </h4>
       </div>
-
       <motion.h3
         className={`w-full md:w-[70%] mx-auto text-center lg:text-[40px] sm:text-4xl text-3xl mt-5 px-2 ${unbounded.className}`}
         variants={container}

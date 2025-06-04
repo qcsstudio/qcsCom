@@ -112,8 +112,7 @@ const AboutUs = () => {
             ))}
           </Swiper>
         </div>
-
-        {/* ✅ Responsive join card: full width on mobile, fixed on large */}
+        {/* Responsive */}
         <div className="w-full lg:w-[23%] flex justify-center">
           <div className="bg-[#F1813B] text-white rounded-lg p-6 flex flex-col justify-between lg:w-[300px] h-[450px] mt-1">
             <div>
