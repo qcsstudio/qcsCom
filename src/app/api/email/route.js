@@ -74,9 +74,7 @@ export async function GET(req) {
     const page = parseInt(searchParams.get('page')) || 1;
     const limit = parseInt(searchParams.get('limit')) || 10;
     const email = searchParams.get('email');
-
     const query = email ? { email } : {};
-
     const [applications, total] = await Promise.all([
       Application.find(query)
         .sort({ createdAt: -1 })
