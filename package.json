@@ -35,6 +35,7 @@
     "mongoose": "^8.15.0",
     "next": "15.2.4",
     "next-sitemap": "^4.2.3",
+    "nodemailer": "^7.0.3",
     "primeflex": "^4.0.0",
     "primeicons": "^7.0.0",
     "primereact": "^10.9.5",
