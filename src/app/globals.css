@@ -703,3 +703,11 @@ clip-path: polygon(0 0, 100% 0, 100% 15%, 0 100%, 0 100%, 0% 50%);
     @apply bg-background text-foreground;
   }
 }
+
+          /* calendly */
+
+
+.calendly-badge-widget {
+  background-color: #F1813B !important;
+}
+

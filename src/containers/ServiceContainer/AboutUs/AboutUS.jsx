@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
+import IconNtext from "@/components/iconNtextComponent/IconNtext";
 
 const members = [
   {
@@ -50,20 +51,18 @@ const members = [
 
 const AboutUs = () => {
   return (
-    <div id="aboutus" className="max-w-7xl mx-auto py-10 px-4">
-      <div className="w-[138px] mx-auto my-6">
-        <h4 className="flex justify-center gap-2 bg-gray-100 rounded-e-lg">
-          <img src="/images/Images/servicesLogo.png" />
-          <span className="font-semibold text-sm mt-1">About US</span>
-        </h4>
-      </div>
+    <>
+        {/* <IconNtext text="About us" link="/images/Icons/AboutUs.png"/> */}
+    
+    <div id="aboutus" className="max-w-[90%] mx-auto ">
+      
       <h1 className="text-center font-bold text-4xl mb-6">Our Stories & Team</h1>
-      <p className="text-[#000000] font-medium text-xl mx-auto mb-4  max-w-6xl">
+      <p className="text-[#000000] font-medium text-xl mx-auto mb-4 ">
         We started as a small group of passionate creators who believed that great ideas deserve bold execution.
         What began over coffee-fueled brainstorming sessions has grown into a thriving digital agency dedicated
         to helping brands stand out.
       </p>
-      <p className="text-[#000000] font-medium text-xl mx-auto mb-12  max-w-6xl">
+      <p className="text-[#000000] font-medium text-xl mx-auto mb-12 ">
         Our mission is simple: to craft creative, impactful solutions that drive results. With a vision to empower
         businesses to shine in a crowded world, we combine strategy, design, and a touch of magic to bring your
         ideas to life. Let's make something amazing together!
@@ -130,6 +129,7 @@ const AboutUs = () => {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

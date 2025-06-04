@@ -8,6 +8,7 @@ import { Grid, Autoplay } from "swiper/modules";
 import { Unbounded, Syne } from "next/font/google";
 import Heading from "@/components/HeadingComponent/Heading";
 import { motion } from "framer-motion";
+import IconNtext from "@/components/iconNtextComponent/IconNtext";
 
 const unbounded = Unbounded({ subsets: ['latin'], weight: '700' });
 const syne = Syne({ subsets: ['latin'], weight: '400' });
@@ -15,6 +16,7 @@ const syne = Syne({ subsets: ['latin'], weight: '400' });
 const ClientStories = ({ testimonials }) => {
   return (
     <>
+    <IconNtext text="Client Stories" link="/images/Icons/ClientStories.png" />
       <Heading heading="Hear Stories Straight From the People We Helped" />
       <div className="w-[90%] mx-auto text-center mb-16 mt-8">
         <Swiper

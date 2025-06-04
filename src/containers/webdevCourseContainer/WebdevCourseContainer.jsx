@@ -1,4 +1,5 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 import NavbarContainer from '../ServiceContainer/NavbarContainer/NavbarContainer'
 import Footer from '../ServiceContainer/FooterContainer/Footer'
 import WhyLearnUIUX from '@/components/EduservicePageComponent/WhylearnUI'
@@ -15,6 +16,7 @@ import Questions from '../ServiceContainer/Questions/Questions'
 import ProgramStructure from '@/components/EduservicePageComponent/ProgramStructure'
 import FormComponent from '@/components/MainComponent/FormComponent'
 import NewsletterSignup from '@/components/MainComponent/NewsletterSignup'
+import EnrollNowcomp from '@/components/CoursesComponent/EnrollNowcomp'
 
 
 
@@ -59,25 +61,42 @@ const webdevProgram = [
 
 
 const WebdevCourseContainer = () => {
+  const [showEnrollModal, setShowEnrollModal] = useState(false);
   return (
     <>
       <NavbarContainer data={{
         heading: "Become a Job-Ready Full Stack Developer. Build Real Projects. Get Hired.",
-        para: "Learn front-end and back-end development with India’s most practical, mentorship-driven full stack course. No boring theory. Just real skills, real projects, and real career growth.",
-        buttons: [{ text: "Enroll Now", link: "#", color: "#F1813B", border: "none" }, { text: "Download Curriculum", link: "#", color: "transparent", border: "1px solid gray" }]
+        para: "Learn front-end and back-end development with India's most practical, mentorship-driven full stack course. No boring theory. Just real skills, real projects, and real career growth.",
+        buttons: [
+          {
+            text: "Enroll Now",
+            link: "#", color: "#F1813B",
+            border: "none",
+            action: () => setShowEnrollModal(true)
+          },
+          {
+            text: "Download Curriculum",
+            link: "#curriculum",
+            color: "transparent",
+            border: "1px solid gray"
+          }],
+
       }} />
       <WhyLearnUIUX title=" Why Learn Full Stack Development?" data={webdevreasons} />
-      <OurServices data={webDevcurriculum} />
+      <OurServices data={webDevcurriculum} onEnrollClick={() => setShowEnrollModal(true)} />
       <Differences title="Career Outcomes" heading="Become eligible for roles like:" heading2="You Can Work In!"
         challenges={Webdevroles} solutions={WebdevworkIn} bgcolor="black" bgcolor2="#F5F7F9" textColor="white"
         textColor2="black" iconcolor="#F1813B" iconcolor2="gray" />
       <SalaryInfo data={WebDevcards} />
-      {/* <Choices title="Why Choose QuantumCrafters?" data={webdevcourseboxes} /> */}
+      <Choices title="Why Choose QuantumCrafters?" data={webdevcourseboxes} onEnrollClick={() => setShowEnrollModal(true)} />
       <ProgramStructure data={webdevProgram} />
       <Questions questions={WebDevelopmentFaq} />
       <FormComponent heading=" Ready to Code Your Future?" desc="Unlock your potential as a Full Stack Developer. Learn by doing, get mentorship that matters, and launch your tech career with confidence." />
       <NewsletterSignup />
       <Footer />
+
+      {/* Modal Render */}
+      {showEnrollModal && <EnrollNowcomp onClose={() => setShowEnrollModal(false)} />}
     </>
   )
 }

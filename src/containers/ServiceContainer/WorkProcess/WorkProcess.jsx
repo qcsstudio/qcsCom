@@ -1,6 +1,9 @@
 'use client'
+import IconNtext from "@/components/iconNtextComponent/IconNtext";
+import { Syne } from "next/font/google";
 import React, { useEffect, useRef, useState } from "react";
 
+const syne = Syne({subsets:['latin'],weight:'500'})
 const WorkProcess = ({ steps }) => {
     const [activeStep, setActiveStep] = useState(1);
     const [visibleSteps, setVisibleSteps] = useState([]);
@@ -42,7 +45,12 @@ const WorkProcess = ({ steps }) => {
 
     return (
         <>
-        <div className="flex flex-col md:flex-row gap-4 my-10 w-full md:w-[85%] mx-auto">
+        <IconNtext text="Our Work Process" link="/images/Icons/WorkProcess.png"/>
+        <p className={`w-[90%] text-lg mx-auto ${syne.className}`}>
+            At QuantumCrafters Studio, as a leading digital marketing company in Mohali, we follow a clear,
+             step-by-step process to ensure every campaign delivers maximum impact and measurable ROI.
+             </p>
+        <div className="flex flex-col md:flex-row gap-4 my-10 w-full md:w-[90%] mx-auto">
             <div className="flex flex-col md:flex-row w-full
                             snap-y snap-mandatory
                             overflow-y-auto md:overflow-visible
@@ -58,15 +66,15 @@ const WorkProcess = ({ steps }) => {
                             key={step.number}
                             data-step={step.number}
                             ref={(el) => (stepRefs.current[index] = el)}
-                            className={`snap-start flex-shrink-0 transition-all duration-700 ease-in-out
+                            className={`snap-start flex-shrink-0 transition-all duration-700 ease-in-out 
                                 ${isActive ? "bg-black text-white" : "bg-gray-100 text-black hover:bg-gray-200"}
                                 ${isVisible && isMobile ? "animate-fadeInUp" : ""}
                                 ${
                                     isMobile
                                         ? `w-full ${isActive ? "h-auto" : "min-h-screen"} p-6`
                                         : isActive
-                                            ? "w-full md:w-[80%] h-auto md:h-[389px] p-6"
-                                            : "w-full md:w-[100px] h-auto md:h-[389px] p-4"
+                                            ? "w-full md:w-[65%] h-auto md:h-[389px] p-6"
+                                            : "w-full md:w-[100px] h-auto md:h-auto p-4"
                                 }
                                 rounded-xl shadow-lg`}
                             onClick={() => {

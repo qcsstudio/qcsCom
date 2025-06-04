@@ -1,5 +1,6 @@
 'use client';
 import Heading from '@/components/HeadingComponent/Heading';
+import IconNtext from '@/components/iconNtextComponent/IconNtext';
 import { Syne, Unbounded } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -63,12 +64,7 @@ export default function BlogList() {
 
   return (
     <>
-      <div className="w-[138px] mx-auto my-6">
-        <h4 className="flex justify-center gap-2 bg-gray-100 rounded-e-lg">
-          <Image src="/images/Images/servicesLogo.png" alt="Services Logo" width={10} height={10} />
-          <span className="font-semibold text-sm mt-1">Blogs</span>
-        </h4>
-      </div>
+     <IconNtext text="Blogs" link="/images/Icons/Our Services.png"/>
 
       <Heading heading="Beyond the Canvas Stories from QuantumCrafter Studio" />
 

@@ -50,7 +50,7 @@ export default function NavbarContainer({ data }) {
   };
 
   return (
-    <section className="relative w-full h-screen overflow-hidden flex text-white">
+    <section className="relative w-full min-h-[110vh] overflow-hidden flex text-white">
       {/* 60% gradient background */}
       <motion.div
         onMouseMove={handleMouse}
