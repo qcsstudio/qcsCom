@@ -71,6 +71,7 @@
     image: null,
   },
   {
+    
     name: "Pankaj",
     title: "Frontend Developer",
     quote:
