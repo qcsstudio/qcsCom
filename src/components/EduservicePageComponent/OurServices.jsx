@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
 
-const OurServices = ({data}) => {
+const OurServices = ({ data, onEnrollClick }) => {
  
   return (
-    <div className="p-8 max-w-6xl mx-auto">
+    <div className="p-8 max-w-6xl mx-auto" id="curriculum">
         <div className="w-[133px] mx-auto mb-10">
                 <h4 className="flex justify-center gap-2 bg-gray-100 rounded-e-lg px-2 py-1">
                     <Image src="/images/Images/servicesLogo.png" width={5} height={5} alt="Services Logo" className="w-5 h-5" />
@@ -33,7 +33,10 @@ const OurServices = ({data}) => {
               Our instructors are not just teachers; they are seasoned professionals who bring years of industry experience to the classroom
             </p>
           </div>
-          <button className="bg-black text-white py-2 px-4 rounded mt-4 hover:bg-gray-500">
+           <button 
+            onClick={onEnrollClick}
+            className="bg-black text-white py-2 px-4 rounded mt-4 hover:bg-gray-500"
+          >
             Enroll Now
           </button>
         </div>

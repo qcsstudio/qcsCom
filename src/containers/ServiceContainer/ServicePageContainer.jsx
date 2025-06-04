@@ -23,6 +23,8 @@ import Overview from '@/components/serviceComponents/OverviewComponent/Overview'
 import { HomeTestimonial } from '@/containers/ServiceContainer/Stories/TestimonialsData'
 import { usePathname } from 'next/navigation';
 import { cardcontext } from '@/context/scrollcardcontext';
+import { useCalendly } from '@/components/CalendlyBadge/CalendlyBadge';
+
 
 
 const ServicePageContainer = () => {
@@ -36,19 +38,38 @@ const ServicePageContainer = () => {
             setScrollCardData(currPath);
         }
     }, [currPath]);
+
+      const openCalendly = useCalendly(); // ✅ Correct usage
     return (
         <>
-            <NavbarContainer data={{
-                heading: "Unlock Growth with Next-Gen AI & Automation Solutions",
-                para: "Transform your business operations through strategic automation, advanced machine learning, and personalized AI consulting.",
-                buttons: [{ text: "Let's Automate", link: "/contactus", color: "#F1813B", border: "none" }, { text: "Explore Services", link: "#services", color: "transparent", border: "1px solid black" }],
-                image: "/images/Hero Images/Heroimage-service.png"
-            }} />
+           <NavbarContainer
+        data={{
+          heading: "Unlock Growth with Next-Gen AI & Automation Solutions",
+          para:
+            "Transform your business operations through strategic automation, advanced machine learning, and personalized AI consulting.",
+          buttons: [
+            {
+              text: "Let's Automate",
+              link: "#", // optional, not used because we're using action
+              color: "#F1813B",
+              border: "none",
+              action: openCalendly, // ✅ pass the function
+            },
+            {
+              text: "Explore Services",
+              link: "#services",
+              color: "transparent",
+              border: "1px solid black",
+            },
+          ],
+          image: "/images/Hero Images/Heroimage-service.png",
+        }}
+      />
             <Overview />
             <ServicesContainer />
             <Images />
             <BrandsContainer />
-            <Benifits BenefitsData={benefits}/>
+            <Benifits BenefitsData={benefits} />
             <Slider images={ImagesSlide} />
             <WorkProcess steps={steps} />
             <Differences title="Business Challenges & Innovative Solutions" heading="Common Challenges Businesses Face:"

@@ -129,25 +129,31 @@ export const Digitalsolutions = [
     },
     {
         number: 2,
-        title: " Strategy & Channel Planning",
+        title: " Strategy & Planning",
         content:
             "  We map a funnel-focused strategy tailored to your business goals.",
     },
     {
         number: 3,
-        title: "Campaign & Content Execution",
+        title: "Creative Execution",
         content:
             "We launch SEO, PPC, social, and email campaigns with performance focus.",
     },
     {
         number: 4,
-        title: "Automation & AI Setup",
+        title: "Optimization & Monitoring",
         content:
             " We automate repetitive tasks and workflows with tools like Zapier, Make, ChatGPT, etc.",
     },
     {
         number: 5,
-        title: "Monitoring, Reporting & Optimization",
+        title: "Reporting & Insights",
+        content:
+            " Weekly insights + continuous A/B testing for improved ROI.",
+    },
+    {
+        number: 6,
+        title: "Ongoing Support & Collaboration",
         content:
             " Weekly insights + continuous A/B testing for improved ROI.",
     },

@@ -1,4 +1,5 @@
 'use client'
+import IconNtext from "@/components/iconNtextComponent/IconNtext";
 import { Syne, Unbounded } from "next/font/google";
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
@@ -17,12 +18,7 @@ const Questions = ({ questions }) => {
 
   return (
     <>
-      <div className=' w-[250px] mx-auto my-6 '>
-        <h4 className=' flex justify-center gap-2  bg-gray-100 rounded-e-lg'>
-          <img src='/images/Images/servicesLogo.png' />
-          <span className="font-semibold text-sm mt-1 ">Frequently Asked Questions</span>
-        </h4>
-      </div>
+      <IconNtext text="FAQ's" link="/images/Icons/FAQ.png"/>
 
       <div className="flex flex-col md:flex-row justify-between items-start  w-[90%] mx-auto">
         {/* Left Section */}

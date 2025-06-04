@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import NavbarContainer from '../ServiceContainer/NavbarContainer/NavbarContainer'
 import WhyLearnUIUX from '@/components/EduservicePageComponent/WhylearnUI'
 import { DigitalMarketingreasons } from '@/components/EduservicePageComponent/WhylearnUIUXData'
@@ -15,6 +16,7 @@ import { DigitalMarketFaq } from '../ServiceContainer/Questions/faqsData'
 import FormComponent from '@/components/MainComponent/FormComponent'
 import NewsletterSignup from '@/components/MainComponent/NewsletterSignup'
 import Footer from '../ServiceContainer/FooterContainer/Footer'
+import EnrollNowcomp from '@/components/CoursesComponent/EnrollNowcomp'
 
 const Digitalcards = [
     {
@@ -55,25 +57,42 @@ const DigitalMarketProgram = [
 
 ];
 const DigitalMarketingContainer = () => {
+    const [showEnrollModal, setShowEnrollModal] = useState(false);
     return (
         <>
             <NavbarContainer data={{
                 heading: "Become a Full-Funnel Digital Marketer. Learn, Launch & Lead Campaigns.",
                 para: "Explore the world of modern marketing—from SEO to LinkedIn, from Google Ads to automation. Build your portfolio with real campaigns and drive measurable growth.",
-                buttons: [{ text: "Enroll Now", link: "#", color: "#F1813B", border: "none" }, { text: "Download Curriculum", link: "#", color: "transparent", border: "1px solid gray" }]
+                buttons: [{
+                    text: "Enroll Now",
+                    link: "#",
+                    color: "#F1813B",
+                    border: "none",
+                    action: () => setShowEnrollModal(true)
+
+                },
+                {
+                    text: "Download Curriculum",
+                    link: "#curriculum",
+                    color: "transparent",
+                    border: "1px solid gray"
+                }]
             }} />
             <WhyLearnUIUX title="Why Learn Digital Marketing Now?" data={DigitalMarketingreasons} />
-            <OurServices data={Digitalmarketingcurriculum} />
+            <OurServices data={Digitalmarketingcurriculum} onEnrollClick={() => setShowEnrollModal(true)} />
             <Differences title="Career Outcomes" heading="Eligible roles:" heading2="Industries:"
                 challenges={Digitalroles} solutions={DigitalworkIn} bgcolor="black" bgcolor2="#F5F7F9" textColor="white"
                 textColor2="black" iconcolor="#F1813B" iconcolor2="gray" />
             <SalaryInfo data={Digitalcards} />
-            {/* <Choices title="Why Choose QuantumCrafters?" data={Digitalcourseboxes} /> */}
+            <Choices title="Why Choose QuantumCrafters?" data={Digitalcourseboxes}  onEnrollClick={() => setShowEnrollModal(true)}/>
             <ProgramStructure data={DigitalMarketProgram} />
             <Questions questions={DigitalMarketFaq} />
             <FormComponent heading="Ready to Become a Growth Marketer?" desc="Let’s help you build a high-impact, data-driven digital marketing career—with the tools, projects, and mentorship that matter." />
             <NewsletterSignup />
             <Footer />
+
+            {/* Modal Render */}
+            {showEnrollModal && <EnrollNowcomp onClose={() => setShowEnrollModal(false)} />}
         </>
     )
 }

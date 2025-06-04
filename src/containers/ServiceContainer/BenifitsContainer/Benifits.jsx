@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import { Syne, Unbounded } from "next/font/google";
 import Heading from "@/components/HeadingComponent/Heading";
+import IconNtext from "@/components/iconNtextComponent/IconNtext";
 
 const syne = Syne({ subsets: ['latin'], weight: '400' });
 const unbounded = Unbounded({ subsets: ['latin'], weight: '600' });
@@ -15,6 +16,7 @@ const unbounded = Unbounded({ subsets: ['latin'], weight: '600' });
 const Benefits = ({BenefitsData }) => {
   return (
     <>
+    <IconNtext text="Benefits" link="/images/Icons/Benefits.png"/>
       <Heading heading="See why partnering with us is the smartest move." />
       <div className="w-[90%] mx-auto py-10">
         <Swiper

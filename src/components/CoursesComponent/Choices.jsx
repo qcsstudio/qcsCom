@@ -15,6 +15,7 @@ const ChoiceBox = ({
   extraDescription,
   button,
   image,
+  onEnrollClick,
 }) => {
   return (
     <div
@@ -53,7 +54,9 @@ const ChoiceBox = ({
       </div>
 
       {button && (
-        <button className="bg-[#F1813B] hover:bg-[#e4a882] text-white font-semibold text-sm py-2 px-4 rounded w-full mt-6">
+        <button
+          onClick={onEnrollClick}
+          className="bg-[#F1813B] hover:bg-[#e4a882] text-white font-semibold text-sm py-2 px-4 rounded w-full mt-6">
           {button}
         </button>
       )}
@@ -61,7 +64,7 @@ const ChoiceBox = ({
   );
 };
 
-const Choices = ({ title, data }) => {
+const Choices = ({ title, data, onEnrollClick }) => {
   return (
     <>
       <div className="bg-white py-12 px-4 sm:px-6 md:px-10 lg:px-24 lg:block hidden">
@@ -74,7 +77,7 @@ const Choices = ({ title, data }) => {
         <div className="w-full max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {data.map((box, i) => (
-              <ChoiceBox key={i} {...box} index={i} />
+              <ChoiceBox key={i} {...box} index={i} onEnrollClick={onEnrollClick} />
             ))}
           </div>
         </div>
@@ -133,7 +136,9 @@ const Choices = ({ title, data }) => {
               </div>
 
               {item.button && (
-                <button className="bg-[#F1813B] hover:bg-[#e4a882] text-white font-semibold text-sm py-2 px-4 rounded mt-6 w-full sm:w-auto">
+                <button
+                  onClick={onEnrollClick}
+                  className="bg-[#F1813B] hover:bg-[#e4a882] text-white font-semibold text-sm py-2 px-4 rounded mt-6 w-full sm:w-auto">
                   {item.button}
                 </button>
               )}
