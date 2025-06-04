@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import NavbarContainer from '../ServiceContainer/NavbarContainer/NavbarContainer'
 import WorkProcess from '../ServiceContainer/WorkProcess/WorkProcess'
@@ -13,8 +14,11 @@ import ContactSection from '@/components/serviceComponents/ContactUs/Contactus'
 import Footer from '../ServiceContainer/FooterContainer/Footer'
 import Platforms from '@/components/WebdeveServicesComponent/Platforms'
 import { DigitalSlide1, DigitalSlide2 } from '../ServiceContainer/SliderContainer/SliderImages'
+import { useCalendly } from '@/components/CalendlyBadge/CalendlyBadge';
 
 const Digitalservice = () => {
+  const openCalendly = useCalendly();
+
   return (
     <>
       <NavbarContainer data={{
@@ -24,14 +28,17 @@ const Digitalservice = () => {
           text: "Schedule Your Meeting Today",
           link: "/contactus",
           color: "#F1813B",
-          border: "none"
+          border: "none",
+           action: openCalendly,
+
         },
-        {
-          text: " view work",
-          link: "contactus",
-          color: "transparent",
-          border: "1px solid gray"
-        }]
+          // {
+          //   text: " view work",
+          //   link: "contactus",
+          //   color: "transparent",
+          //   border: "1px solid gray"
+          // }
+        ]
       }} />
       <WorkProcess steps={Digitalsolutions} />
       <Benifits heading="Key Features / Capabilities" BenefitsData={WebBenifitsData3} />

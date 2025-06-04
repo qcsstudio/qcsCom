@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import ContactSection from '@/components/serviceComponents/ContactUs/Contactus'
 import Footer from '../ServiceContainer/FooterContainer/Footer'
@@ -14,14 +15,17 @@ import { WebDevelopmentFaq } from '../ServiceContainer/Questions/faqsData'
 import { caseStudiesData, crmStatsData } from '@/components/WebdeveServicesComponent/CasestudiesData'
 import Industries from '@/components/WebdeveServicesComponent/Industries'
 import NavbarContainer from '../ServiceContainer/NavbarContainer/NavbarContainer'
+import { useCalendly } from '@/components/CalendlyBadge/CalendlyBadge';
+
 
 const WebdevContainer = () => {
+      const openCalendly = useCalendly(); // ✅ Correct usage
     return (
         <>
             <NavbarContainer data={{
                 heading: "We Don't Just Build Web Apps. We Build Experiences That Perform.",
                 para: "At QuantumCrafters Studio, we combine top-tier development with modern design and automation. We don't just deliver code—we build platforms that elevate brands, convert leads, and drive business outcomes.",
-                buttons: [{ text: "Book a Free Strategy Call", link: "#", color: "#F1813B", border: "none" }],
+                buttons: [{ text: "Book a Free Strategy Call", link: "#", color: "#F1813B", border: "none", action: openCalendly, }],
                 image: "/images/Hero Images/Heroimage-webservice.png"
             }} />
             <WorkProcess steps={steps2} />
