@@ -1,5 +1,5 @@
-import Digitalservice from '@/containers/DigitalserviceContainer/Digitalservice'
 import React from 'react'
+import Digitalservice from '@/containers/DigitalserviceContainer/Digitalservice'
 
 const page = () => {
   return (

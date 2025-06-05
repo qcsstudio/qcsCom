@@ -1,6 +1,10 @@
 import React from "react";
 import Image from "next/image";
+import Heading from "../HeadingComponent/Heading";
+import { Syne, Unbounded } from "next/font/google";
 
+const syne = Syne({subsets:['latin'],weight:"500"})
+const unbounded = Unbounded({subsets:['latin'],weight:"600"})
 const values = [
   {
     title: "Empathy First:",
@@ -34,7 +38,7 @@ const values = [
 const OurValues = () => {
   return (
     <section className="py-12 bg-white text-black w-[85%] mx-auto">
-      <h2 className="text-4xl font-bold  text-center mb-10">Our Values</h2>
+      <Heading heading="Our Values"/>
       <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 px-4 max-w-7xl mx-auto">
         {values.map((value, index) => (
           <div
@@ -42,8 +46,8 @@ const OurValues = () => {
             className="bg-[#F5F7F9] p-4 rounded-2xl h-[295px]  "
           >
            <Image src={value.icon} width={50} height={60} alt={value.icon}  />
-            <h3 className="font-medium text-2xl text-[#030204] mb-6 mt-3 h-[41px]">{value.title}</h3>
-            <p className="text-xl text-[#030204">{value.description}</p>
+            <h3 className={`font-medium text-xl text-[#030204] mb-6 mt-3 h-[41px] ${unbounded.className  }`}>{value.title}</h3>
+            <p className={`text-xl text-[#030204 ${syne.className}`}>{value.description}</p>
           </div>
         ))}
       </div>

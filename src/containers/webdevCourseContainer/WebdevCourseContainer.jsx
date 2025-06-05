@@ -80,6 +80,7 @@ const WebdevCourseContainer = () => {
             color: "transparent",
             border: "1px solid gray"
           }],
+           image:"/images/Hero Images/Heroimage-Home.png"
 
       }} />
       <WhyLearnUIUX title=" Why Learn Full Stack Development?" data={webdevreasons} />

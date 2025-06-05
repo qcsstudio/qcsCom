@@ -1,10 +1,10 @@
+import { Unbounded } from "next/font/google";
 import React from "react";
 
+const unbounded = Unbounded({subsets:['latin'],weight:'500'})
 const SalaryInfo = ({data}) => {
-
-
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center gap-4 p-4 mt-5 ">
+    <div className={`flex flex-col md:flex-row justify-center items-center gap-4 p-4 mt-5 ${unbounded.className}`}>
       {data.map((card, index) => (
         <div
           key={index}

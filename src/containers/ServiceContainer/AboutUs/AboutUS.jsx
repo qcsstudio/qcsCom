@@ -9,7 +9,11 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import IconNtext from "@/components/iconNtextComponent/IconNtext";
+import Heading from "@/components/HeadingComponent/Heading";
+import { Syne, Unbounded } from "next/font/google";
 
+const syne = Syne({subsets:['latin'],weight:'400'})
+const unbounded = Unbounded({subsets:['latin'],weight:'600'})
 const members = [
   {
     name: "Poonam Kumari",
@@ -52,17 +56,15 @@ const members = [
 const AboutUs = () => {
   return (
     <>
-        {/* <IconNtext text="About us" link="/images/Icons/AboutUs.png"/> */}
-    
+        <IconNtext text="Instructors" link="/images/Icons/AboutUs.png"/>
+    <Heading heading="Our Stories & Team" />
     <div id="aboutus" className="max-w-[90%] mx-auto ">
-      
-      <h1 className="text-center font-bold text-4xl mb-6">Our Stories & Team</h1>
-      <p className="text-[#000000] font-medium text-xl mx-auto mb-4 ">
+      <p className={`text-[#000000] text-xl mx-auto mb-4 ${syne.className}`} >
         We started as a small group of passionate creators who believed that great ideas deserve bold execution.
         What began over coffee-fueled brainstorming sessions has grown into a thriving digital agency dedicated
         to helping brands stand out.
       </p>
-      <p className="text-[#000000] font-medium text-xl mx-auto mb-12 ">
+      <p className={`text-[#000000] text-xl mx-auto mb-12 ${syne.className}`}>
         Our mission is simple: to craft creative, impactful solutions that drive results. With a vision to empower
         businesses to shine in a crowded world, we combine strategy, design, and a touch of magic to bring your
         ideas to life. Let's make something amazing together!
@@ -92,15 +94,15 @@ const AboutUs = () => {
           >
             {members.map((member, index) => (
               <SwiperSlide key={index} >
-                <div className="bg-[#F5F7F9] p-1 w-[300px] rounded-lg">
+                <div className="bg-[#F5F7F9] p-2 w-[300px] rounded-lg">
                   <div className="text-white rounded-lg text-center">
                     <img
                       src={member.image}
                       className="w-full h-[352px] rounded-lg mb-3 object-cover"
                       alt={member.name}
                     />
-                    <h3 className="font-semibold text-black text-lg">{member.name}</h3>
-                    <p className="text-sm text-gray-500 mb-3">{member.position}</p>
+                    <h3 className={`font-semibold text-black text-lg ${unbounded.className}`}>{member.name}</h3>
+                    <p className={`text-sm text-gray-500 mb-3 ${syne.className}`}>{member.position}</p>
                     <div className="flex justify-center">
                       <Link href={member.link} target="_blank">
                         <FaLinkedin className="cursor-pointer text-xl text-gray-600 hover:text-blue-600" />
@@ -116,8 +118,8 @@ const AboutUs = () => {
         <div className="w-full lg:w-[23%] flex justify-center">
           <div className="bg-[#F1813B] text-white rounded-lg p-6 flex flex-col justify-between lg:w-[300px] h-[450px] mt-1">
             <div>
-              <h3 className="font-semibold text-lg mb-3">You can be here</h3>
-              <p className="text-sm">
+              <h3 className={`font-semibold text-xl mb-3 ${unbounded.className}`}>You can be here</h3>
+              <p className={`text-base ${syne.className}`}>
                 We value curiosity, collaboration, and a can-do attitude. Oh, and coffee—lots of coffee.
                 Come join a team that celebrates your unique skills and helps you unlock your full potential.
               </p>

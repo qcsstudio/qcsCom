@@ -46,7 +46,7 @@ const WorkProcess = ({ steps }) => {
     return (
         <>
         <IconNtext text="Our Work Process" link="/images/Icons/WorkProcess.png"/>
-        <p className={`w-[90%] text-lg mx-auto ${syne.className}`}>
+        <p className={`w-[90%] text-lg mx-auto px-2 ${syne.className} `}>
             At QuantumCrafters Studio, as a leading digital marketing company in Mohali, we follow a clear,
              step-by-step process to ensure every campaign delivers maximum impact and measurable ROI.
              </p>

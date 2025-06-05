@@ -15,8 +15,6 @@ export const webdevSlide1 = [
     "/images/webdev/webdevplatform6.png",
     "/images/webdev/webdevplatform7.png",
     "/images/webdev/webdevplatform8.png",
-]
-export const webdevSlide2 = [
     "/images/webdev/webdevplatform9.png",
     "/images/webdev/webdevplatform10.png",
     "/images/webdev/webdevplatform11.png",
@@ -26,6 +24,7 @@ export const webdevSlide2 = [
     "/images/webdev/webdevplatform15.png",
     "/images/webdev/webdevplatform16.png",
 ]
+
 export const AiSlide1 = [
     "/images/AiMl/AiMlplatform1.png",
     "/images/AiMl/AiMlplatform2.png",
@@ -36,8 +35,6 @@ export const AiSlide1 = [
     "/images/AiMl/AiMlplatform7.png",
     "/images/AiMl/AiMlplatform8.png",
     "/images/AiMl/AiMlplatform9.png",
-]
-export const AiSlide2 = [
     "/images/AiMl/AiMlplatform10.png",
     "/images/AiMl/AiMlplatform11.png",
     "/images/AiMl/AiMlplatform12.png",
@@ -49,6 +46,7 @@ export const AiSlide2 = [
     "/images/AiMl/AiMlplatform18.png",
     "/images/AiMl/AiMlplatform19.png",
 ]
+
 export const DigitalSlide1 = [
     "/images/digital marketing/DigitalPlatform1.png",
     "/images/digital marketing/DigitalPlatform2.png",
@@ -60,9 +58,6 @@ export const DigitalSlide1 = [
     "/images/digital marketing/DigitalPlatform8.png",
     "/images/digital marketing/DigitalPlatform9.png",
     "/images/digital marketing/DigitalPlatform10.png",
-
-]
-export const DigitalSlide2 = [
     "/images/digital marketing/DigitalPlatform11.png",
     "/images/digital marketing/DigitalPlatform12.png",
     "/images/digital marketing/DigitalPlatform13.png",
@@ -73,4 +68,5 @@ export const DigitalSlide2 = [
     "/images/digital marketing/DigitalPlatform18.png",
     "/images/digital marketing/DigitalPlatform19.png",
     "/images/digital marketing/DigitalPlatform20.png",
-] 
+
+]

@@ -5,17 +5,17 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
+import Heading from "../HeadingComponent/Heading";
+import { Unbounded } from "next/font/google";
 
+const unbounded = Unbounded({subsets:['latin'],weight:"500"})
 const Industries = ({heading,Data}) => {
   
  
   return (
     <>
-      <div className="w-[90%] md:w-[85%] mx-auto py-10">
-        <h2 className="text-center text-3xl md:text-4xl font-bold mb-8">
-          {heading}
-        </h2>
-
+      <div className="w-[90%] md:w-[90%] mx-auto py-10">
+    <Heading heading={heading}/>
         <Swiper
           modules={[Navigation, Pagination, FreeMode]}
           spaceBetween={16}
@@ -34,7 +34,7 @@ const Industries = ({heading,Data}) => {
             <SwiperSlide key={index} className="flex items-center justify-center">
               <div className="bg-[#F5F7F9] rounded-lg p-4 h-[420px] flex flex-col sm:justify-between">
                 <div>
-                  <h3 className="font-semibold text-lg md:text-2xl ">{benefit.title}</h3>
+                  <h3 className={`font-medium text-lg md:text-[21px] ${unbounded.className}`}>{benefit.title}</h3>
                   
                 </div>
                 <img

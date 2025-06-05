@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { Syne, Unbounded } from "next/font/google";
 import { motion } from "framer-motion";
+import IconNtext from "../iconNtextComponent/IconNtext";
 
 const syne = Syne({ subsets: ["latin"], weight: "400" });
 const unbounded = Unbounded({ subsets: ["latin"], weight: "700" });
@@ -67,7 +68,8 @@ const ChoiceBox = ({
 const Choices = ({ title, data, onEnrollClick }) => {
   return (
     <>
-      <div className="bg-white py-12 px-4 sm:px-6 md:px-10 lg:px-24 lg:block hidden">
+    <IconNtext text="Why Us" link="/images/Icons/Choices.png"/>
+      <div className="bg-white  px-4 sm:px-6 md:px-10 lg:px-24 lg:block hidden">
         <h2
           className={`text-xl sm:text-3xl md:text-4xl font-bold text-center mb-12 max-w-5xl mx-auto ${unbounded.className}`}
         >
