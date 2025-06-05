@@ -31,7 +31,6 @@ const WebdevContainer = () => {
             <WorkProcess steps={steps2} />
             <Benifits heading="Key Features / Capabilities" BenefitsData={WebBenifitsData} />
             <Platforms heading="Tech Stack We Work On" para="We work on powerful, popular, customisable and scalable platforms to deliver the best solutions for our clients." images={webdevSlide1} />
-            {/* <Platforms images={webdevSlide2} /> */}
             <Industries heading="Industries We Dominate" Data={webIndustries} />
             <CaseStudies data={caseStudiesData} data2={crmStatsData} />
             <Questions questions={WebDevelopmentFaq} />

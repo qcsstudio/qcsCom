@@ -6,7 +6,7 @@ import {Syne,Unbounded} from 'next/font/google'
 const syne = Syne({subsets: ['latin'],weight: '500'})
 const unbounded = Unbounded({subsets: ['latin'],weight: '700'})
 
-function ContactSection() {
+function ContactSection({action}) {
  
   return (
     <div id="contactus" className="bg-gray-100 py-10 px-5 text-center mt-40 lg:mt-10 m-auto">
@@ -48,13 +48,13 @@ function ContactSection() {
           <div>
             <BsExclamationCircle className="text-[#F1813B] text-2xl" />
           </div>
-          <a href="/contactus">
+          <button onClick={action}>
           <div className="text-left">
             <h3 className="font-semibold text-gray-800 text-[19px]">
               Book Your AI Strategy Session Today
             </h3>
           </div>
-          </a>
+          </button>
         </div>
       </div>
 

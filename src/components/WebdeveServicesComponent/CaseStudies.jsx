@@ -1,12 +1,15 @@
 import Link from "next/link";
 import React from "react";
+import Heading from "../HeadingComponent/Heading";
+import { Syne, Unbounded } from "next/font/google";
 
-
+const syne = Syne({subsets:['latin'],weight:'500'})
+const unbounded = Unbounded({subsets:['latin'],weight:'500'})
 
 const CaseStudies = ({data,data2}) => {
   return (
-    <div className="bg-white min-h-screen w-[85%] mx-auto">
-      <h2 className="text-4xl font-bold text-center mb-8">Case Studies</h2>
+    <div className="bg-white min-h-screen w-[90%] mx-auto">
+      <Heading heading="Case Studies"/>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {/* Main Case Studies */}
         {data.map((study, index) => (
@@ -15,8 +18,8 @@ const CaseStudies = ({data,data2}) => {
             className={`bg-gray-100 rounded-lg shadow p-1 ${study.offsetTop ? "mt-10" : ""}`}
           >
             <div className="w-full h-80 bg-gray-300 rounded mb-3"></div>
-            <h3 className="font-bold text-3xl">{study.title}</h3>
-            <p className="text-sm font-medium text-gray-600">{study.description}</p>
+            <h3 className={`font-bold text-[26px] ${unbounded.className}`}>{study.title}</h3>
+            <p className={` text-sm font-medium text-gray-600 ${syne.className}`}>{study.description}</p>
           </div>
         ))}
 

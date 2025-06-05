@@ -1,14 +1,17 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Heading from "../HeadingComponent/Heading";
+import { Syne } from "next/font/google";
 
+const syne = Syne({subsets:['latin'],weight:"500"})
 const OurStory = () => {
   return (
     <section className="bg-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-8">Our Story</h2>
+        <Heading heading="Our Story"/>
 
-        <div className="bg-gray-50 rounded-xl p-6 sm:flex sm:gap-6">
+        <div className={`bg-gray-50 rounded-xl p-6 sm:flex sm:gap-6 ${syne.className}`}>
           {/* Left Text Content */}
           <div className="sm:w-2/3 text-[#000000] text-xl space-y-4">
             {/* <p>
@@ -34,7 +37,7 @@ const OurStory = () => {
             </p> */}
             <p>
               <Link href="/" >
-                <span className="font-medium hover:text-[#F1813B]">QuantumCrafters Studio </span> 
+                <span className="font-bold hover:text-[#F1813B]">QuantumCrafters Studio </span> 
               </Link>
               was founded with a purpose—to bridge the widening gap between education and employability,
               between what students learn and what businesses truly need. It all began when our founder,
@@ -44,7 +47,7 @@ const OurStory = () => {
               quickly evolved into a full-fledged mission to empower businesses with AI-powered tools
               and prepare the next generation of tech talent through real-world training. From a single
               vision, QuantumCrafters has grown into a trusted name in IT services,
-              <Link href="https://elevatrx.app/"><span className="font-medium hover:text-[#F1813B]">SaaS product development</span></Link>, and career-focused training across India.
+              <Link href="https://elevatrx.app/"><span className="font-bold hover:text-[#F1813B]">SaaS product development</span></Link>, and career-focused training across India.
             </p>
           </div>
 

@@ -12,7 +12,7 @@ import Form from '../ServiceContainer/FormContainer/Form'
 import ContactSection from '@/components/serviceComponents/ContactUs/Contactus'
 import Footer from '../ServiceContainer/FooterContainer/Footer'
 import Platforms from '@/components/WebdeveServicesComponent/Platforms'
-import { AiSlide1, AiSlide2, ImagesSlide2, ImagesSlide3 } from '../ServiceContainer/SliderContainer/SliderImages'
+import { AiSlide1 } from '../ServiceContainer/SliderContainer/SliderImages'
 
 
 const AiserviceContainer = () => {
@@ -26,7 +26,7 @@ const AiserviceContainer = () => {
             <WorkProcess steps={aisolutions} />
             <Benifits heading="Key Features / Capabilities" BenefitsData={WebBenifitsData3} />
             <Platforms heading="Tech Stack We Work On" para="We work on powerful, popular, customisable and scalable platforms to deliver the best solutions for our clients." images={AiSlide1} />
-            <Platforms images={AiSlide2} />
+           
             <CaseStudies data={caseStudiesAi} data2={crmStatsData} />
             <Questions questions={AiserviceFaq} />
             <Form heading="Ready to Explore AI for Your Business?"

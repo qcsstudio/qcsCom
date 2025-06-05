@@ -1,14 +1,16 @@
+import { Syne, Unbounded } from 'next/font/google';
 import React from 'react'
 import Marquee from "react-fast-marquee";
+import Heading from '../HeadingComponent/Heading';
 
-const Platforms = ({ heading, para, images }) => {
+const syne = Syne({subsets:['latin'],weight:"500"})
+const unbounded = Unbounded({subsets:['latin'],weight:"700"})
+const   Platforms = ({ heading, para, images }) => {
   return (
     <>
       <div className='my-10'>
-        <h2 className="text-center text-3xl md:text-5xl font-bold  sm:my-5 px-4">
-          {heading}
-        </h2>
-        <p className="text-center text-sm md:text-lg font-medium  sm:my-5 px-4">{para}</p>
+       <Heading heading={heading}/>
+        <p className={`text-center text-sm md:text-lg font-medium  sm:my-5 px-4 ${syne.className}`}>{para}</p>
       </div>
       <Marquee speed={125} gradient={false}>
         {[...images, ...images].map((slide, index) => (
