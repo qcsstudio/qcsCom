@@ -113,13 +113,14 @@ export default function Page() {
       <div className="w-[90%] flex gap-6 mx-auto p-6">
         {/* Blog Detail */}
         <div className="w-[60%]">
-          <Image
+          {/* <Image
             src={blog.thumbnail}
-            width={700}
+            width={800}
             height={100}
             alt={blog.heading}
-            className=" h-[350px] rounded-lg  mb-6"
-          />
+            className="  rounded-lg  mb-6"
+          /> */}
+          <img src={blog.thumbnail} alt={blog.heading} className='rounded-lg  mb-6'/>
           <h1 className="text-4xl font-bold mb-4">{blog.heading}</h1>
           <p className="text-sm text-gray-500 mb-2">
             Created: {new Date(blog.createdAt).toLocaleString()}
