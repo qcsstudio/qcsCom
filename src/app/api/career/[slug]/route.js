@@ -3,32 +3,32 @@ import connectMongo from '@/lib/mongodb';
 import jobs from "@/models/jobs";
 
 
-export async function GET(req,{ params }) {
-  const { slug } =   params;
-        try {
-            connectMongo();
-            const job = await jobs.findOne({heading: decodeURIComponent(slug)});
-            if (!job) {
-            return NextResponse.json({ error: 'job not found' }, { status: 404 });
-                }
-                 return NextResponse.json(job, { status: 200 });
-        } catch (error) {
-            console.error('GET error:', error);
-            return NextResponse.json({ error: 'Failed to fetch job', message: error.message }, { status: 500 });
-        }
+export async function GET(req, { params }) {
+  const { slug } = params;
+  try {
+    connectMongo();
+    const job = await jobs.findOne({ heading: decodeURIComponent(slug) });
+    if (!job) {
+      return NextResponse.json({ error: 'job not found' }, { status: 404 });
+    }
+    return NextResponse.json(job, { status: 200 });
+  } catch (error) {
+    console.error('GET error:', error);
+    return NextResponse.json({ error: 'Failed to fetch job', message: error.message }, { status: 500 });
+  }
 }
 
 export async function PUT(req, { params }) {
   const { slug } = params;
-  
+
   try {
     const data = await req.json();
     await connectMongo();
-    
+
     // Ensure required fields are present
     const requiredFields = ['heading', 'description', 'location', 'experience', 'skills', 'workHours'];
     const missingFields = requiredFields.filter(field => !data[field]);
-    
+
     if (missingFields.length > 0) {
       return NextResponse.json(
         { error: `Missing required fields: ${missingFields.join(', ')}` },
@@ -64,18 +64,18 @@ export async function PUT(req, { params }) {
   }
 }
 
-export async function DELETE (req,{params}){
-    const {slug}= params;
-    try {
-        connectMongo();
-        const deleteJob = await jobs.findOneAndDelete({heading:decodeURIComponent(slug)})
+export async function DELETE(req, { params }) {
+  const { slug } = params;
+  try {
+    connectMongo();
+    const deleteJob = await jobs.findOneAndDelete({ heading: decodeURIComponent(slug) })
 
-        if(!deleteJob){
-            return NextResponse.json({error:'job not found'},{status:404});
-        }
-
-        return NextResponse.json({message:"job deleted successfully"},{status:200});
-        } catch (error) {
-         return NextResponse.json({ error: 'Failed to fetch job', message: error.message }, { status: 500 });
+    if (!deleteJob) {
+      return NextResponse.json({ error: 'job not found' }, { status: 404 });
     }
+
+    return NextResponse.json({ message: "job deleted successfully" }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ error: 'Failed to fetch job', message: error.message }, { status: 500 });
+  }
 }

@@ -112,7 +112,7 @@ function Application({ email }) {
         onClick={() => {
           window.open(`/api/email?download=${rowData.fileMeta.fileId}`, '_blank');
         }}
-        tooltip="Download File"
+        tooltip="Download File" 
         tooltipOptions={{ position: 'top' }}
       />
     );
