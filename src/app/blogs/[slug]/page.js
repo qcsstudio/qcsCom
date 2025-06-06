@@ -109,7 +109,6 @@ export default function Page() {
           ],
         }}
       />
-
       <div className="w-[90%] flex gap-6 mx-auto p-6">
         {/* Blog Detail */}
         <div className="w-[60%]">
@@ -130,7 +129,6 @@ export default function Page() {
             dangerouslySetInnerHTML={{ __html: blog.description }}
           ></div>
         </div>
-
         {/* Recent Posts */}
         <div className="rounded-lg w-[40%] h-[530px] px-5 py-8 bg-[#F5F7F9] overflow-y-auto no-scrollbar">
           <h2 className={`text-[26px] font-bold mb-4 ${unbounded.className}`}>Recent Post&#39;s</h2>
