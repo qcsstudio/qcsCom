@@ -64,7 +64,7 @@ export default function BlogList() {
 
   return (
     <>
-     <IconNtext text="Blogs" link="/images/Icons/Our Services.png"/>
+      <IconNtext text="Blogs" link="/images/Icons/Our Services.png" />
 
       <Heading heading="Beyond the Canvas Stories from QuantumCrafter Studio" />
 
@@ -94,9 +94,11 @@ export default function BlogList() {
                   <p className={`text-sm text-gray-500 ${syne.className}`}>
                     Created: {new Date(blog.createdAt).toLocaleString()}
                   </p>
-                  <p className={`text-gray-700 mb-3 ${syne.className} Blog-description`}>
-                    {blog.description}
-                  </p>
+                  <div
+                    className={`text-gray-700 mb-3 ${syne.className} Blog-description`}
+                    dangerouslySetInnerHTML={{ __html: blog.description }}
+                  ></div>
+
                   <Link
                     href={`/blogs/${blog?.heading}`}
                     className="text-[#FFFEF5] rounded-lg text-base bg-[#000000] px-[8.95rem] py-2 text-center block"
@@ -126,11 +128,10 @@ export default function BlogList() {
                   <button
                     key={index}
                     onClick={() => setCurrentPage(page)}
-                    className={`px-3 py-1 rounded border ${
-                      page === currentPage
+                    className={`px-3 py-1 rounded border ${page === currentPage
                         ? 'bg-purple-600 text-white border-purple-600'
                         : 'hover:bg-gray-100'
-                    }`}
+                      }`}
                   >
                     {page}
                   </button>
