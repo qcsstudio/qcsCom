@@ -15,7 +15,7 @@ export default function BlogList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const blogsPerPage = 5;
+  const blogsPerPage = 6;
 
   const fetchBlogs = async () => {
     try {
@@ -38,6 +38,27 @@ export default function BlogList() {
     const interval = setInterval(fetchBlogs, 10000);
     return () => clearInterval(interval);
   }, []);
+
+  const cleanDescription = (html) => {
+    if (!html) return '';
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = html;
+
+    const walker = document.createTreeWalker(tempDiv, NodeFilter.SHOW_TEXT, null, false);
+    let firstTextNode = walker.nextNode();
+
+    while (firstTextNode) {
+      const text = firstTextNode.nodeValue.trim();
+      if (text.toLowerCase().startsWith('introduction')) {
+        const newText = text.replace(/^introduction[\s:,-]*/i, '');
+        firstTextNode.nodeValue = newText;
+        break;
+      }
+      firstTextNode = walker.nextNode();
+    }
+
+    return tempDiv.innerHTML;
+  };
 
   if (loading) return <p className="text-center text-gray-500 mt-10">Loading blogs...</p>;
   if (error) return <p className="text-center mt-10">Error: {error}</p>;
@@ -65,7 +86,6 @@ export default function BlogList() {
   return (
     <>
       <IconNtext text="Blogs" link="/images/Icons/Our Services.png" />
-
       <Heading heading="Beyond the Canvas Stories from QuantumCrafter Studio" />
 
       <div className="w-[90%] mx-auto ">
@@ -96,7 +116,7 @@ export default function BlogList() {
                   </p>
                   <div
                     className={`text-gray-700 mb-3 ${syne.className} Blog-description`}
-                    dangerouslySetInnerHTML={{ __html: blog.description }}
+                    dangerouslySetInnerHTML={{ __html: cleanDescription(blog.description) }}
                   ></div>
 
                   <Link
@@ -109,8 +129,45 @@ export default function BlogList() {
               ))
             )}
 
-            {/* Pagination */}
-            <div className="flex justify-center gap-2 mb-10 col-span-full">
+           
+          </div>
+
+          {/* Recent Posts */}
+          <div className="w-full lg:w-[30%] max-h-[600px] overflow-y-auto px-5 py-8 bg-[#F5F7F9] rounded-lg no-scrollbar mt-6 lg:mt-0">
+            <h2 className={`text-[26px] font-bold mb-4 ${unbounded.className}`}>Recent Post's</h2>
+            <div className="space-y-4">
+              {blogs
+                .slice()
+                .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+                .slice(0, 5)
+                .map((blog, index) => (
+                  <Link
+                    href={`/blogs/${blog?.heading}`}
+                    key={index}
+                    className="flex gap-3 items-start border-b border-gray-300 pb-3 hover:bg-gray-100 transition rounded-md p-2"
+                  >
+                    <Image
+                      src={blog.thumbnail}
+                      width={64}
+                      height={64}
+                      alt={blog.heading}
+                      className="w-16 h-16 object-cover rounded-md"
+                    />
+                    <div>
+                      <p className={`text-sm font-semibold leading-snug ${syne.className}`}>
+                        {blog.heading.length > 50 ? blog.heading.slice(0, 47) + '...' : blog.heading}
+                      </p>
+                      <p className={`text-xs text-gray-500 ${syne.className}`}>
+                        {new Date(blog.createdAt).toLocaleDateString()}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+            </div>
+          </div>
+        </div>
+         {/* Pagination */}
+            <div className="flex justify-center gap-2 my-10 col-span-full">
               <button
                 onClick={handlePrev}
                 disabled={currentPage === 1}
@@ -146,42 +203,6 @@ export default function BlogList() {
                 <FaChevronRight />
               </button>
             </div>
-          </div>
-
-          {/* Recent Posts */}
-          <div className="w-full lg:w-[30%] max-h-[530px] overflow-y-auto px-5 py-8 bg-[#F5F7F9] rounded-lg no-scrollbar mt-6 lg:mt-0">
-            <h2 className={`text-[26px] font-bold mb-4 ${unbounded.className}`}>Recent Post's</h2>
-            <div className="space-y-4">
-              {blogs
-                .slice()
-                .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-                .slice(0, 5)
-                .map((blog, index) => (
-                  <Link
-                    href={`/blogs/${blog?.heading}`}
-                    key={index}
-                    className="flex gap-3 items-start border-b border-gray-300 pb-3 hover:bg-gray-100 transition rounded-md p-2"
-                  >
-                    <Image
-                      src={blog.thumbnail}
-                      width={64}
-                      height={64}
-                      alt={blog.heading}
-                      className="w-16 h-16 object-cover rounded-md"
-                    />
-                    <div>
-                      <p className={`text-sm font-semibold leading-snug ${syne.className}`}>
-                        {blog.heading.length > 50 ? blog.heading.slice(0, 47) + '...' : blog.heading}
-                      </p>
-                      <p className={`text-xs text-gray-500 ${syne.className}`}>
-                        {new Date(blog.createdAt).toLocaleDateString()}
-                      </p>
-                    </div>
-                  </Link>
-                ))}
-            </div>
-          </div>
-        </div>
       </div>
     </>
   );
