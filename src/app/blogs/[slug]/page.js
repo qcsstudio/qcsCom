@@ -112,13 +112,13 @@ export default function Page() {
 
       <div className="w-[90%] flex gap-6 mx-auto p-6">
         {/* Blog Detail */}
-        <div className="w-[70%]">
+        <div className="w-[60%]">
           <Image
             src={blog.thumbnail}
-            width={800.213}
-            height={288}
+            width={700}
+            height={100}
             alt={blog.heading}
-            className="w-full h-72 object-fill rounded-lg mb-6"
+            className=" h-[350px] rounded-lg  mb-6"
           />
           <h1 className="text-4xl font-bold mb-4">{blog.heading}</h1>
           <p className="text-sm text-gray-500 mb-2">
@@ -131,7 +131,7 @@ export default function Page() {
         </div>
 
         {/* Recent Posts */}
-        <div className="rounded-lg w-[30%] h-[530px] px-5 py-8 bg-[#F5F7F9] overflow-y-auto no-scrollbar">
+        <div className="rounded-lg w-[40%] h-[530px] px-5 py-8 bg-[#F5F7F9] overflow-y-auto no-scrollbar">
           <h2 className={`text-[26px] font-bold mb-4 ${unbounded.className}`}>Recent Post&#39;s</h2>
           <div className="space-y-4">
             {blogs
@@ -195,7 +195,8 @@ export default function Page() {
                   Created: {new Date(blog.createdAt).toLocaleDateString()}
                 </p>
                 <p className={`text-gray-700 mb-3 ${syne.className} Blog-description`}>
-                  {blog.description.length > 100 ? blog.description.slice(0, 97) + '...' : blog.description}
+                  {blog.description}
+                  {/* .length > 100 ? blog.description.slice(0, 97) + '...' : blog.description} */}
                 </p>
                 <Link
                   href={`/blogs/${encodeURIComponent(blog.heading)}`}

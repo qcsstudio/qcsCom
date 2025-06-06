@@ -2,7 +2,7 @@
 
 import { createContext, useState } from "react";
 
-// Context banaya
+
 export const blogContext = createContext();
 
 export const BlogContextProvider = ({ children }) => {

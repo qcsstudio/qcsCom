@@ -22,7 +22,7 @@ const Homepage = () => {
         }}
       />
 
-      <PlatformComponent/>
+      <PlatformComponent/>/images/Blog images/Blog post 1.jpg
       <WeAre />
       <Solutions />
       <LeaderComponent />
