@@ -1,10 +1,10 @@
-'use client'
-import { usePathname } from 'next/navigation'; // 👈 Import this
+'use client';
+import { usePathname } from 'next/navigation';
 import {
   CardData,
   CourseLinkData,
   ServiceCardData,
-  ServiceLinkData
+  ServiceLinkData,
 } from '@/components/serviceComponents/ServicesComponent/CardData';
 import { courses, services } from '@/components/serviceComponents/ServicesComponent/ListCompData';
 import React, { createContext, useEffect, useRef, useState } from 'react';
@@ -13,8 +13,10 @@ const initialState = {
   carddata: null,
   links: [],
   listData: [],
-  setCarddata: () => {},
-  GetServiceCardAPI: () => {},
+  scrollToCard: () => {},
+  setScrollCardData: () => {},
+  activeIndex: null,         // ✅ New
+  setActiveIndex: () => {},  // ✅ New
 };
 
 export const cardcontext = createContext(initialState);
@@ -23,8 +25,9 @@ const Scrollcardcontext = ({ children }) => {
   const [carddata, setCarddata] = useState(null);
   const [listData, setListData] = useState([]);
   const [links, setLinks] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(null); // ✅ Track active item
   const cardRefs = useRef([]);
-  const pathname = usePathname(); // 👈 Current path
+  const pathname = usePathname();
 
   const setScrollCardData = (pageName) => {
     if (pageName === 'services') {
@@ -57,6 +60,7 @@ const Scrollcardcontext = ({ children }) => {
   }, [pathname]);
 
   function scrollToCard(index) {
+    setActiveIndex(index); // ✅ Set active index on click
     const ref = cardRefs.current[index];
     if (ref && ref.scrollIntoView) {
       ref.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -64,7 +68,18 @@ const Scrollcardcontext = ({ children }) => {
   }
 
   return (
-    <cardcontext.Provider value={{ carddata, links, listData, cardRefs, scrollToCard, setScrollCardData }}>
+    <cardcontext.Provider
+      value={{
+        carddata,
+        links,
+        listData,
+        cardRefs,
+        scrollToCard,
+        setScrollCardData,
+        activeIndex,       // ✅ expose
+        setActiveIndex,    // ✅ expose
+      }}
+    >
       {children}
     </cardcontext.Provider>
   );

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Syne, Unbounded } from "next/font/google";
 import { motion } from "framer-motion";
 import IconNtext from "../iconNtextComponent/IconNtext";
+import Heading from "../HeadingComponent/Heading";
 
 const syne = Syne({ subsets: ["latin"], weight: "400" });
 const unbounded = Unbounded({ subsets: ["latin"], weight: "700" });
@@ -70,11 +71,7 @@ const Choices = ({ title, data, onEnrollClick }) => {
     <>
     <IconNtext text="Why Us" link="/images/Icons/Choices.png"/>
       <div className="bg-white  px-4 sm:px-6 md:px-10 lg:px-24 lg:block hidden">
-        <h2
-          className={`text-xl sm:text-3xl md:text-4xl font-bold text-center mb-12 max-w-5xl mx-auto ${unbounded.className}`}
-        >
-          {title}
-        </h2>
+       <Heading heading={title}/>
 
         <div className="w-full max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

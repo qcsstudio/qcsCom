@@ -4,11 +4,14 @@ import { Syne, Unbounded } from "next/font/google";
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
+import { container, child } from '@/components/Animation/Animation';
+import { motion } from 'framer-motion';
 
 
 const syne = Syne({ subsets: ['latin'], weight: '400' })
 const unbounded = Unbounded({ subsets: ['latin'], weight: '600' })
 const Questions = ({ questions }) => {
+  const heading = `FAQ It Up! Your curiosity meets our expertise let's clear things up!`;
 
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -25,11 +28,23 @@ const Questions = ({ questions }) => {
 
         <div className="md:w-1/2 space-y-4 p">
 
-          <h2 className={`text-center lg:text-start text-3xl md:text-[48px] font-bold leading-tight mt-3 ${unbounded.className}`}>
-            FAQ It Up! Your curiosity<br />
-            meets our expertise
-            let's clear things up!
-          </h2>
+          <motion.h2
+      className={`text-center lg:text-start text-3xl md:text-[48px] font-bold leading-tight mt-3 ${unbounded.className}`}
+      variants={container}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      {heading.split(' ').map((word, index) => (
+        <motion.span
+          key={index}
+          variants={child}
+          className="inline-block mr-2"
+        >
+          {word}
+        </motion.span>
+      ))}
+    </motion.h2>
           <p className={`text-gray-500 font-medium text-lg text-center lg:text-start lg:w-[80%] ${syne.className}`}>
             We've gathered all the important info right here. Explore our FAQs and find the answers you need.
           </p>
