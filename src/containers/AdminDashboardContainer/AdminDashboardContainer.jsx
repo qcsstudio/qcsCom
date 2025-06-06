@@ -16,8 +16,7 @@ const AdminDashboardContainer = () => {
 
   return (
     <>
-
-      {/* <JobPostForm /> */}
+    
     </>
   );
 }

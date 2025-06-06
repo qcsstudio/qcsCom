@@ -8,6 +8,8 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 import Application from '../ApplicationComponent/Application';
+import FeeReceptComponent from '../feeReceptComponent/FeeReceptComponent';
+import ReceiptList from '../feeReceptComponent/FeeReceptTableComponent';
 
 const Sidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -18,16 +20,24 @@ const Sidebar = () => {
     { id: 2, name: 'Blog Posts', icon: UserIcon },
     { id: 4, name: 'Applications', icon: ChartBarIcon },
     { id: 3, name: 'Analytics', icon: Cog6ToothIcon },
+    { id: 5, name: 'Recepts', icon: Cog6ToothIcon },
+    { id: 6, name: 'All-Recepts', icon: Cog6ToothIcon },
   ];
+
+  console.log("activeItem", activeItem);
 
   const renderComponent = () => {
     switch (activeItem) {
       case 'job posts':
         return <JobPostForm />;
       case 'blog posts':
-        return <BlogPostForm/>;
+        return <BlogPostForm />;
       case 'applications':
         return <Application />;
+      case 'recepts':
+        return <FeeReceptComponent />;
+      case 'all-recepts':
+        return <ReceiptList />;
       case 'analytics':
         return <></>;
       default:
@@ -47,16 +57,15 @@ const Sidebar = () => {
           {menuItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeItem === item.name.toLowerCase();
-            
+
             return (
               <button
                 key={item.id}
                 onClick={() => setActiveItem(item.name.toLowerCase())}
-                className={`flex items-center w-full px-6 py-3 text-sm border-none bg-transparent text-left ${
-                  isActive 
-                    ? 'bg-blue-50 border-l-4 border-blue-500 text-blue-700' 
-                    : 'text-gray-600 hover:bg-gray-100'
-                }`}
+                className={`flex items-center w-full px-6 py-3 hover:cursor-pointer text-sm border-none bg-transparent text-left ${isActive
+                  ? 'bg-blue-50 border-l-4 border-blue-500 text-blue-700'
+                  : 'text-gray-600 hover:bg-gray-100'
+                  }`}
               >
                 <Icon className={`h-5 w-5 ${isActive ? 'text-blue-500' : 'text-gray-500'}`} />
                 <span className="ml-3">{item.name}</span>
@@ -69,7 +78,7 @@ const Sidebar = () => {
       {/* Main Content */}
       <main className="flex-1">
         <div className="p-4">
-          <button 
+          <button
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
             className="md:hidden p-2 bg-gray-200 rounded-lg"
           >

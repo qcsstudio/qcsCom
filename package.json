@@ -36,6 +36,7 @@
     "next": "15.2.4",
     "next-sitemap": "^4.2.3",
     "nodemailer": "^7.0.3",
+    "pdf-lib": "^1.17.1",
     "primeflex": "^4.0.0",
     "primeicons": "^7.0.0",
     "primereact": "^10.9.5",

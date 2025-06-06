@@ -5,10 +5,10 @@ import Sidebar from "@/components/SidebarComponents/Sidebar";
 export default function Layout({ children }) {
   return (
     <>
-      <AdminNav />
+      {/* <AdminNav /> */}
       <div className="flex">
         <Sidebar />
-      {children}
+        {children}
       </div>
     </>
   )
