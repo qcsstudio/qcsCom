@@ -1,11 +1,11 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import NavbarContainer from '@/containers/ServiceContainer/NavbarContainer/NavbarContainer';
 import { Syne, Unbounded } from 'next/font/google';
 import Link from 'next/link';
 import { FaChevronRight ,FaChevronLeft } from "react-icons/fa";
 import Image from 'next/image';
+import Navbar from '@/components/serviceComponents/NavbarComponent/Navbar';
 
 const unbounded = Unbounded({ subsets: ['latin'], weight: '700' });
 const syne = Syne({ subsets: ['latin'], weight: '400' });
@@ -95,20 +95,8 @@ export default function Page() {
 
   return (
     <>
-      <NavbarContainer
-        data={{
-          heading: blog.heading,
-          para: blog.description?.substring(0, 245) + '...',
-          buttons: [
-            {
-              text: new Date(blog.createdAt).toLocaleDateString(),
-              link: '#',
-              color: 'transparent',
-              border: 'none',
-            },
-          ],
-        }}
-      />
+     <Navbar/>
+     
       <div className="w-[90%] flex gap-6 mx-auto p-6">
         {/* Blog Detail */}
         <div className="w-[60%]">
@@ -130,7 +118,7 @@ export default function Page() {
           ></div>
         </div>
         {/* Recent Posts */}
-        <div className="rounded-lg w-[40%] h-[530px] px-5 py-8 bg-[#F5F7F9] overflow-y-auto no-scrollbar">
+        <div className="rounded-lg w-[40%] h-[600px] px-5 py-8 bg-[#F5F7F9] overflow-y-auto no-scrollbar">
           <h2 className={`text-[26px] font-bold mb-4 ${unbounded.className}`}>Recent Post&#39;s</h2>
           <div className="space-y-4">
             {blogs
