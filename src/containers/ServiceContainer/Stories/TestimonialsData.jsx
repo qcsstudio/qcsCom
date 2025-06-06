@@ -1,17 +1,17 @@
  export const HomeTestimonial = [
   {
-    name: "Callum Yates",
-    // title: "CO-FOUNDER, DRIFTWOOD MEDIA",
+    name: "Udey",
+    title: "Co-Founder, udeycrafts",
     quote:
-      "Our brand went from a whisper to a roar. The team's creativity and expertise made all the difference. We're getting noticed like never before!",
-    image: "/images/Images/client4.png",
+      "Our brand went from a whisper to a roar. The team's creativity and expertise made all the difference.",
+    image: "/images/Clients/Udey.jpg",
   },
   {
-    name: "Jasper Lowell",
-    // title: "CEO, COPPERLEAF ENTERPRISES",
+    name: "C. Raven",
+    title: "Founder, Embodied Awakening Academy",
     quote:
-      "Our online presence went from zero to hero in no time. The team made the process so seamless, I almost forgot I was working on a big project!",
-    image: "/images/Images/client5.png",
+      "Our online presence went from zero to hero in no time. The team made the process so seamless and automated",
+    image: "/images/Clients/EAA.jpg",
   },
   {
     name: "Jasper Lowell",
