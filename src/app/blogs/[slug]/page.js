@@ -109,17 +109,17 @@ export default function Page() {
           ],
         }}
       />
-
       <div className="w-[90%] flex gap-6 mx-auto p-6">
         {/* Blog Detail */}
         <div className="w-[60%]">
-          <Image
+          {/* <Image
             src={blog.thumbnail}
-            width={700}
+            width={800}
             height={100}
             alt={blog.heading}
-            className=" h-[350px] rounded-lg  mb-6"
-          />
+            className="  rounded-lg  mb-6"
+          /> */}
+          <img src={blog.thumbnail} alt={blog.heading} className='rounded-lg  mb-6'/>
           <h1 className="text-4xl font-bold mb-4">{blog.heading}</h1>
           <p className="text-sm text-gray-500 mb-2">
             Created: {new Date(blog.createdAt).toLocaleString()}
@@ -129,7 +129,6 @@ export default function Page() {
             dangerouslySetInnerHTML={{ __html: blog.description }}
           ></div>
         </div>
-
         {/* Recent Posts */}
         <div className="rounded-lg w-[40%] h-[530px] px-5 py-8 bg-[#F5F7F9] overflow-y-auto no-scrollbar">
           <h2 className={`text-[26px] font-bold mb-4 ${unbounded.className}`}>Recent Post&#39;s</h2>
