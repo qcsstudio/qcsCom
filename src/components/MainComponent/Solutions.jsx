@@ -34,7 +34,7 @@ const tabData = [
         { strong: "ElevatrX", text: " AI-powered social media management..." },
         { strong: "QCS HRMS (Launching Soon)", text: " Automate hiring, onboarding..." },
       ],
-      buttons: [{ text: "Try ElevatrX Free", link: "" }],
+      buttons: [{ text: "Try ElevatrX Free", link: "https://elevatrx.app/" }],
       image: "/images/Images/ourservicesimage2.png"
     },
   },
@@ -73,7 +73,7 @@ export default function Solutions() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           viewport={{ once: true }}
-          className={`flex  justify-evenly border-gray-200  ${unbounded.className}`}
+          className={`flex  justify-between border-gray-200   ${unbounded.className}`}
         >
           {tabData.map((tab, index) => (
             <motion.div
@@ -82,13 +82,13 @@ export default function Solutions() {
               whileInView={{ scale: 1, rotate: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="flex items-center"
+              className="flex items-center  "
             >
               <motion.button
                 whileHover={{ scale: 1.05, rotate: 1 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => setActiveTab(index)}
-                className={`p-4 text-lg md:text-[20px] lg:text-[23px] font-medium transition-all duration-200 h-auto min-h-[70px] md:min-h-[85px] lg:min-h-[99px] 
+                className={`p-4 px-7 text-lg md:text-[20px] lg:text-[23px] font-medium transition-all duration-200 h-auto min-h-[70px] md:min-h-[85px] lg:min-h-[99px] 
                  box-border hover:cursor-pointer
                 ${activeTab === index
                     ? "bg-[#F1813B] text-white rounded-t-3xl"
