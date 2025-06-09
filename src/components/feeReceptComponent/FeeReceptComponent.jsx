@@ -28,6 +28,7 @@ const FeeReceptComponent = () => {
 
     const [formErrors, setFormErrors] = useState({});
     const [loading, setLoading] = useState(false);
+    const [receiptLoading, setReceiptLoading] = useState(true);
 
     const generateReceiptNo = () => {
         const now = new Date();
@@ -39,7 +40,7 @@ const FeeReceptComponent = () => {
     };
 
     const resetForm = async () => {
-        const newReceiptNo = await fetchReceiptNumber(); // fetch without increment
+        const newReceiptNo = await fetchReceiptNumber();
         setFormData({
             receiptNo: newReceiptNo,
             date: null,
@@ -98,13 +99,13 @@ const FeeReceptComponent = () => {
 
     const handleDownload = async () => {
         if (!validateForm()) return;
-    
+
         try {
             setLoading(true);
-    
+
             const response = await fetch('/templates/Fee_Recipt.pdf');
             const templateBuffer = await response.arrayBuffer();
-    
+
             const formattedData = {
                 receiptNo: String(formData.receiptNo || ''),
                 date: formData.date ? formatDate(formData.date) : '',
@@ -114,9 +115,9 @@ const FeeReceptComponent = () => {
                 feeReceived: String(formData.feeReceived ?? ''),
                 dueFee: String(formData.dueFee ?? ''),
             };
-    
+
             const filledPdfBytes = await fillReceiptTemplate(templateBuffer, formattedData);
-    
+
             const pdfBlob = new Blob([filledPdfBytes], { type: 'application/pdf' });
             const form = new FormData();
             form.append('pdf', pdfBlob);
@@ -124,28 +125,28 @@ const FeeReceptComponent = () => {
                 ...formattedData,
                 date: formData.date || new Date()
             }));
-    
+
             await fetch('/api/fee-receipt', {
                 method: 'POST',
                 body: form,
             });
-    
+
             const url = URL.createObjectURL(pdfBlob);
             const a = document.createElement('a');
             a.href = url;
             a.download = `${formData.studentName || 'receipt'}.pdf`;
             a.click();
-    
+
             toast.current.show({
                 severity: 'success',
                 summary: 'Success',
                 detail: 'Fee receipt generated and downloaded',
                 life: 3000,
             });
-    
+
             // 🔥 Increment receipt number AFTER success
             await incrementReceiptNumber();
-    
+
         } catch (err) {
             console.error('Error:', err);
             toast.current.show({
@@ -159,19 +160,22 @@ const FeeReceptComponent = () => {
             resetForm(); // fetch new (non-incrementing) number
         }
     };
-    
 
-    const fetchReceiptNumber = async () => {
-        try {
-            const res = await fetch('/api/fee-receipt/generate-receipt-no');
-            const data = await res.json();
-            return data.receiptNo || '';
-        } catch (err) {
-            console.error('Failed to fetch receipt number:', err);
-            return '';
-        }
-    };
-    
+
+const fetchReceiptNumber = async () => {
+    try {
+        setReceiptLoading(true); // start spinner
+        const res = await fetch('/api/fee-receipt/generate-receipt-no');
+        const data = await res.json();
+        return data.receiptNo || '';
+    } catch (err) {
+        console.error('Failed to fetch receipt number:', err);
+        return '';
+    } finally {
+        setReceiptLoading(false); // stop spinner
+    }
+};
+
     const incrementReceiptNumber = async () => {
         try {
             const res = await fetch('/api/fee-receipt/generate-receipt-no', {
@@ -197,15 +201,20 @@ const FeeReceptComponent = () => {
                     <div>
                         <h3 className="text-xl font-semibold mb-6 text-blue-800">📄 Receipt Details</h3>
                         <div className="grid md:grid-cols-2 gap-6">
-                            <FloatLabel>
-                                <InputText
-                                    id="receiptNo"
-                                    value={formData.receiptNo}
-                                    disabled
-                                    className="w-full bg-gray-100"
-                                />
-                                <label htmlFor="receiptNo">Receipt No</label>
-                            </FloatLabel>
+                        <FloatLabel>
+    <div className="relative w-full">
+        <InputText
+            id="receiptNo"
+            value={receiptLoading ? 'Generating Receipt No…' : formData.receiptNo}
+            disabled
+            className="w-full bg-gray-100 pr-10"
+        />
+        {receiptLoading && (
+            <i className="pi pi-spin pi-spinner absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-500 text-sm" />
+        )}
+    </div>
+    <label htmlFor="receiptNo">Receipt No</label>
+</FloatLabel>
 
                             <div>
                                 <FloatLabel>
