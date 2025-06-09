@@ -7,9 +7,12 @@ const LoginPage = () => {
   const router = useRouter();
   const [form, setForm] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false); // Spinner state
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError('');
 
     const res = await fetch('/api/auth/login', {
       method: 'POST',
@@ -17,6 +20,7 @@ const LoginPage = () => {
     });
 
     const data = await res.json();
+    setLoading(false);
 
     if (res.ok) {
       router.push('/dashboard');
@@ -55,15 +59,18 @@ const LoginPage = () => {
             />
           </div>
 
-          {error && (
-            <p className="text-red-500 text-sm text-center">{error}</p>
-          )}
+          {error && <p className="text-red-500 text-sm text-center">{error}</p>}
 
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition duration-200 shadow"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition duration-200 shadow flex items-center justify-center"
+            disabled={loading}
           >
-            Login
+            {loading ? (
+              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+            ) : (
+              'Login'
+            )}
           </button>
         </form>
       </div>
