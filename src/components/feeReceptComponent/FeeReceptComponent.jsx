@@ -38,9 +38,10 @@ const FeeReceptComponent = () => {
         return `RCT-${year}${month}${day}-${randomSuffix}`;
     };
 
-    const resetForm = () => {
+    const resetForm = async () => {
+        const newReceiptNo = await fetchReceiptNumber(); // fetch without increment
         setFormData({
-            receiptNo: generateReceiptNo(),
+            receiptNo: newReceiptNo,
             date: null,
             studentName: '',
             courseName: '',
@@ -142,6 +143,9 @@ const FeeReceptComponent = () => {
                 life: 3000,
             });
     
+            // 🔥 Increment receipt number AFTER success
+            await incrementReceiptNumber();
+    
         } catch (err) {
             console.error('Error:', err);
             toast.current.show({
@@ -152,10 +156,34 @@ const FeeReceptComponent = () => {
             });
         } finally {
             setLoading(false);
-            resetForm();
+            resetForm(); // fetch new (non-incrementing) number
         }
     };
     
+
+    const fetchReceiptNumber = async () => {
+        try {
+            const res = await fetch('/api/fee-receipt/generate-receipt-no');
+            const data = await res.json();
+            return data.receiptNo || '';
+        } catch (err) {
+            console.error('Failed to fetch receipt number:', err);
+            return '';
+        }
+    };
+    
+    const incrementReceiptNumber = async () => {
+        try {
+            const res = await fetch('/api/fee-receipt/generate-receipt-no', {
+                method: 'PUT',
+            });
+            const data = await res.json();
+            return data.receiptNo || '';
+        } catch (err) {
+            console.error('Failed to increment receipt number:', err);
+            return '';
+        }
+    };
 
     return (
         <>
