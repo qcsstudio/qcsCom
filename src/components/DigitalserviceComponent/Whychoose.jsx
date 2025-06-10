@@ -43,7 +43,6 @@ const Whychoose = ({ title, data }) => {
               <ChoiceBox key={i} {...box} />
             ))}
           </div>
-
           {/* Second Row - 2 Cards, 4th wider */}
           <div className="flex flex-wrap justify-center gap-6 mt-6">
             {data[3] && (
@@ -62,10 +61,7 @@ const Whychoose = ({ title, data }) => {
 
       {/* Mobile View */}
       <div className="lg:hidden bg-white py-10 px-4 sm:px-6">
-        <h2 className={`text-2xl sm:text-3xl font-bold text-center mb-10 ${unbounded.className}`}>
-          {title}
-        </h2>
-
+        <Heading heading="Why Choose Quantum craft studio for Your Digital Success?"/>
         <div className="space-y-10">
           {data?.map((item, index) => (
             <motion.div
