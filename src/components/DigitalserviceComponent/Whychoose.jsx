@@ -16,7 +16,6 @@ const ChoiceBox = ({ title, description, image }) => {
         <div className="bg-black w-14 h-14 rounded-full mb-4 flex items-center justify-center">
           <Image src={image} width={32} height={32} alt="icon" />
         </div>
-
         <h3
           className={`text-lg sm:text-xl md:text-2xl font-bold leading-snug mb-2 ${unbounded.className}`}
           dangerouslySetInnerHTML={{ __html: title }}
