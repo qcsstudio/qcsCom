@@ -15,6 +15,9 @@ import Footer from '../ServiceContainer/FooterContainer/Footer'
 import Platforms from '@/components/WebdeveServicesComponent/Platforms'
 import { DigitalSlide1, } from '../ServiceContainer/SliderContainer/SliderImages'
 import { useCalendly } from '@/components/CalendlyBadge/CalendlyBadge';
+import { cardData, DigitalMarketingServices } from '@/Data/DigitalServiceData/DigitalServiceData'
+import DigitalServices from '@/components/DigitalserviceComponent/DigitalServices'
+import Whychoose from '@/components/DigitalserviceComponent/Whychoose'
 
 const Digitalservice = () => {
   const openCalendly = useCalendly();
@@ -40,7 +43,9 @@ const Digitalservice = () => {
           // }
         ]
       }} />
+      <DigitalServices data={DigitalMarketingServices} />
       <WorkProcess steps={Digitalsolutions} />
+      <Whychoose data={cardData}/>
       <Benifits heading="Key Features / Capabilities" BenefitsData={WebBenifitsData3} />
       <Platforms heading="Tech Stack We Work On" para="We work on powerful, popular, customisable and scalable platforms to deliver the best solutions for our clients." images={DigitalSlide1} />
 
