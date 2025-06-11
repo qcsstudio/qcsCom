@@ -3,6 +3,11 @@ import mongoose from "mongoose";
 const feeReceiptSchema = new mongoose.Schema({
     receiptNo: String,
     date: Date,
+    studentId: {
+        type: String,
+        required: true,
+        index: true 
+    },
     studentName: String,
     courseName: String,
     courseFee: Number,
@@ -10,9 +15,9 @@ const feeReceiptSchema = new mongoose.Schema({
     dueFee: Number,
     file: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'fs.files', // GridFS reference
+        ref: 'fs.files', 
         required: true
     }
-}, { timestamps: true });
+}, { timestamps: true ,strict: false });
 
 export default mongoose.models.FeeReceipt || mongoose.model("FeeReceipt", feeReceiptSchema);

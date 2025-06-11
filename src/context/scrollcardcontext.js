@@ -13,10 +13,14 @@ const initialState = {
   carddata: null,
   links: [],
   listData: [],
-  scrollToCard: () => {},
-  setScrollCardData: () => {},
+  scrollToCard: () => { },
+  setScrollCardData: () => { },
   activeIndex: null,         // ✅ New
-  setActiveIndex: () => {},  // ✅ New
+  setActiveIndex: () => { },  // ✅ New
+  showTable: false,
+  setShowTable: () => { },
+  prefillData: null,
+  setPrefillData: () => { }
 };
 
 export const cardcontext = createContext(initialState);
@@ -28,6 +32,9 @@ const Scrollcardcontext = ({ children }) => {
   const [activeIndex, setActiveIndex] = useState(null); // ✅ Track active item
   const cardRefs = useRef([]);
   const pathname = usePathname();
+  const [showTable, setShowTable] = useState(initialState.showTable);
+  const [prefillData, setPrefillData] = useState(initialState.prefillData);
+
 
   const setScrollCardData = (pageName) => {
     if (pageName === 'services') {
@@ -78,6 +85,10 @@ const Scrollcardcontext = ({ children }) => {
         setScrollCardData,
         activeIndex,       // ✅ expose
         setActiveIndex,    // ✅ expose
+        showTable,
+        setShowTable,
+        prefillData,
+        setPrefillData
       }}
     >
       {children}

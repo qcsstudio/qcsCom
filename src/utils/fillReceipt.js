@@ -69,6 +69,14 @@ export async function fillReceiptTemplate(templateBuffer, details) {
     font,
     color: rgb(0, 0, 0),
   });
+  
+  page.drawText(details.studentId, {
+    x: 475  ,
+    y: height - 169,
+    size: 12,
+    font,
+    color: rgb(0, 0, 0),
+  });
 
   // ✅ Draw the signature image
   page.drawImage(signatureImage, {

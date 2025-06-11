@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { fillReceiptTemplate } from '@/utils/fillReceipt';
 import { InputText } from 'primereact/inputtext';
 import { InputNumber } from 'primereact/inputnumber';
@@ -12,9 +12,13 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import { Toast } from 'primereact/toast';
 import { useRef } from 'react';
+import { Dropdown } from 'primereact/dropdown';
+import ReceiptList from './FeeReceptTableComponent';
+import { cardcontext } from '@/context/scrollcardcontext';
 
 const FeeReceptComponent = () => {
     const toast = useRef(null);
+    const { showTable, setShowTable, prefillData, setPrefillData } = useContext(cardcontext);
 
     const [formData, setFormData] = useState({
         receiptNo: '',
@@ -24,50 +28,75 @@ const FeeReceptComponent = () => {
         courseFee: null,
         feeReceived: null,
         dueFee: null,
+        studentId: '',
     });
 
     const [formErrors, setFormErrors] = useState({});
     const [loading, setLoading] = useState(false);
     const [receiptLoading, setReceiptLoading] = useState(true);
+    const [calculatingDue, setCalculatingDue] = useState(false);
 
-    const generateReceiptNo = () => {
-        const now = new Date();
-        const year = String(now.getFullYear()).slice(2);
-        const month = String(now.getMonth() + 1).padStart(2, '0');
-        const day = String(now.getDate()).padStart(2, '0');
-        const randomSuffix = Math.random().toString(36).substring(2, 5).toUpperCase();
-        return `RCT-${year}${month}${day}-${randomSuffix}`;
+    const courseOptions = [
+        { label: 'Web Development', value: 'Web Development' },
+        { label: 'Data Science', value: 'Data Science' },
+        { label: 'Digital Marketing', value: 'Digital Marketing' },
+        { label: 'Graphic Design', value: 'Graphic Design' },
+        { label: 'Cyber Security', value: 'Cyber Security' }
+    ];
+
+    const generateStudentId = () => {
+        const hex = Math.floor(Math.random() * 0xffffff).toString(16).toUpperCase().padStart(6, '0');
+        return `QCS-${hex}`;
     };
 
-    const resetForm = async () => {
-        const newReceiptNo = await fetchReceiptNumber();
-        setFormData({
-            receiptNo: newReceiptNo,
-            date: null,
-            studentName: '',
-            courseName: '',
-            courseFee: null,
-            feeReceived: null,
-            dueFee: null,
-        });
-        setFormErrors({});
-    };
 
     useEffect(() => {
-        resetForm();
-    }, []);
+        const initializeForm = async () => {
+            const newReceiptNo = await fetchReceiptNumber();
 
-    useEffect(() => {
-        const courseFeeNum = Number(formData.courseFee) || 0;
-        const feeReceivedNum = Number(formData.feeReceived) || 0;
-        const due = courseFeeNum - feeReceivedNum >= 0 ? courseFeeNum - feeReceivedNum : 0;
-        if (due !== formData.dueFee) {
-            setFormData(prev => ({ ...prev, dueFee: due }));
-        }
-    }, [formData.courseFee, formData.feeReceived]);
+            if (prefillData) {
+                setFormData({
+                    receiptNo: newReceiptNo,
+                    studentId: prefillData.studentId || generateStudentId(),
+                    date: null, // Always reset
+                    studentName: prefillData.studentName || '',
+                    courseName: prefillData.courseName || '',
+                    courseFee: prefillData.courseFee || null,
+                    feeReceived: null, // Always empty
+                    dueFee: null,       // Always empty
+                });
+            } else {
+                setFormData({
+                    receiptNo: newReceiptNo,
+                    studentId: generateStudentId(),
+                    date: null,
+                    studentName: '',
+                    courseName: '',
+                    courseFee: null,
+                    feeReceived: null,
+                    dueFee: null,
+                });
+            }
+        };
 
-    const handleTextChange = (e, name) => {
-        setFormData((prev) => ({ ...prev, [name]: e.target.value }));
+        initializeForm();
+    }, [prefillData]);
+
+
+    // useEffect(() => {
+    //     const courseFeeNum = Number(formData.courseFee) || 0;
+    //     const feeReceivedNum = Number(formData.feeReceived) || 0;
+    //     const due = courseFeeNum - feeReceivedNum >= 0 ? courseFeeNum - feeReceivedNum : 0;
+    //     if (due !== formData.dueFee) {
+    //         setFormData(prev => ({ ...prev, dueFee: due }));
+    //     }
+    // }, [formData.courseFee, formData.feeReceived]);
+
+    const handleTextChange = (e, field, value = null) => {
+        setFormData(prev => ({
+            ...prev,
+            [field]: value ?? e.target.value
+        }));
     };
 
     const handleNumberChange = (value, name) => {
@@ -105,9 +134,9 @@ const FeeReceptComponent = () => {
 
             const response = await fetch('/templates/Fee_Recipt.pdf');
             const templateBuffer = await response.arrayBuffer();
-
             const formattedData = {
                 receiptNo: String(formData.receiptNo || ''),
+                studentId: String(formData.studentId || ''), // 🆕 Include it
                 date: formData.date ? formatDate(formData.date) : '',
                 studentName: String(formData.studentName || ''),
                 courseName: String(formData.courseName || ''),
@@ -115,6 +144,7 @@ const FeeReceptComponent = () => {
                 feeReceived: String(formData.feeReceived ?? ''),
                 dueFee: String(formData.dueFee ?? ''),
             };
+
 
             const filledPdfBytes = await fillReceiptTemplate(templateBuffer, formattedData);
 
@@ -162,19 +192,19 @@ const FeeReceptComponent = () => {
     };
 
 
-const fetchReceiptNumber = async () => {
-    try {
-        setReceiptLoading(true); // start spinner
-        const res = await fetch('/api/fee-receipt/generate-receipt-no');
-        const data = await res.json();
-        return data.receiptNo || '';
-    } catch (err) {
-        console.error('Failed to fetch receipt number:', err);
-        return '';
-    } finally {
-        setReceiptLoading(false); // stop spinner
-    }
-};
+    const fetchReceiptNumber = async () => {
+        try {
+            setReceiptLoading(true); // start spinner
+            const res = await fetch('/api/fee-receipt/generate-receipt-no');
+            const data = await res.json();
+            return data.receiptNo || '';
+        } catch (err) {
+            console.error('Failed to fetch receipt number:', err);
+            return '';
+        } finally {
+            setReceiptLoading(false); // stop spinner
+        }
+    };
 
     const incrementReceiptNumber = async () => {
         try {
@@ -189,9 +219,64 @@ const fetchReceiptNumber = async () => {
         }
     };
 
+    const handleCalculateDueFee = async () => {
+        if (!formData.studentId || formData.feeReceived === null || formData.courseFee === null) return;
+
+        try {
+            setCalculatingDue(true);
+
+            const res = await fetch('/api/fee-receipt/calculate-due', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    studentId: formData.studentId,
+                    currentFeeReceived: formData.feeReceived,
+                    courseFee: formData.courseFee,
+                }),
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+                setFormData((prev) => ({
+                    ...prev,
+                    dueFee: data.leftFee ?? 0,
+                }));
+                toast.current.show({
+                    severity: 'success',
+                    summary: 'Calculated',
+                    detail: 'Due fee updated',
+                    life: 2000,
+                });
+            } else {
+                throw new Error(data.error || 'Unknown error');
+            }
+        } catch (error) {
+            toast.current.show({
+                severity: 'error',
+                summary: 'Error',
+                detail: error.message,
+                life: 3000,
+            });
+            console.error('Calculate due error:', error);
+        } finally {
+            setCalculatingDue(false);
+        }
+    };
+
     return (
         <>
+
+
             <Toast ref={toast} />
+            <div className='flex justify-end mx-3'>
+                <button onClick={() => { setShowTable(true) }}
+                    className="bg-blue-600! hover:bg-blue-700! hover:cursor-pointer text-white font-semibold py-2 px-6 rounded-2xl shadow-lg transition-all duration-300 ease-in-out">
+                    See All Receipts
+                </button>
+            </div>
 
             <div className="max-w-5xl mx-auto py-10 px-6">
                 <div className="bg-white shadow-2xl rounded-2xl p-10 space-y-10 border border-gray-200">
@@ -201,20 +286,20 @@ const fetchReceiptNumber = async () => {
                     <div>
                         <h3 className="text-xl font-semibold mb-6 text-blue-800">📄 Receipt Details</h3>
                         <div className="grid md:grid-cols-2 gap-6">
-                        <FloatLabel>
-    <div className="relative w-full">
-        <InputText
-            id="receiptNo"
-            value={receiptLoading ? 'Generating Receipt No…' : formData.receiptNo}
-            disabled
-            className="w-full bg-gray-100 pr-10"
-        />
-        {receiptLoading && (
-            <i className="pi pi-spin pi-spinner absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-500 text-sm" />
-        )}
-    </div>
-    <label htmlFor="receiptNo">Receipt No</label>
-</FloatLabel>
+                            <FloatLabel>
+                                <div className="relative w-full">
+                                    <InputText
+                                        id="receiptNo"
+                                        value={receiptLoading ? 'Generating Receipt No…' : formData.receiptNo}
+                                        disabled
+                                        className="w-full bg-gray-100 pr-10"
+                                    />
+                                    {receiptLoading && (
+                                        <i className="pi pi-spin pi-spinner absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-500 text-sm" />
+                                    )}
+                                </div>
+                                <label htmlFor="receiptNo">Receipt No</label>
+                            </FloatLabel>
 
                             <div>
                                 <FloatLabel>
@@ -252,18 +337,35 @@ const fetchReceiptNumber = async () => {
 
                             <div>
                                 <FloatLabel>
-                                    <InputText
+                                    <Dropdown
                                         id="courseName"
                                         value={formData.courseName}
-                                        onChange={(e) => handleTextChange(e, 'courseName')}
-                                        className="w-full"
+                                        options={courseOptions}
+                                        onChange={(e) => handleTextChange(e, 'courseName', e.value)}
+                                        className="min-w-[220px]"
                                     />
                                     <label htmlFor="courseName">Course Name</label>
                                 </FloatLabel>
-                                {formErrors.courseName && <small className="text-red-600! font-bold">{formErrors.courseName}</small>}
+                                {formErrors.courseName && (
+                                    <small className="text-red-600 font-bold">{formErrors.courseName}</small>
+                                )}
+                            </div>
+
+                            <div>
+                                <FloatLabel>
+                                    <InputText
+                                        id="studentId"
+                                        value={formData.studentId}
+                                        disabled
+                                        className="w-full bg-gray-100"
+                                    />
+                                    <label htmlFor="studentId">Student ID</label>
+                                </FloatLabel>
+
                             </div>
                         </div>
                     </div>
+
 
                     {/* Payment Info */}
                     <div>
@@ -298,7 +400,16 @@ const fetchReceiptNumber = async () => {
                                 </FloatLabel>
                                 {formErrors.feeReceived && <small className="text-red-600! font-bold">{formErrors.feeReceived}</small>}
                             </div>
-
+                            <div className="md:col-span-3 text-right">
+                                <Button
+                                    label="Calculate Due Fee"
+                                    icon="pi pi-calculator"
+                                    onClick={handleCalculateDueFee}
+                                    loading={calculatingDue}
+                                    disabled={!formData.feeReceived}
+                                    className="p-button-primary"
+                                />
+                            </div>
                             <FloatLabel>
                                 <InputNumber
                                     id="dueFee"
@@ -326,6 +437,7 @@ const fetchReceiptNumber = async () => {
                 </div>
             </div>
         </>
+
     );
 };
 
