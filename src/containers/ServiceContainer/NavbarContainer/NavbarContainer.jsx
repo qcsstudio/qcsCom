@@ -2,27 +2,26 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
-import Navbar from '@/components/serviceComponents/NavbarComponent/Navbar'; // Adjust if needed
-import Button from '@/components/serviceComponents/NavbarComponent/NavButton'; // Adjust if needed
+import Navbar from '@/components/serviceComponents/NavbarComponent/Navbar';
+import Button from '@/components/serviceComponents/NavbarComponent/NavButton';
 import Image from 'next/image';
 import { Syne, Unbounded } from 'next/font/google';
 
-const unbounded = Unbounded({subsets: ['latin'],weight: '700'})
-const syne = Syne({subsets: ['latin'],weight: '600'})
+const unbounded = Unbounded({ subsets: ['latin'], weight: '700' });
+const syne = Syne({ subsets: ['latin'], weight: '500' });
 
 const movements = [
-  'movement1', // horizontal slide
-  'movement2', // vertical slide
-  'movement3', // diagonal slide
-  'movement4', // gentle pulse
-  'movement5', // background-size drift
+  'movement1',
+  'movement2',
+  'movement3',
+  'movement4',
+  'movement5',
 ];
 
 export default function NavbarContainer({ data }) {
   if (!data) return null;
   const { heading, para, buttons, image } = data;
 
-  // cycle through movements every 20s
   const [mv, setMv] = useState(0);
   useEffect(() => {
     const id = setInterval(() => {
@@ -31,7 +30,6 @@ export default function NavbarContainer({ data }) {
     return () => clearInterval(id);
   }, []);
 
-  // mouse parallax only on gradient area
   const mvX = useMotionValue(0);
   const mvY = useMotionValue(0);
   const sx = useSpring(mvX, { stiffness: 60, damping: 25 });
@@ -50,38 +48,22 @@ export default function NavbarContainer({ data }) {
   };
 
   return (
-    <section className="relative w-full min-h-[110vh] overflow-hidden flex text-white">
-      {/* 60% gradient background */}
+    <section className="relative w-full min-h-[100vh] overflow-hidden flex text-white">
       <motion.div
         onMouseMove={handleMouse}
         onMouseLeave={resetMouse}
         style={{ x: sx, y: sy }}
-        className={`
-          absolute inset-0
-          bg-gradient-parallax
-          clip-gradient
-          ${unbounded.className}
-          ${movements[mv]}
-          z-0 pointer-events-none
-          
-        `}
+        className={`absolute inset-0 bg-gradient-parallax clip-gradient ${unbounded.className} ${movements[mv]} z-0 pointer-events-none`}
       />
 
-
-
-      {/* Navbar */}
-      <div className="absolute top-5 left-0 w-full z-40">
+      <div className="absolute top-2 left-0 w-full z-10">
         <Navbar />
       </div>
 
-
-      {/* Hero content */}
-
-      <div className="absolute top-28 left-15 flex flex-row w-[95%]  ">
-        {/* meta title & description */}
-        <div className=" relative top-6 flex flex-col justify-center  text-black w-[54%]">
+      <div className="absolute top-24 left-5 w-full px-4 md:px-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="w-full lg:w-[48%] flex flex-col justify-center text-black">
           <motion.h1
-            className={`text-4xl md:text-[55px] font-extrabold leading-tight max-w-[710px] ${unbounded.className}`}
+            className={`text-3xl md:text-[55px] font-extrabold leading-tight ${unbounded.className}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -97,51 +79,43 @@ export default function NavbarContainer({ data }) {
             {para}
           </motion.p>
 
-          {/* Hero section buttons */}
           <motion.div
-            className="mt-8 flex flex-wrap gap-4"
+            className="mt-4 flex flex-wrap gap-4"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.6, type: 'spring', stiffness: 300 }}
           >
-          
-{buttons?.map((btn, i) => (
-  <div key={i}
-  className= {`${syne.className} cursor-pointer`}>
-    {btn.action ? (
-      <button
-        onClick={btn.action}
-        style={{ backgroundColor: `${btn.color}`, border: `${btn.border}` }}
-        className="hover:bg-[rgb(241,129,59)] px-6 py-2 text-sm sm:text-[16px] cursor-pointer rounded-md transition-colors duration-200"
-      >
-        {btn.text}
-      </button>
-    ) : (
-      <Button
-        text={btn.text}
-        color={btn.color}
-        border={btn.border}
-        link={btn.link}
-      />
-    )}
-  </div>
-))}
-
+            {buttons?.map((btn, i) => (
+              <div key={i} className={syne.className}>
+                {btn.action ? (
+                  <button
+                    onClick={btn.action}
+                    style={{ backgroundColor: btn.color, border: btn.border }}
+                    className="hover:bg-[rgb(241,129,59)] px-6 py-2 text-sm sm:text-[16px] cursor-pointer rounded-md transition-colors duration-200"
+                  >
+                    {btn.text}
+                  </button>
+                ) : (
+                  <Button
+                    text={btn.text}
+                    color={btn.color}
+                    border={btn.border}
+                    link={btn.link}
+                  />
+                )}
+              </div>
+            ))}
           </motion.div>
         </div>
 
-        
-        <div className='w-[760px] h-[519px] absolute right-0 '>
-          <Image src={image}
-            fill={true}
-            className='object-contain'
+        <div className="w-full lg:w-[760px] static lg:absolute lg:right-0 h-auto flex items-center justify-center overflow-hidden">
+          <img
+            src={image}
             alt="hero-image"
+            className="w-auto h-auto max-w-full max-h-[519px] object-contain"
           />
         </div>
-
-
       </div>
-
     </section>
   );
 }
