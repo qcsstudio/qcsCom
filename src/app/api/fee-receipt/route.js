@@ -16,7 +16,7 @@ export async function POST(req) {
         }
 
         const meta = JSON.parse(metaRaw);
-        const buffer = Buffer.from(await pdfBlob.arrayBuffer());
+        const buffer = Buffer.from(await pdfBlob.arrayBuffer()); 
 
         await connectMongo();
         const db = mongoose.connection.db;

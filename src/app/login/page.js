@@ -23,7 +23,7 @@ const LoginPage = () => {
     setLoading(false);
 
     if (res.ok) {
-      router.push('/dashboard');
+        router.push('/dashboard')
     } else {
       setError(data.error);
     }
