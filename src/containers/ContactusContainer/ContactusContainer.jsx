@@ -9,7 +9,8 @@ const ContactusContainer = () => {
     <>
       <NavbarContainer data={{
         heading: "Let's Connect & Craft the Future, Together!",
-        para: "Talk to us over the phone or simply drop us an email to discuss your projects."
+        para: "Talk to us over the phone or simply drop us an email to discuss your projects.",
+        image:"/images/Hero Images/Contactus.png"
       }} />
       <ProposalForm />
 

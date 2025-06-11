@@ -23,7 +23,7 @@ export default function BlogList() {
     if (!res.ok) throw new Error('Failed to fetch blogs');
     const data = await res.json();
 
-    // 3 second delay before setting data
+   
     setTimeout(() => {
       setBlogs(data);
       setLoading(false);

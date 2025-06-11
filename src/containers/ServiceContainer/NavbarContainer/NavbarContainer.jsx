@@ -108,7 +108,7 @@ export default function NavbarContainer({ data }) {
           </motion.div>
         </div>
 
-        <div className="w-full lg:w-[760px] static lg:absolute lg:right-0 h-auto flex items-center justify-center overflow-hidden">
+        <div className="w-full   lg:w-[760px]  top-5 static lg:absolute lg:right-0 h-auto flex items-center justify-center overflow-hidden">
           <img
             src={image}
             alt="hero-image"
@@ -116,6 +116,6 @@ export default function NavbarContainer({ data }) {
           />
         </div>
       </div>
-    </section>
+    </section>  
   );
 }
