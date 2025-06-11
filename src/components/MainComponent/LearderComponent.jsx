@@ -92,10 +92,10 @@ export default function LeaderComponent() {
   };
 
   return (
-    <section className="py-10 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-gray-50 via-white to-gray-100">
+    <section className="w-[90%] mx-auto bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <Heading heading="Trusted by Industry Leaders" />
 
-      <div className="max-w-7xl mx-auto">
+      <div className=" mx-auto">
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-10"
           initial="hidden"
