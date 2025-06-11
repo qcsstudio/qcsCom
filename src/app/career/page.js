@@ -6,7 +6,6 @@ const page = () => {
   return (
     <div>
         <CareerContainer />
-        {/* <TestFile /> */}
     </div>
   )
 }
