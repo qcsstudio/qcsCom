@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { Syne, Unbounded } from 'next/font/google';
 
 const unbounded = Unbounded({ subsets: ['latin'], weight: '700' });
-const syne = Syne({ subsets: ['latin'], weight: '500' });
+const syne = Syne({ subsets: ['latin'], weight: '500', display: 'swap' });
 
 const movements = [
   'movement1',

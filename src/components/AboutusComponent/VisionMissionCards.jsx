@@ -5,9 +5,9 @@ const syne = Syne({subsets:['latin'],weight:"500"})
 const unbounded = Unbounded({subsets:['latin'],weight:"700"})
 const VisionMissionCards = () => {
   return (
-    <div className="flex flex-col md:flex-row gap-6 justify-center items-center p-6 bg-white w-[85%] mx-auto">
+    <div className="flex flex-col md:flex-row gap-6 justify-center items-center my-10 bg-white w-[90%] mx-auto">
       {/* Vision Card */}
-      <div className="bg-black text-white rounded-xl p-6 flex flex-col h-[290px]  md:w-96  lg:w-[596px] py-5">
+      <div className="bg-black text-white rounded-xl p-6 flex flex-col h-[290px] md:h-[400px] lg:h-[290px]   md:w-96  lg:w-[596px] xl:w-[800px] py-5">
         <div className="flex justify-between items-center">
           <h2 className={`text-[40px] font-bold ${unbounded.className}`}>Our Vision</h2>
           <Image
@@ -24,7 +24,7 @@ const VisionMissionCards = () => {
       </div>
 
       {/* Mission Card */}
-      <div className="bg-black text-white rounded-xl p-6 flex flex-col  md:w-96 h-[290px] lg:w-[596px] py-5">
+      <div className="bg-black text-white rounded-xl p-6 flex flex-col  md:w-96 h-[290px] md:h-[400px] lg:h-[290px] lg:w-[596px] xl:w-[800px] py-5">
         <div className="flex justify-between items-center">
           <h2 className={`text-[40px] font-bold ${unbounded.className}`}>Our Mission</h2>
           <Image

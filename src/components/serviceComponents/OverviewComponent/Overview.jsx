@@ -5,8 +5,8 @@ import { fadeInVariant } from '../../Animation/Animation';
 import { Syne, Unbounded } from 'next/font/google';
 
 
-const syne = Syne({subsets: ['latin'],weight: '400'})
-const unbounded = Unbounded({subsets: ['latin'],weight: '600'})
+const syne = Syne({subsets: ['latin'],weight: '400', display: 'swap'})
+const unbounded = Unbounded({subsets: ['latin'],weight: '600', display: 'swap'})
 const Overview = () => {
   return (
     <>

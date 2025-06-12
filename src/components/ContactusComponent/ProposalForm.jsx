@@ -75,8 +75,8 @@ export default function ProposalForm() {
     };
 
     return (
-        <div className="flex items-center justify-center w-[85%] mx-auto my-10">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full max-w-7xl">
+        <div className="flex items-center justify-center w-[90%] mx-auto my-10">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full ">
                 {/* Left Panel */}
                 <div className="lg:col-span-1 space-y-6">
                     <h2 className={`text-4xl font-bold ${unbounded.className}`}>Trusted by Top Brands Across The Globe</h2>

@@ -19,7 +19,7 @@ const ServicesContainer = () => {
   return (
     <>
     <IconNtext text="Our Services" link="/images/Icons/Our Services.png" />
-    <div className="w-[90%] max-w-7xl mx-auto mt-10" id="services">
+    <div className="w-[90%]  mx-auto mt-10" id="services">
      
 
       <motion.h3

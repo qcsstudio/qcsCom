@@ -70,10 +70,10 @@ const Choices = ({ title, data, onEnrollClick }) => {
   return (
     <>
     <IconNtext text="Why Us" link="/images/Icons/Choices.png"/>
-      <div className="bg-white  px-4 sm:px-6 md:px-10 lg:px-24 lg:block hidden">
        <Heading heading={title}/>
+      <div className="bg-white    lg:block hidden">
 
-        <div className="w-full max-w-7xl mx-auto">
+        <div className="w-[90%]  mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {data.map((box, i) => (
               <ChoiceBox key={i} {...box} index={i} onEnrollClick={onEnrollClick} />
