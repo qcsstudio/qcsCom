@@ -44,9 +44,16 @@ const FeeReceptComponent = () => {
         { label: 'Cyber Security', value: 'Cyber Security' }
     ];
 
-    const generateStudentId = () => {
-        const hex = Math.floor(Math.random() * 0xffffff).toString(16).toUpperCase().padStart(6, '0');
-        return `QCS-${hex}`;
+    const generateStudentId = async () => {
+        try {
+            const res = await fetch('/api/fee-receipt/generateStudentId'); // 🔁 your new GET API
+            const data = await res.json();
+            console.log("data", data.studentId);
+            return data.studentId || '';
+        } catch (err) {
+            console.error('Failed to fetch student ID:', err);
+            return '';
+        }
     };
 
 
@@ -57,7 +64,7 @@ const FeeReceptComponent = () => {
             if (prefillData) {
                 setFormData({
                     receiptNo: newReceiptNo,
-                    studentId: prefillData.studentId || generateStudentId(),
+                    studentId: prefillData.studentId || await generateStudentId(),
                     date: null, // Always reset
                     studentName: prefillData.studentName || '',
                     courseName: prefillData.courseName || '',
@@ -68,7 +75,7 @@ const FeeReceptComponent = () => {
             } else {
                 setFormData({
                     receiptNo: newReceiptNo,
-                    studentId: generateStudentId(),
+                    studentId: await generateStudentId(),
                     date: null,
                     studentName: '',
                     courseName: '',
@@ -81,16 +88,6 @@ const FeeReceptComponent = () => {
 
         initializeForm();
     }, [prefillData]);
-
-
-    // useEffect(() => {
-    //     const courseFeeNum = Number(formData.courseFee) || 0;
-    //     const feeReceivedNum = Number(formData.feeReceived) || 0;
-    //     const due = courseFeeNum - feeReceivedNum >= 0 ? courseFeeNum - feeReceivedNum : 0;
-    //     if (due !== formData.dueFee) {
-    //         setFormData(prev => ({ ...prev, dueFee: due }));
-    //     }
-    // }, [formData.courseFee, formData.feeReceived]);
 
     const handleTextChange = (e, field, value = null) => {
         setFormData(prev => ({
@@ -161,6 +158,14 @@ const FeeReceptComponent = () => {
                 body: form,
             });
 
+            await fetch('/api/fee-receipt/generateStudentId', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ studentId: formData.studentId }),
+            });
+
             const url = URL.createObjectURL(pdfBlob);
             const a = document.createElement('a');
             a.href = url;
@@ -187,7 +192,7 @@ const FeeReceptComponent = () => {
             });
         } finally {
             setLoading(false);
-            resetForm(); // fetch new (non-incrementing) number
+            resetForm(); 
         }
     };
 
@@ -263,7 +268,25 @@ const FeeReceptComponent = () => {
             console.error('Calculate due error:', error);
         } finally {
             setCalculatingDue(false);
+            
         }
+    };
+
+    const resetForm = async () => {
+        const newReceiptNo = await fetchReceiptNumber();
+        const newStudentId = await generateStudentId();
+
+        setFormData({
+            receiptNo: newReceiptNo,
+            studentId: newStudentId,
+            date: null,
+            studentName: '',
+            courseName: '',
+            courseFee: null,
+            feeReceived: null,
+            dueFee: null,
+        });
+        setFormErrors({});
     };
 
     return (
