@@ -37,9 +37,9 @@ const LoginPage = () => {
 
         <form onSubmit={handleLogin} className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700">Email address</label>
+            <label className="block text-sm font-medium text-gray-700">User Id</label>
             <input
-              type="email"
+              type="text"
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               required
