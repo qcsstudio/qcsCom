@@ -20,17 +20,31 @@ export async function POST(req) {
     return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
   }
 
-  console.log("JWT_SECRET=>" ,JWT_SECRET)
-
   const token = jwt.sign(
-    { adminId: adminDoc._id, email: adminDoc.email },
+    {
+      adminId: adminDoc._id,
+      email: adminDoc.email,
+      role: adminDoc.role, // include role in JWT
+    },
     JWT_SECRET,
     { expiresIn: '1h' }
   );
 
-  const response = NextResponse.json({ success: true });
+  const response = NextResponse.json({
+    success: true,
+    message: 'Login successful',
+    role: adminDoc.role, // return role in response body
+  });
+
   response.cookies.set('token', token, {
     httpOnly: true,
+    path: '/',
+    maxAge: 3600, // 1 hour
+  });
+
+  // (Optional) set role separately if you want easier access client-side
+  response.cookies.set('role', adminDoc.role, {
+    httpOnly: false, // allow reading on client if needed
     path: '/',
     maxAge: 3600,
   });
