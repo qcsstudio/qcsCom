@@ -4,7 +4,7 @@ import React from "react";
 const unbounded = Unbounded({subsets:['latin'],weight:'500'})
 const SalaryInfo = ({data}) => {
   return (
-    <div className={`flex flex-col md:flex-row justify-center items-center gap-4 p-4 mt-5 ${unbounded.className}`}>
+    <div className={`flex flex-col md:flex-row justify-center items-center gap-4 p-4 mt-5 ${unbounded.className} w-[90%] mx-auto`}>
       {data.map((card, index) => (
         <div
           key={index}

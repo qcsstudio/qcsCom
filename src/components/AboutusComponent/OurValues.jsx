@@ -37,9 +37,9 @@ const values = [
 
 const OurValues = () => {
   return (
-    <section className="py-12 bg-white text-black w-[85%] mx-auto">
+    <section className=" bg-white text-black w-[90%] mx-auto">
       <Heading heading="Our Values"/>
-      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 px-4 max-w-7xl mx-auto">
+      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 px-4  mx-auto">
         {values.map((value, index) => (
           <div
             key={index}

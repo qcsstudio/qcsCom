@@ -96,63 +96,64 @@ export default function Page() {
     <>
       <Navbar />
 
-      <div className="w-[90%] flex gap-6 mx-auto p-6">
-        <div className="w-[60%]">
-          {loading ? (
-            <div className="space-y-4 animate-pulse">
-              <div className="h-[300px] bg-gray-300 rounded-lg" />
-              <div className="h-10 bg-gray-300 w-3/4 rounded" />
-              <div className="h-4 bg-gray-300 w-1/2 rounded" />
-              <div className="h-4 bg-gray-300 w-full rounded" />
-              <div className="h-4 bg-gray-300 w-full rounded" />
-            </div>
-          ) : error ? (
-            <p className="text-center text-red-500">Error: {error}</p>
-          ) : (
-            <>
-              <img src={blog.thumbnail} alt={blog.heading} className='rounded-lg mb-6' />
-              <h1 className="text-4xl font-bold mb-4">{blog.heading}</h1>
-              <p className="text-sm text-gray-500 mb-2">Created: {new Date(blog.createdAt).toLocaleString()}</p>
-              <div className="text-lg text-gray-800" dangerouslySetInnerHTML={{ __html: blog.description }}></div>
-            </>
-          )}
-        </div>
-
-        <div className="rounded-lg w-[40%] h-[600px] px-5 py-8 bg-[#F5F7F9] overflow-y-auto no-scrollbar">
-          <h2 className={`text-[26px] font-bold mb-4 ${unbounded.className}`}>Recent Post&#39;s</h2>
-          <div className="space-y-4">
-            {loading
-              ? Array(5).fill(null).map((_, i) => <SkeletonRecentPost key={i} />)
-              : blogs
-                  .slice()
-                  .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-                  .slice(0, 5)
-                  .map((recentBlog, index) => (
-                    <Link
-                      key={index}
-                      href={`/blogs/${encodeURIComponent(recentBlog.heading)}`}
-                      className="flex gap-3 items-start border-b border-gray-300 pb-3 hover:bg-gray-100 transition rounded-md p-2"
-                    >
-                      <Image
-                        src={recentBlog.thumbnail}
-                        width={64}
-                        height={64}
-                        alt={recentBlog.heading}
-                        className="w-16 h-16 object-cover rounded-md"
-                      />
-                      <div>
-                        <p className={`text-sm font-semibold leading-snug ${syne.className}`}>
-                          {recentBlog.heading.length > 50 ? recentBlog.heading.slice(0, 47) + '...' : recentBlog.heading}
-                        </p>
-                        <p className={`text-xs text-gray-500 ${syne.className}`}>
-                          {new Date(recentBlog.createdAt).toLocaleDateString()}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
-          </div>
-        </div>
+      <div className="w-[90%] mx-auto p-6 flex flex-col lg:flex-row gap-6">
+  <div className="w-full lg:w-[60%]">
+    {loading ? (
+      <div className="space-y-4 animate-pulse">
+        <div className="h-[300px] bg-gray-300 rounded-lg" />
+        <div className="h-10 bg-gray-300 w-3/4 rounded" />
+        <div className="h-4 bg-gray-300 w-1/2 rounded" />
+        <div className="h-4 bg-gray-300 w-full rounded" />
+        <div className="h-4 bg-gray-300 w-full rounded" />
       </div>
+    ) : error ? (
+      <p className="text-center text-red-500">Error: {error}</p>
+    ) : (
+      <>
+        <img src={blog.thumbnail} alt={blog.heading} className='rounded-lg mb-6' />
+        <h1 className="text-4xl font-bold mb-4">{blog.heading}</h1>
+        <p className="text-sm text-gray-500 mb-2">Created: {new Date(blog.createdAt).toLocaleString()}</p>
+        <div className="text-lg text-gray-800" dangerouslySetInnerHTML={{ __html: blog.description }}></div>
+      </>
+    )}
+  </div>
+
+  <div className="w-full lg:w-[40%] h-[600px] mt-6 lg:mt-0 rounded-lg px-5 py-8 bg-[#F5F7F9] overflow-y-auto no-scrollbar">
+    <h2 className={`text-[26px] font-bold mb-4 ${unbounded.className}`}>Recent Post&#39;s</h2>
+    <div className="space-y-4">
+      {loading
+        ? Array(5).fill(null).map((_, i) => <SkeletonRecentPost key={i} />)
+        : blogs
+            .slice()
+            .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+            .slice(0, 5)
+            .map((recentBlog, index) => (
+              <Link
+                key={index}
+                href={`/blogs/${encodeURIComponent(recentBlog.heading)}`}
+                className="flex gap-3 items-start border-b border-gray-300 pb-3 hover:bg-gray-100 transition rounded-md p-2"
+              >
+                <Image
+                  src={recentBlog.thumbnail}
+                  width={64}
+                  height={64}
+                  alt={recentBlog.heading}
+                  className="w-16 h-16 object-cover rounded-md"
+                />
+                <div>
+                  <p className={`text-sm font-semibold leading-snug ${syne.className}`}>
+                    {recentBlog.heading.length > 50 ? recentBlog.heading.slice(0, 47) + '...' : recentBlog.heading}
+                  </p>
+                  <p className={`text-xs text-gray-500 ${syne.className}`}>
+                    {new Date(recentBlog.createdAt).toLocaleDateString()}
+                  </p>
+                </div>
+              </Link>
+            ))}
+    </div>
+  </div>
+</div>
+
 
       <div className="w-[90%] mx-auto mt-10">
         <h3 className={`text-center text-4xl my-5 font-medium ${unbounded.className}`}>More Blogs</h3>

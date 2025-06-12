@@ -88,7 +88,7 @@ export default function Solutions() {
                 whileHover={{ scale: 1.05, rotate: 1 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => setActiveTab(index)}
-                className={`p-4 px-7 text-lg md:text-[20px] lg:text-[23px] font-medium transition-all duration-200 h-auto min-h-[70px] md:min-h-[85px] lg:min-h-[99px] 
+                className={`p-4 px-7 text-lg md:text-[20px] lg:text-[23px] 2xl:text-[26px] font-medium transition-all duration-200 h-auto min-h-[70px] md:min-h-[85px] lg:min-h-[99px] 
                  box-border hover:cursor-pointer
                 ${activeTab === index
                     ? "bg-[#F1813B] text-white rounded-t-3xl"
@@ -97,7 +97,7 @@ export default function Solutions() {
                 {tab.label}
               </motion.button>
               {index < tabData.length - 1 && (
-                <div className="hidden sm:block h-[60px] border-r-2 border-gray-500 mx-2 md:mx-4" />
+                <div className="hidden sm:block h-[60px] border-r-2 border-gray-500 mx-2 md:mx-4 2xl:mx-15" />
               )}
             </motion.div>
           ))}
