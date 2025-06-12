@@ -192,7 +192,7 @@ const FeeReceptComponent = () => {
             });
         } finally {
             setLoading(false);
-            resetForm(); 
+            resetForm();
         }
     };
 
@@ -268,7 +268,7 @@ const FeeReceptComponent = () => {
             console.error('Calculate due error:', error);
         } finally {
             setCalculatingDue(false);
-            
+
         }
     };
 
@@ -290,177 +290,267 @@ const FeeReceptComponent = () => {
     };
 
     return (
-        <>
-
-
+        <div className="min-h-screen bg-gradient-to-br from-orange-50! to-amber-100! p-4 md:p-8">
             <Toast ref={toast} />
-            <div className='flex justify-end mx-3'>
-                <button onClick={() => { setShowTable(true) }}
-                    className="bg-blue-600! hover:bg-blue-700! hover:cursor-pointer text-white font-semibold py-2 px-6 rounded-2xl shadow-lg transition-all duration-300 ease-in-out">
-                    See All Receipts
+
+            {/* Header Section */}
+            <div className="max-w-6xl mx-auto mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <h1 className="text-3xl md:text-4xl font-bold text-orange-900! drop-shadow-md">
+                        🎓 Academic Fee Manager
+                    </h1>
+                    <p className="text-orange-700! mt-2">
+                        Generate professional fee receipts with our glassmorphic interface
+                    </p>
+                </div>
+                <button
+                    onClick={() => setShowTable(true)}
+                    className="bg-gradient-to-r from-orange-500! to-amber-500! hover:from-orange-600! hover:to-amber-600! text-white! font-bold py-3 px-6 rounded-xl shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105! border border-orange-300! glass-button"
+                >
+                    View Receipt History
                 </button>
             </div>
 
-            <div className="max-w-5xl mx-auto py-10 px-6">
-                <div className="bg-white shadow-2xl rounded-2xl p-10 space-y-10 border border-gray-200">
-                    <h2 className="text-4xl font-bold text-center text-gray-800">🎓 Fee Receipt Generator</h2>
+            {/* Main Card */}
+            <div className="max-w-6xl mx-auto">
+                <div className="bg-white/30! backdrop-blur-lg! rounded-3xl! shadow-xl! overflow-hidden border border-orange-200/50! glass-card">
+                    {/* Card Header */}
+                    <div className="bg-gradient-to-r from-orange-500/20! to-amber-500/20! p-6 border-b border-orange-200/50!">
+                        <h2 className="text-2xl md:text-3xl font-bold text-orange-900! flex items-center">
+                            <i className="pi pi-receipt mr-3 text-orange-700!"></i>
+                            Fee Receipt Generator
+                        </h2>
+                    </div>
 
-                    {/* Receipt Details */}
-                    <div>
-                        <h3 className="text-xl font-semibold mb-6 text-blue-800">📄 Receipt Details</h3>
-                        <div className="grid md:grid-cols-2 gap-6">
-                            <FloatLabel>
-                                <div className="relative w-full">
-                                    <InputText
-                                        id="receiptNo"
-                                        value={receiptLoading ? 'Generating Receipt No…' : formData.receiptNo}
-                                        disabled
-                                        className="w-full bg-gray-100 pr-10"
-                                    />
-                                    {receiptLoading && (
-                                        <i className="pi pi-spin pi-spinner absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-500 text-sm" />
-                                    )}
+                    {/* Card Body */}
+                    <div className="p-6 md:p-10">
+                        <div className="space-y-10">
+                            {/* Receipt Details */}
+                            <div className="glass-panel p-6 rounded-2xl!">
+                                <h3 className="text-xl font-bold mb-6 text-orange-800! flex items-center border-b border-orange-200/50! pb-3">
+                                    <i className="pi pi-file mr-2"></i>
+                                    Receipt Details
+                                </h3>
+                                <div className="grid md:grid-cols-2 gap-8">
+                                    <FloatLabel>
+                                        <div className="relative w-full">
+                                            <InputText
+                                                id="receiptNo"
+                                                value={receiptLoading ? 'Generating...' : formData.receiptNo}
+                                                disabled
+                                                className="w-full bg-orange-50/50! border-b-2! border-orange-300! rounded-t-lg! px-3 py-2 focus:border-orange-500! text-orange-900! shadow-sm!"
+                                            />
+                                            {receiptLoading && (
+                                                <i className="pi pi-spin pi-spinner absolute right-3 top-1/2 transform -translate-y-1/2 text-orange-500! text-sm" />
+                                            )}
+                                        </div>
+                                        <label htmlFor="receiptNo" className="text-orange-700! font-medium">Receipt No</label>
+                                    </FloatLabel>
+
+                                    <div>
+                                        <FloatLabel>
+                                            <Calendar
+                                                inputId="date"
+                                                value={formData.date}
+                                                onChange={handleDateChange}
+                                                dateFormat="dd-mm-yy"
+                                                showIcon
+                                                iconClassName="text-orange-500!"
+                                                className="w-full [&>input]:bg-orange-50/50! [&>input]:border-b-2! [&>input]:border-orange-300! [&>input]:rounded-t-lg! [&>input]:px-3 [&>input]:py-2 [&>input]:text-orange-900! [&>input]:shadow-sm!"
+                                            />
+                                            <label htmlFor="date" className="text-orange-700! font-medium">Date</label>
+                                        </FloatLabel>
+                                        {formErrors.date && <small className="text-red-500! font-bold block mt-2">{formErrors.date}</small>}
+                                    </div>
                                 </div>
-                                <label htmlFor="receiptNo">Receipt No</label>
-                            </FloatLabel>
+                            </div>
 
-                            <div>
-                                <FloatLabel>
-                                    <Calendar
-                                        inputId="date"
-                                        value={formData.date}
-                                        onChange={handleDateChange}
-                                        dateFormat="dd-mm-yy"
-                                        showIcon
-                                        className="w-full"
+                            {/* Student Information */}
+                            <div className="glass-panel p-6 rounded-2xl!">
+                                <h3 className="text-xl font-bold mb-6 text-orange-800! flex items-center border-b border-orange-200/50! pb-3">
+                                    <i className="pi pi-user mr-2"></i>
+                                    Student Information
+                                </h3>
+                                <div className="grid md:grid-cols-2 gap-8">
+                                    <div>
+                                        <FloatLabel>
+                                            <InputText
+                                                id="studentName"
+                                                value={formData.studentName}
+                                                onChange={(e) => handleTextChange(e, 'studentName')}
+                                                className="w-full bg-orange-50/50! border-b-2! border-orange-300! rounded-t-lg! px-3 py-2 focus:border-orange-500! text-orange-900! shadow-sm!"
+                                            />
+                                            <label htmlFor="studentName" className="text-orange-700! font-medium">Student Name</label>
+                                        </FloatLabel>
+                                        {formErrors.studentName && <small className="text-red-500! font-bold block mt-2">{formErrors.studentName}</small>}
+                                    </div>
+
+                                    <div>
+                                        <FloatLabel>
+                                            <Dropdown
+                                                id="courseName"
+                                                value={formData.courseName}
+                                                options={courseOptions}
+                                                onChange={(e) => handleTextChange(e, 'courseName', e.value)}
+                                                className="min-w-full bg-orange-50/50! border-b-2! border-orange-300! rounded-t-lg! [&>div]:px-3 [&>div]:py-2 text-orange-900! shadow-sm!"
+                                                panelClassName="bg-orange-50! border border-orange-200! shadow-lg!"
+                                            />
+                                            <label htmlFor="courseName" className="text-orange-700! font-medium">Course Name</label>
+                                        </FloatLabel>
+                                        {formErrors.courseName && (
+                                            <small className="text-red-500! font-bold block mt-2">{formErrors.courseName}</small>
+                                        )}
+                                    </div>
+
+                                    <div>
+                                        <FloatLabel>
+                                            <InputText
+                                                id="studentId"
+                                                value={formData.studentId}
+                                                disabled
+                                                className="w-full bg-orange-50/50! border-b-2! border-orange-300! rounded-t-lg! px-3 py-2 text-orange-900! shadow-sm!"
+                                            />
+                                            <label htmlFor="studentId" className="text-orange-700! font-medium">Student ID</label>
+                                        </FloatLabel>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Payment Information */}
+                            <div className="glass-panel p-6 rounded-2xl!">
+                                <h3 className="text-xl font-bold mb-6 text-orange-800! flex items-center border-b border-orange-200/50! pb-3">
+                                    <i className="pi pi-credit-card mr-2"></i>
+                                    Payment Information
+                                </h3>
+                                <div className="grid md:grid-cols-3 gap-8">
+                                    <div>
+                                        <FloatLabel>
+                                            <InputNumber
+                                                id="courseFee"
+                                                value={formData.courseFee}
+                                                onValueChange={(e) => handleNumberChange(e.value, 'courseFee')}
+                                                className="w-full [&>input]:bg-orange-50/50! [&>input]:border-b-2! [&>input]:border-orange-300! [&>input]:rounded-t-lg! [&>input]:px-3 [&>input]:py-2 [&>input]:text-orange-900! [&>input]:shadow-sm!"
+                                                mode="decimal"
+                                                min={0}
+                                            />
+                                            <label htmlFor="courseFee" className="text-orange-700! font-medium">Course Fee (₹)</label>
+                                        </FloatLabel>
+                                        {formErrors.courseFee && <small className="text-red-500! font-bold block mt-2">{formErrors.courseFee}</small>}
+                                    </div>
+
+                                    <div>
+                                        <FloatLabel>
+                                            <InputNumber
+                                                id="feeReceived"
+                                                value={formData.feeReceived}
+                                                onValueChange={(e) => handleNumberChange(e.value, 'feeReceived')}
+                                                className="w-full [&>input]:bg-orange-50/50! [&>input]:border-b-2! [&>input]:border-orange-300! [&>input]:rounded-t-lg! [&>input]:px-3 [&>input]:py-2 [&>input]:text-orange-900! [&>input]:shadow-sm!"
+                                                mode="decimal"
+                                                min={0}
+                                            />
+                                            <label htmlFor="feeReceived" className="text-orange-700! font-medium">Amount Received (₹)</label>
+                                        </FloatLabel>
+                                        {formErrors.feeReceived && <small className="text-red-500! font-bold block mt-2">{formErrors.feeReceived}</small>}
+                                    </div>
+
+                                    <div className="md:col-span-3">
+                                        <FloatLabel>
+                                            <InputNumber
+                                                id="dueFee"
+                                                value={formData.dueFee}
+                                                disabled
+                                                className="w-full [&>input]:bg-orange-50/50! [&>input]:border-b-2! [&>input]:border-orange-300! [&>input]:rounded-t-lg! [&>input]:px-3 [&>input]:py-2 [&>input]:text-orange-900! [&>input]:font-bold [&>input]:shadow-sm!"
+                                                mode="decimal"
+                                                min={0}
+                                            />
+                                            <label htmlFor="dueFee" className="text-orange-700! font-medium">Due Fee (₹)</label>
+                                        </FloatLabel>
+                                    </div>
+                                </div>
+
+                                <div className="flex flex-col md:flex-row justify-between items-center gap-4 mt-10 pt-6 border-t border-orange-200/50!">
+                                    <Button
+                                        label="Calculate Due Fee"
+                                        icon="pi pi-calculator"
+                                        onClick={handleCalculateDueFee}
+                                        loading={calculatingDue}
+                                        disabled={!formData.feeReceived}
+                                        className="p-button-primar  y bg-gradient-to-r from-orange-500! to-amber-500! border-orange-400! hover:from-orange-600! hover:to-amber-600! glass-button w-full md:w-auto"
+                                        severity="warning"
+                                        raised
+                                        outlined
                                     />
-                                    <label htmlFor="date">Date</label>
-                                </FloatLabel>
-                                {formErrors.date && <small className="text-red-600! font-bold">{formErrors.date}</small>}
+
+                                    <Button
+                                        label="Download Fee Receipt"
+                                        icon="pi pi-download"
+                                        loading={loading}
+                                        className="p-button-lg bg-gradient-to-r from-orange-500! to-amber-500! border-orange-400! hover:from-orange-600! hover:to-amber-600! text-white! font-bold py-3 glass-button w-full md:w-auto"
+                                        onClick={handleDownload}
+                                        severity="warning"
+                                        raised
+                                    />
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    {/* Student Info */}
-                    <div>
-                        <h3 className="text-xl font-semibold mb-6 text-green-800">👨‍🎓 Student Information</h3>
-                        <div className="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <FloatLabel>
-                                    <InputText
-                                        id="studentName"
-                                        value={formData.studentName}
-                                        onChange={(e) => handleTextChange(e, 'studentName')}
-                                        className="w-full"
-                                    />
-                                    <label htmlFor="studentName">Student Name</label>
-                                </FloatLabel>
-                                {formErrors.studentName && <small className="text-red-600! font-bold">{formErrors.studentName}</small>}
-                            </div>
-
-                            <div>
-                                <FloatLabel>
-                                    <Dropdown
-                                        id="courseName"
-                                        value={formData.courseName}
-                                        options={courseOptions}
-                                        onChange={(e) => handleTextChange(e, 'courseName', e.value)}
-                                        className="min-w-[220px]"
-                                    />
-                                    <label htmlFor="courseName">Course Name</label>
-                                </FloatLabel>
-                                {formErrors.courseName && (
-                                    <small className="text-red-600 font-bold">{formErrors.courseName}</small>
-                                )}
-                            </div>
-
-                            <div>
-                                <FloatLabel>
-                                    <InputText
-                                        id="studentId"
-                                        value={formData.studentId}
-                                        disabled
-                                        className="w-full bg-gray-100"
-                                    />
-                                    <label htmlFor="studentId">Student ID</label>
-                                </FloatLabel>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    {/* Payment Info */}
-                    <div>
-                        <h3 className="text-xl font-semibold mb-6 text-purple-800">💳 Payment Information</h3>
-                        <div className="grid md:grid-cols-3 gap-6">
-                            <div>
-                                <FloatLabel>
-                                    <InputNumber
-                                        id="courseFee"
-                                        value={formData.courseFee}
-                                        onValueChange={(e) => handleNumberChange(e.value, 'courseFee')}
-                                        className="w-full"
-                                        mode="decimal"
-                                        min={0}
-                                    />
-                                    <label htmlFor="courseFee">Course Fee</label>
-                                </FloatLabel>
-                                {formErrors.courseFee && <small className="text-red-600! font-bold">{formErrors.courseFee}</small>}
-                            </div>
-
-                            <div>
-                                <FloatLabel>
-                                    <InputNumber
-                                        id="feeReceived"
-                                        value={formData.feeReceived}
-                                        onValueChange={(e) => handleNumberChange(e.value, 'feeReceived')}
-                                        className="w-full"
-                                        mode="decimal"
-                                        min={0}
-                                    />
-                                    <label htmlFor="feeReceived">Fee Received</label>
-                                </FloatLabel>
-                                {formErrors.feeReceived && <small className="text-red-600! font-bold">{formErrors.feeReceived}</small>}
-                            </div>
-                            <div className="md:col-span-3 text-right">
-                                <Button
-                                    label="Calculate Due Fee"
-                                    icon="pi pi-calculator"
-                                    onClick={handleCalculateDueFee}
-                                    loading={calculatingDue}
-                                    disabled={!formData.feeReceived}
-                                    className="p-button-primary"
-                                />
-                            </div>
-                            <FloatLabel>
-                                <InputNumber
-                                    id="dueFee"
-                                    value={formData.dueFee}
-                                    disabled
-                                    className="w-full bg-gray-100"
-                                    mode="decimal"
-                                    min={0}
-                                />
-                                <label htmlFor="dueFee">Due Fee</label>
-                            </FloatLabel>
-                        </div>
-                    </div>
-
-                    {/* Download Button */}
-                    <div className="pt-6">
-                        <Button
-                            label="Download Fee Receipt"
-                            icon="pi pi-download"
-                            loading={loading}
-                            className="w-full p-button-lg p-button-success"
-                            onClick={handleDownload}
-                        />
                     </div>
                 </div>
             </div>
-        </>
 
+            {/* Custom Styles */}
+            <style jsx global>{`
+                .glass-card {
+                    background: rgba(255, 255, 255, 0.25) !important;
+                    backdrop-filter: blur(12px) !important;
+                    -webkit-backdrop-filter: blur(12px) !important;
+                    box-shadow: 0 8px 32px rgba(251, 146, 60, 0.15) !important;
+                }
+                
+                .glass-panel {
+                    background: rgba(255, 255, 255, 0.2) !important;
+                    backdrop-filter: blur(8px) !important;
+                    border: 1px solid rgba(255, 237, 213, 0.5) !important;
+                }
+                
+                .glass-button {
+                    backdrop-filter: blur(4px) !important;
+                    -webkit-backdrop-filter: blur(4px) !important;
+                    transition: all 0.3s ease !important;
+                    box-shadow: 0 4px 20px rgba(251, 146, 60, 0.25) !important;
+                    border: 1px solid rgba(255, 171, 87, 0.5) !important;
+                }
+                
+                .glass-button:hover {
+                    box-shadow: 0 6px 25px rgba(251, 146, 60, 0.4) !important;
+                    transform: translateY(-2px) !important;
+                }
+                
+                .p-inputtext:enabled:focus {
+                    box-shadow: 0 0 0 2px rgba(251, 146, 60, 0.5) !important;
+                    border-color: rgba(251, 146, 60, 0.5) !important;
+                }
+                
+                .p-float-label label {
+                    color: #7c2d12 !important;
+                    font-weight: 500 !important;
+                }
+                
+                .p-inputnumber-input, 
+                .p-inputtext, 
+                .p-dropdown {
+                    background: rgba(255, 247, 237, 0.5) !important;
+                    border-top: none !important;
+                    border-left: none !important;
+                    border-right: none !important;
+                    border-radius: 0 !important;
+                    border-bottom: 2px solid #fb923c !important;
+                }
+                
+                .p-calendar .p-inputtext {
+                    padding-right: 2.5rem !important;
+                }
+            `}</style>
+        </div>
     );
 };
 
