@@ -3,11 +3,13 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import ReCAPTCHA from "react-google-recaptcha";
-import { Unbounded,Syne } from "next/font/google";
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+
+import { Unbounded, Syne } from "next/font/google";
 
 
-const syne = Syne({subsets:['latin'],weight:'500'})
-const unbounded = Unbounded({subsets:['latin'],weight:'700'})
+const syne = Syne({ subsets: ['latin'], weight: '500' })
+const unbounded = Unbounded({ subsets: ['latin'], weight: '700' })
 const projectEstimation = [
     {
         title: "Share Your Requirement with us",
@@ -32,6 +34,8 @@ const projectEstimation = [
 ];
 
 export default function ProposalForm() {
+    const { executeRecaptcha } = useGoogleReCaptcha();
+
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -60,19 +64,37 @@ export default function ProposalForm() {
         setCaptchaToken(token);
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // if (!captchaToken) {
-        //     alert("Please complete the CAPTCHA");
-        //     return;
-        // }
+    const handleSubmit = async (e) => {
+  e.preventDefault();
 
-        console.log("Form Data:", formData);
-        console.log("Captcha Token:", captchaToken);
-        alert("form submitted successfully")
+  try {
+    if (!executeRecaptcha) {
+      alert("reCAPTCHA not ready");
+      return;
+    }
 
+    const token = await executeRecaptcha("form_submit");
+    console.log("Captcha Token:", token);
 
-    };
+    const res = await fetch('/api/verify-captcha', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token }),
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      alert("CAPTCHA verified! Form submitted successfully.");
+      // Proceed to submit form data to your backend or email service
+    } else {
+      alert("CAPTCHA failed. Try again.");
+    }
+  } catch (error) {
+    console.error("Form error:", error);
+    alert("Something went wrong. Try again later.");
+  }
+};
 
     return (
         <div className="flex items-center justify-center w-[90%] mx-auto my-10">
@@ -176,11 +198,11 @@ export default function ProposalForm() {
                             </label>
                         </div>
 
-                        <ReCAPTCHA
+                        {/* <ReCAPTCHA
                             className="z-10"
                             sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
                             onChange={handleCaptchaChange}
-                        />
+                        /> */}
 
                         <div className="mx-auto justify-center flex">
                             <button
