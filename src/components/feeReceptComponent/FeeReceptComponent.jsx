@@ -37,11 +37,12 @@ const FeeReceptComponent = () => {
     const [calculatingDue, setCalculatingDue] = useState(false);
 
     const courseOptions = [
-        { label: 'Web Development', value: 'Web Development' },
-        { label: 'Data Science', value: 'Data Science' },
-        { label: 'Digital Marketing', value: 'Digital Marketing' },
-        { label: 'Graphic Design', value: 'Graphic Design' },
-        { label: 'Cyber Security', value: 'Cyber Security' }
+        { label: 'Frontend Development', value: 'Frontend Development' },
+        { label: 'Backend Development', value: 'Backend Development' },
+        { label: 'Full Stack Development', value: 'Full Stack Development' },
+        { label: 'UI/UX Design', value: 'UI/UX Design' },
+        { label: 'Network Security', value: 'Network Security' },
+        { label: 'Digital Marketing ', value: 'Digital Marketing' }
     ];
 
     const generateStudentId = async () => {
