@@ -66,7 +66,6 @@ const Scrollcardcontext = ({ children }) => {
       ref.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
-
   return (
     <cardcontext.Provider
       value={{
