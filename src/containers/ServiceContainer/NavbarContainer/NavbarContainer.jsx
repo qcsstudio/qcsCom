@@ -21,7 +21,6 @@ const movements = [
 export default function NavbarContainer({ data }) {
   if (!data) return null;
   const { heading, para, buttons, image } = data;
-
   const [mv, setMv] = useState(0);
   useEffect(() => {
     const id = setInterval(() => {
