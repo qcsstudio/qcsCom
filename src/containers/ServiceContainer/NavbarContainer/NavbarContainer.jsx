@@ -61,9 +61,9 @@ export default function NavbarContainer({ data }) {
       </div>
 
       <div className="absolute top-24 left-5 w-full px-4 md:px-10 flex flex-col lg:flex-row items-center justify-between gap-8">
-        <div className="w-full lg:w-[48%] flex flex-col justify-center text-black">
+        <div className="w-full lg:w-[50%] xl:w-[48%]  flex flex-col justify-center text-black">
           <motion.h1
-            className={`text-3xl md:text-[55px] font-extrabold leading-tight ${unbounded.className}`}
+            className={`text-3xl xl:text-[55px] md:text-[46px] font-extrabold leading-tight ${unbounded.className}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -71,7 +71,7 @@ export default function NavbarContainer({ data }) {
             {heading}
           </motion.h1>
           <motion.p
-            className={`mt-2 text-lg md:text-[23px] max-w-[32.5rem] text-start leading-tight ${syne.className}`}
+            className={`mt-2 text-lg lg:text-[17px] xl:text-[23px] xl:w-[90%] text-start leading-tight ${syne.className}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 1 }}
@@ -108,7 +108,7 @@ export default function NavbarContainer({ data }) {
           </motion.div>
         </div>
 
-        <div className="w-full   lg:w-[760px]  top-5 static lg:absolute lg:right-0 h-auto flex items-center justify-center overflow-hidden">
+        <div className="w-full  lg:w-[550px] xl:w-[760px]  top-5 static lg:absolute lg:right-0 h-auto flex items-center justify-center overflow-hidden">
           <img
             src={image}
             alt="hero-image"

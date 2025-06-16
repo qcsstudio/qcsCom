@@ -20,7 +20,7 @@ import { steps } from '@/containers/ServiceContainer/WorkProcess/WorkProcessData
 import { ServiceFaq } from '@/containers/ServiceContainer/Questions/faqsData'
 import { challenges, solutions } from '@/containers/ServiceContainer/OurDifferences/DifferencesData'
 import Overview from '@/components/serviceComponents/OverviewComponent/Overview'
-import { HomeTestimonial } from '@/containers/ServiceContainer/Stories/TestimonialsData'
+import { ClientTestimonial, HomeTestimonial } from '@/containers/ServiceContainer/Stories/TestimonialsData'
 import { usePathname } from 'next/navigation';
 import { cardcontext } from '@/context/scrollcardcontext';
 import { useCalendly } from '@/components/CalendlyBadge/CalendlyBadge';
@@ -53,7 +53,7 @@ const ServicePageContainer = () => {
               link: "#", // optional, not used because we're using action
               color: "#F1813B",
               border: "none",
-              action: openCalendly, // ✅ pass the function
+              action: openCalendly, 
             },
             {
               text: "Explore Services",
@@ -75,7 +75,7 @@ const ServicePageContainer = () => {
             <Differences title="Business Challenges & Innovative Solutions" heading="Common Challenges Businesses Face:"
                 heading2="QuantumCrafters' Cutting-Edge Solutions:" challenges={challenges} solutions={solutions} bgcolor="#F5F7F9" bgcolor2="black" textColor="black"
                 textColor2="white" iconcolor="gray" iconcolor2="#F1813B" />
-            <ClientStories heading="Hear Stories Straight From the People We Helped" testimonials={HomeTestimonial} />
+            <ClientStories type="client" />
             <LeaderComponent />
             <Questions questions={ServiceFaq} />
             {/* <AboutUs /> */}

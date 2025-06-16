@@ -30,20 +30,4 @@ const Heading = ({ heading }) => {
   )
 }
 export default Heading;
-{/* <motion.h2
-  className="text-lg md:text-[26px] text-[#0F0F0F] mb-2 flex flex-wrap"
-  variants={container}
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true }}
->
-  {heading.split(' ').map((word, index) => (
-    <motion.span
-      key={index}
-      variants={child}
-      className={`inline-block mr-2 ${unbounded.className}`}
-    >
-      {word}
-    </motion.span>
-  ))}
-</motion.h2> */}
+

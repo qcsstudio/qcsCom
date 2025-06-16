@@ -53,7 +53,7 @@ const   CoursesContainer = () => {
       
       <ServicesContainer />
       <Choices title="Why QuantumCrafter Studio is the right Choice for you" data={coursesboxes}  onEnrollClick={() => setShowEnrollModal(true)}  />
-      <ClientStories heading="Success Stories: Real Results, Real Impact" testimonials={HomeTestimonial} />
+      <ClientStories heading="Success Stories: Real Results, Real Impact" type='student' />
       <FormComponent heading="Ready to Launch Your Tech Career?" desc="Contact Us Today!" />
       <NewsletterSignup />
       <Footer />

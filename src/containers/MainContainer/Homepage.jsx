@@ -8,7 +8,6 @@ import FormComponent from '@/components/MainComponent/FormComponent'
 import Footer from '../ServiceContainer/FooterContainer/Footer'
 import NewsletterSignup from '@/components/MainComponent/NewsletterSignup'
 import WeAre from '@/components/MainComponent/WeAre'
-import { HomeTestimonial } from '../ServiceContainer/Stories/TestimonialsData'
 
 const Homepage = () => {
   return (
@@ -18,16 +17,16 @@ const Homepage = () => {
           heading: "Automate Your Business. Scale with Smart SaaS. Achieve Career Excellence",
           para: "QuantumCrafters Studio is your partner in digital transformation powering businesses with AI-driven IT solutions",
           buttons: [{ text: "Reach out to Expert Now", link: "/contactus", color: "#F1813B" }],
-          image:"/images/Hero Images/Heroimage-Home.png"
+          image: "/images/Hero Images/Heroimage-Home.png"
         }}
       />
 
-      <PlatformComponent/>
+      <PlatformComponent />
       <WeAre />
       <Solutions />
       <LeaderComponent />
+      <ClientStories type="both" />
 
-      <ClientStories testimonials={HomeTestimonial} />
       <FormComponent heading="Have a Query? Let's Talk!!" />
       <NewsletterSignup />
       <Footer />

@@ -6,6 +6,8 @@ export const ImagesSlide = [
     "/images/Images/slide5.png",
     "/images/Images/slide6.png",
 ];
+
+
 export const webdevSlide1 = [
     "/images/webdev/webdevplatform1.png",
     "/images/webdev/webdevplatform2.png",
@@ -23,6 +25,19 @@ export const webdevSlide1 = [
     "/images/webdev/webdevplatform14.png",
     "/images/webdev/webdevplatform15.png",
     "/images/webdev/webdevplatform16.png",
+]
+
+export const UiUxSlide = [ 
+    "/images/Images/adobe.png",
+    "/images/Images/Adobeillustrator.png",
+    "/images/Images/Behance.png",
+    "/images/Images/Canva.png",
+    "/images/Images/Dribble.png",
+    "/images/Images/figma.png",
+    "/images/Images/Framer.png",
+    "/images/Images/Miro.png",
+    "/images/Images/Notion.png",
+    "/images/Images/Webflow.png"
 ]
 
 export const AiSlide1 = [
