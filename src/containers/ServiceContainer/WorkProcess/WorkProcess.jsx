@@ -73,21 +73,23 @@ const WorkProcess = ({ steps }) => {
                 ref={(el) => (stepRefs.current[index] = el)}
                 className={` group
                   snap-start   overflow-x-hidden flex-shrink-0 transition-all duration-700 ease-in-out  rounded-xl shadow-lg 
-                  ${isActive ? "bg-black text-white overflow-y-hidden " : "bg-gray-100 text-black hover:bg-gray-200 "}
+                  ${isActive ? "bg-black text-white overflow-y-hidden  " : "bg-gray-100 text-black hover:bg-gray-200  "}
                   ${isVisible && isMobile ? "animate-fadeInUp" : ""}
                   ${
                     isMobile
                       ? `w-full ${isActive ? "h-auto" : "min-h-screen"} p-6`
                       : isActive
-                      ? `w-full  h-auto md:h-[389px] p-6 ${steps.length == 4? "md:w-[72%]" : "md:w-[50%]"}`
-                      : "w-full md:w-[100px] h-auto md:h-auto p-4"
+                      ? ` h-auto md:h-[389px] p-6 ${steps.length == 4? " md:w-[60%] lg:w-[64%] xl:w-[72%]" : "md:w-[50%]"}
+                       ${steps.length == 5? "md:w-[25%] lg:w-[53%] xl:w-[60%]" : "md:w-[25%]"}
+                       ${steps.length == 6? "md:w-[20%] lg:w-[41%] xl:w-[53%]" : "md:w-[20%]"}`
+                      : "md:w-[100px] h-auto md:h-auto p-4  "
                   }
                 `}
                 onClick={() => {
                   if (!isMobile) setActiveStep(step.number);
                 }}
               >
-                <h1 className={`text-2xl md:text-3xl font-bold flex items-start md:items-center transition-all 
+                <h1 className={`text-2xl md:text-3xl font-bold flex items-start md:items-center transition-all  
                   ${isActive ? "text-white" : "text-[#F1813B] relative -right-10 overflo-x-hidden group-hover:right-2 transition-all duration-500 ease-in-out"}`}>
                   <span className="mr-2 text-4xl md:text-9xl ">{step.number}</span>
                   {isActive && <span className="ml-2 text-2xl md:text-4xl">{step.title}</span>}

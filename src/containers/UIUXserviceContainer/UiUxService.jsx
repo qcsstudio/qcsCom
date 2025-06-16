@@ -12,25 +12,25 @@ import ContactSection from '@/components/serviceComponents/ContactUs/Contactus'
 import Footer from '../ServiceContainer/FooterContainer/Footer'
 import NavbarContainer from '../ServiceContainer/NavbarContainer/NavbarContainer'
 import Platforms from '@/components/WebdeveServicesComponent/Platforms'
-import { ImagesSlide2, ImagesSlide3 } from '../ServiceContainer/SliderContainer/SliderImages'
+import { ImagesSlide2, ImagesSlide3, UiUxSlide } from '../ServiceContainer/SliderContainer/SliderImages'
 
 const UiUxService = () => {
     return (
         <>
-        <NavbarContainer data={{
-                        heading: "Design That Connects, Converts & Captivates.",
-                        para: "We don't just design interfaces—we craft journeys. At QCS, our UI/UX team blends creativity with behavioral science to deliver intuitive, delightful, and high-converting user experiences across web and mobile platforms.",
-                        buttons: [{ text: "Start a Design Project", link: "/contactus", color: "#F1813B", border: "none" }]
-                    }} />
-           
+            <NavbarContainer data={{
+                heading: "Design That Connects, Converts & Captivates.",
+                para: "We don't just design interfaces—we craft journeys. At QCS, our UI/UX team blends creativity with behavioral science to deliver intuitive, delightful, and high-converting user experiences across web and mobile platforms.",
+                buttons: [{ text: "Start a Design Project", link: "/contactus", color: "#F1813B", border: "none" }]
+            }} />
+
             <WorkProcess steps={steps3} />
             <Benifits heading="Key Features / Capabilities" BenefitsData={WebBenifitsData3} />
-            {/* <Platforms heading="Tech Stack We Work On" para="We work on powerful, popular, customisable and scalable platforms to deliver the best solutions for our clients." images={ImagesSlide2} />
-            <Platforms images={ImagesSlide3} /> */}
-            <CaseStudies data={caseStudiesData2} data2={crmStatsData}/>
+            <Platforms heading="Tech Stack We Work On" para="We work on powerful, popular, customisable and scalable platforms to deliver the best solutions for our clients." images={UiUxSlide} />
+
+            <CaseStudies data={caseStudiesData2} data2={crmStatsData} />
             <Questions questions={UIUXServiceFaq} />
             <Form heading=" Ready to Elevate Your Digital Experience?"
-             desc="Let's design something unforgettable. We craft digital journeys your users will love—and your business will benefit from." />
+                desc="Let's design something unforgettable. We craft digital journeys your users will love—and your business will benefit from." />
             <ContactSection />
             <Footer />
         </>

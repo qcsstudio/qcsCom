@@ -1,4 +1,4 @@
- export const HomeTestimonial = [
+ export const ClientTestimonial = [
   {
     name: "Udey",
     title: "Co-Founder, udeycrafts",
@@ -15,7 +15,6 @@
   },
   {
     name: "Pickeball Apes",
-    // title: "BRAND MANAGER, STELLAR BLOOM STUDIO",
     quote:
       "They made us feel like their most important client. The attention to detail, quick responses, and innovative ideas were top-notch. We'll definitely be back for more!",
     image: "/images/Clients/PBA.jpg",
@@ -41,7 +40,12 @@
   //     "I came in with high hopes, and they absolutely blew me away. From strategy to execution, every detail was on point. I'm telling everyone I know—hire them!",
   //   image: "/images/Images/client3.png",
   // },
-  {
+ 
+
+];
+
+export const studentTestimonial = [
+   {
     name: "Omkar ",
     title: "Full Stack Developer",
     quote:
@@ -85,5 +89,4 @@
       "I hesitated to switch careers, but QCS made the transition seamless. The program gave me the practical experience and portfolio I needed to land a UI/UX design role at a top company.",
     image: "/images/Clientstories/AmanKashyap.png",
   },
-
-];
+]
