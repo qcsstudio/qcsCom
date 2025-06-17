@@ -9,7 +9,6 @@ export const BotProvider = ({ children }) => {
 
   return <>
   
-  
   <botContext.Provider value={{botActivate,setBotActivate}} >
     {children}
   </botContext.Provider>
