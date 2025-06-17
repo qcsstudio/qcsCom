@@ -54,11 +54,9 @@ export default function NavbarContainer({ data }) {
         style={{ x: sx, y: sy }}
         className={`absolute inset-0 bg-gradient-parallax clip-gradient ${unbounded.className} ${movements[mv]} z-0 pointer-events-none`}
       />
-
       <div className="absolute top-2 left-0 w-full z-10">
         <Navbar />
       </div>
-
       <div className="absolute top-24 left-5 w-full px-4 md:px-10 flex flex-col lg:flex-row items-center justify-between gap-8">
         <div className="w-full lg:w-[50%] xl:w-[48%]  flex flex-col justify-center text-black">
           <motion.h1
@@ -115,6 +113,6 @@ export default function NavbarContainer({ data }) {
           />
         </div>
       </div>
-    </section>  
+    </section>
   );
 }
