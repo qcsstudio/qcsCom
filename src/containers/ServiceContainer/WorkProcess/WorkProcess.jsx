@@ -15,7 +15,6 @@ const WorkProcess = ({ steps }) => {
   useEffect(() => {
     setIsMobile(window.innerWidth < 1024);
   }, []);
-
   // Mobile Intersection Observer
   useEffect(() => {
     if (!isMobile || !stepRefs.current.length) return;
