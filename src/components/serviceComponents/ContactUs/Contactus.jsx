@@ -17,7 +17,6 @@ function ContactSection({ action }) {
       </p>
 
       <div className={`mt-6 w-[85%] mx-auto flex flex-col md:flex-row justify-center gap-4 ${syne.className}`}>
-        
         {/* Email Card */}
         <a
           href="mailto:info@qcsstudio.com"
