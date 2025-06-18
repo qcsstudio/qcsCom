@@ -21,16 +21,22 @@ const ChatBotComponent = ({ children }) => {
     const [responseChatHistory, setResponseChatHistory] = useState([]);
     const [ResponseIsTyping, setResponseIsTyping] = useState(false);
 
-    const [startBot,setStartBot] = useState(false);
+    const [showMessage, setShowMessage] = useState(false);
 
-    useEffect(()=>{
+    const [startBot, setStartBot] = useState(false);
+
+    useEffect(() => {
+
+        const botMessage = localStorage.setItem('botMessage', false);
         const botIntro = localStorage.getItem('botIntro');
-        console.log("Bot Intro:",botIntro);
+        console.log("Bot Intro:", botIntro);
 
-        if(botIntro){
+        if (botIntro) {
             setStartBot(true);
         }
-    },[]);
+    }, []);
+
+
 
 
 
@@ -84,15 +90,36 @@ const ChatBotComponent = ({ children }) => {
         if (responseChatHistory.length > 0) {
             setResponseChatHistory([]);
         } else {
+            const botMessage = localStorage.setItem('botMessage', true);
             setBotActivate(false);
+            setTimeout(() => {
+                setShowMessage(true);
+            }, 3000);
+
+            setTimeout(() => {
+                setShowMessage(false);
+            }, 8000);
         }
     }
 
     // handle bot start
-    const handleStartBot = ()=>{
-        const setStorage = localStorage.setItem('botIntro',true);
-        console.log("Setting botIntro:",setStorage);
+    const handleStartBot = () => {
+        const setStorage = localStorage.setItem('botIntro', true);
+        console.log("Setting botIntro:", setStorage);
         setStartBot(true);
+    }
+
+    // handle popup close
+    const handlePopUpClose = () => {
+        const botMessage = localStorage.setItem('botMessage', true);
+        setBotActivate(false);
+        setTimeout(() => {
+            setShowMessage(true);
+        }, 3000);
+
+        setTimeout(() => {
+            setShowMessage(false);
+        }, 8000);
     }
 
 
@@ -112,7 +139,7 @@ const ChatBotComponent = ({ children }) => {
         console.log("steps:", step);
 
         if (!step) return null;
-        
+
 
         return (
             <div key={index} className="botChatBox w-[100%] flex gap-[.7rem] items-start px-[1rem]">
@@ -123,7 +150,7 @@ const ChatBotComponent = ({ children }) => {
                     {/* {responseChatHistory.length === 0 ? :} */}
                     {step.type === "question" && isLatestBot(index) && (
 
-                        
+
 
                         <div className="mt-2 flex flex-col gap-2 ">
                             {step.options.map((opt, i) => (
@@ -184,7 +211,7 @@ const ChatBotComponent = ({ children }) => {
         const step = flowMap[entry.key];
         console.log("Step Data :", step);
         if (!step) return null;
-        console.log("STEP OPTIONS:",step.options)
+        console.log("STEP OPTIONS:", step.options)
 
         return (
             <div key={index} className="botChatBox w-[100%] flex gap-[.7rem] items-start px-[1rem]">
@@ -241,8 +268,11 @@ const ChatBotComponent = ({ children }) => {
     // Main Component
     return (
         <>
-            {children}
-            <div className={`chatBot fixed bottom-[1rem] right-[1rem] transition-all duration-300 ease-in-out ${botActivate ? "chatBotChatingBox w-[23rem] h-[40rem] bg-white/60 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[45px] border border-white/65 rounded-[1.56rem] overflow-hidden" : "w-[12rem] h-[12rem] rounded-[50%]"} z-[100] flex justify-center items-center `}>
+            <div className="childrenWrapper w-[100%]" onClick={handlePopUpClose}>
+
+                {children}
+            </div>
+            <div className={`chatBot fixed bottom-[1rem] right-[1rem] transition-all duration-300 ease-in-out ${botActivate ? "chatBotChatingBox w-[23rem] h-[40rem] bg-white/60 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[45px] border border-white/65 rounded-[1.56rem] overflow-hidden" : "w-[9rem] h-[9rem] rounded-[50%]"} z-[100] flex justify-center items-center `}>
 
                 {/* Intro Screen */}
                 {botActivate && !startBot && (<div className="chatBox flex flex-col items-center w-[100%] h-[100%]  pb-[1.8rem] overflow-y-scroll no-scrollbar bg-[#fff] px-[1.75rem] pt-[4.9rem] ">
@@ -261,9 +291,9 @@ const ChatBotComponent = ({ children }) => {
                     </div>
 
                     {/* Button */}
-                    <div className=" buttonContainer w-[100%] flex  items-center bg-[#F1813B] px-[1rem] rounded-[1.2rem] py-[0.9rem] mt-[2rem] cursor-pointer" style={{boxShadow: "inset 0px -3px 8px -4px rgba(0, 0, 0, 1), inset 0px 3px 8px -4px rgba(255, 255, 255, 1)"}} onClick={handleStartBot}>
-                        <button className="startButton float-none w-[100%] text-center font-bold text-[1.18rem] text-[#ffffff] cursor-pointer">Continue </button> 
-                        <GrLinkNext className="float-right text-[#ffffff]"/>
+                    <div className=" buttonContainer w-[100%] flex  items-center bg-[#F1813B] px-[1rem] rounded-[1.2rem] py-[0.9rem] mt-[2rem] cursor-pointer" style={{ boxShadow: "inset 0px -3px 8px -4px rgba(0, 0, 0, 1), inset 0px 3px 8px -4px rgba(255, 255, 255, 1)" }} onClick={handleStartBot}>
+                        <button className="startButton float-none w-[100%] text-center font-bold text-[1.18rem] text-[#ffffff] cursor-pointer">Continue </button>
+                        <GrLinkNext className="float-right text-[#ffffff]" />
                     </div>
 
                 </div>)}
@@ -330,6 +360,14 @@ const ChatBotComponent = ({ children }) => {
 
                 {/* Bot Bubble Icon */}
                 <div className={`botContainer flex justify-center items-center ${botActivate ? "w-[30%] h-[30%] hidden" : "w-[100%] h-[100%] rounded-[50%] block"}`}>
+
+                    {/* Bot Message */}
+                    {showMessage && <div className="alertBox absolute right-[3rem] top-[-1.7rem] w-[14.5rem]  px-[.5rem] py-[.5rem] bg-[#F1813B] rounded-[.5rem]  ">
+                        <p className="alert text-[.8rem] z-[50] text-[#ffffff] font-medium">Tap me if you want to see me again!!</p>
+                        <div className="corner w-[1rem] h-[1rem] bg-[#F1813B] absolute rotate-[45deg] right-[15%] z-[25]"></div>
+                    </div>
+                    }
+                    {/* Chat Robot */}
                     <Bot />
                 </div>
             </div>
