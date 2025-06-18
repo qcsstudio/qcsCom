@@ -19,8 +19,8 @@ const Navbar = ({ heading, para }) => {
 
       <nav className="w-[90%] mx-auto flex justify-between items-center  text-black py-4 ">
         <Link href="/">
-          <Image src='/images/Company Logo/Nav-logo.png' alt="logo" width={195} height={40} />
-          {/* <Image src='/images/Images/QCS Logo.png' alt="logo" width={194.82} height={40} /> */}
+          {/* <Image src='/images/Company Logo/Nav-logo.png' alt="logo" width={195} height={40} /> */}
+          <Image src='/images/Images/QCS Logo.png' alt="logo" width={194.82} height={40} />
         </Link>
 
         <div className={`hidden md:flex space-x-11 text-[17px] ${syne.className}`}>

@@ -54,6 +54,7 @@ export default function NavbarContainer({ data }) {
         onMouseLeave={resetMouse}
         style={{ x: sx, y: sy }}
         className={`absolute inset-0 bg-gradient-parallax clip-gradient ${unbounded.className} ${movements[mv]} z-0 pointer-events-none`}
+
       /> */}
       <HeaderGradiantComponent/>
 
@@ -62,6 +63,7 @@ export default function NavbarContainer({ data }) {
       </div>
 
       <div className="absolute  left-5 w-full px-4 md:px-17 flex flex-col lg:flex-row items-center justify-between">
+
         <div className="w-full lg:w-[50%] xl:w-[48%]  flex flex-col justify-center text-black">
           <motion.h1
             className={`text-3xl xl:text-[61px] md:text-[46px]  font-extrabold leading-tight ${unbounded.className}`}
@@ -120,6 +122,6 @@ export default function NavbarContainer({ data }) {
           />
         </div>
       </div>
-    </section>  
+    </section>
   );
 }
