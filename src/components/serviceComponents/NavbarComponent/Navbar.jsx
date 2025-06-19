@@ -41,6 +41,7 @@ const Navbar = ({ heading, para }) => {
 
         <div className={`hidden md:flex items-center space-x-4 gap-2 ${syne.className}`}>
           
+          
           <Link href='/contactus' >
             <button className="border  px-[4rem] py-1 rounded-md bg-[#fff] text-[#000] hover:bg-white/50 transition-all ease-in-out duration-150 hover:text-white cursor-pointer " >
               Get a Quote
