@@ -62,4 +62,5 @@ const Benefits = ({BenefitsData }) => {
     </>
   );
 };
+
 export default Benefits;

@@ -12,4 +12,5 @@ const Imagescomp = ({ images }) => {
     />
   )
 }
+
 export default Imagescomp

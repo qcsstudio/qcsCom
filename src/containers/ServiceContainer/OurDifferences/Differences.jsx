@@ -42,4 +42,5 @@ const Differences = ({heading,heading2,challenges,solutions,bgcolor,bgcolor2,tex
     </>
   );
 }
+
 export default Differences;

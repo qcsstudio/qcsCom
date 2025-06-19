@@ -33,6 +33,7 @@ const WorkProcess = ({ steps }) => {
       },
       { threshold: 0.6 }
     );
+    
     stepRefs.current.forEach(ref => ref && observer.observe(ref));
 
     return () => {
