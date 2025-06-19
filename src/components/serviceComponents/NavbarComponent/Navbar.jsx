@@ -17,7 +17,7 @@ const Navbar = ({ heading, para }) => {
     <>
     {/* navbar */}
 
-      <nav className="w-[90%] mx-auto flex justify-between items-center  text-black py-4 ">
+      <nav className="w-[90%] mx-auto flex justify-between items-center   py-4 ">
         <Link href="/">
           <Image src='/images/Company Logo/Nav-logo.png' alt="logo" width={195} height={40} />
           {/* <Image src='/images/Images/QCS Logo.png' alt="logo" width={194.82} height={40} /> */}
@@ -40,11 +40,9 @@ const Navbar = ({ heading, para }) => {
 
 
         <div className={`hidden md:flex items-center space-x-4 gap-2 ${syne.className}`}>
-          <div className="flex items-center ">
-            <IoGlobeOutline className="w-5 h-5 me-1" />En
-          </div>
+          
           <Link href='/contactus' >
-            <button className="border  px-4 py-1 rounded-md hover:bg-white hover:text-black" >
+            <button className="border  px-[4rem] py-1 rounded-md bg-[#fff] text-[#000] hover:bg-white/50 transition-all ease-in-out duration-150 hover:text-white cursor-pointer " >
               Get a Quote
             </button>
           </Link>
