@@ -71,7 +71,7 @@ const ServicePageContainer = () => {
             <BrandsContainer />
             <Benifits BenefitsData={benefits} />
             <Slider images={ImagesSlide} />
-            <WorkProcess steps={steps} />
+            {/* <WorkProcess steps={steps} /> */}
             <Differences title="Business Challenges & Innovative Solutions" heading="Common Challenges Businesses Face:"
                 heading2="QuantumCrafters' Cutting-Edge Solutions:" challenges={challenges} solutions={solutions} bgcolor="#F5F7F9" bgcolor2="black" textColor="black"
                 textColor2="white" iconcolor="gray" iconcolor2="#F1813B" />
@@ -86,5 +86,6 @@ const ServicePageContainer = () => {
         </>
     )
 }
+
 
 export default ServicePageContainer;

@@ -9,6 +9,7 @@ import "swiper/css/free-mode";
 import { Syne, Unbounded } from "next/font/google";
 import Heading from "@/components/HeadingComponent/Heading";
 import IconNtext from "@/components/iconNtextComponent/IconNtext";
+import Image from "next/image";
 
 const syne = Syne({ subsets: ['latin'], weight: '400' });
 const unbounded = Unbounded({ subsets: ['latin'], weight: '600' });
@@ -31,25 +32,27 @@ const Benefits = ({BenefitsData }) => {
           loop={true}
           freeMode={true}
           autoplay={{
-            delay: 3000, // ✅ 3 seconds delay
-            disableOnInteraction: false, // ✅ user swipe kare to bhi chalu rahe
+            delay: 1000, 
+            disableOnInteraction: false, 
           }}
           speed={1000}
           className="pb-10"
         >
           {BenefitsData.map((benefit, index) => (
             <SwiperSlide key={index} className="flex items-center justify-center">
-              <div className="bg-[#F5F7F9] rounded-lg p-4 sm:h-[400px] flex flex-col sm:justify-between">
+              <div className="bg-[#F5F7F9] rounded-lg p-4 h-[473px] flex flex-col sm:justify-between">
                 <div>
                   <h3 className={`font-semibold text-lg md:text-2xl mb-2 ${unbounded.className}`}>{benefit.title}</h3>
                   <p className={`text-gray-600 text-base md:text-xl font-medium ${syne.className}`}>
                     {benefit.description}
                   </p>
                 </div>
-                <img
+                <Image
                   src={benefit.image}
+                  width={295}
+                  height={317}
                   alt={benefit.title}
-                  className="mix-blend-multiply sm:object-none"
+                  className="mix-blend-multiply sm:object-none "
                 />
               </div>
             </SwiperSlide>

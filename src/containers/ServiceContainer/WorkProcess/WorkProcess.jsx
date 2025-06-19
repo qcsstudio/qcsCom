@@ -11,6 +11,8 @@ const WorkProcess = ({ steps }) => {
   const [isMobile, setIsMobile] = useState(false);
   const stepRefs = useRef([]);
 
+
+  
   // Detect screen size once
   useEffect(() => {
     setIsMobile(window.innerWidth < 1024);
@@ -31,7 +33,7 @@ const WorkProcess = ({ steps }) => {
       },
       { threshold: 0.6 }
     );
-
+    
     stepRefs.current.forEach(ref => ref && observer.observe(ref));
 
     return () => {
