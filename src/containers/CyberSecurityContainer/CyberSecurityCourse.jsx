@@ -57,7 +57,6 @@ const CyberProgram = [
     },
 ];
 
-
 const CyberSecurityCourse = () => {
     const [showEnrollModal, setShowEnrollModal] = useState(false);
     return (
