@@ -7,7 +7,7 @@ const Images = () => {
     <>
  
       <Heading heading="From Vision to Reality - Explore Our Projects"/>
-    <div className='w-[95%] mx-auto flex flex-wrap justify-center gap-5 my-10'>
+    <div className='w-[90%] mx-auto flex flex-wrap justify-evenly gap-5 my-10'>
         <Imagescomp images="/images/Images/Image1.png"/>
         <Imagescomp images="/images/Images/Image2.png"/>
         <Imagescomp images="/images/Images/Image3.png"/>
@@ -15,5 +15,4 @@ const Images = () => {
     </>
   )
 }
-
 export default Images

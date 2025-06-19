@@ -12,7 +12,7 @@ const Differences = ({heading,heading2,challenges,solutions,bgcolor,bgcolor2,tex
     <>
     <IconNtext text="Our Differences" link="/images/Icons/Differences.png"/>
       <Heading heading="Business Challenges & Innovative Solutions"/>
-    <div className="flex flex-col items-center  ">   
+    <div className="flex flex-col items-center w-[90%] mx-auto ">   
       <div className="flex flex-col md:flex-row w-full max-w-4xl">
         <div className=" p-2 sm:p-6 flex-1  rounded-l-3xl " style={{backgroundColor:`${bgcolor}`,color:`${textColor}`}}>
           <h3 className={`text-2xl text-center sm:text-start  lg:text-start sm:text-[26px] font-bold mb-4 ${unbounded.className}`}>{heading}</h3>
@@ -42,5 +42,4 @@ const Differences = ({heading,heading2,challenges,solutions,bgcolor,bgcolor2,tex
     </>
   );
 }
-
 export default Differences;
