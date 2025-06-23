@@ -15,7 +15,7 @@ export const steps = [
         number: 3,
         title: "Optimize & Scale",
         content:
-            "We continuously analyze performance metrics and user feedback to optimize strategies, ensuring your brand’s growth in a competitive digital landscape.",
+            "We continuously analyze performance metrics and user feedback to optimize strategies, ensuring your brand's growth in a competitive digital landscape.",
     },
     {
         number: 4,
@@ -157,4 +157,64 @@ export const Digitalsolutions = [
         content:
             " Weekly insights + continuous A/B testing for improved ROI.",
     },
+];
+export const SeoSolution = [
+    {
+        number: 1,
+        title: "Higher Visibility, More Traffic:",
+        content:
+            "75% of users never scroll past the first page of search results. Secure a top spot and capture the lion's share of clicks.",
+    },
+    {
+        number: 2,
+        title: "Credibility & Trust",
+        content:
+            "Rankings aren't just numbers—they're social proof. A first-page presence signals authority and reliability to your audience.",
+    },
+    {
+        number: 3,
+        title: "Cost-Effective Lead Generation",
+        content:
+            "Unlike paid ads, organic SEO compounds over time—fueling a sustainable stream of traffic and reducing your customer acquisition cost.",
+    },
+    {
+        number: 4,
+        title: "Long-Term Growth",
+        content:
+            "Strategic SEO lays the foundation for evergreen traffic. With ongoing optimization, your investment continues to pay dividends month after month.",
+    },
+    
+];
+export const PPCSolution = [
+    {
+        number: 1,
+        title: "Only pay for results",
+        content:
+            "You're charged only when someone clicks your ad—no wasted spending on mere impressions",
+    },
+    {
+        number: 2,
+        title: "Get fast, measurable impact",
+        content:
+            "PPC delivers quick visibility, often within days, and gives you real-time data to track clicks, conversions, and ROI",
+    },
+    {
+        number: 3,
+        title: "Highly targeted audience reach",
+        content:
+            " Ads can be tailored by keyword, location, time, device, language, and demographics—so only the right people see them",
+    },
+    {
+        number: 4,
+        title: "Optimize & Scale",
+        content:
+            "Continuous A/B testing, landing page enhancements, and keyword refinement ensure ROI grows month over month.",
+    },
+    {
+        number: 5,
+        title: "Report & Refine",
+        content:
+            "Transparent reporting keeps you informed; our experts leverage data to refine campaigns and scale success.",
+    },
+    
 ];

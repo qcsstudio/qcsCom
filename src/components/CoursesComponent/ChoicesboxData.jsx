@@ -193,3 +193,69 @@
   ];
  
  
+ export const Seoboxes = [
+    {
+      title: "Tailored Strategies, Not Templates",
+      description:
+        "We build a custom roadmap based on your industry, target audience, and business goals never a one-size-fits-all approach.",
+      image:"/images/Images/CoursesFrame1.png"
+    },
+    {
+      title: "Data-Driven Decisions",
+      description:
+        "Every recommendation is backed by analytics, heatmaps, and user behavior insights to ensure maximum ROI.",
+    image:"/images/Images/CoursesFrame2.png"
+      },
+    {
+      title: "Transparent Communication",
+      description:
+        "From kickoff to ongoing optimization, you'll have a dedicated SEO specialist and clear reporting at every step.",
+      extraTitle: "Built for Real Results",
+      extraDescription:
+        "We craft strategies that actually convert, not just look good on paper.",
+      button: "Let's Grow Your Business",
+      className: "row-span-2",
+      image:"/images/Images/CoursesFrame3.png"
+    },
+    {
+      title: "Holistic Digital Marketing Integration",
+      description:
+        "Combine our SEO expertise with content marketing, social media management, and paid advertising for a cohesive growth engine.",
+      className: "col-span-2",
+      image:"/images/Images/CoursesFrame4.png"
+    },
+  ];
+ export const PPCboxes = [
+    {
+      title: "Certified PPC Specialists",
+      description:
+        "Google  Partner badge and Microsoft Ads Certified professionals.",
+      image:"/images/Images/CoursesFrame1.png"
+    },
+    {
+      title: "Data-Driven Decisions",
+      description:
+        "Advanced analytics and AI-powered tools for precise audience targeting.",
+    image:"/images/Images/CoursesFrame2.png"
+      },
+    {
+      title: "Transparent Communication",
+      description:
+        "From kickoff to ongoing optimization, you'll have a dedicated SEO specialist and clear reporting at every step.",
+      extraTitle: "Built for Real Results",
+      extraDescription:
+        "We craft strategies that actually convert, not just look good on paper.",
+      button: "Let's Grow Your Business",
+      className: "row-span-2",
+      image:"/images/Images/CoursesFrame3.png"
+    },
+    {
+      title: "Customized Solutions",
+      description:
+        "Whether you're a local business or eCommerce giant, our scalable packages adapt to your unique needs.",
+      className: "col-span-2",
+      image:"/images/Images/CoursesFrame4.png"
+    },
+  ];
+ 
+ 

@@ -7,6 +7,7 @@ export const DigitalMarketingServices = [
             "25 % open rate; 5 % click-through rate; 20 % lift in repeat purchases"
 
         ],
+        link:"/aeo"
 
     },
     {
@@ -16,7 +17,7 @@ export const DigitalMarketingServices = [
             "Send targeted drip sequences and mobile-friendly CTAs",
             "25 % open rate; 5 % click-through rate; 20 % lift in repeat purchases"
         ],
-
+        link:"/geo"
     },
     {
         title: "SEO",
@@ -25,6 +26,7 @@ export const DigitalMarketingServices = [
             "Optimize titles, meta tags, speed, mobile, and crawlability",
             "+40 % organic traffic in 6 months; 25 keywords on Page 1; 15 % uplift in conversion rate"
         ],
+        link:"/seo"
 
     },
     {
@@ -34,6 +36,7 @@ export const DigitalMarketingServices = [
             "Use engaging storytelling, infographics, and lead magnets",
             "+30 % time on page; +50 % monthly leads; 20 % increase in returning visitors"
         ],
+        link:"/contentmarketing"
 
     },
     {
@@ -43,6 +46,7 @@ export const DigitalMarketingServices = [
             "Post consistently, engage promptly, and share user content",
             "100 K total reach/month; 5 % average engagement rate; +25 % follower growth quarter-over-quarter"
         ],
+        link:"/socialmediamarketing"
 
     },
     {
@@ -52,6 +56,7 @@ export const DigitalMarketingServices = [
             "Write clear, benefit-driven ads & match landing page promise",
             "3 % average CTR; 5 % conversion rate; 200 % ROAS (return on ad spend)"
         ],
+        link:"/ppc"
 
     },
     {
@@ -61,6 +66,7 @@ export const DigitalMarketingServices = [
             "Send targeted drip sequences and mobile-friendly CTAs",
             "25 % open rate; 5 % click-through rate; 20 % lift in repeat purchases"
         ],
+        link:"emailmarketing"
 
     },
     {
@@ -70,11 +76,11 @@ export const DigitalMarketingServices = [
             "Monitor core KPIs (sessions, bounce, conversion rate) and A/B test continuously",
             "15 % bounce rate; +10 % overall site conversion; 20 % faster decision-making (monthly reports vs. quarterly)"
         ],
+        link:"analytics&reporting"
 
     },
 
 ];
-import { FaChartLine, FaCogs, FaStar, FaLaptopCode, FaHeadset } from "react-icons/fa";
     export const cardData = [
         {
             image: "/images/Images/CoursesFrame1.png",

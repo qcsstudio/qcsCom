@@ -67,6 +67,9 @@ export default function NavbarContainer({ data }) {
         <div className="w-full lg:w-[50%]  xl:w-[51%]   flex flex-col justify-center text-black sm:mt-[25rem] md:mt-[0rem] min-[320px]:mt-[20rem]">
 
           <motion.h1
+
+          
+
             className={`text-3xl xl:text-[59px] lg:text-[46px] md:text-[40px]   font-extrabold leading-tight ${unbounded.className}`}
             style={{    
               mixBlendMode:"overlay"
