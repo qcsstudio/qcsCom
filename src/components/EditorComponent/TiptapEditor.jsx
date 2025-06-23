@@ -56,7 +56,7 @@ const TiptapEditor = ({ content = '', onChange = () => { } }) => {
         bulletList: {
           HTMLAttributes: {
             class: "list-disc list-outside pl-4",
-          },
+          }, 
         },
         orderedList: {
           HTMLAttributes: {
