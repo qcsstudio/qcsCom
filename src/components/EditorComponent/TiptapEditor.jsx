@@ -20,8 +20,7 @@ const CustomKeymap = Extension.create({
   addKeyboardShortcuts() {
     return {
       'Space': ({ editor }) => {
-        if (editor.isActive('codeBlock')) return false;
-        editor.commands.insertContent('&nbsp;');
+       this.editor.commands.insertText('\u00A0');
         return true;
       },
       'Enter': ({ editor }) => {
@@ -105,7 +104,8 @@ const TiptapEditor = ({ content = '', onChange = () => { } }) => {
     content: content,
     onUpdate: ({ editor }) => {
       if (typeof onChange === 'function') {
-        onChange(editor.getHTML());
+        const html = editor.getHTML().replace(/\u00A0/g, '&nbsp;');
+        onChange(html);
       }
     },
     editorProps: {
