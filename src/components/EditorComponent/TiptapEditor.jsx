@@ -13,11 +13,38 @@ import { TableHeader } from '@tiptap/extension-table-header';
 import { useState, useCallback, useEffect, useRef } from 'react';
 import '../../app/globals.css'
 
+
+  const CustomKeymap = Extension.create({
+  addKeyboardShortcuts() {
+    return {
+      'Space': () => {
+        // Insert non-breaking space
+        this.editor.commands.insertContent('&nbsp;');
+        return true;
+      },
+      'Enter': ({ editor }) => {
+        // Check if we're in a code block
+        if (editor.isActive('codeBlock')) {
+          return false; // Use default behavior in code blocks
+        }
+        
+        // Create line break instead of new paragraph
+        editor.commands.setHardBreak();
+        return true;
+      },
+    };
+  },
+});
+
 const TiptapEditor = ({ content = '', onChange = () => { } }) => {
   const [menuVisible, setMenuVisible] = useState(false);
   const [linkUrl, setLinkUrl] = useState('');
   const menuRef = useRef(null);
   const linkButtonRef = useRef(null);
+
+
+
+
 
   const editor = useEditor({
     extensions: [
@@ -86,6 +113,7 @@ const TiptapEditor = ({ content = '', onChange = () => { } }) => {
     editorProps: {
       attributes: {
         class: 'prose max-w-none focus:outline-none min-h-[200px] p-4 table-wrapper',
+         style: 'white-space: pre-wrap;',
       },
     },
   });
