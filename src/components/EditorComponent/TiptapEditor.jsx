@@ -48,6 +48,7 @@ const TiptapEditor = ({ content = '', onChange = () => { } }) => {
 
   const editor = useEditor({
     extensions: [
+      CustomKeymap,
       StarterKit.configure({
         heading: {
           levels: [1, 2, 3, 4, 5, 6],
