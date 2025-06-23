@@ -14,12 +14,8 @@ const PpcContainer = () => {
     <>
      <NavbarContainer data=
                 {{
-                    heading: "Drive Organic Growth with Expert SEO Services",
-                    para: `At QuantumCrafters Studio, we understand that climbing search engine rankings is 
-                        both art and science. Our end-to-end SEO solutions are designed to increase your
-                        visibility, attract qualified leads, and amplify your brand's authority online. Whether you're a startup 
-                        looking to make a splash or an established enterprise aiming to dominate your niche, our proven strategies
-                        deliver measurable results—without the fluff.`,
+                    heading: "Maximize Your ROI with Targeted PPC Campaigns",
+                    para:" Drive immediate traffic, boost conversions, and outperform competitors with our expertly managed Pay-Per-Click (PPC) advertising services.",
                     buttons: [{ text: "Reach out to Expert Now", link: "/contactus", color: "#F1813B" }],
                     image: "/images/Hero Images/Heroimage-uiuxcourse.png"
                 }} />

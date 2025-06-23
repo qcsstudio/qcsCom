@@ -206,15 +206,20 @@ export const PPCSolution = [
     },
     {
         number: 4,
-        title: "Optimize & Scale",
+        title: "Easy to test & optimize",
         content:
-            "Continuous A/B testing, landing page enhancements, and keyword refinement ensure ROI grows month over month.",
+            "Make tweaks to headlines, bids, landing pages, and targeting on the fly—learn what works and improve continuously",
     },
     {
         number: 5,
-        title: "Report & Refine",
+        title: "Boost brand awareness",
         content:
-            "Transparent reporting keeps you informed; our experts leverage data to refine campaigns and scale success.",
+            " Even when users don’t click, consistent ad impressions at top search positions build recognition and credibility",
     },
+    {
+        number: 6,
+        title:"Accelerate traffic while SEO grows",
+        content:"Unlike long-term SEO, PPC gives immediate visibility, helping maintain traffic while organic rankings improve."
+    }
     
 ];
