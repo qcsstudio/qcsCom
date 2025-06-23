@@ -31,7 +31,7 @@
     title: "FOUNDER, EtishaCollective",
     quote:
       "Finally, an agency that speaks our language! They understood our vision better than we did and brought it to life in a way that exceeded expectations. 10/10 would recommend!",
-    image: "/images/Clients/EtishaCollective.webp",
+    image: "/images/Clients/Etisha.png",
   },
   // {
   //   name: "Orion Vance",

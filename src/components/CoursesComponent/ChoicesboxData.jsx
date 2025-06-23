@@ -239,20 +239,20 @@
     image:"/images/Images/CoursesFrame2.png"
       },
     {
-      title: "Transparent Communication",
+      title: "Budget Efficiency",
       description:
-        "From kickoff to ongoing optimization, you'll have a dedicated SEO specialist and clear reporting at every step.",
-      extraTitle: "Built for Real Results",
+        "Average 30-50% reduction in wasted spend through expert bid management and negative keyword strategies ",
+      extraTitle: "Customized Solutions",
       extraDescription:
-        "We craft strategies that actually convert, not just look good on paper.",
+        "Whether you're a local business or eCommerce giant, our scalable packages adapt to your unique needs.",
       button: "Let's Grow Your Business",
       className: "row-span-2",
       image:"/images/Images/CoursesFrame3.png"
     },
     {
-      title: "Customized Solutions",
+      title: "Transparent Communication",
       description:
-        "Whether you're a local business or eCommerce giant, our scalable packages adapt to your unique needs.",
+        "Detailed monthly reports, quarterly strategy reviews, and 24/7 client portal access.",
       className: "col-span-2",
       image:"/images/Images/CoursesFrame4.png"
     },
