@@ -68,9 +68,9 @@ export default function NavbarContainer({ data }) {
 
           <motion.h1
             className={`text-3xl xl:text-[59px] md:text-[46px]  font-extrabold leading-tight ${unbounded.className}`}
-            style={{    
-              mixBlendMode:"overlay"
-            }}
+            // style={{    
+            //   mixBlendMode:"overlay"
+            // }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
