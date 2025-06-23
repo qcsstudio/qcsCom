@@ -17,7 +17,6 @@ const Approach = ({ heading, card }) => {
         <div className='mt-10'>
             <Heading heading={heading} />
             <div className="w-[90%] md:w-[90%] mx-auto py-10">
-
                 {/* ------------swiper--------- */}
                 <Swiper
                     modules={[Navigation, FreeMode, Autoplay]}

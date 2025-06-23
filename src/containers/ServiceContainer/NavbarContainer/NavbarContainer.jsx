@@ -18,7 +18,6 @@ const movements = [
   'movement4',
   'movement5',
 ];
-
 export default function NavbarContainer({ data }) {
   if (!data) return null;
   const { heading, para, buttons, image } = data;
@@ -61,9 +60,7 @@ export default function NavbarContainer({ data }) {
       <div className="absolute top-2 left-0 w-full z-10">
         <Navbar />
       </div>
-
       <div className="absolute  left-5 w-full px-4 md:px-17 flex flex-col md:flex-row items-center justify-between">
-
         <div className="w-full lg:w-[50%]  xl:w-[51%]   flex flex-col justify-center text-black sm:mt-[25rem] md:mt-[0rem] min-[320px]:mt-[20rem]">
 
           <motion.h1

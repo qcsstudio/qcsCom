@@ -29,7 +29,6 @@ const SeoContainer = () => {
             <Choices title="Why Choose QuantumCrafters?" data={Seoboxes}  onEnrollClick="/contactus"  />
             <RankGrow />
             <Footer />
-
         </>
     )
 }

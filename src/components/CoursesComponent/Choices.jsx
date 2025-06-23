@@ -80,7 +80,6 @@ const Choices = ({ title, data, onEnrollClick }) => {
       router.push(clickHandler);
     }
   };
-
   return (
     <>
       <IconNtext text="Why Us" link="/images/Icons/Choices.png" />
