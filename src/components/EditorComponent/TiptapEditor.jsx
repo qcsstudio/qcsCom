@@ -104,7 +104,7 @@ const TiptapEditor = ({ content = '', onChange = () => { } }) => {
     content: content,
     onUpdate: ({ editor }) => {
       if (typeof onChange === 'function') {
-        const html = editor.getHTML().replace(/\u00A0/g, ' ');
+        const html = editor.getHTML().replace(/\u00A0/g, <p>" "</p> );
         onChange(html);
       }
     },
