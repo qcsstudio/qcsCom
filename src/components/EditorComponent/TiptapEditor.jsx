@@ -16,15 +16,29 @@ import '../../app/globals.css'
 
 
 
-const CustomKeymap = Extension.create({
+const SpacePreserver = Extension.create({
+  name: 'spacePreserver',
   addKeyboardShortcuts() {
     return {
       'Space': ({ editor }) => {
-       editor.commands.insertText('\u00A0');
+        if (editor.isActive('code') || editor.isActive('codeBlock')) {
+          return false; // Default behavior in code blocks
+        }
+        editor.commands.insertText('\u00A0'); // Insert non-breaking space
         return true;
       },
+    };
+  },
+});
+
+const HardBreakExtension = Extension.create({
+  name: 'hardBreakExtension',
+  addKeyboardShortcuts() {
+    return {
       'Enter': ({ editor }) => {
-        if (editor.isActive('codeBlock')) return false;
+        if (editor.isActive('code') || editor.isActive('codeBlock')) {
+          return false; // Default behavior in code blocks
+        }
         editor.commands.setHardBreak();
         return true;
       },
@@ -44,7 +58,8 @@ const TiptapEditor = ({ content = '', onChange = () => { } }) => {
 
   const editor = useEditor({
     extensions: [
-      CustomKeymap,
+      SpacePreserver,
+      HardBreakExtension,
       StarterKit.configure({
         heading: {
           levels: [1, 2, 3, 4, 5, 6],
