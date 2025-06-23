@@ -1,10 +1,11 @@
-'use client'
+'use client';
 import React from "react";
 import Image from "next/image";
 import { Syne, Unbounded } from "next/font/google";
 import { motion } from "framer-motion";
 import IconNtext from "../iconNtextComponent/IconNtext";
 import Heading from "../HeadingComponent/Heading";
+import { useRouter } from 'next/navigation';
 
 const syne = Syne({ subsets: ["latin"], weight: "400" });
 const unbounded = Unbounded({ subsets: ["latin"], weight: "700" });
@@ -19,10 +20,18 @@ const ChoiceBox = ({
   image,
   onEnrollClick,
 }) => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    if (typeof onEnrollClick === "function") {
+      onEnrollClick();
+    } else if (typeof onEnrollClick === "string") {
+      router.push(onEnrollClick);
+    }
+  };
+
   return (
-    <div
-      className={`bg-[#F5F7F9] p-5 md:p-6 rounded-xl ${className} flex flex-col justify-between h-full`}
-    >
+    <div className={`bg-[#F5F7F9] p-5 md:p-6 rounded-xl ${className} flex flex-col justify-between h-full`}>
       <div>
         <div className="bg-black w-14 h-14 rounded-full mb-4 flex items-center justify-center">
           <Image src={image} width={32} height={32} alt="icon" />
@@ -33,22 +42,16 @@ const ChoiceBox = ({
           dangerouslySetInnerHTML={{ __html: title }}
         />
 
-        <p
-          className={`text-sm sm:text-base text-[#000000] mb-2 ${syne.className}`}
-        >
+        <p className={`text-sm sm:text-base text-[#000000] mb-2 ${syne.className}`}>
           {description}
         </p>
 
         {extraTitle && (
           <>
-            <h4
-              className={`font-bold text-lg sm:text-xl md:text-2xl mt-8 ${unbounded.className}`}
-            >
+            <h4 className={`font-bold text-lg sm:text-xl md:text-2xl mt-8 ${unbounded.className}`}>
               {extraTitle}
             </h4>
-            <p
-              className={`text-sm sm:text-base text-[#000000] mt-3 ${syne.className}`}
-            >
+            <p className={`text-sm sm:text-base text-[#000000] mt-3 ${syne.className}`}>
               {extraDescription}
             </p>
           </>
@@ -57,8 +60,9 @@ const ChoiceBox = ({
 
       {button && (
         <button
-          onClick={onEnrollClick}
-          className="bg-[#F1813B] hover:bg-[#e4a882] text-white font-semibold text-sm py-2 px-4 rounded w-full mt-6">
+          onClick={handleClick}
+          className="bg-[#F1813B] hover:bg-[#e4a882] text-white font-semibold text-sm py-2 px-4 rounded w-full mt-6"
+        >
           {button}
         </button>
       )}
@@ -67,13 +71,23 @@ const ChoiceBox = ({
 };
 
 const Choices = ({ title, data, onEnrollClick }) => {
+  const router = useRouter();
+
+  const handleClick = (clickHandler) => {
+    if (typeof clickHandler === "function") {
+      clickHandler();
+    } else if (typeof clickHandler === "string") {
+      router.push(clickHandler);
+    }
+  };
   return (
     <>
-    <IconNtext text="Why Us" link="/images/Icons/Choices.png"/>
-       <Heading heading={title}/>
-      <div className="bg-white    lg:block hidden">
+      <IconNtext text="Why Us" link="/images/Icons/Choices.png" />
+      <Heading heading={title} />
 
-        <div className="w-[90%]  mx-auto">
+      {/* Desktop View */}
+      <div className="bg-white lg:block hidden">
+        <div className="w-[90%] mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {data.map((box, i) => (
               <ChoiceBox key={i} {...box} index={i} onEnrollClick={onEnrollClick} />
@@ -82,11 +96,9 @@ const Choices = ({ title, data, onEnrollClick }) => {
         </div>
       </div>
 
-      {/* Responsive */}
+      {/* Mobile View */}
       <div className="lg:hidden bg-white py-10 px-4 sm:px-6">
-        <h2
-          className={`text-2xl sm:text-3xl font-bold text-center mb-10 ${unbounded.className}`}
-        >
+        <h2 className={`text-2xl sm:text-3xl font-bold text-center mb-10 ${unbounded.className}`}>
           {title}
         </h2>
 
@@ -111,22 +123,16 @@ const Choices = ({ title, data, onEnrollClick }) => {
                     dangerouslySetInnerHTML={{ __html: item.title }}
                   />
 
-                  <p
-                    className={`text-sm sm:text-base text-[#000000] mb-2 ${syne.className}`}
-                  >
+                  <p className={`text-sm sm:text-base text-[#000000] mb-2 ${syne.className}`}>
                     {item.description}
                   </p>
 
                   {item.extraTitle && (
                     <>
-                      <h4
-                        className={`font-bold text-base sm:text-xl md:text-2xl mt-8 ${unbounded.className}`}
-                      >
+                      <h4 className={`font-bold text-base sm:text-xl md:text-2xl mt-8 ${unbounded.className}`}>
                         {item.extraTitle}
                       </h4>
-                      <p
-                        className={`text-sm sm:text-base text-[#000000] mt-3 ${syne.className}`}
-                      >
+                      <p className={`text-sm sm:text-base text-[#000000] mt-3 ${syne.className}`}>
                         {item.extraDescription}
                       </p>
                     </>
@@ -136,8 +142,9 @@ const Choices = ({ title, data, onEnrollClick }) => {
 
               {item.button && (
                 <button
-                  onClick={onEnrollClick}
-                  className="bg-[#F1813B] hover:bg-[#e4a882] text-white font-semibold text-sm py-2 px-4 rounded mt-6 w-full sm:w-auto">
+                  onClick={() => handleClick(onEnrollClick)}
+                  className="bg-[#F1813B] hover:bg-[#e4a882] text-white font-semibold text-sm py-2 px-4 rounded mt-6 w-full sm:w-auto"
+                >
                   {item.button}
                 </button>
               )}
@@ -146,22 +153,6 @@ const Choices = ({ title, data, onEnrollClick }) => {
         </div>
       </div>
     </>
-
-    // <div className="bg-white py-10 px-4 sm:px-6 md:px-10 lg:px-20">
-    //   <h2
-    //     className={`text-xl sm:text-3xl md:text-4xl font-bold text-center mb-12 max-w-3xl mx-auto ${unbounded.className}`}
-    //   >
-    //     {title}
-    //   </h2>
-
-    //   <div className="w-full max-w-7xl mx-auto">
-    //     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    //       {data.map((box, i) => (
-    //         <ChoiceBox key={i} {...box} />
-    //       ))}
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 
