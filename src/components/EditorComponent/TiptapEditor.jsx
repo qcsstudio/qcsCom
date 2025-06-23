@@ -11,24 +11,21 @@ import { TableRow } from '@tiptap/extension-table-row';
 import { TableCell } from '@tiptap/extension-table-cell';
 import { TableHeader } from '@tiptap/extension-table-header';
 import { useState, useCallback, useEffect, useRef } from 'react';
+import { Extension } from '@tiptap/core';
 import '../../app/globals.css'
 
 
-  const CustomKeymap = Extension.create({
+
+const CustomKeymap = Extension.create({
   addKeyboardShortcuts() {
     return {
-      'Space': () => {
-        // Insert non-breaking space
-        this.editor.commands.insertContent('&nbsp;');
+      'Space': ({ editor }) => {
+        if (editor.isActive('codeBlock')) return false;
+        editor.commands.insertContent('&nbsp;');
         return true;
       },
       'Enter': ({ editor }) => {
-        // Check if we're in a code block
-        if (editor.isActive('codeBlock')) {
-          return false; // Use default behavior in code blocks
-        }
-        
-        // Create line break instead of new paragraph
+        if (editor.isActive('codeBlock')) return false;
         editor.commands.setHardBreak();
         return true;
       },
