@@ -56,27 +56,40 @@ export default function NavbarContainer({ data }) {
         className={`absolute inset-0 bg-gradient-parallax clip-gradient ${unbounded.className} ${movements[mv]} z-0 pointer-events-none`}
 
       /> */}
-      <HeaderGradiantComponent/>
+      <HeaderGradiantComponent />
 
       <div className="absolute top-2 left-0 w-full z-10">
         <Navbar />
       </div>
 
-      <div className="absolute  left-5 w-full px-4 md:px-17 flex flex-col lg:flex-row items-center justify-between">
+      <div className="absolute  left-5 w-full px-4 md:px-17 flex flex-col md:flex-row items-center justify-between">
 
-        <div className="w-full lg:w-[50%] xl:w-[51%]  flex flex-col justify-center text-black">
+        <div className="w-full lg:w-[50%]  xl:w-[51%]   flex flex-col justify-center text-black sm:mt-[25rem] md:mt-[0rem] min-[320px]:mt-[20rem]">
 
           <motion.h1
-            className={`text-3xl xl:text-[59px] md:text-[46px]  font-extrabold leading-tight ${unbounded.className}`}
-            // style={{    
-            //   mixBlendMode:"overlay"
-            // }}
+
+            className={`text-3xl xl:text-[59px] lg:text-[46px] md:text-[40px]   font-extrabold leading-tight ${unbounded.className}`}
+            style={{
+              mixBlendMode: "overlay"
+            }}
+
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
             {heading}
           </motion.h1>
+
+          <motion.h1
+            className={`text-3xl xl:text-[59px] lg:text-[46px] md:text-[40px] sm:text-3xl  xl:w-[49%] min-[1262px]:w-[45%] min-[1146px]:w-[45%] min-[1033px]:w-[45%] min-[1024px]:w-[43%] min-[1015px]:w-[45%] min-[917px]:w-[45%] min-[977px]:w-[43%] min-[894px]:w-[42.39%] min-[882px]:w-[42%] min-[865px]:w-[43%] min-[768px]:w-[42%] min-[1123px]:w-[40%] min-[733px]:w-[95%] min-[709px]:w-[100%] min-[693px]:w-[90%] min-[640px]:w-[95%] min-[601px]:w-[95%] min-[516px]:w-[94%] min-[506px]:w-[95%] min-[489px]:w-[95%] min-[497px]:w-[90%] min-[401px]:w-[90%] min-[427px]:w-[95%] min-[417px]:w-[93%] min-[1145px]:w-[40%] min-[345px]:w-[90%] min-[361px]:w-[92%] z-[-1] absolute md:top-[0] sm:top-[25rem] min-[320px]:top-[20rem] font-extrabold leading-tight ${unbounded.className}`}
+
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            {heading}
+          </motion.h1>
+
           <motion.p
             className={`mt-2 text-lg lg:text-[17px] xl:text-[19px] xl:w-[90%] text-start leading-tight ${syne.className}`}
             initial={{ opacity: 0, y: 20 }}
