@@ -50,7 +50,7 @@ export const DigitalMarketingServices = [
 
     },
     {
-        title: "PPC Advertising",
+        title: "Performance Marketing",
         points: [
             "Organize tightly themed ad groups + match-type keywords",
             "Write clear, benefit-driven ads & match landing page promise",
