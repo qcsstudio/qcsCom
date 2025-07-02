@@ -35,7 +35,7 @@ const Footer = () => {
                   <li><Link href="https://www.linkedin.com/company/qcsstudio">LinkedIn</Link></li>
                   <li><Link href="https://www.facebook.com/qcsstudio">Facebook</Link></li>
                   <li><Link href="https://www.instagram.com/qcsstudio">Instagram</Link></li>
-                  <li><Link href="https://www.youtube.com/@QCS-IT">YouTube</Link></li>
+                  <li><Link href="https://www.youtube.com/@qcsstudio">YouTube</Link></li>
                   <li><Link href="https://in.pinterest.com/qcsstudio">Pinterest</Link></li>
                 </ul>
               </div>
