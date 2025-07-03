@@ -80,11 +80,19 @@ const DigitalMarketingContainer = () => {
             }} />
             <WhyLearnUIUX title="Why Learn Digital Marketing Now?" data={DigitalMarketingreasons} />
             <OurServices data={Digitalmarketingcurriculum} onEnrollClick={() => setShowEnrollModal(true)} />
-            <Differences title="Career Outcomes" heading="Eligible roles:" heading2="Industries:"
-                challenges={Digitalroles} solutions={DigitalworkIn} bgcolor="black" bgcolor2="#F5F7F9" textColor="white"
-                textColor2="black" iconcolor="#F1813B" iconcolor2="gray" />
+            <Differences
+                heading="Eligible roles:"
+                heading2="Industries:"
+                challenges={Digitalroles}
+                solutions={DigitalworkIn}
+                bgcolor="black"
+                bgcolor2="#F5F7F9"
+                textColor="white"
+                textColor2="black"
+                iconcolor="#F1813B"
+                iconcolor2="gray" />
             <SalaryInfo data={Digitalcards} />
-            <Choices title="Why Choose QuantumCrafters?" data={Digitalcourseboxes}  onEnrollClick={() => setShowEnrollModal(true)}/>
+            <Choices title="Why Choose QuantumCrafters?" data={Digitalcourseboxes} onEnrollClick={() => setShowEnrollModal(true)} />
             <ProgramStructure data={DigitalMarketProgram} />
             <Questions questions={DigitalMarketFaq} />
             <FormComponent heading="Ready to Become a Growth Marketer?" desc="Let’s help you build a high-impact, data-driven digital marketing career—with the tools, projects, and mentorship that matter." />

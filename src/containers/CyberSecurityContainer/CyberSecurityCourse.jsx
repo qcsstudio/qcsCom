@@ -81,9 +81,17 @@ const CyberSecurityCourse = () => {
             }} />
             <WhyLearnUIUX title=" Why Learn Cybersecurity & Cloud?" data={Cyberreasons} />
             <OurServices data={Cybercurriculum} onEnrollClick={() => setShowEnrollModal(true)} />
-            <Differences title="Career Outcomes" heading="Eligible roles:" heading2="Industries:"
-                challenges={Cyberroles} solutions={CyberworkIn} bgcolor="black" bgcolor2="#F5F7F9" textColor="white"
-                textColor2="black" iconcolor="#F1813B" iconcolor2="gray" />
+            <Differences
+                heading="Eligible roles:"
+                heading2="Industries:"
+                challenges={Cyberroles}
+                solutions={CyberworkIn}
+                bgcolor="black"
+                bgcolor2="#F5F7F9"
+                textColor="white"
+                textColor2="black"
+                iconcolor="#F1813B"
+                iconcolor2="gray" />
             <SalaryInfo data={Cybercards} />
             <Choices title="Why Choose QuantumCrafters?" data={Aicourseboxes} onEnrollClick={() => setShowEnrollModal(true)} />
             <ProgramStructure data={CyberProgram} />

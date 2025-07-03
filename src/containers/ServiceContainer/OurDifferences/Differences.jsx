@@ -18,7 +18,7 @@ const Differences = ({heading,heading2,challenges,solutions,bgcolor,bgcolor2,tex
           <h3 className={`text-2xl text-center sm:text-start  lg:text-start sm:text-[26px] font-bold mb-4 ${unbounded.className}`}>{heading}</h3>
           <ul className="space-y-3">
             {challenges.map((challenge, index) => (
-              <li key={index} className={`flex items-start font-medium text-base text-wrap ${syne.className}`}>
+              <li key={index} className={`flex items-start font-medium text-base  ${syne.className}`}>
                 <PiPuzzlePieceBold size={16} className={` mr-2 mt-1 ${bgcolor === "black" ? "text-[#F1813B]" : "text-[gray]" }`}/>
                 {challenge}
               </li>

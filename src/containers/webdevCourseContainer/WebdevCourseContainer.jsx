@@ -80,14 +80,22 @@ const WebdevCourseContainer = () => {
             color: "transparent",
             border: "1px solid gray"
           }],
-           image:"/images/Hero Images/Heroimage-Home.png"
+        image: "/images/Hero Images/Heroimage-Home.png"
 
       }} />
       <WhyLearnUIUX title=" Why Learn Full Stack Development?" data={webdevreasons} />
       <OurServices data={webDevcurriculum} onEnrollClick={() => setShowEnrollModal(true)} />
-      <Differences title="Career Outcomes" heading="Become eligible for roles like:" heading2="You Can Work In!"
-        challenges={Webdevroles} solutions={WebdevworkIn} bgcolor="black" bgcolor2="#F5F7F9" textColor="white"
-        textColor2="black" iconcolor="#F1813B" iconcolor2="gray" />
+      <Differences
+        heading="Become eligible for roles like:"
+        heading2="You Can Work In!"
+        challenges={Webdevroles}
+        solutions={WebdevworkIn}
+        bgcolor="black"
+        bgcolor2="#F5F7F9"
+        textColor="white"
+        textColor2="black"
+        iconcolor="#F1813B"
+        iconcolor2="gray" />
       <SalaryInfo data={WebDevcards} />
       <Choices title="Why Choose QuantumCrafters?" data={webdevcourseboxes} onEnrollClick={() => setShowEnrollModal(true)} />
       <ProgramStructure data={webdevProgram} />

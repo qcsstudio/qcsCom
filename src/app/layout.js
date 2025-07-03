@@ -163,13 +163,14 @@ export default function RootLayout({ children }) {
             fbq('track', 'PageView');
           `}
         </Script>
+       
       </head>
       <body
         className={`${syne.variable} ${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
-        <noscript><img height="1" width="1" style="display:none"
+         {/* <noscript><img height="1" width="1" style="display:none"
           src="https://www.facebook.com/tr?id=1843305022905892&ev=PageView&noscript=1"
-        /></noscript>
+        /></noscript> */}
         <BlogContextProvider>
           <Scrollcardcontext>
             <PolicyProvider>
