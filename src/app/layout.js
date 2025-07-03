@@ -163,7 +163,6 @@ export default function RootLayout({ children }) {
             fbq('track', 'PageView');
           `}
         </Script>
-
       </head>
       <body
         className={`${syne.variable} ${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
