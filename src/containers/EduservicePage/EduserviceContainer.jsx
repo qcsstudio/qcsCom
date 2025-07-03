@@ -85,9 +85,17 @@ const EduserviceContainer = () => {
       <WhyLearnUIUX title="Why Learn UI/UX Design?" data={UiUxreasons} />
       <OurServices data={UiUxcurriculum} onEnrollClick={() => setShowEnrollModal(true)} />
 
-      <Differences title="Career Outcomes" heading="Roles You Can Work As!" heading2="You Can Work In!"
-        challenges={UiUxroles} solutions={UiUxworkIn} bgcolor="black" bgcolor2="#F5F7F9" textColor="white"
-        textColor2="black" iconcolor="#F1813B" iconcolor2="gray" />
+      <Differences
+        heading="Roles You Can Work As!"
+        heading2="You Can Work In!"
+        challenges={UiUxroles}
+        solutions={UiUxworkIn}
+        bgcolor="black"
+        bgcolor2="#F5F7F9"
+        textColor="white"
+        textColor2="black"
+        iconcolor="#F1813B"
+        iconcolor2="gray" />
       <SalaryInfo data={UiUxcards} />
       <Choices title="Why Choose QuantumCrafters?" data={uiboxes} onEnrollClick={() => setShowEnrollModal(true)} />
       <ToolsPlatforms />

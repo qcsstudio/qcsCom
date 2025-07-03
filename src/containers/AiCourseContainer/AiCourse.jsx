@@ -80,11 +80,19 @@ const AiCourse = () => {
             }} />
             <WhyLearnUIUX title=" Why Learn AI & Machine Learning?" data={Aireasons} />
             <OurServices data={Aicurriculum} onEnrollClick={() => setShowEnrollModal(true)} />
-            <Differences title="Career Outcomes" heading="Eligible roles:" heading2="Industries:"
-                challenges={Airoles} solutions={AiworkIn} bgcolor="black" bgcolor2="#F5F7F9" textColor="white"
-                textColor2="black" iconcolor="#F1813B" iconcolor2="gray" />
+            <Differences
+                heading="Eligible roles:"
+                heading2="Industries:"
+                challenges={Airoles}
+                solutions={AiworkIn}
+                bgcolor="black"
+                bgcolor2="#F5F7F9"
+                textColor="white"
+                textColor2="black"
+                iconcolor="#F1813B"
+                iconcolor2="gray" />
             <SalaryInfo data={Aicards} />
-            <Choices title="Why Choose QuantumCrafters?" data={Aicourseboxes}  onEnrollClick={() => setShowEnrollModal(true)} />
+            <Choices title="Why Choose QuantumCrafters?" data={Aicourseboxes} onEnrollClick={() => setShowEnrollModal(true)} />
             <ProgramStructure data={AiProgram} />
             <Questions questions={AiFaq} />
             <FormComponent heading="Ready to Get Future-Ready with AI?" desc="Build the skills of tomorrow. Join our AI & Machine Learning program and become part of the smart-tech revolution." />

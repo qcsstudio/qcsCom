@@ -41,11 +41,13 @@ const Digitalservice = () => {
           //   color: "transparent",
           //   border: "1px solid gray"
           // }
-        ]
+        ],
+        image: "/images/Hero Images/Heroimage-DigialService.png"
+
       }} />
       <DigitalServices data={DigitalMarketingServices} />
       <WorkProcess steps={Digitalsolutions} />
-      <Whychoose data={cardData}/>
+      <Whychoose data={cardData} />
       <Benifits heading="Key Features / Capabilities" BenefitsData={WebBenifitsData3} />
       <Platforms heading="Tech Stack We Work On" para="We work on powerful, popular, customisable and scalable platforms to deliver the best solutions for our clients." images={DigitalSlide1} />
 

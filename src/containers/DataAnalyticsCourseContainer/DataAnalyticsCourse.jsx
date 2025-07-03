@@ -73,20 +73,29 @@ const DataAnalyticsCourse = () => {
           action: () => setShowEnrollModal(true)
 
         },
-        {
-          text: "Download Curriculum",
-          link: "#curriculum",
-          color: "transparent",
-          border: "1px solid gray"
-        }]
+        // {
+        //   text: "Download Curriculum",
+        //   link: "#curriculum",
+        //   color: "transparent",
+        //   border: "1px solid gray"
+        // }
+      ]
       }} />
       <WhyLearnUIUX title="Why Learn Data Analytics with AI?" data={DataAnalyticsreasons} />
       <OurServices data={DataAnalyticscurriculum} onEnrollClick={() => setShowEnrollModal(true)} />
-      <Differences title="Career Outcomes" heading="Eligible roles:" heading2="Industries:"
-        challenges={DataAnalyticsroles} solutions={DataAnalyticsworkIn} bgcolor="black" bgcolor2="#F5F7F9" textColor="white"
-        textColor2="black" iconcolor="#F1813B" iconcolor2="gray" />
+      <Differences
+        heading="Eligible roles:"
+        heading2="Industries:"
+        challenges={DataAnalyticsroles}
+        solutions={DataAnalyticsworkIn}
+        bgcolor="black"
+        bgcolor2="#F5F7F9"
+        textColor="white"
+        textColor2="black"
+        iconcolor="#F1813B"
+        iconcolor2="gray" />
       <SalaryInfo data={DataAnalyticscards} />
-      <Choices title="Why Choose QuantumCrafters?" data={DataAnalyticscourseboxes}  onEnrollClick={() => setShowEnrollModal(true)} />
+      <Choices title="Why Choose QuantumCrafters?" data={DataAnalyticscourseboxes} onEnrollClick={() => setShowEnrollModal(true)} />
       <ProgramStructure data={DataAnalyticsProgram} />
       <Questions questions={DataAnalyticsFaq} />
       <FormComponent heading="Ready to Analyze Smarter?" desc="Unlock a future-proof career in data. Learn how to read the numbers—and let AI do the rest." />
