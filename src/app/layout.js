@@ -148,7 +148,14 @@ export default function RootLayout({ children }) {
           })}
         </Script>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3149256841289272"
-          crossorigin="anonymous"></script>
+          crossOrigin="anonymous"></script>
+
+
+
+      </head>
+      <body
+        className={`${syne.variable} ${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
+      >
         <Script id="facebook-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
@@ -163,14 +170,10 @@ export default function RootLayout({ children }) {
             fbq('track', 'PageView');
           `}
         </Script>
-       
-      </head>
-      <body
-        className={`${syne.variable} ${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
-      >
-         {/* <noscript><img height="1" width="1" style="display:none"
-          src="https://www.facebook.com/tr?id=1843305022905892&ev=PageView&noscript=1"
-        /></noscript> */}
+        <noscript>
+          <img height="1" width="1" style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=1843305022905892&ev=PageView&noscript=1" />
+        </noscript>
         <BlogContextProvider>
           <Scrollcardcontext>
             <PolicyProvider>
