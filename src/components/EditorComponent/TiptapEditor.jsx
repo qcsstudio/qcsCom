@@ -86,6 +86,8 @@ const TiptapEditor = ({ content = '', onChange = () => { } }) => {
   const [linkMenuVisible, setLinkMenuVisible] = useState(false);
   const [linkUrl, setLinkUrl] = useState('');
   const [imageUploading, setImageUploading] = useState(false);
+  const [pFontSize, setPFontSize] = useState(16);
+const [h1FontSize, setH1FontSize] = useState(32);
   const linkMenuRef = useRef(null);
   const linkButtonRef = useRef(null);
   const linkInputRef = useRef(null);
@@ -774,7 +776,8 @@ const TiptapEditor = ({ content = '', onChange = () => { } }) => {
 
         {/* Block Elements */}
         <button
-          onClick={() => editor.chain().focus().toggleBlockquote().run()}
+          onClick={() => {e.preventDefault();
+    e.stopPropagation();   editor.chain().focus().toggleBlockquote().run()}}
           className={`p-2 rounded hover:bg-gray-200 ${editor.isActive('blockquote') ? 'bg-gray-200 text-blue-600' : ''}`}
           title="Blockquote"
         >
@@ -783,7 +786,8 @@ const TiptapEditor = ({ content = '', onChange = () => { } }) => {
           </svg>
         </button>
         <button
-          onClick={() => editor.chain().focus().setHorizontalRule().run()}
+          onClick={() => {e.preventDefault();
+    e.stopPropagation();  editor.chain().focus().setHorizontalRule().run()}}
           className="p-2 rounded hover:bg-gray-200"
           title="Horizontal Rule"
         >
