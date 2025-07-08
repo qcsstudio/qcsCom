@@ -141,10 +141,23 @@ const [h1FontSize, setH1FontSize] = useState(32);
     });
     
     // Normalize headings
-    const headings = tempDiv.querySelectorAll('h1, h2, h3, h4, h5, h6');
-    headings.forEach(h => {
+   const headings = tempDiv.querySelectorAll('h1, h2, h3, h4, h5, h6');
+headings.forEach(h => {
+  // Keep different classes for different heading levels
+  switch(h.tagName.toLowerCase()) {
+    case 'h1':
+      h.className = 'text-2xl font-bold leading-tight font-sans mb-4';
+      break;
+    case 'h2':
+      h.className = 'text-xl font-bold leading-tight font-sans mb-4';
+      break;
+    case 'h3':
+      h.className = 'text-lg font-bold leading-tight font-sans mb-4';
+      break;
+    default:
       h.className = 'font-bold text-base leading-relaxed font-sans mb-4';
-    });
+  }
+});
     
     // Normalize lists
     const uls = tempDiv.querySelectorAll('ul');
@@ -176,14 +189,14 @@ const [h1FontSize, setH1FontSize] = useState(32);
     normalizedHTML = normalizedHTML.replace(/(<br\s*\/?>){2,}/gi, '</p><p class="text-base leading-relaxed font-sans mb-4">');
     
     // Wrap orphaned text content in paragraphs
-    const textNodes = normalizedHTML.split(/(<[^>]*>)/);
-    const wrappedContent = textNodes.map(node => {
-      // If it's plain text and not empty, wrap in paragraph
-      if (!node.startsWith('<') && node.trim()) {
-        return `<p class="text-base leading-relaxed font-sans mb-4">${node.trim()}</p>`;
-      }
-      return node;
-    }).join('');
+    // const textNodes = normalizedHTML.split(/(<[^>]*>)/);
+    // const wrappedContent = textNodes.map(node => {
+    //   // If it's plain text and not empty, wrap in paragraph
+    //   if (!node.startsWith('<') && node.trim()) {
+    //     return `<p class="text-base leading-relaxed font-sans mb-4">${node.trim()}</p>`;
+    //   }
+    //   return node;
+    // }).join('');
     
     // Clean up extra whitespace and ensure consistent formatting
     return wrappedContent
