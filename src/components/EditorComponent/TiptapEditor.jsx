@@ -786,11 +786,14 @@ const [h1FontSize, setH1FontSize] = useState(32);
           </svg>
         </button>
         <button
-          onClick={() => {e.preventDefault();
-    e.stopPropagation();  editor.chain().focus().setHorizontalRule().run()}}
-          className="p-2 rounded hover:bg-gray-200"
-          title="Horizontal Rule"
-        >
+  onClick={(e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    editor.chain().focus().setHorizontalRule().run();
+  }}
+  className="p-2 rounded hover:bg-gray-200"
+  title="Horizontal Rule"
+>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor">
             <path d="M3 12h18" strokeWidth="2" strokeLinecap="round" />
           </svg>
