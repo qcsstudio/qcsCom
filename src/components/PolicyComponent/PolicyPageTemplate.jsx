@@ -17,7 +17,7 @@ export default function PolicyPageTemplate({ type, title, activeKey }) {
       <Navbar/>
       <div className="w-[95%] mx-auto px-4 py-8 bg-white text-gray-800">
         <div className="bg-black text-white py-8 px-6 mb-8 rounded-xl">
-          <h1 className="text-4xl font-bold text-center">{title}</h1>
+          <h2 className="text-4xl font-bold text-center">{title}</h2>
         </div>
 
         {loading ? (

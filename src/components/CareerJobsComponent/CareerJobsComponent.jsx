@@ -325,15 +325,15 @@ const CareerJobsComponent = () => {
   return (
     <div>
       <div className='flex justify-center items-center pt-[100px]'>
-        <h1 className='text-[40px] font-[700]'>Find Your Place</h1>
+        <h2 className='text-[40px] font-[700]'>Find Your Place</h2>
       </div>
       <div className='flex flex-wrap justify-center gap-8 p-8'>
         {jobs.map((job, index) => (
           <div key={index} className='h-[420px] w-[392px] rounded-[12px] border-[1px] border-black/30'>
             <div>
-              <h1 className='text-[21px] font-[500] bg-[#F1813B] h-[66px] rounded-tl-[12px] rounded-tr-[12px] flex justify-center items-center text-white'>
+              <h2 className='text-[21px] font-[500] bg-[#F1813B] h-[66px] rounded-tl-[12px] rounded-tr-[12px] flex justify-center items-center text-white'>
                 {job.heading}
-              </h1>
+              </h2>
             </div>
             <div className='pl-[20px] flex flex-col gap-[20px]'>
               <div className='flex justify-start items-center gap-[20px] pt-[15px]'>
