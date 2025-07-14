@@ -43,6 +43,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${syne.variable} ${unbounded.variable}`}>
       <head>
+          <link
+          rel="canonical"
+          href="https://qcsstudio.com/"
+          key="canonical"
+        />
         {/* Google Analytics Script */}
         <script
           async
