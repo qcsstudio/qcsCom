@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="font-sans bg-gray-100 min-h-screen text-gray-800">
       <header className="bg-blue-600 text-white py-4 text-center">
-        <h1 className="text-2xl font-bold">LinkedIn Text Formatter</h1>
+        <h2 className="text-2xl font-bold">LinkedIn Text Formatter</h2>
         <p className="mt-1">Create engaging, professional LinkedIn posts</p>
       </header>
 

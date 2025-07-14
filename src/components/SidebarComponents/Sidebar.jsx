@@ -77,14 +77,14 @@ const Sidebar = () => {
         <div className="flex items-center justify-between p-4">
           <AnimatePresence>
             {isSidebarOpen && (
-              <motion.h1
+              <motion.h2
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -10 }}
                 className="text-2xl font-extrabold text-orange-600"
               >
                 Dashboard
-              </motion.h1>
+              </motion.h2>
             )}
           </AnimatePresence>
           <motion.button

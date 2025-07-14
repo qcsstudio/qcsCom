@@ -111,7 +111,7 @@ export default function Page() {
     ) : (
       <>
         <img src={blog.thumbnail} alt={blog.heading} className='rounded-lg mb-6' />
-        <h1 className="text-4xl font-bold mb-4">{blog.heading}</h1>
+        <h2 className="text-4xl font-bold mb-4">{blog.heading}</h2>
         <p className="text-sm text-gray-500 mb-2">Created: {new Date(blog.createdAt).toLocaleString()}</p>
         <div className="text-lg text-gray-800" dangerouslySetInnerHTML={{ __html: blog.description }}></div>
       </>

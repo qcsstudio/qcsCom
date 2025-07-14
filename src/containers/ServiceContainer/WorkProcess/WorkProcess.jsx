@@ -88,13 +88,13 @@ const WorkProcess = ({ steps }) => {
                 className={finalStepClass}
                 onClick={() => !isMobile && setActiveStep(step.number)}
               >
-                <h1 className={`text-2xl md:text-3xl font-bold flex items-start md:items-center transition-all  
+                <h2 className={`text-2xl md:text-3xl font-bold flex items-start md:items-center transition-all  
                   ${isActive ? "text-white " : "text-[#F1813B] relative -right-10 group-hover:right-2 duration-500"}`}>
                   <span className="mr-2 text-4xl md:text-9xl">{step.number}</span>
                   {isActive && (
                     <span className="ml-2 text-2xl md:text-4xl">{step.title}</span>
                   )}
-                </h1>
+                </h2>
 
                 {isActive && (
                   <p className="mt-3 text-gray-300 text-base md:text-xl leading-relaxed">

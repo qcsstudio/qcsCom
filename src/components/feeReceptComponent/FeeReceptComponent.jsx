@@ -297,9 +297,9 @@ const FeeReceptComponent = () => {
             {/* Header Section */}
             <div className="max-w-6xl mx-auto mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h1 className="text-3xl md:text-4xl font-bold text-orange-900! drop-shadow-md">
+                    <h2 className="text-3xl md:text-4xl font-bold text-orange-900! drop-shadow-md">
                         🎓 Academic Fee Manager
-                    </h1>
+                    </h2>
                     <p className="text-orange-700! mt-2">
                         Generate professional fee receipts with our glassmorphic interface
                     </p>

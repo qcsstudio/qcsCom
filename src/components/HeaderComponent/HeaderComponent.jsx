@@ -4,34 +4,50 @@ import { useEffect, useRef } from "react";
 import { NeatGradient } from "@firecms/neat";
 
 const config = {
-  colors: [
-    { color: "#FD113F", enabled: true },
-    { color: "#90E0FF", enabled: true },
-    { color: "#FFC858", enabled: true },
-    { color: "#753BFF", enabled: true },
-    { color: "#f5e1e5", enabled: false },
-  ],
-  speed: 2,
-  horizontalPressure: 5,
-  verticalPressure: 6,
-  waveFrequencyX: 1,
-  waveFrequencyY: 2,
-  waveAmplitude: 10,
-  shadows: 0,
-  highlights: 7,
-  colorBrightness: 1.05,
-  colorSaturation: 0,
-  wireframe: false,
-  colorBlending: 9,
-  backgroundColor: "#003FFF",
-  backgroundAlpha: 1,
-  grainScale: 0,
-  grainSparsity: 0,
-  grainIntensity: 0.025,
-  grainSpeed: 0,
-  resolution: 1,
-  yOffset: 0,
-};
+    colors: [
+        {
+            color: '#A960EE',
+            enabled: true,
+        },
+        {
+            color: '#FF333D',
+            enabled: true,
+        },
+        {
+            color: '#90E0FF',
+            enabled: true,
+        },
+        {
+            color: '#FFCB57',
+            enabled: true,
+        },
+        {
+            color: '#f5e1e5',
+            enabled: false,
+        },
+    ],
+    speed: 2,
+    horizontalPressure: 3,
+    verticalPressure: 6,
+    waveFrequencyX: 1,
+    waveFrequencyY: 2,
+    waveAmplitude: 10,
+    shadows: 0,
+    highlights: 7,
+    colorBrightness: 1.05,
+    colorSaturation: 0,
+    wireframe: false,
+    colorBlending: 9,
+    backgroundColor: '#003FFF',
+    backgroundAlpha: 1,
+    grainScale: 0,
+    grainSparsity: 0,
+    grainIntensity: 0,
+    grainSpeed: 0,
+    resolution: 1,
+    yOffset: 0,
+}
+
 
 export default function NeatBackground() {
   const canvasRef = useRef(null);
