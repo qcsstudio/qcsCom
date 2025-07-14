@@ -15,7 +15,7 @@ const DigitalServices = ({ data }) => {
           {data.map((card, index) => (
             <Link href={card.link} key={index}>
               <div
-                className="bg-[#F5F7F9] rounded-2xl p-6 text-left h-[350px] "
+                className="bg-[#F5F7F9] rounded-2xl p-6 text-left h-[300px] "
               >
 
                 <h3 className={`text-2xl font-bold mb-3 text-[#1f0909] ${unbounded.className}`}>{card.title}:</h3>
