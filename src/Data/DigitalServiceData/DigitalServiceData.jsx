@@ -3,8 +3,8 @@ export const DigitalMarketingServices = [
         title: "AEO",
         points: [
             "Segment by behavior (e.g., downloads vs. cart abandon)",
-            "Send targeted drip sequences and mobile‐friendly CTAs",
-            "25 % open rate; 5 % click-through rate; 20 % lift in repeat purchases"
+            "Send targeted drip sequences and mobile-friendly CTAs",
+            "25% open rate; 5% click-through rate; 20% lift in repeat purchases"
 
         ],
         link:"/aeo"
@@ -20,61 +20,70 @@ export const DigitalMarketingServices = [
         link:"/geo"
     },
     {
+        title: " AIO",
+        points: [
+            "Optimize for ChatGPT, Gemini, Siri, Alexa & other AI assistants",
+            "Add schema markup, verified listings, and FAQ data",
+            "3X more AI mentions; 45% boost in assistant discovery; 18% lead increase"
+        ],
+        link:"/geo"
+    },
+    {
         title: "SEO",
         points: [
-            "Research & target high-intent keywords",
-            "Optimize titles, meta tags, speed, mobile, and crawlability",
-            "+40 % organic traffic in 6 months; 25 keywords on Page 1; 15 % uplift in conversion rate"
+            "Combine SEO with UX for better navigation and engagement",
+            "Map user intent and guide them through optimized site flows",
+            "35% lower bounce rate; 2X time-on-site; 25% more qualified leads"
         ],
         link:"/seo"
 
     },
-    {
-        title: "Content Marketing  ",
-        points: [
-            "Build a long-form pillar + related cluster posts",
-            "Use engaging storytelling, infographics, and lead magnets",
-            "+30 % time on page; +50 % monthly leads; 20 % increase in returning visitors"
-        ],
-        link:"/contentmarketing"
-
-    },
-    {
-        title: "Social Media Marketing",
-        points: [
-            "Tailor visuals & formats per platform (Reels, posts, pins)",
-            "Post consistently, engage promptly, and share user content",
-            "100 K total reach/month; 5 % average engagement rate; +25 % follower growth quarter-over-quarter"
-        ],
-        link:"/socialmediamarketing"
-
-    },
-    {
+     {
         title: "Performance Marketing",
         points: [
-            "Organize tightly themed ad groups + match-type keywords",
-            "Write clear, benefit-driven ads & match landing page promise",
-            "3 % average CTR; 5 % conversion rate; 200 % ROAS (return on ad spend)"
+            "Run targeted Google, Meta, and YouTube ad campaigns",
+            "Optimize creative, targeting, and budget with real-time insights",
+            "4X return on ad spend; 60% lower CPL; 3X boost in conversions"
         ],
         link:"/ppc"
 
     },
     {
+        title: "Social Media Marketing",
+        points: [
+            "Post reels, carousels, creatives tailored for each platform",
+            "Boost engagement with hashtags, contests & influencer collabs",
+            "150% engagement uplift; 2X follower growth; 20% more inquiries"
+        ],
+        link:"/socialmediamarketing"
+
+    },
+    {
         title: "Email Marketing & Automation",
         points: [
-            "Segment by behavior (e.g., downloads vs. cart abandon)",
-            "Send targeted drip sequences and mobile-friendly CTAs",
-            "25 % open rate; 5 % click-through rate; 20 % lift in repeat purchases"
+            "Automate follow-ups and behavior-based sequences",
+            "Use personalization and mobile-first CTA designs",
+            "25% open rate; 5% CTR; 20% boost in conversions"
         ],
         link:"emailmarketing"
 
     },
     {
+        title: "Content Marketing  ",
+        points: [
+            "Create SEO blogs, explainer videos, and case studies",
+            "Establish brand authority and organic discovery",
+            "3X more organic traffic; 35% more inbound leads; 2X backlink growth"
+        ],
+        link:"/contentmarketing"
+
+    },
+    {
         title: "Analytics & Reporting",
         points: [
-            "Track key conversions (form fills, sales) in GA4",
-            "Monitor core KPIs (sessions, bounce, conversion rate) and A/B test continuously",
-            "15 % bounce rate; +10 % overall site conversion; 20 % faster decision-making (monthly reports vs. quarterly)"
+            "Monitor KPIs with live dashboards and monthly reports",
+            "Gain actionable insights for smarter marketing moves",
+            "40% faster decisions; 2X campaign ROI; 50% less wasted ad spend"
         ],
         link:"analytics&reporting"
 
