@@ -79,7 +79,7 @@ export default function NavbarContainer({ data }) {
             {heading}
           </motion.h1>
 
-          <motion.h1
+          <motion.h2
 
             className={`text-3xl min-[1280px]:text-[65px] lg:text-[46px] md:text-[40px] sm:text-3xl  xl:w-[49%]
                min-[1262px]:w-[45%] min-[1146px]:w-[45%] min-[1033px]:w-[45%] min-[1024px]:w-[43%] min-[1015px]:w-[45%]
@@ -96,7 +96,7 @@ export default function NavbarContainer({ data }) {
             transition={{ duration: 1 }}
           >
             {heading}
-          </motion.h1>
+          </motion.h2>
 
           <motion.p
             className={`mt-2 text-lg lg:text-[17px] xl:text-[19px] xl:w-[90%] text-start leading-tight ${syne.className}`}

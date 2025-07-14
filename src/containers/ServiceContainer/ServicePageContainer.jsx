@@ -39,7 +39,7 @@ const ServicePageContainer = () => {
         }
     }, [currPath]);
 
-      const openCalendly = useCalendly(); // ✅ Correct usage
+      const openCalendly = useCalendly(); 
     return (
         <>
            <NavbarContainer

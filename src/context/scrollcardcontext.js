@@ -15,8 +15,8 @@ const initialState = {
   listData: [],
   scrollToCard: () => { },
   setScrollCardData: () => { },
-  activeIndex: null,         // ✅ New
-  setActiveIndex: () => { },  // ✅ New
+  activeIndex: null,
+  setActiveIndex: () => { },
   showTable: false,
   setShowTable: () => { },
   prefillData: null,
@@ -29,9 +29,9 @@ const Scrollcardcontext = ({ children }) => {
   const [carddata, setCarddata] = useState(null);
   const [listData, setListData] = useState([]);
   const [links, setLinks] = useState([]);
-  const [activeIndex, setActiveIndex] = useState(null); // ✅ Track active item
+  const [activeIndex, setActiveIndex] = useState(null);
   const cardRefs = useRef([]);
-  const pathname = usePathname();
+  const pathname = usePathname();   
   const [showTable, setShowTable] = useState(initialState.showTable);
   const [prefillData, setPrefillData] = useState(initialState.prefillData);
 
@@ -82,8 +82,8 @@ const Scrollcardcontext = ({ children }) => {
         cardRefs,
         scrollToCard,
         setScrollCardData,
-        activeIndex,       // ✅ expose
-        setActiveIndex,    // ✅ expose
+        activeIndex,       
+        setActiveIndex,    
         showTable,
         setShowTable,
         prefillData,

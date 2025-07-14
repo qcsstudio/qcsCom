@@ -34,9 +34,9 @@ const Page = () => {
       <Head>
         <title>QuantumCrafters Studio - AI & SaaS Solutions</title>
         <link
-          rel="canonical"
+          rel=""
           href="https://qcsstudio.com/"
-          key="canonical"
+          key=""
         />
         <script
           type="application/ld+json"
