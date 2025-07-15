@@ -1,8 +1,8 @@
 import ServicePageContainer from "@/containers/ServiceContainer/ServicePageContainer.jsx";
 
 export const metadata = {
-  title: " AI-Powered IT & SaaS Development Services in Mohali | QuantumCrafters",
-  description: "  Discover reliable IT solutions and custom SaaS development at QuantumCrafters—Mohali's go-to tech partner for cutting-edge digital innovation and scalable growth.",
+  title: "AI Services Near Me - Quantumcrafters Studio Private Limited",
+  description: "Looking for AI services near you? QuantumCrafters delivers smart, local AI solutions to automate, grow, and future-proof your business with cutting-edge tech.",
 };
 
 const page = () => {
