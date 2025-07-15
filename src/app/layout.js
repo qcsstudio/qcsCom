@@ -31,9 +31,9 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title:
-    " Leading SaaS & Software Development Company in Mohali - QuantumCrafters",
+    "AI Software Development Companies - QuantumCrafters Studio",
   description:
-    " QuantumCrafters is a top-tier software development firm in Mohali, specializing in AI-driven SaaS products and professional IT training to fuel business transformation.",
+    "Boost your business with QuantumCrafters—an AI Software Development Company building smart, scalable solutions that drive growth and real-world impact.",
   verification: {
     google: "MbqWeyYPvPzsogXFxsL8o_LZUqhL-lqb0C6-EeSNemM",
   },
