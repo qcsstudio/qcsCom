@@ -1,4 +1,4 @@
-"use client"
+
 import UiUxService from '@/containers/UIUXserviceContainer/UiUxService'
 import React from 'react'
 

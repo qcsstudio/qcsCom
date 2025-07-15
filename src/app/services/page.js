@@ -5,6 +5,7 @@ export const metadata = {
   description: "Looking for AI services near you? QuantumCrafters delivers smart, local AI solutions to automate, grow, and future-proof your business with cutting-edge tech.",
 };
 
+
 const page = () => {
  
   return (
