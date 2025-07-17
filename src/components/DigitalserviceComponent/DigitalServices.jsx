@@ -2,7 +2,7 @@ import React from 'react'
 import Heading from "../HeadingComponent/Heading";
 import Link from 'next/link';
 
-const unbounded = Unbounded({ subsets: ['latin'], weight: '600' })
+
 const DigitalServices = ({ data }) => {
   return (
     <>
