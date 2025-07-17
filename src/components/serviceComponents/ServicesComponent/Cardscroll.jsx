@@ -24,7 +24,7 @@ const Cardscroll = ({ card }) => {
           <motion.span
             key={index}
             variants={child}
-            className={`inline-block mr-2 ${unbounded.className}`}
+            className={`inline-block mr-2 font-unbounded`}
           >
             {word}
           </motion.span>

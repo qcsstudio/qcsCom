@@ -2,7 +2,6 @@ import React from 'react'
 import Heading from "../HeadingComponent/Heading";
 import Link from 'next/link';
 
-
 const DigitalServices = ({ data }) => {
   return (
     <>

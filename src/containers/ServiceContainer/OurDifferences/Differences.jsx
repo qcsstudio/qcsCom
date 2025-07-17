@@ -1,10 +1,9 @@
 import Heading from "@/components/HeadingComponent/Heading";
 import IconNtext from "@/components/iconNtextComponent/IconNtext";
-import { Unbounded } from "next/font/google";
 import { PiPuzzlePieceBold } from "react-icons/pi";
 
 
-const unbounded = Unbounded({subsets:['latin'],weight:"700"})
+
 const Differences = ({heading,heading2,challenges,solutions,bgcolor,bgcolor2,textColor,textColor2,iconcolor,iconcolor2}) => {
   
   return (
@@ -14,7 +13,7 @@ const Differences = ({heading,heading2,challenges,solutions,bgcolor,bgcolor2,tex
     <div className="flex flex-col items-center w-[90%] mx-auto ">   
       <div className="flex flex-col md:flex-row w-full max-w-4xl">
         <div className=" p-2 sm:p-6 flex-1  rounded-l-3xl " style={{backgroundColor:`${bgcolor}`,color:`${textColor}`}}>
-          <h3 className={`text-2xl text-center sm:text-start  lg:text-start sm:text-[26px] font-bold mb-4 ${unbounded.className}`}>{heading}</h3>
+          <h3 className={`text-2xl text-center sm:text-start  lg:text-start sm:text-[26px] font-bold mb-4 font-unbounded`}>{heading}</h3>
           <ul className="space-y-3">
             {challenges.map((challenge, index) => (
               <li key={index} className={`flex items-start font-medium text-base  font-montserrat`}>
@@ -26,7 +25,7 @@ const Differences = ({heading,heading2,challenges,solutions,bgcolor,bgcolor2,tex
         </div>
         <div className="bg-black text-white rounded-lg mt-4 lg:mt-0 md:rounded-r-3xl md:rounded-l-none p-2 sm:p-6 flex-1"
         style={{backgroundColor:`${bgcolor2}`,color:`${textColor2}`}}>
-          <h3 className={`text-2xl text-center sm:text-start  lg:text-start sm:text-[26px] font-bold mb-4 ${unbounded.className}`}>{heading2}</h3>
+          <h3 className={`text-2xl text-center sm:text-start  lg:text-start sm:text-[26px] font-bold mb-4 font-unbounded`}>{heading2}</h3>
           <ul className="space-y-3">
             {solutions.map((solution, index) => (
               <li key={index} className={`flex items-start font-medium text-base font-montserrat`}>

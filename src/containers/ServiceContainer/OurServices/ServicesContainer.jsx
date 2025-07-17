@@ -2,14 +2,13 @@
 import React, { useContext } from 'react';
 import ListComp from '@/components/serviceComponents/ServicesComponent/ListComp';
 import Scrollcomp from '@/components/serviceComponents/ServicesComponent/Scrollcomp';
-import { Unbounded } from 'next/font/google';
 import { cardcontext } from '@/context/scrollcardcontext';
 import { motion } from 'framer-motion';
 import { child, container } from '@/components/Animation/Animation';
 import IconNtext from '@/components/iconNtextComponent/IconNtext';
 
 
-const unbounded = Unbounded({ subsets: ['latin'], weight: '700' });
+
 
 const ServicesContainer = () => {
   const { listData, carddata, links } = useContext(cardcontext);
@@ -23,7 +22,7 @@ const ServicesContainer = () => {
      
 
       <motion.h3
-        className={`w-full md:w-[70%] mx-auto text-center lg:text-[40px] sm:text-4xl text-3xl mt-5 px-2 ${unbounded.className}`}
+        className={`w-full md:w-[70%] mx-auto text-center lg:text-[40px] sm:text-4xl text-3xl mt-5 px-2 font-unbounded`}
         variants={container}
         initial="hidden"
         whileInView="visible"
@@ -33,7 +32,7 @@ const ServicesContainer = () => {
           <motion.span
             key={index}
             variants={child}
-            className={`inline-block mr-2 ${unbounded.className}`}
+            className={`inline-block mr-2 font-unbounded`}
           >
             {word}
           </motion.span>
