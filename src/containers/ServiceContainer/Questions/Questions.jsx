@@ -1,6 +1,6 @@
 'use client'
 import IconNtext from "@/components/iconNtextComponent/IconNtext";
-import { Syne, Unbounded } from "next/font/google";
+import { Unbounded } from "next/font/google";
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
@@ -8,7 +8,6 @@ import { container, child } from '@/components/Animation/Animation';
 import { motion } from 'framer-motion';
 
 
-const syne = Syne({ subsets: ['latin'], weight: '400' })
 const unbounded = Unbounded({ subsets: ['latin'], weight: '600' })
 const Questions = ({ questions }) => {
   const heading = `FAQ It Up! Your curiosity meets our expertise let's clear things up!`;
@@ -45,13 +44,13 @@ const Questions = ({ questions }) => {
         </motion.span>
       ))}
     </motion.h2>
-          <p className={`text-gray-500 font-medium text-lg text-center lg:text-start lg:w-[80%] ${syne.className}`}>
+          <p className={`text-gray-500 font-medium text-lg text-center lg:text-start lg:w-[80%] font-montserrat`}>
             We've gathered all the important info right here. Explore our FAQs and find the answers you need.
           </p>
         </div>
 
         {/* Right Section (FAQ List) */}
-        <div className={`md:w-1/2 space-y-4 mt-6 md:mt-0 ${syne.className}`}>
+        <div className={`md:w-1/2 space-y-4 mt-6 md:mt-0 font-montserrat`}>
           {questions?.map((item, index) => (
             <div key={index} className="bg-gray-100 p-4 rounded-lg cursor-pointer"
               onClick={() => toggleAnswer(index)}>

@@ -1,11 +1,8 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import { Unbounded, Syne } from 'next/font/google';
 import Heading from '../HeadingComponent/Heading';
 import { motion } from 'framer-motion';
 
-const unbounded = Unbounded({ subsets: ['latin'], weight: '600' });
-const syne = Syne({ subsets: ['latin'], weight: '500' });
 
 const testimonials = [
   {
@@ -93,7 +90,7 @@ export default function LeaderComponent() {
 
   return (
     <section className="w-[90%] mx-auto bg-gradient-to-br from-gray-50 via-white to-gray-100">
-      <Heading heading="Trusted by Industry Leaders" />
+      <Heading heading="Meet Elevatrx The Social Media Automation" />
 
       <div className=" mx-auto">
         <motion.div
@@ -157,8 +154,8 @@ export default function LeaderComponent() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                <h3 className={`text-lg sm:text-xl font-semibold ${unbounded.className}`}>{name}</h3>
-                <p className={`text-sm text-gray-600 ${syne.className}`}>{title}</p>
+                <h3 className={`text-lg sm:text-xl font-semibold font-unbounded`}>{name}</h3>
+                <p className={`text-sm text-gray-600 font-montserrat`}>{title}</p>
               </motion.div>
             </motion.div>
           ))}

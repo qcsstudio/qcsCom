@@ -1,9 +1,8 @@
 import Link from "next/link";
 import React from "react";
 import Heading from "../HeadingComponent/Heading";
-import { Syne, Unbounded } from "next/font/google";
+import { Unbounded } from "next/font/google";
 
-const syne = Syne({subsets:['latin'],weight:'500'})
 const unbounded = Unbounded({subsets:['latin'],weight:'500'})
 
 const CaseStudies = ({data,data2}) => {
@@ -19,7 +18,7 @@ const CaseStudies = ({data,data2}) => {
           >
             <div className="w-full h-80 bg-gray-300 rounded mb-3"></div>
             <h3 className={`font-bold text-[26px] ${unbounded.className}`}>{study.title}</h3>
-            <p className={` text-sm font-medium text-gray-600 ${syne.className}`}>{study.description}</p>
+            <p className={` text-sm font-medium text-gray-600 font-montserrat`}>{study.description}</p>
           </div>
         ))}
 

@@ -4,9 +4,8 @@ import Link from 'next/link';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { child, container } from '@/components/Animation/Animation';
-import { Syne, Unbounded } from 'next/font/google';
+import { Unbounded } from 'next/font/google';
 
-const syne = Syne({ subsets: ['latin'], weight: '400' });
 const unbounded = Unbounded({ subsets: ['latin'], weight: '700' });
 
 const Cardscroll = ({ card }) => {
@@ -31,8 +30,8 @@ const Cardscroll = ({ card }) => {
           </motion.span>
         ))}
       </motion.h2>
-      <p className={`text-[#0F0F0F] text-[15px] font-medium mb-4 ${syne.className}`}>{desc}</p>
-      <div className={`flex flex-wrap gap-2 mb-4 ${syne.className}`}>
+      <p className={`text-[#0F0F0F] text-[15px] font-medium mb-4 font-montserrat`}>{desc}</p>
+      <div className={`flex flex-wrap gap-2 mb-4 font-montserrat`}>
         {services?.map((service, index) => (
           <span
             key={index}
@@ -45,7 +44,7 @@ const Cardscroll = ({ card }) => {
 
    {link && typeof link === 'string' && link.trim() !== '' ? (
   <Link href={link}>
-    <button className={`w-full text-lg bg-white py-2 font-extrabold rounded-md ${syne.className} hover:bg-gray-500 hover:text-white`}>
+    <button className={`w-full text-lg bg-white py-2 font-extrabold rounded-md font-montserrat hover:bg-gray-500 hover:text-white`}>
       Get Started
     </button>
   </Link>

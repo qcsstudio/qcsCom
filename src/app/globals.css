@@ -12,6 +12,14 @@
 /* Headings with consistent typography scale */
 
 /* For WebKit browsers (Chrome, Safari, Edge) */
+
+.font-montserrat {
+  font-family: "Montserrat", sans-serif !important;
+}
+.font-unbounded {
+  font-family: "Unbounded", sans-serif !important;
+}
+
 .scrollbar::-webkit-scrollbar {
   width: 6px; /* Thin scrollbar */
   height: 6px; /* For horizontal scrollbars */

@@ -1,9 +1,7 @@
 'use client';
 import IconNtext from "@/components/iconNtextComponent/IconNtext";
-import { Syne } from "next/font/google";
 import React, { useEffect, useRef, useState } from "react";
 
-const syne = Syne({ subsets: ['latin'], weight: '500' });
 
 const WorkProcess = ({ steps }) => {
   const [activeStep, setActiveStep] = useState(1);
@@ -54,7 +52,7 @@ const WorkProcess = ({ steps }) => {
   return (
     <>
       <IconNtext text="Our Work Process" link="/images/Icons/WorkProcess.png" />
-      <p className={`w-[90%] text-lg mx-auto px-2 ${syne.className}`}>
+      <p className={`w-[90%] text-lg mx-auto px-2 font-montserrat`}>
         At QuantumCrafters Studio, as a leading digital marketing company in Mohali,
         we follow a clear, step-by-step process to ensure every campaign delivers
         maximum impact and measurable ROI.

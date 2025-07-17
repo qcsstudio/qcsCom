@@ -10,9 +10,8 @@ import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import IconNtext from "@/components/iconNtextComponent/IconNtext";
 import Heading from "@/components/HeadingComponent/Heading";
-import { Syne, Unbounded } from "next/font/google";
+import { Unbounded } from "next/font/google";
 
-const syne = Syne({subsets:['latin'],weight:'400'})
 const unbounded = Unbounded({subsets:['latin'],weight:'600'})
 const members = [
   {
@@ -59,12 +58,12 @@ const AboutUs = () => {
         <IconNtext text="Instructors" link="/images/Icons/AboutUs.png"/>
     <Heading heading="Our Stories & Team" />
     <div id="aboutus" className="max-w-[90%] mx-auto ">
-      <p className={`text-[#000000] text-xl mx-auto mb-4 ${syne.className}`} >
+      <p className={`text-[#000000] text-xl mx-auto mb-4 font-montserrat`} >
         We started as a small group of passionate creators who believed that great ideas deserve bold execution.
         What began over coffee-fueled brainstorming sessions has grown into a thriving digital agency dedicated
         to helping brands stand out.
       </p>
-      <p className={`text-[#000000] text-xl mx-auto mb-12 ${syne.className}`}>
+      <p className={`text-[#000000] text-xl mx-auto mb-12 font-montserrat`}>
         Our mission is simple: to craft creative, impactful solutions that drive results. With a vision to empower
         businesses to shine in a crowded world, we combine strategy, design, and a touch of magic to bring your
         ideas to life. Let's make something amazing together!
@@ -102,7 +101,7 @@ const AboutUs = () => {
                       alt={member.name}
                     />
                     <h3 className={`font-semibold text-black text-lg ${unbounded.className}`}>{member.name}</h3>
-                    <p className={`text-sm text-gray-500 mb-3 ${syne.className}`}>{member.position}</p>
+                    <p className={`text-sm text-gray-500 mb-3 font-montserrat`}>{member.position}</p>
                     <div className="flex justify-center">
                       <Link href={member.link} target="_blank">
                         <FaLinkedin className="cursor-pointer text-xl text-gray-600 hover:text-blue-600" />
@@ -119,7 +118,7 @@ const AboutUs = () => {
           <div className="bg-[#F1813B] text-white rounded-lg p-6 flex flex-col justify-between lg:w-[300px] h-[450px] mt-1">
             <div>
               <h3 className={`font-semibold text-xl mb-3 ${unbounded.className}`}>You can be here</h3>
-              <p className={`text-base ${syne.className}`}>
+              <p className={`text-base font-montserrat`}>
                 We value curiosity, collaboration, and a can-do attitude. Oh, and coffee—lots of coffee.
                 Come join a team that celebrates your unique skills and helps you unlock your full potential.
               </p>

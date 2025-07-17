@@ -8,8 +8,8 @@ const unbounded = Unbounded({ subsets: ['latin'], weight: '700' })
 const Heading = ({ heading }) => {
   return (
     <>
-      <motion.h3
-        className={`lg:text-[40px] sm:text-4xl text-3xl text-center  ${unbounded.className}  my-9 sm:my-11 `}
+      <motion.h2
+        className={`lg:text-[40px] sm:text-4xl text-3xl text-center font-unbounded font-medium  my-9 sm:my-11 w-[95%] mx-auto`}
         variants={container}
         initial="hidden"
         whileInView="visible"
@@ -20,12 +20,12 @@ const Heading = ({ heading }) => {
           <motion.span
             key={index}
             variants={child}
-            className={`inline-block mr-2 ${unbounded.className}`}
+            className={`inline-block mr-2 font-medium font-unbounded `}
           >
             {word}
           </motion.span>
         ))}
-      </motion.h3>
+      </motion.h2>
     </>
   )
 }

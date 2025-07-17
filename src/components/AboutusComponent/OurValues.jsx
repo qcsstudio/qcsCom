@@ -1,9 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import Heading from "../HeadingComponent/Heading";
-import { Syne, Unbounded } from "next/font/google";
+import { Unbounded } from "next/font/google";
 
-const syne = Syne({subsets:['latin'],weight:"500"})
 const unbounded = Unbounded({subsets:['latin'],weight:"600"})
 const values = [
   {
@@ -47,7 +46,7 @@ const OurValues = () => {
           >
            <Image src={value.icon} width={50} height={60} alt={value.icon}  />
             <h3 className={`font-medium text-xl text-[#030204] mb-6 mt-3 h-[41px] ${unbounded.className  }`}>{value.title}</h3>
-            <p className={`text-xl text-[#030204 ${syne.className}`}>{value.description}</p>
+            <p className={`text-xl text-[#030204 font-montserrat`}>{value.description}</p>
           </div>
         ))}
       </div>

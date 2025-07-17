@@ -1,11 +1,8 @@
 import React from 'react'
 import { BrandsData } from '@/containers/ServiceContainer/BrandsContainer/BrandsData.jsx'
-import { Syne, Unbounded } from 'next/font/google';
 import Heading from '@/components/HeadingComponent/Heading'
 import CountUp from 'react-countup';
 
-const syne = Syne({ subsets: ['latin'], weight: 'variable' })
-const unbounded = Unbounded({ subsets: ['latin'], weight: '400' })
 const Brands = () => {
 
   return (
@@ -20,9 +17,9 @@ const Brands = () => {
                   <CountUp end={stat.value} duration={2} start={0}  enableScrollSpy />
                   <span className="text-[#F1813B] text-2xl items-center ms-1 flex">{stat.sign}</span>
                 </h2>
-                <h3 className={`text-xl  font-medium -mt-4 ${unbounded.className} `}>{stat.label}</h3>
+                <h3 className={`text-xl  font-medium -mt-4 font-unbounded `}>{stat.label}</h3>
               </div>
-              <p className={`mt-2 text-[17px] px-5 text-[#000000]  font-unbounded ${syne.className}`}>{stat.desc}</p>
+              <p className={`mt-2 text-[17px] px-5 text-[#000000]  font-unbounded font-montserrat`}>{stat.desc}</p>
 
             </div>
           ))}

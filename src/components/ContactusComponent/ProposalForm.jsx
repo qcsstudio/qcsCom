@@ -5,11 +5,10 @@ import Image from "next/image";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
-import { Unbounded, Syne } from "next/font/google";
 
 
-const syne = Syne({ subsets: ['latin'], weight: '500' })
-const unbounded = Unbounded({ subsets: ['latin'], weight: '700' })
+
+
 const projectEstimation = [
     {
         title: "Share Your Requirement with us",
@@ -101,18 +100,18 @@ export default function ProposalForm() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full ">
                 {/* Left Panel */}
                 <div className="lg:col-span-1 space-y-6">
-                    <h2 className={`text-4xl font-bold ${unbounded.className}`}>Trusted by Top Brands Across The Globe</h2>
-                    <p className={`text-xl font-normal text-[#030204] ${syne.className}`}>
+                    <h2 className={`text-[35px] font-medium font-unbounded`}>Trusted by Top Brands Across The Globe</h2>
+                    <p className={`text-xl font-normal text-[#030204] font-montserrat`}>
                         Our Simplest Yet Robust Process To Get Your Project Estimation.
                     </p>
                     <div className="space-y-4">
                         {projectEstimation.map((item, idx) => (
                             <div key={idx} className="bg-[#F5F7F9] p-4 -xl rounded-lg">
                                 <div className="flex justify-between items-start">
-                                    <h4 className={`font-medium text-[21px] ${unbounded.className}`}>{item.title}</h4>
+                                    <h4 className={`font-medium text-[21px] font-unbounded`}>{item.title}</h4>
                                     <Image src={item.image} width={39} height={39} alt="image" />
                                 </div>
-                                <p className={`text-[15px] text-[#030204] mt-2 ${syne.className}`}>{item.desc}</p>
+                                <p className={`text-[15px] text-[#030204] mt-2 font-montserrat`}>{item.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -120,9 +119,9 @@ export default function ProposalForm() {
 
                 {/* Right Panel - Form */}
                 <div className="lg:col-span-2 bg-white px-6 space-y-6 border-2 border-gray-300 rounded-xl">
-                    <h3 className={`text-4xl font-bold text-center mt-10 ${unbounded.className}`}>Tell us about your <span className="text-[#F1813B]">Project</span></h3>
-                    <form className={`space-y-7 ${syne.className}`} onSubmit={handleSubmit}>
-                        <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 text-black ${syne.className}`}>
+                    <h3 className={`text-[40px] font-bold text-center mt-10 font-unbounded`}>Tell us about your <span className="text-[#F1813B]">Project</span></h3>
+                    <form className={`space-y-7 font-montserrat`} onSubmit={handleSubmit}>
+                        <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 text-black font-montserrat`}>
                             <input
                                 type="text"
                                 name="name"

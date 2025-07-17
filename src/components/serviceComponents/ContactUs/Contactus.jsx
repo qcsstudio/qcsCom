@@ -1,22 +1,19 @@
 'use client'
 import { FaEnvelope, FaWhatsapp } from "react-icons/fa";
 import { BsExclamationCircle } from "react-icons/bs";
-import { Syne, Unbounded } from 'next/font/google';
 
-const syne = Syne({ subsets: ['latin'], weight: '500' });
-const unbounded = Unbounded({ subsets: ['latin'], weight: '700' });
 
 function ContactSection({ action }) {
   return (
     <div id="contactus" className="bg-gray-100 py-10 px-5 text-center mt-70 lg:mt-10 m-auto">
-      <h2 className={`text-5xl font-semibold text-gray-900 ${unbounded.className}`}>
+      <h2 className={`text-5xl font-semibold text-gray-900 font-unbounded`}>
         Ready to Innovate?
       </h2>
-      <p className={`text-gray-600 mt-2 text-[18px] ${syne.className}`}>
+      <p className={`text-gray-600 mt-2 text-[18px] font-montserrat`}>
         Unlock exponential growth with QuantumCrafters' powerful AI solutions.
       </p>
 
-      <div className={`mt-6 w-[85%] mx-auto flex flex-col md:flex-row justify-center gap-4 ${syne.className}`}>
+      <div className={`mt-6 w-[85%] mx-auto flex flex-col md:flex-row justify-center gap-4 font-montserrat`}>
         {/* Email Card */}
         <a
           href="mailto:info@qcsstudio.com"

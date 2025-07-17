@@ -1,13 +1,11 @@
 'use client';
 import React from "react";
 import Image from "next/image";
-import { Syne, Unbounded } from "next/font/google";
 import { motion } from "framer-motion";
 import IconNtext from "../iconNtextComponent/IconNtext";
 import Heading from "../HeadingComponent/Heading";
 
-const syne = Syne({ subsets: ["latin"], weight: "400" });
-const unbounded = Unbounded({ subsets: ["latin"], weight: "700" });
+
 
 const ChoiceBox = ({ title, description, image }) => {
   return (
@@ -17,11 +15,11 @@ const ChoiceBox = ({ title, description, image }) => {
           <Image src={image} width={32} height={32} alt="icon" />
         </div>
         <h3
-          className={`text-lg sm:text-xl md:text-2xl font-bold leading-snug mb-2 ${unbounded.className}`}
+          className={`text-lg sm:text-xl md:text-2xl font-bold leading-snug mb-2 font-unbounded`}
           dangerouslySetInnerHTML={{ __html: title }}
         />
 
-        <p className={`text-sm sm:text-base text-[#000000] mb-2 ${syne.className}`}>
+        <p className={`text-sm sm:text-base text-[#000000] mb-2 font-montserrat`}>
           {description}
         </p>
       </div>
@@ -79,11 +77,11 @@ const Whychoose = ({ title, data }) => {
 
                 <div className="text-center sm:text-left">
                   <h3
-                    className={`text-base sm:text-xl md:text-2xl font-bold leading-snug mb-2 ${unbounded.className}`}
+                    className={`text-base sm:text-xl md:text-2xl font-bold leading-snug mb-2 font-unbounded`}
                     dangerouslySetInnerHTML={{ __html: item.title }}
                   />
 
-                  <p className={`text-sm sm:text-base text-[#000000] mb-2 ${syne.className}`}>
+                  <p className={`text-sm sm:text-base text-[#000000] mb-2 font-montserrat`}>
                     {item.description}
                   </p>
                 </div>

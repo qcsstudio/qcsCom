@@ -1,14 +1,13 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import { Syne, Unbounded } from 'next/font/google';
 import Link from 'next/link';
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import Image from 'next/image';
 import Navbar from '@/components/serviceComponents/NavbarComponent/Navbar';
 
-const unbounded = Unbounded({ subsets: ['latin'], weight: '700' });
-const syne = Syne({ subsets: ['latin'], weight: '400' });
+
+
 
 const SkeletonCard = () => (
   <div className="bg-[#F5F7F9] rounded-lg p-3 shadow animate-pulse">
@@ -97,98 +96,99 @@ export default function Page() {
       <Navbar />
 
       <div className="w-[90%] mx-auto p-6 flex flex-col lg:flex-row gap-6">
-  <div className="w-full lg:w-[60%]">
-    {loading ? (
-      <div className="space-y-4 animate-pulse">
-        <div className="h-[300px] bg-gray-300 rounded-lg" />
-        <div className="h-10 bg-gray-300 w-3/4 rounded" />
-        <div className="h-4 bg-gray-300 w-1/2 rounded" />
-        <div className="h-4 bg-gray-300 w-full rounded" />
-        <div className="h-4 bg-gray-300 w-full rounded" />
-      </div>
-    ) : error ? (
-      <p className="text-center text-red-500">Error: {error}</p>
-    ) : (
-      <>
-        <img src={blog.thumbnail} alt={blog.heading} className='rounded-lg mb-6' />
-        <h2 className="text-4xl font-bold mb-4">{blog.heading}</h2>
-        <p className="text-sm text-gray-500 mb-2">Created: {new Date(blog.createdAt).toLocaleString()}</p>
-        <div className="text-lg text-gray-800" dangerouslySetInnerHTML={{ __html: blog.description }}></div>
-      </>
-    )}
-  </div>
+        <div className="w-full lg:w-[60%]">
+          {loading ? (
+            <div className="space-y-4 animate-pulse">
+              <div className="h-[300px] bg-gray-300 rounded-lg" />
+              <div className="h-10 bg-gray-300 w-3/4 rounded" />
+              <div className="h-4 bg-gray-300 w-1/2 rounded" />
+              <div className="h-4 bg-gray-300 w-full rounded" />
+              <div className="h-4 bg-gray-300 w-full rounded" />
+            </div>
+          ) : error ? (
+            <p className="text-center text-red-500">Error: {error}</p>
+          ) : (
+            <>
+              <img src={blog.thumbnail} alt={blog.heading} className='rounded-lg mb-6' />
+              <h2 className="text-[20px] font-light mb-4 font-unbounded">{blog.heading}</h2>
+              <p className="text-sm text-gray-500 mb-2">Created: {new Date(blog.createdAt).toLocaleString()}</p>
+              <div className="text-[15px] text-[#202124]" dangerouslySetInnerHTML={{ __html: blog.description }}></div>
+            </>
+          )}
+        </div>
 
-  <div className="w-full lg:w-[40%] h-[600px] mt-6 lg:mt-0 rounded-lg px-5 py-8 bg-[#F5F7F9] overflow-y-auto no-scrollbar">
-    <h2 className={`text-[26px] font-bold mb-4 ${unbounded.className}`}>Recent Post&#39;s</h2>
-    <div className="space-y-4">
-      {loading
-        ? Array(5).fill(null).map((_, i) => <SkeletonRecentPost key={i} />)
-        : blogs
-            .slice()
-            .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-            .slice(0, 5)
-            .map((recentBlog, index) => (
-              <Link
-                key={index}
-                href={`/blogs/${encodeURIComponent(recentBlog.heading)}`}
-                className="flex gap-3 items-start border-b border-gray-300 pb-3 hover:bg-gray-100 transition rounded-md p-2"
-              >
-                <Image
-                  src={recentBlog.thumbnail}
-                  width={64}
-                  height={64}
-                  alt={recentBlog.heading}
-                  className="w-16 h-16 object-cover rounded-md"
-                />
-                <div>
-                  <p className={`text-sm font-semibold leading-snug ${syne.className}`}>
-                    {recentBlog.heading.length > 50 ? recentBlog.heading.slice(0, 47) + '...' : recentBlog.heading}
-                  </p>
-                  <p className={`text-xs text-gray-500 ${syne.className}`}>
-                    {new Date(recentBlog.createdAt).toLocaleDateString()}
-                  </p>
-                </div>
-              </Link>
-            ))}
-    </div>
-  </div>
-</div>
+        <div className="w-full lg:w-[40%] h-[600px] mt-6 lg:mt-0 rounded-lg px-5 py-8 bg-[#F5F7F9] overflow-y-auto no-scrollbar">
+          <h2 className={`text-[26px] font-bold mb-4 font-unbounded`}>Recent Post&#39;s</h2>
+          <div className="space-y-4">
+            {loading
+              ? Array(5).fill(null).map((_, i) => <SkeletonRecentPost key={i} />)
+              : blogs
+                .slice()
+                .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+                .slice(0, 5)
+                .map((recentBlog, index) => (
+                  <Link
+                    key={index}
+                    href={`/blogs/${encodeURIComponent(recentBlog.heading)}`}
+                    className="flex gap-3 items-start border-b border-gray-300 pb-3 hover:bg-gray-100 transition rounded-md p-2"
+                  >
+                    <Image
+                      src={recentBlog.thumbnail}
+                      width={64}
+                      height={64}
+                      alt={recentBlog.heading}
+                      className="w-16 h-16 object-cover rounded-md"
+                    />
+                    <div>
+                      <p className={`text-[15px] font-normal font-montserrat `}>
+                        {recentBlog.heading.length > 50 ? recentBlog.heading.slice(0, 47) + '...' : recentBlog.heading}
+                      </p>
+                      <p className={`text-xs text-gray-500 font-montserrat`}>
+                        {new Date(recentBlog.createdAt).toLocaleDateString()}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+          </div>
+        </div>
+      </div>
 
 
       <div className="w-[90%] mx-auto mt-10">
-        <h3 className={`text-center text-4xl my-5 font-medium ${unbounded.className}`}>More Blogs</h3>
+        <h3 className={`text-center text-4xl my-5 font-medium font-unbounded`}>More Blogs</h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
           {loading
             ? Array(3).fill(null).map((_, i) => <SkeletonCard key={i} />)
             : currentBlogs.length === 0
-            ? <p className="text-center text-gray-600 col-span-full">No blogs found.</p>
-            : currentBlogs.map((blog, i) => (
-              <div key={i} className="bg-[#F5F7F9] rounded-lg p-3 shadow hover:shadow-lg transition-shadow duration-300">
-                <Image
-                  src={blog.thumbnail}
-                  width={364.06}
-                  height={242}
-                  alt={blog.heading}
-                  className="w-full h-48 object-cover rounded-md mb-4"
-                  loading="lazy"
-                />
-                <h4 className={`text-xl font-semibold mb-2 ${unbounded.className}`}>
-                  {blog.heading.length > 50 ? blog.heading.slice(0, 47) + '...' : blog.heading}
-                </h4>
-                <p className={`text-sm text-gray-500 mb-2 ${syne.className}`}>
-                  Created: {new Date(blog.createdAt).toLocaleDateString()}
-                </p>
-                <p className={`text-gray-700 mb-3 ${syne.className} Blog-description`}>
-                  {blog.description}
-                </p>
-                <Link
-                  href={`/blogs/${encodeURIComponent(blog.heading)}`}
-                  className="text-white bg-black w-full text-center px-6 py-2 rounded-md inline-block"
-                >
-                  Read More
-                </Link>
-              </div>
-          ))}
+              ? <p className="text-center text-gray-600 col-span-full">No blogs found.</p>
+              : currentBlogs.map((blog, i) => (
+                <div key={i} className="bg-[#F5F7F9] rounded-lg p-3 shadow hover:shadow-lg transition-shadow duration-300">
+                  <Image
+                    src={blog.thumbnail}
+                    width={364.06}
+                    height={242}
+                    alt={blog.heading}
+                    className="w-full h-48 object-cover rounded-md mb-4"
+                    loading="lazy"
+                  />
+                  <h4 className={`text-[20px] font-light mb-2 font-unbounded`}>
+                    {blog.heading.length > 50 ? blog.heading.slice(0, 47) + '...' : blog.heading}
+                  </h4>
+                  <p className={`text-sm text-gray-500 mb-2 font-montserrat`}>
+                    Created: {new Date(blog.createdAt).toLocaleDateString()}
+                  </p>
+                  <div
+                    className=" text-[15px] text-gray-700 mb-3 font-montserrat Blog-description"
+                    dangerouslySetInnerHTML={{ __html: blog.description }}
+                  />
+                  <Link
+                    href={`/blogs/${encodeURIComponent(blog.heading)}`}
+                    className="text-white bg-black w-full text-center px-6 py-2 rounded-md inline-block"
+                  >
+                    Read More
+                  </Link>
+                </div>
+              ))}
         </div>
 
         <div className="flex justify-center gap-2 mb-10">
@@ -200,12 +200,12 @@ export default function Page() {
             page === '...'
               ? <span key={index} className="px-3 py-1 rounded border text-gray-500">...</span>
               : <button
-                  key={index}
-                  onClick={() => setCurrentPage(page)}
-                  className={`px-3 py-1 rounded border ${page === currentPage ? 'bg-purple-600 text-white border-purple-600' : 'hover:bg-gray-100'}`}
-                >
-                  {page}
-                </button>
+                key={index}
+                onClick={() => setCurrentPage(page)}
+                className={`px-3 py-1 rounded border ${page === currentPage ? 'bg-purple-600 text-white border-purple-600' : 'hover:bg-gray-100'}`}
+              >
+                {page}
+              </button>
           )}
 
           <button onClick={handleNext} disabled={currentPage === totalPages} className="px-3 py-1 rounded border disabled:opacity-50">

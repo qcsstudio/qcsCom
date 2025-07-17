@@ -1,14 +1,12 @@
 'use client';
 import Heading from '@/components/HeadingComponent/Heading';
 import IconNtext from '@/components/iconNtextComponent/IconNtext';
-import { Syne, Unbounded } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 
-const unbounded = Unbounded({ subsets: ['latin'], weight: '700' });
-const syne = Syne({ subsets: ['latin'], weight: '400' });
+
 
 export default function BlogList() {
   const [blogs, setBlogs] = useState([]);
@@ -130,14 +128,14 @@ export default function BlogList() {
                       className="w-full h-[242px] object-cover rounded-md mb-4"
                       loading="lazy"
                     />
-                    <h3 className={`text-xl font-semibold mb-2 ${unbounded.className} Blog-heading`}>
+                    <h3 className='text-[20px] font-light mb-2 font-unbounded  Blog-heading'>
                       {blog.heading}
                     </h3>
-                    <p className={`text-sm text-gray-500 ${syne.className}`}>
+                    <p className={`text-sm text-gray-500 font-montserrat`}>
                       Created: {new Date(blog.createdAt).toLocaleString()}
                     </p>
                     <div
-                      className={`text-gray-700 mb-3 ${syne.className} Blog-description`}
+                      className='text-[15px] font-normal text-gray-700 mb-3 font-montserrat Blog-description'
                       dangerouslySetInnerHTML={{ __html: cleanDescription(blog.description) }}
                     ></div>
 
@@ -152,7 +150,7 @@ export default function BlogList() {
           </div>
 
           <div className="w-full lg:w-[30%] max-h-[600px] overflow-y-auto px-5 py-8 bg-[#F5F7F9] rounded-lg no-scrollbar mt-6 lg:mt-0">
-            <h2 className={`text-[26px] font-bold mb-4 ${unbounded.className}`}>Recent Post's</h2>
+            <h2 className={`text-[26px] font-bold mb-4 font-unbounded`}>Recent Post's</h2>
             <div className="space-y-4">
               {loading
                 ? Array.from({ length: 5 }).map((_, idx) => <RecentPostSkeleton key={idx} />)
@@ -174,10 +172,10 @@ export default function BlogList() {
                           className="w-16 h-16 object-cover rounded-md"
                         />
                         <div>
-                          <p className={`text-sm font-semibold leading-snug ${syne.className}`}>
+                          <p className={`text-[14px] font-normal leading-snug font-montserrat`}>
                             {blog.heading.length > 50 ? blog.heading.slice(0, 47) + '...' : blog.heading}
                           </p>
-                          <p className={`text-xs text-gray-500 ${syne.className}`}>
+                          <p className={`text-xs text-gray-500 font-montserrat`}>
                             {new Date(blog.createdAt).toLocaleDateString()}
                           </p>
                         </div>

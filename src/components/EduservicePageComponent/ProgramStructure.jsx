@@ -1,13 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import { Syne, Unbounded } from "next/font/google";
-import Head from "next/head";
 import Heading from "../HeadingComponent/Heading";
 
-const syne = Syne({subsets:['latin'],weight:'500'})
-const unbounded = Unbounded({subsets:['latin'],weight:'600'})
-const ProgramStructure = ({data}) => {
 
+const ProgramStructure = ({data}) => {
 
   return (
     <div className="bg-white text-center w-[90%] mx-auto">
@@ -21,8 +17,8 @@ const ProgramStructure = ({data}) => {
             <div className="w-12 h-12 mb-4 ">
               <Image src={card.image} width={50} height={50} alt="ProgramUi" className="text-gray-300"/>
             </div>
-            <h3 className={`text-2xl font-bold mb-3 text-[#0F0F0F] ${unbounded.className}`}>{card.title}:</h3>
-            <ul className={`list-disc pl-5 space-y-1 text-lg text-[#000000] marker:text-[#F1813B] ${syne.className}`}>
+            <h3 className={`text-2xl font-bold mb-3 text-[#0F0F0F] font-unbounded`}>{card.title}:</h3>
+            <ul className={`list-disc pl-5 space-y-1 text-lg text-[#000000] marker:text-[#F1813B] font-montserrat`}>
               {card.points.map((point, i) => (
                 <li key={i}>{point}</li>
               ))}

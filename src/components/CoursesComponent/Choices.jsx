@@ -1,14 +1,10 @@
 'use client';
 import React from "react";
 import Image from "next/image";
-import { Syne, Unbounded } from "next/font/google";
 import { motion } from "framer-motion";
 import IconNtext from "../iconNtextComponent/IconNtext";
 import Heading from "../HeadingComponent/Heading";
 import { useRouter } from 'next/navigation';
-
-const syne = Syne({ subsets: ["latin"], weight: "400" });
-const unbounded = Unbounded({ subsets: ["latin"], weight: "700" });
 
 const ChoiceBox = ({
   title,
@@ -38,20 +34,20 @@ const ChoiceBox = ({
         </div>
 
         <h3
-          className={`text-lg sm:text-xl md:text-2xl font-bold leading-snug mb-2 ${unbounded.className}`}
+          className={`text-lg sm:text-xl md:text-2xl font-bold leading-snug mb-2 font-unbounded`}
           dangerouslySetInnerHTML={{ __html: title }}
         />
 
-        <p className={`text-sm sm:text-base text-[#000000] mb-2 ${syne.className}`}>
+        <p className={`text-sm sm:text-base text-[#000000] mb-2 font-montserrat`}>
           {description}
         </p>
 
         {extraTitle && (
           <>
-            <h4 className={`font-bold text-lg sm:text-xl md:text-2xl mt-8 ${unbounded.className}`}>
+            <h4 className={`font-bold text-lg sm:text-xl md:text-2xl mt-8 font-unbounded`}>
               {extraTitle}
             </h4>
-            <p className={`text-sm sm:text-base text-[#000000] mt-3 ${syne.className}`}>
+            <p className={`text-sm sm:text-base text-[#000000] mt-3 font-montserrat`}>
               {extraDescription}
             </p>
           </>
@@ -98,7 +94,7 @@ const Choices = ({ title, data, onEnrollClick }) => {
 
       {/* Mobile View */}
       <div className="lg:hidden bg-white py-10 px-4 sm:px-6">
-        <h2 className={`text-2xl sm:text-3xl font-bold text-center mb-10 ${unbounded.className}`}>
+        <h2 className={`text-2xl sm:text-3xl font-bold text-center mb-10 font-unbounded`}>
           {title}
         </h2>
 
@@ -119,20 +115,20 @@ const Choices = ({ title, data, onEnrollClick }) => {
 
                 <div className="text-center sm:text-left">
                   <h3
-                    className={`text-base sm:text-xl md:text-2xl font-bold leading-snug mb-2 ${unbounded.className}`}
+                    className={`text-base sm:text-xl md:text-2xl font-bold leading-snug mb-2 font-unbounded`}
                     dangerouslySetInnerHTML={{ __html: item.title }}
                   />
 
-                  <p className={`text-sm sm:text-base text-[#000000] mb-2 ${syne.className}`}>
+                  <p className={`text-sm sm:text-base text-[#000000] mb-2 font-montserrat`}>
                     {item.description}
                   </p>
 
                   {item.extraTitle && (
                     <>
-                      <h4 className={`font-bold text-base sm:text-xl md:text-2xl mt-8 ${unbounded.className}`}>
+                      <h4 className={`font-bold text-base sm:text-xl md:text-2xl mt-8 font-unbounded`}>
                         {item.extraTitle}
                       </h4>
-                      <p className={`text-sm sm:text-base text-[#000000] mt-3 ${syne.className}`}>
+                      <p className={`text-sm sm:text-base text-[#000000] mt-3 font-montserrat`}>
                         {item.extraDescription}
                       </p>
                     </>
