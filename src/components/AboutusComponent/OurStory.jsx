@@ -2,9 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Heading from "../HeadingComponent/Heading";
-import { Syne } from "next/font/google";
 
-const syne = Syne({ subsets: ['latin'], weight: "500" });
 
 const OurStory = () => {
   return (
@@ -12,7 +10,7 @@ const OurStory = () => {
       <div className="w-[90%] mx-auto">
         <Heading heading="Our Story" />
 
-        <div className={`bg-gray-50 rounded-xl p-6 lg:flex lg:gap-6 ${syne.className}`}>
+        <div className={`bg-gray-50 rounded-xl p-6 lg:flex lg:gap-6 font-montserrat`}>
           {/* Left Text Content */}
           <div className="lg:w-2/3 text-[#000000] text-xl space-y-4">
             <p>

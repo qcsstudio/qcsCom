@@ -6,11 +6,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import 'swiper/css/grid';
 import { Grid, Autoplay } from "swiper/modules";
-import { Unbounded, Syne } from "next/font/google";
+import { Unbounded } from "next/font/google";
 
 
 const unbounded = Unbounded({ subsets: ['latin'], weight: '700' });
-const syne = Syne({ subsets: ['latin'], weight: '400' });
 const StoriesswiperTestimonial = ({ testimonials }) => {
   return (
     <>
@@ -40,14 +39,14 @@ const StoriesswiperTestimonial = ({ testimonials }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className="cursor-pointer"
+                className="cursor-pointer "
               >
-                <div className="p-6 rounded-lg bg-[#F5F7F9] h-[182px] flex">
+                <div className="p-6 rounded-lg bg-[#F5F7F9] h-[200px] flex">
                   <p className="text-[#F1813B] text-3xl leading-none">
                     <IoMdPause />
                   </p>
                   <p
-                    className={`text-[#0F0F0F] text-left text-sm mt-4 ms-3 font-medium ${syne.className}`}
+                    className={`text-[#0F0F0F] text-left text-sm mt-4 ms-3 font-medium font-montserrat`}
                   >
                     {testimonial.quote}
                   </p>
@@ -64,7 +63,7 @@ const StoriesswiperTestimonial = ({ testimonials }) => {
                     >
                       {testimonial.name}
                     </p>
-                    <p className={`text-xs text-[#0F0F0F]  ${syne.className}`}>
+                    <p className={`text-xs text-[#0F0F0F]  font-montserrat`}>
                       {testimonial.title}
                     </p>
                   </div>

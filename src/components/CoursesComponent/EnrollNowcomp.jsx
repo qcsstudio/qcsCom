@@ -3,10 +3,6 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { RxCross2 } from "react-icons/rx"
-import { Syne, Unbounded } from 'next/font/google'
-
-const syne = Syne({ subsets: ['latin'], weight: '400' })
-const unbounded = Unbounded({ subsets: ['latin'], weight: '700' })
 
 const EnrollNowcomp = ({ onClose }) => {
   const [formData, setFormData] = useState({
@@ -27,12 +23,12 @@ const EnrollNowcomp = ({ onClose }) => {
   }
 
   return (
-    <div className={`fixed inset-0 bg-black/60 flex justify-center items-center z-50 ${syne.className}`}>
+    <div className={`fixed inset-0 bg-black/60 flex justify-center items-center z-50 font-montserrat`}>
       <div className="bg-white text-black p-6 rounded-lg w-full max-w-2xl relative">
         <button className="absolute top-2 right-3 text-black text-xl" onClick={onClose}>
           <RxCross2 />
         </button>
-        <h2 className={`text-2xl font-bold text-center mb-6 ${unbounded.className}`}>Registration Form</h2>
+        <h2 className={`text-2xl font-bold text-center mb-6 font-unbounded`}>Registration Form</h2>
 
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" className="border p-2 rounded" />

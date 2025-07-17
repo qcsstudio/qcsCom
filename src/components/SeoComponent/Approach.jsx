@@ -1,7 +1,6 @@
 'use client'
 import React from 'react';
 import Heading from '../HeadingComponent/Heading';
-import { Unbounded } from 'next/font/google';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, FreeMode, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -9,7 +8,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 
-const unbounded = Unbounded({ subsets: ['latin'], weight: '700' });
 
 const Approach = ({ heading, card }) => {
     return (
@@ -39,7 +37,7 @@ const Approach = ({ heading, card }) => {
                         <SwiperSlide>
                             <div key={index} className="bg-[#F5F7F9] w-full h-[480px] max-w-[335px] p-4 rounded-xl ">
                                 {cardsData.heading && (
-                                    <h3 className={`text-[24px] text-[#0F0F0F] mb-3 h-[84px] ${unbounded.className}`} dangerouslySetInnerHTML={{ __html: cardsData.heading }}/>
+                                    <h3 className={`text-[24px] text-[#0F0F0F] mb-3 h-[84px] font-unbounded`} dangerouslySetInnerHTML={{ __html: cardsData.heading }}/>
                                 )}
                                 {cardsData.para && <p className="mb-3 mt-7 text-[20px] text-[#030204">{cardsData.para}</p>}
                                 {cardsData.list?.length > 0 && (

@@ -1,17 +1,14 @@
 import React from 'react';
-import {Syne,Unbounded} from 'next/font/google'
 
-const syne = Syne({subsets: ['latin'],weight: '400'})
-const unbounded = Unbounded({subsets: ['latin'],weight: '700'})
 const FormComponent = ({heading,desc}) => {
   return (
     <div className=' lg:w-[90%]  h-[517px] m-auto relative bg-[#F5F7F9] p-2 mt-8 rounded-xl '>
-      <div className={`w-[97%] lg:w-[80%] bg-[#F1813B] absolute rounded-xl h-[500px] z-10 ${unbounded.className}`}>
+      <div className={`w-[97%] lg:w-[80%] bg-[#F1813B] absolute rounded-xl h-[500px] z-10 font-unbounded`}>
         <h2 className='text-white sm:text-[48px]  text-4xl text-center lg:text-start  mt-10 lg:w-[50%] xl:w-[50%] lg:mt-20 lg:ms-8'>{heading}</h2>
         <p className='text-white text-xl sm:text-2xl font-normal px-4 lg:px-0 mt-4 ms-4 lg:ms-8 lg:w-[43%] sm:w-[70%] md:w-[60%] sm:mx-auto'>{desc}</p>
       </div>
       <div className=' w-[85%] lg:w-[50%] sm:w-[80%]  bg-[#0A0A0A] absolute h-auto outline-2  outline-white rounded-xl p-6 top-60  sm:right-15 lg:top-14 z-20 right-5 md:right-20 lg:right-3 shadow-md'>
-        <form className={`space-y-4 ${syne.className}`}>
+        <form className={`space-y-4 font-montserrat`}>
           <div>
             <label htmlFor='name' className='sr-only'>Your Name</label>
             <input

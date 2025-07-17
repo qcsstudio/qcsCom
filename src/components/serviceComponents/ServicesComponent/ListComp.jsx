@@ -1,11 +1,10 @@
 'use client';
-import { Syne, Unbounded } from 'next/font/google';
+import { Unbounded } from 'next/font/google';
 import React, { useContext, useState } from 'react';
 import { cardcontext } from '@/context/scrollcardcontext';
 import { FaChevronRight } from 'react-icons/fa'; 
 import { VscTriangleRight } from "react-icons/vsc";
 
-const syne = Syne({ subsets: ['latin'], weight: '400' });
 const unbounded = Unbounded({ subsets: ['latin'], weight: '300' });
 
 const ListComp = ({ listData }) => {

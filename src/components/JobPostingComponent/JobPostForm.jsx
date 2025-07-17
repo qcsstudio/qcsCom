@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
 import TiptapEditor from "../EditorComponent/TiptapEditor";
-import { Unbounded } from "next/font/google";
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
@@ -11,7 +10,7 @@ import { FilterMatchMode } from 'primereact/api';
 import { Toast } from 'primereact/toast';
 import { ConfirmDialog, confirmDialog } from 'primereact/confirmdialog';
 
-const unbounded = Unbounded({ subsets: ['latin'], weight: '500' });
+
 
 const JobPostForm = () => {
   // State Management
@@ -186,7 +185,7 @@ const JobPostForm = () => {
   const renderHeader = () => {
     return (
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <h2 className={`text-2xl font-bold ${unbounded.className}`}>Job Postings</h2>
+        <h2 className={`text-2xl font-bold font-unbounded`}>Job Postings</h2>
         <span className="p-input-icon-left w-full md:w-auto">
           <i className="pi pi-search" />
           <InputText

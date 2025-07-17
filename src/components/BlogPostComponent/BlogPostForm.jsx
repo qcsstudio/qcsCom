@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
 import TiptapEditor from "../EditorComponent/TiptapEditor";
-import { Unbounded } from "next/font/google";
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
@@ -14,7 +13,7 @@ import { TfiReload } from "react-icons/tfi";
 import { ImCloudUpload } from "react-icons/im";
 import Image from "next/image";
 
-const unbounded = Unbounded({ subsets: ['latin'], weight: '500' });
+
 
 const BlogPostForm = () => {
   // State Management
@@ -176,7 +175,7 @@ const BlogPostForm = () => {
   const renderHeader = () => {
     return (
       <div className="flex justify-between items-center">
-        <h2 className={`text-2xl font-bold ${unbounded.className}`}>Blog Posts</h2>
+        <h2 className={`text-2xl font-bold font-unbounded`}>Blog Posts</h2>
         <span className="p-input-icon-left">
           <i className="pi pi-search" />
           <InputText

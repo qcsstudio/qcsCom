@@ -24,6 +24,7 @@ import { ClientTestimonial, HomeTestimonial } from '@/containers/ServiceContaine
 import { usePathname } from 'next/navigation';
 import { cardcontext } from '@/context/scrollcardcontext';
 import { useCalendly } from '@/components/CalendlyBadge/CalendlyBadge';
+import ClientSlidenew from './ClientSlidenew';
 
 
 
@@ -70,7 +71,8 @@ const ServicePageContainer = () => {
             <Images />
             <BrandsContainer />
             <Benifits BenefitsData={benefits} />
-            <Slider images={ImagesSlide} />
+            {/* <ClientSlidenew/> */}
+            {/* <Slider images={ImagesSlide} /> */}
             {/* <WorkProcess steps={steps} /> */}
             <Differences title="Business Challenges & Innovative Solutions" heading="Common Challenges Businesses Face:"
                 heading2="QuantumCrafters' Cutting-Edge Solutions:" challenges={challenges} solutions={solutions} bgcolor="#F5F7F9" bgcolor2="black" textColor="black"

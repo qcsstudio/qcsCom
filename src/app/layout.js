@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Syne, Unbounded } from "next/font/google";
+import { Geist, Geist_Mono, Montserrat, Unbounded } from "next/font/google";
 import "./globals.css";
 import { PolicyProvider } from "@/context/policyContext";
 import Scrollcardcontext from "@/context/scrollcardcontext";
@@ -8,16 +8,18 @@ import CalendlyBadge from "@/components/CalendlyBadge/CalendlyBadge";
 import ChatBotComponent from "@/components/ChatBotComponent/ChatBotComponent";
 import { BotProvider } from "@/context/Bot.context";
 
-const syne = Syne({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-  variable: "--font-syne",
-});
+
 const unbounded = Unbounded({
   subsets: ["latin"],
   weight: ["400", "700"], // jo weight chahiye uske according
   variable: "--font-unbounded",
 });
+const montserrat = Montserrat({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+});
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,7 +43,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${syne.variable} ${unbounded.variable}`}>
+    <html lang="en" className={` ${unbounded.variable}`}>
       <head>
           <link
           rel="canonical"
@@ -159,7 +161,7 @@ export default function RootLayout({ children }) {
 
       </head>
       <body
-        className={`${syne.variable} ${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
+        className={` ${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
         <Script id="facebook-pixel" strategy="afterInteractive">
           {`

@@ -1,13 +1,10 @@
 'use client';
 import { useState } from "react";
 import Link from "next/link";
-import { Syne, Unbounded } from "next/font/google";
 import Heading from "../HeadingComponent/Heading";
 import { motion, AnimatePresence } from "framer-motion";
 
 
-const syne = Syne({ subsets: ['latin'], weight: '400' })
-const unbounded = Unbounded({ subsets: ['latin'], weight: '600' })
 
 
 const tabData = [
@@ -73,7 +70,7 @@ export default function Solutions() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           viewport={{ once: true }}
-          className={`flex  justify-between border-gray-200   ${unbounded.className}`}
+          className={`flex  justify-between border-gray-200 font-unbounded`}
         >
           {tabData.map((tab, index) => (
             <motion.div
@@ -118,10 +115,10 @@ export default function Solutions() {
               transition={{ delay: 0.1, duration: 0.1 }}
               className="flex-1"
             >
-              {content.heading && <h2 className={`text-4xl font-bold mb-4 ${unbounded.className}`}>{content.heading}</h2>}
-              {content.description && <p className={`mb-4 text-[21px] ${syne.className}`}>{content.description}</p>}
+              {content.heading && <h2 className={`text-4xl font-bold mb-4 font-unbounded`}>{content.heading}</h2>}
+              {content.description && <p className={`mb-4 text-[21px] font-montserrat`}>{content.description}</p>}
               {content.list && (
-                <ul className={`pl-5 space-y-2 mb-4 list-disc text-[21px] ${syne.className}`}>
+                <ul className={`pl-5 space-y-2 mb-4 list-disc text-[21px] font-montserrat`}>
                   {content.list.map((item, i) => (
                     <li key={i}>
                       {item.strong && <strong>{item.strong}</strong>}
@@ -132,7 +129,7 @@ export default function Solutions() {
               )}
               {content.subDescription && <p className="mb-4">{content.subDescription}</p>}
               {content.buttons && (
-                <div className={`flex gap-4 ${syne.className}`}>
+                <div className={`flex gap-4 font-montserrat`}>
                   {content.buttons.map((btn, i) => (
                     <Link key={i} href={btn.link}>
                       <button className={`px-4 py-2 rounded ${btn.type === "outline"
@@ -183,13 +180,13 @@ export default function Solutions() {
 
             <div className="px-5 py-6 text-black">
               {tab.content.heading && (
-                <h3 className={`text-[18px] font-bold mb-3 ${unbounded.className}`}>{tab.content.heading}</h3>
+                <h3 className={`text-[18px] font-bold mb-3 font-unbounded`}>{tab.content.heading}</h3>
               )}
               {tab.content.description && (
-                <p className={`text-[14px] mb-4 text-gray-700 ${syne.className}`}>{tab.content.description}</p>
+                <p className={`text-[14px] mb-4 text-gray-700 font-montserrat`}>{tab.content.description}</p>
               )}
               {tab.content.list && (
-                <ul className={`list-disc pl-5 mb-5 space-y-2 text-[14px] text-gray-800 ${syne.className}`}>
+                <ul className={`list-disc pl-5 mb-5 space-y-2 text-[14px] text-gray-800 font-montserrat`}>
                   {tab.content.list.map((item, index) => (
                     <motion.li
                       key={index}
@@ -204,7 +201,7 @@ export default function Solutions() {
                 </ul>
               )}
               {tab.content.subDescription && (
-                <p className={`text-[14px] mb-4 text-gray-600 ${syne.className}`}>{tab.content.subDescription}</p>
+                <p className={`text-[14px] mb-4 text-gray-600 font-montserrat`}>{tab.content.subDescription}</p>
               )}
               {tab.content.buttons?.[0] && (
                 <Link href={tab.content.buttons[0].link}>

@@ -1,10 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
-import { Syne, Unbounded } from 'next/font/google'
+import { Unbounded } from 'next/font/google'
 import Heading from '../HeadingComponent/Heading'
 
 
-const syne = Syne({ subsets: ['latin'], weight: '400' })
 const unbounded = Unbounded({ subsets: ['latin'], weight: '600' })
 
 const WeAre = () => {
@@ -15,7 +14,7 @@ const WeAre = () => {
       <div className="bg-gray-50 rounded-xl mt-10 px-4 sm:p-6 sm:flex sm:gap-6">
         {/* Text Section */}
         <div className="sm:w-[75%] text-[#000000] text-xl space-y-4">
-          <p className={`text-xl font-normal mt-10 text-[#000000] ${syne.className}`}>
+          <p className={`text-xl font-normal mt-10 text-[#000000] font-montserrat`}>
             QuantumCrafters Studio is a forward-thinking tech company empowering startups, SMEs, and students
             through AI-powered IT services, intelligent SaaS solutions, and hands-on career training. From
             smart tools like ElevatrX to practical courses in Web Development, Digital Marketing, and AI,

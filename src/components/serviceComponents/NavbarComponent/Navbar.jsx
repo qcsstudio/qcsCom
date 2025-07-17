@@ -4,11 +4,7 @@ import { IoGlobeOutline } from "react-icons/io5";
 import { HiMenu, HiX } from "react-icons/hi";
 import Link from "next/link";
 import Image from 'next/image';
-import { Syne,Unbounded } from "next/font/google";
 
-
-const syne = Syne({ subsets: ["latin"], weight: "400" });
-const unbounded = Unbounded({subsets: ['latin'],weight: '700'})
 
 const Navbar = ({ heading, para }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,7 +19,7 @@ const Navbar = ({ heading, para }) => {
           <Image src='/images/Images/QCS Logo.png' alt="logo" width={194.82} height={40} />
         </Link>
 
-        <div className={`hidden md:flex space-x-11 text-[17px] ${syne.className}`}>
+        <div className={`hidden md:flex space-x-11 text-[17px] font-montserrat`}>
           <Link href="/services" className="hover:text-gray-400">Services</Link>
           <Link href="/courses" className="hover:text-gray-400">Courses</Link>
           <Link href="/aboutus" className="hover:text-gray-400">About Us</Link>
@@ -39,7 +35,7 @@ const Navbar = ({ heading, para }) => {
         </div>
 
 
-        <div className={`hidden md:flex items-center space-x-4 gap-2 ${syne.className}`}>
+        <div className={`hidden md:flex items-center space-x-4 gap-2 font-montserrat`}>
           
           
           <Link href='/contactus' >
