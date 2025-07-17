@@ -1,9 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Heading from "../HeadingComponent/Heading";
-import { Unbounded } from "next/font/google";
 
-const unbounded = Unbounded({subsets:['latin'],weight:"600"})
 const values = [
   {
     title: "Empathy First:",
@@ -45,7 +43,7 @@ const OurValues = () => {
             className="bg-[#F5F7F9] p-4 rounded-2xl h-[295px]  "
           >
            <Image src={value.icon} width={50} height={60} alt={value.icon}  />
-            <h3 className={`font-medium text-xl text-[#030204] mb-6 mt-3 h-[41px] ${unbounded.className  }`}>{value.title}</h3>
+            <h3 className={`font-medium text-xl text-[#030204] mb-6 mt-3 h-[41px] font-unbounded`}>{value.title}</h3>
             <p className={`text-xl text-[#030204 font-montserrat`}>{value.description}</p>
           </div>
         ))}

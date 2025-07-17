@@ -10,9 +10,7 @@ import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import IconNtext from "@/components/iconNtextComponent/IconNtext";
 import Heading from "@/components/HeadingComponent/Heading";
-import { Unbounded } from "next/font/google";
 
-const unbounded = Unbounded({subsets:['latin'],weight:'600'})
 const members = [
   {
     name: "Poonam Kumari",
@@ -100,7 +98,7 @@ const AboutUs = () => {
                       className="w-full h-[352px] rounded-lg mb-3 object-cover"
                       alt={member.name}
                     />
-                    <h3 className={`font-semibold text-black text-lg ${unbounded.className}`}>{member.name}</h3>
+                    <h3 className={`font-semibold text-black text-lg font-unbounded`}>{member.name}</h3>
                     <p className={`text-sm text-gray-500 mb-3 font-montserrat`}>{member.position}</p>
                     <div className="flex justify-center">
                       <Link href={member.link} target="_blank">
@@ -117,7 +115,7 @@ const AboutUs = () => {
         <div className="w-full lg:w-[23%] flex justify-center">
           <div className="bg-[#F1813B] text-white rounded-lg p-6 flex flex-col justify-between lg:w-[300px] h-[450px] mt-1">
             <div>
-              <h3 className={`font-semibold text-xl mb-3 ${unbounded.className}`}>You can be here</h3>
+              <h3 className={`font-semibold text-xl mb-3 font-unbounded`}>You can be here</h3>
               <p className={`text-base font-montserrat`}>
                 We value curiosity, collaboration, and a can-do attitude. Oh, and coffee—lots of coffee.
                 Come join a team that celebrates your unique skills and helps you unlock your full potential.

@@ -1,6 +1,5 @@
 'use client'
 import IconNtext from "@/components/iconNtextComponent/IconNtext";
-import { Unbounded } from "next/font/google";
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
@@ -8,7 +7,7 @@ import { container, child } from '@/components/Animation/Animation';
 import { motion } from 'framer-motion';
 
 
-const unbounded = Unbounded({ subsets: ['latin'], weight: '600' })
+
 const Questions = ({ questions }) => {
   const heading = `FAQ It Up! Your curiosity meets our expertise let's clear things up!`;
 
@@ -28,7 +27,7 @@ const Questions = ({ questions }) => {
         <div className="md:w-1/2 space-y-4 p">
 
           <motion.h2
-      className={`text-center lg:text-start text-3xl md:text-[48px] font-bold leading-tight mt-3 ${unbounded.className}`}
+      className={`text-center lg:text-start text-3xl md:text-[48px] font-bold leading-tight mt-3 font-unbounded`}
       variants={container}
       initial="hidden"
       whileInView="visible"

@@ -1,9 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import Heading from "../HeadingComponent/Heading";
-import { Unbounded } from "next/font/google";
 
-const unbounded = Unbounded({subsets:['latin'],weight:'500'})
 
 const CaseStudies = ({data,data2}) => {
   return (
@@ -17,7 +15,7 @@ const CaseStudies = ({data,data2}) => {
             className={`bg-gray-100 rounded-lg shadow p-1 ${study.offsetTop ? "mt-10" : ""}`}
           >
             <div className="w-full h-80 bg-gray-300 rounded mb-3"></div>
-            <h3 className={`font-bold text-[26px] ${unbounded.className}`}>{study.title}</h3>
+            <h3 className={`font-bold text-[26px] font-unbounded`}>{study.title}</h3>
             <p className={` text-sm font-medium text-gray-600 font-montserrat`}>{study.description}</p>
           </div>
         ))}

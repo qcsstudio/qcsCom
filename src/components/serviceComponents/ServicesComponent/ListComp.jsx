@@ -1,18 +1,15 @@
 'use client';
-import { Unbounded } from 'next/font/google';
 import React, { useContext, useState } from 'react';
 import { cardcontext } from '@/context/scrollcardcontext';
 import { FaChevronRight } from 'react-icons/fa'; 
 import { VscTriangleRight } from "react-icons/vsc";
-
-const unbounded = Unbounded({ subsets: ['latin'], weight: '300' });
 
 const ListComp = ({ listData }) => {
   const { scrollToCard, activeIndex } = useContext(cardcontext); // assuming activeIndex is in context
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <div className={`w-full lg:w-[37%] hidden lg:block ${unbounded.className}`}>
+    <div className={`w-full lg:w-[37%] hidden lg:block font-unbounded`}>
       <div className="grid grid-cols-1 gap-3">
         {listData.map((service, index) => {
           const isActive = index === activeIndex;

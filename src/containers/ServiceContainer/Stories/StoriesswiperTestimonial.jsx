@@ -59,7 +59,7 @@ const StoriesswiperTestimonial = ({ testimonials }) => {
                   />
                   <div className="text-left">
                     <p
-                      className={`font-semibold text-lg ${unbounded.className} text-[#0F0F0F]`}
+                      className={`font-semibold text-lg  text-[#0F0F0F]`}
                     >
                       {testimonial.name}
                     </p>
