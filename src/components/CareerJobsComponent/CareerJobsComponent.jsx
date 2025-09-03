@@ -7,7 +7,7 @@ import PhoneInputWithTailwind from '../ContactComponent/PhoneInputWithTailwind';
 import { Loader } from '../LoaderComponent/Loader';
 
 const Popup = ({ job, onClose }) => {
-  
+
   const [phoneNumber, setPhoneNumber] = useState();
   const [formData, setFormData] = useState({
     name: '',
@@ -32,69 +32,69 @@ const Popup = ({ job, onClose }) => {
   };
 
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  if (!isChecked) {
-    alert('Please agree to the terms before submitting');
-    return;
-  }
-
-  const formPayload = new FormData();
-  
-  // Append all form data
-  for (const [key, value] of Object.entries(formData)) {
-    formPayload.append(key, value);
-  }
-
-  formPayload.append('jobTitle', job.heading);
-  
-  // Append file - changed from 'resume' to 'file' to match backend expectation
-  if (selectedFile) {
-    formPayload.append('file', selectedFile);  // Changed from 'resume' to 'file'
-  }
-
-  try {
-    setIsSubmitting(true);
-
-    const careerResponse = await fetch('/api/email', {
-      method: 'POST',
-      body: formPayload,
-      // Don't set Content-Type header - FormData will set it automatically
-      // with the correct boundary
-    });
-
-    const responseData = await careerResponse.json();  // Parse JSON response
-
-    if (!careerResponse.ok) {
-      // Use server error message if available
-      throw new Error(responseData.error || 'Failed to submit application');
+    if (!isChecked) {
+      alert('Please agree to the terms before submitting');
+      return;
     }
 
-    // Reset form on success
-    setFormData({
-      name: '',
-      email: '',
-      contact: '',
-      location: '',
-      linkedin: '',
-      github: '',
-      experience: '',
-      salary: '',
-    });
-    setSelectedFile(null);
-    setIsChecked(false);
-    onClose();
+    const formPayload = new FormData();
 
-    alert('Application submitted successfully!');
+    // Append all form data
+    for (const [key, value] of Object.entries(formData)) {
+      formPayload.append(key, value);
+    }
 
-  } catch (error) {
-    console.error('Submission error:', error);
-    alert(error.message);  // Show actual error message from server
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+    formPayload.append('jobTitle', job.heading);
+
+    // Append file - changed from 'resume' to 'file' to match backend expectation
+    if (selectedFile) {
+      formPayload.append('file', selectedFile);  // Changed from 'resume' to 'file'
+    }
+
+    try {
+      setIsSubmitting(true);
+
+      const careerResponse = await fetch('/api/email', {
+        method: 'POST',
+        body: formPayload,
+        // Don't set Content-Type header - FormData will set it automatically
+        // with the correct boundary
+      });
+
+      const responseData = await careerResponse.json();  // Parse JSON response
+
+      if (!careerResponse.ok) {
+        // Use server error message if available
+        throw new Error(responseData.error || 'Failed to submit application');
+      }
+
+      // Reset form on success
+      setFormData({
+        name: '',
+        email: '',
+        contact: '',
+        location: '',
+        linkedin: '',
+        github: '',
+        experience: '',
+        salary: '',
+      });
+      setSelectedFile(null);
+      setIsChecked(false);
+      onClose();
+
+      alert('Application submitted successfully!');
+
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert(error.message);  // Show actual error message from server
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <div className="fixed inset-0 bg-black/40 flex justify-center items-center p-4 z-50">
       <div className="bg-[#F5F7F9] scrollbar rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
@@ -151,19 +151,19 @@ const handleSubmit = async (e) => {
             </div>
             <div className="flex justify-between my-8">
               <PhoneInput
-  id="phone-input"
-  international
-  defaultCountry="IN"
-  name="contact"
-  value={formData.contact}
-  onChange={(value) => setFormData({...formData, contact: value})}
-  placeholder="Enter phone number"
-  style={{boxShadow: "-1px 6px 9px -9px rgba(66, 68, 90, 1)"}}
-  className="rounded-[4px] pl-4 bg-white outline-0 w-[280px] h-[50px]"
-/>
+                id="phone-input"
+                international
+                defaultCountry="IN"
+                name="contact"
+                value={formData.contact}
+                onChange={(value) => setFormData({ ...formData, contact: value })}
+                placeholder="Enter phone number"
+                style={{ boxShadow: "-1px 6px 9px -9px rgba(66, 68, 90, 1)" }}
+                className="rounded-[4px] pl-4 bg-white outline-0 focus:outline-none w-[280px] h-[50px]"
+              />
               <input
                 style={{ boxShadow: "-1px 6px 9px -9px rgba(66, 68, 90, 1)" }}
-                className="rounded-[4px] pl-4 bg-white outline-0 w-[280px] h-[50px]"
+                className="rounded-[4px] pl-4 bg-white outline-0 w-[280px] h-[50px] "
                 name="location"
                 placeholder="Current Location"
                 value={formData.location}
@@ -214,7 +214,7 @@ const handleSubmit = async (e) => {
 
             <div className="flex gap-[20px] my-4">
               <input
-              onChange={()=>{setIsChecked(!isChecked)}}
+                onChange={() => { setIsChecked(!isChecked) }}
                 style={{ boxShadow: "-1px 6px 9px -9px rgba(66, 68, 90, 1)" }} className="h-[42px] w-[42px] border-0 rounded-[4px]" type="checkbox" required />
               <p className="text-[14px]">
                 I certify that all information provided is true and complete to the best of my knowledge.
