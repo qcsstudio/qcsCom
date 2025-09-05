@@ -1,22 +1,47 @@
 "use client";
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 const Page = () => {
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  const searchParams = useSearchParams();
+  const token = searchParams.get("token");
+
+  const [formSubmitted, setFormSubmitted] = useState(token);
   const [formData, setFormData] = useState({ name: "", email: "" });
+  const [isVerified, setIsVerified] = useState(false)
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.name && formData.email) {
       setFormSubmitted(true);
+      setIsVerified(true);
+      setFormSubmitted(false);
+
+      try {
+        const res = await fetch("http://localhost:3000/api/send-mail", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: formData.email,
+            name: formData.name
+          }),
+        });
+        const data = await res.json();
+        console.log("API Response:", data);
+      } catch (error) {
+        console.error("Error calling API:", error);
+      }
     } else {
       alert("Please fill both fields!");
     }
   };
+
+
+
 
   return (
     <div style={{ height: "100vh", position: "relative" }}>
@@ -28,7 +53,7 @@ const Page = () => {
         style={{
           border: "none",
           filter: formSubmitted ? "none" : "blur(15px)",
-          pointerEvents: formSubmitted ? "auto" : "none", 
+          pointerEvents: formSubmitted ? "auto" : "none",
         }}
       />
 
@@ -66,6 +91,20 @@ const Page = () => {
                 Submit & View PDF
               </button>
             </form>
+          </div>
+        </div>
+      )}
+      {isVerified && (
+        <div
+          className="absolute inset-0 flex items-center justify-center bg-black/20 bg-opacity-50"
+          style={{ zIndex: 10 }}
+        >
+          <div className="bg-white p-6 rounded-2xl shadow-xl w-80  grid justify-center items-center">
+              <i class="checkmark text-[#9ABC66] text-[100px] m-auto">✓</i>
+            <h2 className="text-xl font-semibold mb-4 text-center">
+               Please check your email inbox to verify your account.
+            </h2>
+
           </div>
         </div>
       )}

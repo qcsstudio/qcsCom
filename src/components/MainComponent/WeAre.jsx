@@ -1,3 +1,4 @@
+
 import React from 'react'
 import Link from 'next/link'
 import { Unbounded } from 'next/font/google'
@@ -7,8 +8,19 @@ import Heading from '../HeadingComponent/Heading'
 const unbounded = Unbounded({ subsets: ['latin'], weight: '600' })
 
 const WeAre = () => {
+
+
+
+
   return (
     <div className="w-[90%] mx-auto mt-10">
+
+      {/* <div className='w-full h-screen border border-black relative'>
+        <div className='w-[300px] h-[100px] absolute bottom-0 right-0 bg-[#ececec] z-50'></div>
+
+      <spline-viewer url="https://prod.spline.design/HmOuhtKFDx2G8L3W/scene.splinecode" className="relative" ></spline-viewer>
+      </div> */}
+
       <Heading heading="Who We Are ?" />
 
       <div className="bg-gray-50 rounded-xl mt-10 px-4 sm:p-6 sm:flex sm:gap-6">
@@ -39,4 +51,3 @@ const WeAre = () => {
 }
 
 export default WeAre;
-  
