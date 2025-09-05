@@ -22,7 +22,7 @@ const QcsDeck = () => {
       setFormSubmitted(false);
 
       try {
-        const res = await fetch("http://localhost:3000/api/send-mail", {
+        const res = await fetch("/api/send-mail", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
