@@ -63,7 +63,7 @@ const generateVerificationEmail = (verifyUrl) => `
 export async function POST(req) {
   try {
     await connectMongo();
-    const { email,name ,path} = await req.json();
+    const { email, name, path } = await req.json();
 
     // generate token
     const token = crypto.randomBytes(32).toString("hex");
@@ -71,35 +71,45 @@ export async function POST(req) {
 
     // save token in DB
     let user = await pdfViewers.findOne({ email });
-    console.log(user,"useruseruseruser")
+   
+    console.log(user, "useruseruseruser")
     if (!user) {
-      user = new pdfViewers({name:name, email, verifyToken: token, verifyTokenExpiry: expiry });
+      user = new pdfViewers({ name: name, email, verifyToken: token, verifyTokenExpiry: expiry, pdftype: path });
+      if (user) {
+       let transporter= nodemailer.createTransport({
+          host: "smtpout.secureserver.net", // 👈 ya phir smtp
+          port: 465,
+          secure: true,
+          auth: {
+            user: process.env.NEXT_EMAIL_USER,
+            pass: process.env.NEXT_EMAIL_PASS,
+          },
+        });
+        const verifyUrl = `${process.env.NEXT_PUBLIC_Live_URL}/api/verify-email?token=${token}&email=${email}&path=${path}`;
+
+      await transporter.sendMail({
+        from: process.env.NEXT_EMAIL_USER,
+        to: email,
+        subject: "Verify your email",
+        html: generateVerificationEmail(verifyUrl)
+      });
+      }
+      
     } else {
-    user.name=name
+      user.name = name
       user.verifyToken = token;
       user.verifyTokenExpiry = expiry;
+      user.pdftype = path
+      const redirectUrl = `${process.env.NEXT_PUBLIC_Live_URL}${path}?token=${token}`
+      console.log(redirectUrl,"redirectUrlredirectUrlredirectUrl")
+      return NextResponse.redirect(redirectUrl)
     }
     await user.save();
 
     // setup email transport
-    const transporter = nodemailer.createTransport({
-      host: "smtpout.secureserver.net", // 👈 ya phir smtp
-      port:465,
-      secure: true,
-      auth: {
-        user:process.env.NEXT_EMAIL_USER,
-        pass:process.env.NEXT_EMAIL_PASS,
-      },
-    });
 
-    const verifyUrl = `${process.env.NEXT_PUBLIC_Live_URL}/api/verify-email?token=${token}&email=${email}&path=${path}`;
 
-    await transporter.sendMail({
-      from: process.env.NEXT_EMAIL_USER,
-      to: email,
-      subject: "Verify your email",
-      html:generateVerificationEmail(verifyUrl)
-    });
+
 
     return NextResponse.json({ success: true, message: "Verification email sent!" });
   } catch (err) {

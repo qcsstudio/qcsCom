@@ -20,7 +20,9 @@ const WeAre = () => {
 
       <spline-viewer url="https://prod.spline.design/HmOuhtKFDx2G8L3W/scene.splinecode" className="relative" ></spline-viewer>
       </div> */}
-
+{/* <spline-viewer url="https://prod.spline.design/dMG1wIjpkXPU75Q6/scene.splinecode"></spline-viewer>
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.56/build/spline-viewer.js"></script> */}
+<spline-viewer url="https://prod.spline.design/dMG1wIjpkXPU75Q6/scene.splinecode"></spline-viewer>
       <Heading heading="Who We Are ?" />
 
       <div className="bg-gray-50 rounded-xl mt-10 px-4 sm:p-6 sm:flex sm:gap-6">

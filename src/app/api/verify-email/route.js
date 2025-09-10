@@ -12,7 +12,7 @@ export async function GET(req) {
     const path = searchParams.get("path");
 
     const user = await pdfViewers.findOne({ email, verifyToken: token });
-
+console.log(user,"useruseruser")
     if (!user) {
       return NextResponse.json({ success: false, message: "Invalid token or email" }, { status: 400 });
     }
@@ -22,8 +22,8 @@ export async function GET(req) {
     }
 
     user.isVerified = true;
-    user.verifyToken = undefined;
-    user.verifyTokenExpiry = undefined;
+    user.verifyToken = token;
+    user.verifyTokenExpiry =user.verifyTokenExpiry;
     await user.save();
      const redirectUrl = `${process.env.NEXT_PUBLIC_Live_URL}/${path}?token=${token}`;
     return NextResponse.redirect(redirectUrl);
