@@ -159,7 +159,7 @@ export default function RootLayout({ children }) {
 
 {/* <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.40/build/spline-viewer.js"></script> */}
 
-<script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.56/build/spline-viewer.js"></script>
+{/* <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.56/build/spline-viewer.js"></script> */}
 
       </head>
       <body
