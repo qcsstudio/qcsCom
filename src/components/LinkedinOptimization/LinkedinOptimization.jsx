@@ -20,7 +20,7 @@ const LinkedinOptimization = () => {
         e.preventDefault();
         if (formData.name && formData.email) {
             setFormSubmitted(true);
-            
+
             setFormSubmitted(false);
             setLoading(true)
 
@@ -34,19 +34,20 @@ const LinkedinOptimization = () => {
                         path: pathname
                     }),
                 });
-                 const data = await res.json();
+                const data = await res.json();
                 console.log("API Response:", data);
-                 const success = data?.success
-                 const isVerified = data?.isVerified
-                 if(success == true ){
+                const success = data?.success
+                const isVerified = data?.isVerified
+                if (success == true) {
                     setLoading(false)
                     setIsVerified(true);
-                     
-                 }
-                 if(isVerified == true){
+
+                }
+                if (isVerified == true) {
+                    setIsVerified(false);
                     window.location.href = data.url;
 
-                 }
+                }
             } catch (error) {
                 console.error("Error calling API:", error);
             }
@@ -104,12 +105,12 @@ const LinkedinOptimization = () => {
                                 onChange={handleChange}
                                 className="p-2 border rounded-lg"
                             />
-                            
+
                             <button
                                 type="submit"
                                 className="bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 flex justify-center"
                             >
-                               {loading? <Spinner/>:"Submit & View PDF"} 
+                                {loading ? <Spinner /> : "Submit & View PDF"}
                             </button>
                         </form>
                     </div>

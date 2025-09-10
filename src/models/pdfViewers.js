@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const emailVerify = new mongoose.Schema({
  name: { type: String, required: true },
-  email: { type: String, required: true, unique: true },
+  email: { type: String, required: true },
   isVerified: { type: Boolean, default: false },
   verifyToken: { type: String },
   pdftype:{type:String,required:true},

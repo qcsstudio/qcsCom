@@ -71,9 +71,10 @@ export async function POST(req) {
     const expiry = new Date(Date.now() + 1000 * 60 * 60); // 1 hour
 
     // save token in DB
-    let user = await pdfViewers.findOne({ email });
+    let user = await pdfViewers.findOne({ email:email,pdftype:path });
 
     console.log(user, "useruseruseruser")
+    // return
    if (!user) {
   // create new user
   user = new pdfViewers({
@@ -97,7 +98,7 @@ export async function POST(req) {
     },
   });
 
-  const verifyUrl = `${process.env.NEXT_PUBLIC_Live_URL}/api/verify-email?token=${token}&email=${email}&path=${path}`;
+  const verifyUrl = `${process.env.NEXT_PUBLIC_Local_URL}/api/verify-email?token=${token}&email=${email}&path=${path}`;
 
   await transporter.sendMail({
     from: process.env.NEXT_EMAIL_USER,
@@ -117,7 +118,7 @@ export async function POST(req) {
 
   await user.save();
 
-  const redirectUrl = `${process.env.NEXT_PUBLIC_Live_URL}${path}?token=${token}`;
+  const redirectUrl = `${process.env.NEXT_PUBLIC_Local_URL}${path}?token=${token}`;
   console.log(redirectUrl,"redirectUrlredirectUrlredirectUrlredirectUrl")
 
    return NextResponse.json({ success: true, message: "",url:redirectUrl, isVerified:true}, { status: 200 });

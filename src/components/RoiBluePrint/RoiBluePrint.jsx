@@ -45,6 +45,7 @@ const RoiBluePrint = () => {
                      
                  }
                  if(isVerified == true){
+                     setIsVerified(false);
                     window.location.href = data.url;
 
                  }

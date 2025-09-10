@@ -25,7 +25,7 @@ console.log(user,"useruseruser")
     user.verifyToken = token;
     user.verifyTokenExpiry =user.verifyTokenExpiry;
     await user.save();
-     const redirectUrl = `${process.env.NEXT_PUBLIC_Live_URL}/${path}?token=${token}`;
+     const redirectUrl = `${process.env.NEXT_PUBLIC_Local_URL}/${path}?token=${token}`;
     return NextResponse.redirect(redirectUrl);
     // return NextResponse.json({ success: true, message: "Email verified successfully!" });
   } catch (err) {
