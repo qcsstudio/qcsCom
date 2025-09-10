@@ -64,6 +64,7 @@ export async function POST(req) {
   try {
     await connectMongo();
     const { email, name, path } = await req.json();
+    console.log(path, "2222222222222")
 
     // generate token
     const token = crypto.randomBytes(32).toString("hex");
@@ -71,47 +72,58 @@ export async function POST(req) {
 
     // save token in DB
     let user = await pdfViewers.findOne({ email });
-   
+
     console.log(user, "useruseruseruser")
-    if (!user) {
-      user = new pdfViewers({ name: name, email, verifyToken: token, verifyTokenExpiry: expiry, pdftype: path });
-      if (user) {
-       let transporter= nodemailer.createTransport({
-          host: "smtpout.secureserver.net", // 👈 ya phir smtp
-          port: 465,
-          secure: true,
-          auth: {
-            user: process.env.NEXT_EMAIL_USER,
-            pass: process.env.NEXT_EMAIL_PASS,
-          },
-        });
-        const verifyUrl = `${process.env.NEXT_PUBLIC_Live_URL}/api/verify-email?token=${token}&email=${email}&path=${path}`;
+   if (!user) {
+  // create new user
+  user = new pdfViewers({
+    name,
+    email,
+    verifyToken: token,
+    verifyTokenExpiry: expiry,
+    pdftype: path,
+  });
 
-      await transporter.sendMail({
-        from: process.env.NEXT_EMAIL_USER,
-        to: email,
-        subject: "Verify your email",
-        html: generateVerificationEmail(verifyUrl)
-      });
-      }
-      
-    } else {
-      user.name = name
-      user.verifyToken = token;
-      user.verifyTokenExpiry = expiry;
-      user.pdftype = path
-      const redirectUrl = `${process.env.NEXT_PUBLIC_Live_URL}${path}?token=${token}`
-      console.log(redirectUrl,"redirectUrlredirectUrlredirectUrl")
-      return NextResponse.redirect(redirectUrl)
-    }
-    await user.save();
+  await user.save();
 
-    // setup email transport
+  // send verification mail
+  let transporter = nodemailer.createTransport({
+    host: "smtpout.secureserver.net",
+    port: 465,
+    secure: true,
+    auth: {
+      user: process.env.NEXT_EMAIL_USER,
+      pass: process.env.NEXT_EMAIL_PASS,
+    },
+  });
 
+  const verifyUrl = `${process.env.NEXT_PUBLIC_Live_URL}/api/verify-email?token=${token}&email=${email}&path=${path}`;
 
+  await transporter.sendMail({
+    from: process.env.NEXT_EMAIL_USER,
+    to: email,
+    subject: "Verify your email",
+    html: generateVerificationEmail(verifyUrl),
+  });
 
+  return NextResponse.json({ success: true, message: "Verification email sent!",isVerified:false });
 
-    return NextResponse.json({ success: true, message: "Verification email sent!" });
+} else {
+  // update existing user
+  user.name = name;
+  user.verifyToken = token;
+  user.verifyTokenExpiry = expiry;
+  user.pdftype = path;
+
+  await user.save();
+
+  const redirectUrl = `${process.env.NEXT_PUBLIC_Live_URL}${path}?token=${token}`;
+  console.log(redirectUrl,"redirectUrlredirectUrlredirectUrlredirectUrl")
+
+   return NextResponse.json({ success: true, message: "",url:redirectUrl, isVerified:true}, { status: 200 });
+  
+}
+
   } catch (err) {
     console.error("Send email error:", err);
     return NextResponse.json({ success: false, message: err.message }, { status: 500 });

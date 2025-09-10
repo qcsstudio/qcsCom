@@ -10,7 +10,7 @@ export async function GET(req) {
     const token = searchParams.get("token");
     const email = searchParams.get("email");
     const path = searchParams.get("path");
-
+console.log(path,"111111111111")
     const user = await pdfViewers.findOne({ email, verifyToken: token });
 console.log(user,"useruseruser")
     if (!user) {

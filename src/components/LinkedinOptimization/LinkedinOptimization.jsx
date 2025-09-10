@@ -6,7 +6,7 @@ import Spinner from "../Spinner";
 const LinkedinOptimization = () => {
     const searchParams = useSearchParams();
     const token = searchParams.get("token");
-    const pathname = usePathname().split("/")[1];
+    const pathname = usePathname()
     const [formSubmitted, setFormSubmitted] = useState(token);
     const [formData, setFormData] = useState({ name: "", email: "" });
     const [isVerified, setIsVerified] = useState(false)
@@ -37,9 +37,11 @@ const LinkedinOptimization = () => {
                 const data = await res.json();
                 console.log("API Response:", data);
                  const success = data?.success
-                 if(success == true){
+                 const isVerified = data?.isVerified
+                 if(success == true && isVerified == true){
                     setLoading(false)
                     setIsVerified(true);
+                     window.location.href = data.url;
                  }
             } catch (error) {
                 console.error("Error calling API:", error);
