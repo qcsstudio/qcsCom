@@ -39,10 +39,14 @@ const RoiBluePrint = () => {
                 console.log("API Response:", data);
                  const success = data?.success
                  const isVerified = data?.isVerified
-                 if(success == true && isVerified == true){
+                 if(success == true ){
                     setLoading(false)
                     setIsVerified(true);
-                     window.location.href = data.url;
+                     
+                 }
+                 if(isVerified == true){
+                    window.location.href = data.url;
+
                  }
             } catch (error) {
                 console.error("Error calling API:", error);
