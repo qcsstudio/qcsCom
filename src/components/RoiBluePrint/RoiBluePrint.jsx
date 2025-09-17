@@ -89,7 +89,7 @@ const RoiBluePrint = () => {
                         <h2 className="text-xl font-semibold mb-4 text-center">
                             Access PDF
                         </h2>
-                        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                        <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-x">
                             <input
                                 type="text"
                                 name="name"

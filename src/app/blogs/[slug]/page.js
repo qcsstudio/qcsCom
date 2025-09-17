@@ -30,7 +30,10 @@ const SkeletonRecentPost = () => (
 );
 
 export default function Page() {
-  const { slug } = useParams();
+ const { slug } = useParams();
+const decodedSlug = decodeURIComponent(slug);
+
+console.log("Original slug:", decodedSlug);
   const [blog, setBlog] = useState(null);
   const [blogs, setBlogs] = useState([]);
   const [error, setError] = useState('');
@@ -41,7 +44,8 @@ export default function Page() {
 
   const fetchBlog = async () => {
     try {
-      const res = await fetch(`/api/blog/${encodeURIComponent(slug)}`);
+    const OriginalHeading=decodedSlug.replace(/_/g, " ");
+      const res = await fetch(`/api/blog/${OriginalHeading}`);
       if (!res.ok) throw new Error('Failed to fetch blog');
       const data = await res.json();
       setTimeout(() => {
@@ -110,13 +114,13 @@ export default function Page() {
           ) : (
             <>
               <img src={blog.thumbnail} alt={blog.heading} className='rounded-lg mb-6' />
-              <h2 className="text-[20px] font-light mb-4 font-unbounded">{blog.heading}</h2>
+              <h2 className="font-light mb-4 font-unbounded">{blog.heading}</h2>
               <p className="text-sm text-gray-500 mb-2">Created: {new Date(blog.createdAt).toLocaleString()}</p>
-              <div className="text-[15px] text-[#202124]" dangerouslySetInnerHTML={{ __html: blog.description }}></div>
+              <div className=" text-[#202124]" dangerouslySetInnerHTML={{ __html: blog.description }}></div>
             </>
           )}
         </div>
-
+{/* Recent Post's------------------ */}
         <div className="w-full lg:w-[40%] h-[600px] mt-6 lg:mt-0 rounded-lg px-5 py-8 bg-[#F5F7F9] overflow-y-auto no-scrollbar">
           <h2 className={`text-[26px] font-bold mb-4 font-unbounded`}>Recent Post&#39;s</h2>
           <div className="space-y-4">
@@ -129,7 +133,7 @@ export default function Page() {
                 .map((recentBlog, index) => (
                   <Link
                     key={index}
-                    href={`/blogs/${encodeURIComponent(recentBlog.heading)}`}
+                    href={`/blogs/${(recentBlog.heading?.trim().replace(/\s+/g, "_"))}`}
                     className="flex gap-3 items-start border-b border-gray-300 pb-3 hover:bg-gray-100 transition rounded-md p-2"
                   >
                     <Image
@@ -182,7 +186,7 @@ export default function Page() {
                     dangerouslySetInnerHTML={{ __html: blog.description }}
                   />
                   <Link
-                    href={`/blogs/${encodeURIComponent(blog.heading)}`}
+                    href={`/blogs/${blog.heading?.trim().replace(/\s+/g, "_")}`}
                     className="text-white bg-black w-full text-center px-6 py-2 rounded-md inline-block"
                   >
                     Read More
