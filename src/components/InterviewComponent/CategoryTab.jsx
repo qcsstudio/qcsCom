@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 
-const CategoryTab = () => {
+const CategoryTab = ({ setActivecategory, activecategory }) => {
   const [categories, setCategories] = useState([])
   const [questions, setQuestions] = useState([])
   const [selectedOptions, setSelectedOptions] = useState([])
@@ -30,6 +30,7 @@ const CategoryTab = () => {
 
   const fetchQuestions = async (id, pageParam = page) => {
     try {
+      console.log(pageParam, "pagepagepage")
       console.log(pageParam, "pagepagepage")
       const res = await fetch(`/api/quiz-question/list?id=${id}&page=${pageParam}`)
       const data = await res.json()
@@ -126,50 +127,64 @@ const CategoryTab = () => {
           {categories.map((cat) => (
             <li
               key={cat._id}
-              className="px-4 py-2 border rounded-lg cursor-pointer hover:bg-[#f1650e] font-montserrat font-semibold bg-[#F1813B] text-white"
-              onClick={() => fetchQuestions(cat._id)}
+              className={`px-4 py-2 border rounded-lg cursor-pointer font-montserrat font-semibold bg-[#F1813B] hover:bg-[#f1650e] text-white
+   
+    ${quizStarted ? "opacity-50 cursor-not-allowed" : ""}`}
+              onClick={() => {
+                if (!quizStarted) {   // ❌ agar quiz start ho gaya hai to category change mat hone do
+                  fetchQuestions(cat._id)
+                  setActivecategory(cat.title)
+                }
+              }}
             >
               {cat.title}
             </li>
+
           ))}
         </ul>
       </div>
+      <div className="w-[90%] mx-auto mb-4">
+        <p className="text-center text-red-700 font-bold bg-red-100 border border-red-300 px-6 py-3 rounded-lg shadow-md">
+          ⚠️ Do not switch tabs or minimize the browser — the quiz will end automatically!
+        </p>
+      </div>
+      {questions?.length > 0 && <div className='w-[90%] mx-auto'>
+        {!quizStarted ? (
+          <div className="flex justify-end mb-4">
+            <button
+              onClick={handleStartQuiz}
+              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-montserrat"
+            >
+              Start Quiz
+            </button>
+          </div>
+        ) : (
+          <div className="flex justify-between items-center mb-4">
+            <h4 className="font-medium">
+              <strong>Page: </strong> {page}/{totalPages}
+            </h4>
+            <span
+              className={`px-4 py-2 rounded-lg font-bold ${timeLeft > 0
+                ? "bg-green-100 text-green-700"
+                : "bg-red-100 text-red-700"
+                }`}
+            >
+              {timeLeft > 0 ? `Time Left: ${timeLeft}s` : "Time's Up!"}
+            </span>
 
-      <div className="w-[90%] mx-auto space-y-6">
-        <div className="w-[90%] mx-auto mb-4">
-          <p className="text-center text-red-700 font-bold bg-red-100 border border-red-300 px-6 py-3 rounded-lg shadow-md">
-            ⚠️ Do not switch tabs or minimize the browser — the quiz will end automatically!
-          </p>
-        </div>
+          </div>
+        )}
+      </div>
+
+      }
+
+      <div className="w-[90%] mx-auto space-y-6 md:h-[400px] lg:h-[450px] xl:h-[550px] overflow-y-auto no-scrollbar">
+
 
         {questions?.length > 0 ? (
           <>
-            {!quizStarted ? (
-              <div className="flex justify-center mb-4">
-                <button
-                  onClick={handleStartQuiz}
-                  className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-                >
-                  Start Quiz
-                </button>
-              </div>
-            ) : (
-              <div className="flex justify-between items-center mb-4">
-                <h4 className="font-medium">
-                  {page}/{totalPages}
-                </h4>
-                <span
-                  className={`px-4 py-2 rounded-lg font-bold ${timeLeft > 0
-                    ? "bg-green-100 text-green-700"
-                    : "bg-red-100 text-red-700"
-                    }`}
-                >
-                  {timeLeft > 0 ? `Time Left: ${timeLeft}s` : "Time's Up!"}
-                </span>
 
-              </div>
-            )}
-
+            {/* Questions ----------- */}
             {questions.map((q, qIdx) => (
               <div
                 key={q._id}
@@ -201,7 +216,7 @@ const CategoryTab = () => {
           </>
         ) : (
           <div className="flex items-center justify-center py-10">
-            <p className="text-gray-600 text-lg font-medium bg-gray-100 px-6 py-3 rounded-lg shadow-sm border">
+            <p className="text-gray-600 text-lg font-medium bg-gray-100 px-6 py-3 rounded-lg shadow-sm border font-montserrat">
               Please choose a category to start quiz
             </p>
           </div>
@@ -210,7 +225,7 @@ const CategoryTab = () => {
 
       {questions.length > 0 && quizStarted && (
 
-        <div className="w-[90%] mx-auto mt-6 flex justify-start">
+        <div className="w-[90%] mx-auto mt-6 flex justify-start font-montserrat">
           {
             page === totalPages ? <button
               onClick={handleSubmitQuiz}

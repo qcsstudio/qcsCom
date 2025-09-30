@@ -5,8 +5,9 @@ import React, { useEffect, useState } from 'react'
 
 const Page = () => {
   const [students, setStudents] = useState([])
-
   const [userId, setUserId] = useState(null)
+
+const [activecategory,setActivecategory] = useState("")
 
   useEffect(() => {
 
@@ -47,18 +48,34 @@ const Page = () => {
           <div className="">
         {students ? (
         <div className="p-6 w-full">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4 font-unbounded">Student Profile</h2>
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4 font-unbounded"> Profile</h2>
           
           <div className="space-y-4">
             <div>
-              <p className="text-lg text-gray-500 font-unbounded">Full Name</p>
+              <p className="text-lg text-gray-500 font-unbounded">Full Name : </p>
               <p className="text-base font-medium text-gray-900 font-montserrat">{students.fullName}</p>
             </div>
 
             <div>
-              <p className="text-lg text-gray-500 font-unbounded">Email</p>
+              <p className="text-lg text-gray-500 font-unbounded">Email :</p>
               <p className="text-base font-medium text-gray-900 font-montserrat">{students.email}</p>
             </div>
+            <div>
+              <p className="text-lg text-gray-500 font-unbounded">CollegeName :</p>
+              <p className="text-base font-medium text-gray-900 font-montserrat">{students.collegeName}</p>
+            </div>
+            <div>
+              <p className="text-lg text-gray-500 font-unbounded">CollegeName :</p>
+              <p className="text-base font-medium text-gray-900 font-montserrat">{students.collegeName}</p>
+            </div>
+            {
+              activecategory &&
+               <div>
+              <p className="text-lg text-gray-500 font-unbounded">Category :</p>
+              <p className="text-base font-medium text-gray-900 font-montserrat">{activecategory}</p>
+            </div>
+            }
+           
           </div>
         </div>
       ) : (
@@ -70,7 +87,7 @@ const Page = () => {
         {/* questions section------------ */}
         <div className='w-full '>
           
-          <CategoryTab/>
+          <CategoryTab setActivecategory={setActivecategory} activecategory={activecategory}/>
         </div>
 
       </div>

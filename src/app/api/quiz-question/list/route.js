@@ -7,7 +7,7 @@ export async function GET(req) {
         const { searchParams } = new URL(req.url);
         const id = searchParams.get("id");
         const page = parseInt(searchParams.get("page") || "1");
-        const limit = 2;
+        const limit = 4;
         const skip = (page - 1) * limit;
         const totalDocs = await QuizQuestion.countDocuments({ category_id: id });
         const totalPages = Math.ceil(totalDocs / limit);
