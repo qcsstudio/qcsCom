@@ -48,4 +48,4 @@ resultSchema.pre("save", function (next) {
   else this.grade = "F";
   next();
 });
-export default mongoose.models.Result || mongoose.model("Result", resultSchema);
+export default mongoose.models.Quizresult || mongoose.model("Quizresult", resultSchema);

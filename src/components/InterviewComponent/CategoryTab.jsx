@@ -4,15 +4,16 @@ import React, { useState, useEffect } from 'react'
 const CategoryTab = () => {
   const [categories, setCategories] = useState([])
   const [questions, setQuestions] = useState([])
-  const [selectedOptions, setSelectedOptions] = useState({})
+  const [selectedOptions, setSelectedOptions] = useState([])
   const [checkedQuestions, setCheckedQuestions] = useState([])
   const [quizCatId, setQuizCatId] = useState(null)
   const [page, setpage] = useState(1)
   const [totalPages, setTotalPages] = useState(0)
+  const [quizStarted, setQuizStarted] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(60);
+  const [quizEnded, setQuizEnded] = useState(false);
+  const candidateId = localStorage.getItem("user_Id")
 
-  const [level, setLevel] = useState("Basic")
-    const [quizStarted, setQuizStarted] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(60); 
   const fetchCategories = async () => {
     try {
       const res = await fetch(`/api/quiz-category/list`)
@@ -29,7 +30,7 @@ const CategoryTab = () => {
 
   const fetchQuestions = async (id, pageParam = page) => {
     try {
-      console.log(pageParam,"pagepagepage")
+      console.log(pageParam, "pagepagepage")
       const res = await fetch(`/api/quiz-question/list?id=${id}&page=${pageParam}`)
       const data = await res.json()
       setQuestions(data.data)
@@ -41,37 +42,85 @@ const CategoryTab = () => {
     }
   }
 
-  const handleOptionChange = (questionId, optionId) => {
+  const handleChangeOption = (questionId, optionId, opt) => {
+    console.log(opt, ":opt")
     setSelectedOptions(prev => ({
       ...prev,
-      [questionId]: optionId
+      [questionId]: optionId,
+      is_correct: opt?.is_correct,
+      selected_option: opt?.option_id,
+      question_id: optionId
     }))
+
+    let obj = {
+      [questionId]: questionId,
+      is_correct: opt?.is_correct,
+      selected_option: opt?.option_id,
+      question_id: questionId
+    }
+
+    setCheckedQuestions((pre) => ([...pre, obj]))
   }
 
+  console.log(checkedQuestions, "checkedQuestionscheckedQuestionscheckedQuestions")
   const handleNext = () => {
-      const next = page + 1;
+    const next = page + 1;
     if (page < totalPages && quizCatId) {
       setpage(next)
-      fetchQuestions(quizCatId,next)
+      fetchQuestions(quizCatId, next)
+    }
+  }
+
+  const handleSubmitQuiz = async () => {
+    try {
+      const newObj = {
+        candidate_id: candidateId,
+        category_id: quizCatId,
+        answers: checkedQuestions
+      }
+      console.log(newObj, "newObjnewObjnewObj")
+      if (newObj?.answers?.length > 2) {
+        const res = await fetch("/api/quiz-result", {
+          method: "POST",
+          body: JSON.stringify(newObj)
+        })
+        console.log(res, "resresres")
+      }
+    } catch (error) {
+      console.log("submit quiz: ", error)
     }
   }
 
   const handleStartQuiz = () => {
     setQuizStarted(true);
-    setTimeLeft(60); // reset to 1 minute
+    setTimeLeft(60);
     setSelectedOptions({});
   };
-    useEffect(() => {
-    if (quizStarted && timeLeft > 0) {
+  useEffect(() => {
+    if (quizStarted && timeLeft > 0 && !quizEnded) {
       const timer = setInterval(() => setTimeLeft((t) => t - 1), 1000);
       return () => clearInterval(timer);
+    } else if (timeLeft <= 0) {
+      setQuizEnded(true);
     }
-  }, [quizStarted, timeLeft]);
+  }, [quizStarted, timeLeft, quizEnded]);
 
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.hidden && quizStarted && !quizEnded) {
+        setQuizEnded(true);
+        alert("You switched tabs! Quiz ended.");
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [quizStarted, quizEnded]);
 
   return (
     <div className=" border-t pt-10">
-      {/* Categories Tabs */}
       <div className="flex justify-center mb-6">
         <ul className="flex gap-4 flex-wrap">
           {categories.map((cat) => (
@@ -86,11 +135,15 @@ const CategoryTab = () => {
         </ul>
       </div>
 
-      {/* Questions */}
       <div className="w-[90%] mx-auto space-y-6">
+        <div className="w-[90%] mx-auto mb-4">
+          <p className="text-center text-red-700 font-bold bg-red-100 border border-red-300 px-6 py-3 rounded-lg shadow-md">
+            ⚠️ Do not switch tabs or minimize the browser — the quiz will end automatically!
+          </p>
+        </div>
+
         {questions?.length > 0 ? (
           <>
-            {/* Timer + Start */}
             {!quizStarted ? (
               <div className="flex justify-center mb-4">
                 <button
@@ -106,23 +159,22 @@ const CategoryTab = () => {
                   {page}/{totalPages}
                 </h4>
                 <span
-                  className={`px-4 py-2 rounded-lg font-bold ${
-                    timeLeft > 0
-                      ? "bg-green-100 text-green-700"
-                      : "bg-red-100 text-red-700"
-                  }`}
+                  className={`px-4 py-2 rounded-lg font-bold ${timeLeft > 0
+                    ? "bg-green-100 text-green-700"
+                    : "bg-red-100 text-red-700"
+                    }`}
                 >
                   {timeLeft > 0 ? `Time Left: ${timeLeft}s` : "Time's Up!"}
                 </span>
+
               </div>
             )}
 
             {questions.map((q, qIdx) => (
               <div
                 key={q._id}
-                className={`bg-white p-4 rounded-lg shadow-sm border ${
-                  timeLeft <= 0 ? "opacity-50" : ""
-                }`}
+                className={`bg-white p-4 rounded-lg shadow-sm border ${timeLeft <= 0 ? "opacity-50" : ""
+                  }`}
               >
                 <h3 className="text-lg mb-3 font-unbounded">
                   <span className="mr-2 text-gray-500">{qIdx + 1}.</span>
@@ -136,7 +188,7 @@ const CategoryTab = () => {
                       <input
                         type="checkbox"
                         checked={selectedOptions[q._id] === opt.option_id}
-                        onChange={() => handleOptionChange(q._id, opt.option_id)}
+                        onChange={() => handleChangeOption(q._id, opt.option_id, opt)}
                         disabled={!quizStarted || timeLeft <= 0}
                         className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                       />
@@ -156,16 +208,24 @@ const CategoryTab = () => {
         )}
       </div>
 
-      {/* Next Button */}
       {questions.length > 0 && quizStarted && (
-        <div className="w-[90%] mx-auto mt-6 flex justify-end">
-          <button
-            onClick={handleNext}
-            disabled={timeLeft <= 0}
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition disabled:opacity-50"
-          >
-            Next
-          </button>
+
+        <div className="w-[90%] mx-auto mt-6 flex justify-start">
+          {
+            page === totalPages ? <button
+              onClick={handleSubmitQuiz}
+              disabled={timeLeft <= 0}
+              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition disabled:opacity-50"
+            >
+              Submit
+            </button> : <button
+              onClick={handleNext}
+              disabled={timeLeft <= 0}
+              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition disabled:opacity-50"
+            >
+              Next
+            </button>
+          }
         </div>
       )}
     </div>

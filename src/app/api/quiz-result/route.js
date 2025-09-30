@@ -5,6 +5,7 @@ export async function POST(req) {
     try {
         await connectMongo();
         const body = await req.json();
+      
         const { candidate_id, category_id,answers } = body;
         if (!candidate_id || !category_id) {
             return NextResponse.json(
