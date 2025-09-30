@@ -70,14 +70,14 @@ const CategoryTab = () => {
 
 
   return (
-      <div className="p-6">
+    <div className=" border-t pt-10">
       {/* Categories Tabs */}
       <div className="flex justify-center mb-6">
         <ul className="flex gap-4 flex-wrap">
           {categories.map((cat) => (
             <li
               key={cat._id}
-              className="px-4 py-2 border rounded-lg cursor-pointer hover:bg-gray-100"
+              className="px-4 py-2 border rounded-lg cursor-pointer hover:bg-[#f1650e] font-montserrat font-semibold bg-[#F1813B] text-white"
               onClick={() => fetchQuestions(cat._id)}
             >
               {cat.title}
@@ -124,7 +124,7 @@ const CategoryTab = () => {
                   timeLeft <= 0 ? "opacity-50" : ""
                 }`}
               >
-                <h3 className="text-lg font-semibold mb-3">
+                <h3 className="text-lg mb-3 font-unbounded">
                   <span className="mr-2 text-gray-500">{qIdx + 1}.</span>
                   {q.question_text}
                 </h3>
@@ -132,13 +132,13 @@ const CategoryTab = () => {
                 {/* Options */}
                 <ul className="space-y-2">
                   {q.options.map((opt) => (
-                    <li key={opt._id} className="flex items-center gap-2">
+                    <li key={opt._id} className="flex items-center gap-2 font-montserrat">
                       <input
                         type="checkbox"
                         checked={selectedOptions[q._id] === opt.option_id}
                         onChange={() => handleOptionChange(q._id, opt.option_id)}
                         disabled={!quizStarted || timeLeft <= 0}
-                        className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                        className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                       />
                       <span>{opt.text}</span>
                     </li>
@@ -169,73 +169,6 @@ const CategoryTab = () => {
         </div>
       )}
     </div>
-    // <div className="p-6">
-    //   {/* Categories Tabs */}
-    //   <div className="flex justify-center mb-6">
-    //     <ul className="flex gap-4 flex-wrap">
-    //       {categories.map((cat) => (
-    //         <li
-    //           key={cat._id}
-    //           className="px-4 py-2 border rounded-lg cursor-pointer hover:bg-gray-100"
-    //           onClick={() => fetchQuestions(cat._id)}
-    //         >
-    //           {cat.title}
-    //         </li>
-    //       ))}
-    //     </ul>
-    //   </div>
-
-    //   {/* Questions-- */}
-
-    //   <div className="w-[90%] mx-auto space-y-6">
-    //     {questions?.length > 0 ? (
-    //       <>
-    //         <h4>{page}/{totalPages}  </h4>
-    //         {
-    //           questions?.map((q, qIdx) => (
-    //             <div key={q._id} className="bg-white p-4 rounded-lg shadow-sm border">
-    //               <h3 className="text-lg font-semibold mb-3">
-    //                 <span className="mr-2 text-gray-500">{qIdx + 1}.</span>
-    //                 {q.question_text}
-    //               </h3>
-
-    //               {/* Options */}
-    //               <ul className="space-y-2">
-    //                 {q.options.map((opt) => (
-    //                   <li key={opt._id} className="flex items-center gap-2">
-    //                     <input
-    //                       type="checkbox"
-    //                       checked={selectedOptions[q._id] === opt.option_id}
-    //                       onChange={() => handleOptionChange(q._id, opt.option_id)}
-    //                       className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-    //                     />
-    //                     <span>{opt.text}</span>
-    //                   </li>
-    //                 ))}
-    //               </ul>
-    //             </div>
-    //           ))
-    //         }
-    //       </>
-    //     ) : <div className="flex items-center justify-center py-10">
-    //       <p className="text-gray-600 text-lg font-medium bg-gray-100 px-6 py-3 rounded-lg shadow-sm border">
-    //         Please choose a category to start quiz
-    //       </p>
-    //     </div>}
-    //   </div>
-
-    //   {/* Submit Button */}
-    //   {questions.length > 0 && (
-    //     <div className="w-[90%] mx-auto mt-6">
-    //       <button
-    //         onClick={handleNext}
-    //         className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-    //       >
-    //         Next
-    //       </button>
-    //     </div>
-    //   )}
-    // </div>
   )
 }
 

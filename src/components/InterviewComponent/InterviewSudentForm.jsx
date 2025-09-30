@@ -18,10 +18,8 @@ export default function RegistrationForm() {
   const [errors, setErrors] = useState({});
   const [submittedData, setSubmittedData] = useState(null);
   const [showRules, setShowRules] = useState(false);
-  const [buttonDisabled, setButtonDisabled] = useState(false);
 
 
-  const { CreateCandidateAPI, setCandiDateData } = useContext(CandidateDataContext)
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };

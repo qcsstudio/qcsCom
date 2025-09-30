@@ -1,5 +1,6 @@
 'use client'
 import CategoryTab from '@/components/InterviewComponent/CategoryTab'
+import Navbar from '@/components/NavbarComponent/Navbar'
 import React, { useEffect, useState } from 'react'
 
 const Page = () => {
@@ -36,30 +37,44 @@ const Page = () => {
   }, [userId])
   return (
     <>
-      <div className="p-6">
-        <h1 className="text-xl font-bold mb-4">Students List</h1>
+    <Navbar/>
+    
 
+
+      <div className='flex '>
+        {/* student detail---------- */}
+        <div className='lg:w-[25%] xl:w-[20%] h-screen border-r'>
+          <div className="">
         {students ? (
-          <div className="bg-white shadow-lg rounded-2xl p-6 w-full max-w-md border border-gray-200">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Student Profile</h2>
+        <div className="p-6 w-full">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4 font-unbounded">Student Profile</h2>
+          
+          <div className="space-y-4">
+            <div>
+              <p className="text-lg text-gray-500 font-unbounded">Full Name</p>
+              <p className="text-base font-medium text-gray-900 font-montserrat">{students.fullName}</p>
+            </div>
 
-            <div className="space-y-4">
-              <div>
-                <p className="text-sm text-gray-500">Full Name</p>
-                <p className="text-lg font-medium text-gray-900">{students.fullName}</p>
-              </div>
-
-              <div>
-                <p className="text-sm text-gray-500">Email</p>
-                <p className="text-lg font-medium text-gray-900">{students.email}</p>
-              </div>
+            <div>
+              <p className="text-lg text-gray-500 font-unbounded">Email</p>
+              <p className="text-base font-medium text-gray-900 font-montserrat">{students.email}</p>
             </div>
           </div>
-        ) : (
-          <p className="text-gray-500">Loading students data...</p>
-        )}
+        </div>
+      ) : (
+        <p className="text-gray-500">Loading students data...</p>
+      )}
       </div>
-      <CategoryTab />
+        </div>
+
+        {/* questions section------------ */}
+        <div className='w-full '>
+          
+          <CategoryTab/>
+        </div>
+
+      </div>
+      
 
     </>
   )
