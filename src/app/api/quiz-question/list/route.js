@@ -6,13 +6,20 @@ export async function GET(req) {
         await connectMongo()
         const { searchParams } = new URL(req.url);
         const id = searchParams.get("id");
+        const page = parseInt(searchParams.get("page") || "1");
+        const limit = 2;
+        const skip = (page - 1) * limit;
+        const totalDocs = await QuizQuestion.countDocuments({ category_id: id });
+        const totalPages = Math.ceil(totalDocs / limit);
         const categoriesList = await QuizQuestion.find({
             category_id: id
-        })
+        }).skip(skip)
+            .limit(limit);
         return NextResponse.json(
             {
                 message: "Category created successfully",
                 data: categoriesList,
+                totalPage:totalPages
             },
             { status: 200 }
         );

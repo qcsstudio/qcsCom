@@ -4,13 +4,18 @@ import React, { useState, useEffect } from 'react'
 const CategoryTab = () => {
   const [categories, setCategories] = useState([])
   const [questions, setQuestions] = useState([])
-  const [selectedOptions, setSelectedOptions] = useState({}) // track selected checkboxes
-  const [level,setLevel] = useState("Basic")
+  const [selectedOptions, setSelectedOptions] = useState({})
+  const [checkedQuestions, setCheckedQuestions] = useState([])
+  const [quizCatId, setQuizCatId] = useState(null)
+  const [page, setpage] = useState(1)
+  const [totalPages, setTotalPages] = useState(0)
 
-  // Fetch categories
+  const [level, setLevel] = useState("Basic")
+    const [quizStarted, setQuizStarted] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(60); 
   const fetchCategories = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/api/quiz-category/list`)
+      const res = await fetch(`/api/quiz-category/list`)
       const data = await res.json()
       setCategories(data.data)
     } catch (error) {
@@ -22,19 +27,20 @@ const CategoryTab = () => {
     fetchCategories()
   }, [])
 
-  // Fetch questions for a category
-  const fetchQuestions = async (id) => {
+  const fetchQuestions = async (id, pageParam = page) => {
     try {
-      const res = await fetch(`http://localhost:3000/api/quiz-question/list?id=${id}`)
+      console.log(pageParam,"pagepagepage")
+      const res = await fetch(`/api/quiz-question/list?id=${id}&page=${pageParam}`)
       const data = await res.json()
       setQuestions(data.data)
-      setSelectedOptions({}) // reset selected options on new category
+      setTotalPages(data?.totalPage)
+      setQuizCatId(id)
+      setSelectedOptions({})
     } catch (error) {
       console.log(error)
     }
   }
 
-  // Handle checkbox selection
   const handleOptionChange = (questionId, optionId) => {
     setSelectedOptions(prev => ({
       ...prev,
@@ -42,20 +48,29 @@ const CategoryTab = () => {
     }))
   }
 
-  // Handle submit
-  const handleSubmit = () => {
-    const submission = questions.map(q => ({
-      question_id: q._id,
-      selected_option: selectedOptions[q._id] || null
-    }))
-    console.log("Submission Data:", submission)
-    // Aap yahan API call bhi kar sakte ho to save answers
-    // fetch('/api/submit-answers', { method: 'POST', body: JSON.stringify(submission) })
-    alert("Check console for submission data!")
+  const handleNext = () => {
+      const next = page + 1;
+    if (page < totalPages && quizCatId) {
+      setpage(next)
+      fetchQuestions(quizCatId,next)
+    }
   }
 
+  const handleStartQuiz = () => {
+    setQuizStarted(true);
+    setTimeLeft(60); // reset to 1 minute
+    setSelectedOptions({});
+  };
+    useEffect(() => {
+    if (quizStarted && timeLeft > 0) {
+      const timer = setInterval(() => setTimeLeft((t) => t - 1), 1000);
+      return () => clearInterval(timer);
+    }
+  }, [quizStarted, timeLeft]);
+
+
   return (
-    <div className="p-6">
+      <div className="p-6">
       {/* Categories Tabs */}
       <div className="flex justify-center mb-6">
         <ul className="flex gap-4 flex-wrap">
@@ -71,45 +86,156 @@ const CategoryTab = () => {
         </ul>
       </div>
 
-      {/* Questions-- */}
+      {/* Questions */}
       <div className="w-[90%] mx-auto space-y-6">
-        {questions.map((q, qIdx) => (
-          <div key={q._id} className="bg-white p-4 rounded-lg shadow-sm border">
-            <h3 className="text-lg font-semibold mb-3">
-              <span className="mr-2 text-gray-500">{qIdx + 1}.</span>
-              {q.question_text}
-            </h3>
+        {questions?.length > 0 ? (
+          <>
+            {/* Timer + Start */}
+            {!quizStarted ? (
+              <div className="flex justify-center mb-4">
+                <button
+                  onClick={handleStartQuiz}
+                  className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                >
+                  Start Quiz
+                </button>
+              </div>
+            ) : (
+              <div className="flex justify-between items-center mb-4">
+                <h4 className="font-medium">
+                  {page}/{totalPages}
+                </h4>
+                <span
+                  className={`px-4 py-2 rounded-lg font-bold ${
+                    timeLeft > 0
+                      ? "bg-green-100 text-green-700"
+                      : "bg-red-100 text-red-700"
+                  }`}
+                >
+                  {timeLeft > 0 ? `Time Left: ${timeLeft}s` : "Time's Up!"}
+                </span>
+              </div>
+            )}
 
-            {/* Options */}
-            <ul className="space-y-2">
-              {q.options.map((opt) => (
-                <li key={opt._id} className="flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    checked={selectedOptions[q._id] === opt.option_id}
-                    onChange={() => handleOptionChange(q._id, opt.option_id)}
-                    className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                  />
-                  <span>{opt.text}</span>
-                </li>
-              ))}
-            </ul>
+            {questions.map((q, qIdx) => (
+              <div
+                key={q._id}
+                className={`bg-white p-4 rounded-lg shadow-sm border ${
+                  timeLeft <= 0 ? "opacity-50" : ""
+                }`}
+              >
+                <h3 className="text-lg font-semibold mb-3">
+                  <span className="mr-2 text-gray-500">{qIdx + 1}.</span>
+                  {q.question_text}
+                </h3>
+
+                {/* Options */}
+                <ul className="space-y-2">
+                  {q.options.map((opt) => (
+                    <li key={opt._id} className="flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        checked={selectedOptions[q._id] === opt.option_id}
+                        onChange={() => handleOptionChange(q._id, opt.option_id)}
+                        disabled={!quizStarted || timeLeft <= 0}
+                        className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                      />
+                      <span>{opt.text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </>
+        ) : (
+          <div className="flex items-center justify-center py-10">
+            <p className="text-gray-600 text-lg font-medium bg-gray-100 px-6 py-3 rounded-lg shadow-sm border">
+              Please choose a category to start quiz
+            </p>
           </div>
-        ))}
+        )}
       </div>
 
-      {/* Submit Button */}
-      {questions.length > 0 && (
-        <div className="w-[90%] mx-auto mt-6">
+      {/* Next Button */}
+      {questions.length > 0 && quizStarted && (
+        <div className="w-[90%] mx-auto mt-6 flex justify-end">
           <button
-            onClick={handleSubmit}
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+            onClick={handleNext}
+            disabled={timeLeft <= 0}
+            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition disabled:opacity-50"
           >
-            Submit
+            Next
           </button>
         </div>
       )}
     </div>
+    // <div className="p-6">
+    //   {/* Categories Tabs */}
+    //   <div className="flex justify-center mb-6">
+    //     <ul className="flex gap-4 flex-wrap">
+    //       {categories.map((cat) => (
+    //         <li
+    //           key={cat._id}
+    //           className="px-4 py-2 border rounded-lg cursor-pointer hover:bg-gray-100"
+    //           onClick={() => fetchQuestions(cat._id)}
+    //         >
+    //           {cat.title}
+    //         </li>
+    //       ))}
+    //     </ul>
+    //   </div>
+
+    //   {/* Questions-- */}
+
+    //   <div className="w-[90%] mx-auto space-y-6">
+    //     {questions?.length > 0 ? (
+    //       <>
+    //         <h4>{page}/{totalPages}  </h4>
+    //         {
+    //           questions?.map((q, qIdx) => (
+    //             <div key={q._id} className="bg-white p-4 rounded-lg shadow-sm border">
+    //               <h3 className="text-lg font-semibold mb-3">
+    //                 <span className="mr-2 text-gray-500">{qIdx + 1}.</span>
+    //                 {q.question_text}
+    //               </h3>
+
+    //               {/* Options */}
+    //               <ul className="space-y-2">
+    //                 {q.options.map((opt) => (
+    //                   <li key={opt._id} className="flex items-center gap-2">
+    //                     <input
+    //                       type="checkbox"
+    //                       checked={selectedOptions[q._id] === opt.option_id}
+    //                       onChange={() => handleOptionChange(q._id, opt.option_id)}
+    //                       className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+    //                     />
+    //                     <span>{opt.text}</span>
+    //                   </li>
+    //                 ))}
+    //               </ul>
+    //             </div>
+    //           ))
+    //         }
+    //       </>
+    //     ) : <div className="flex items-center justify-center py-10">
+    //       <p className="text-gray-600 text-lg font-medium bg-gray-100 px-6 py-3 rounded-lg shadow-sm border">
+    //         Please choose a category to start quiz
+    //       </p>
+    //     </div>}
+    //   </div>
+
+    //   {/* Submit Button */}
+    //   {questions.length > 0 && (
+    //     <div className="w-[90%] mx-auto mt-6">
+    //       <button
+    //         onClick={handleNext}
+    //         className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+    //       >
+    //         Next
+    //       </button>
+    //     </div>
+    //   )}
+    // </div>
   )
 }
 
