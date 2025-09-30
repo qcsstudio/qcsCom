@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import connectMongo from "@/lib/mongodb";
-import quizQuestions from "@/models/quizQuestions";
+import quizQuestions from "@/models/quizQuestion";
 export async function POST(req) {
     try {
         await connectMongo();

@@ -71,7 +71,7 @@ const CategoryTab = () => {
         </ul>
       </div>
 
-      {/* Questions */}
+      {/* Questions-- */}
       <div className="w-[90%] mx-auto space-y-6">
         {questions.map((q, qIdx) => (
           <div key={q._id} className="bg-white p-4 rounded-lg shadow-sm border">
