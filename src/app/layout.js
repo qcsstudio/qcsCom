@@ -55,16 +55,24 @@ export default function RootLayout({ children }) {
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-TGNFYNFQQ2"
         ></script>
-        <script
+        {/* <script
           dangerouslySetInnerHTML={{
             __html: `
-              window.dataLayer = window.dataLayer || [];
+              window.dataLayer = window.dataLayer || [];        // 
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-TGNFYNFQQ2');
             `,
           }}
-        />
+        /> */}
+         <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-TGNFYNFQQ2');
+          `}
+        </Script>
 
         {/* Calendly badge CSS
        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"/>

@@ -25,7 +25,7 @@ const Navbar = () => {
           <Image src='/images/Images/NavlogoPolicy.png' alt="logo" width={195} height={40} />
         </Link>
 
-        <div className="md:flex space-x-10">
+        <div className="md:flex space-x-10 font-montserrat">
           <Link href="/services" className="hover:text-gray-400">Services</Link>
           <Link href="/courses" className="hover:text-gray-400">Courses</Link>
           <Link href="/aboutus" className="hover:text-gray-400">About Us</Link>
